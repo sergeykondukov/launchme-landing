@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LaunchMe - App Launcher you're looking for</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            max-width: 1000px; 
+            margin: 0 auto; 
+            padding: 20px; 
+            line-height: 1.6;
+            background-color: #f8f9fa;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px 0;
+            background: linear-gradient(135deg, #007AFF, #5856D6);
+            color: white;
+            border-radius: 15px;
+        }
+        .header h1 {
+            font-size: 2.5em;
+            margin: 0;
+            font-weight: 300;
+        }
+        .header p {
+            font-size: 1.2em;
+            margin: 10px 0 0 0;
+            opacity: 0.9;
+        }
+        
+        .screenshot-slider {
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .slider-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .slide {
+            min-width: 100%;
+            height: 500px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            color: #666;
+        }
+        
+        .slide img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        
+        .slider-nav {
+            margin-top: 20px;
+        }
+        
+        .nav-dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .nav-dot.active {
+            background: #007AFF;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .feature {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .feature h3 {
+            color: #007AFF;
+            margin-bottom: 15px;
+        }
+        
+        .contact {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .contact h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .contact a {
+            color: #007AFF;
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: 500;
+        }
+        
+        .contact a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>LaunchMe</h1>
+        <p>App Launcher you're looking for</p>
+    </div>
+    
+    <div class="screenshot-slider">
+        <div class="slider-container">
+            <div class="slider" id="slider">
+                <div class="slide">
+                    <div>📱 Screenshot 1<br><small>Add your app screenshots here</small></div>
+                </div>
+                <div class="slide">
+                    <div>📱 Screenshot 2<br><small>Add your app screenshots here</small></div>
+                </div>
+                <div class="slide">
+                    <div>📱 Screenshot 3<br><small>Add your app screenshots here</small></div>
+                </div>
+            </div>
+        </div>
+        <div class="slider-nav">
+            <span class="nav-dot active" onclick="currentSlide(1)"></span>
+            <span class="nav-dot" onclick="currentSlide(2)"></span>
+            <span class="nav-dot" onclick="currentSlide(3)"></span>
+        </div>
+    </div>
+    
+    <div class="features">
+        <div class="feature">
+            <h3>�� Quick Launch</h3>
+            <p>Launch your favorite apps instantly with a beautiful, customizable interface.</p>
+        </div>
+        <div class="feature">
+            <h3>📁 Smart Folders</h3>
+            <p>Organize your apps in custom folders with beautiful icons and smooth animations.</p>
+        </div>
+        <div class="feature">
+            <h3>�� Beautiful Design</h3>
+            <p>Modern macOS design with Liquid Glass effects and smooth animations.</p>
+        </div>
+    </div>
+    
+    <div class="contact">
+        <h2>Need Help?</h2>
+        <p>If you have any questions or need support, feel free to contact us:</p>
+        <p><a href="mailto:kondukov.info@gmail.com">kondukov.info@gmail.com</a></p>
+    </div>
+
+    <script>
+        let slideIndex = 1;
+        
+        function currentSlide(n) {
+            showSlide(slideIndex = n);
+        }
+        
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.nav-dot');
+            
+            if (n > slides.length) slideIndex = 1;
+            if (n < 1) slideIndex = slides.length;
+            
+            document.getElementById('slider').style.transform = `translateX(-${(slideIndex-1) * 100}%)`;
+            
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[slideIndex-1].classList.add('active');
+        }
+        
+        // Auto-slide every 5 seconds
+        setInterval(() => {
+            slideIndex++;
+            if (slideIndex > 3) slideIndex = 1;
+            showSlide(slideIndex);
+        }, 5000);
+    </script>
+</body>
+</html>
