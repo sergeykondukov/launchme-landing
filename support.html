@@ -221,12 +221,12 @@
             dots[slideIndex-1].classList.add('active');
         }
         
-        // Auto-slide every 5 seconds
+        // Auto-slide every 3 seconds
         setInterval(() => {
             slideIndex++;
-            if (slideIndex > 3) slideIndex = 1;
+            if (slideIndex > 8) slideIndex = 1;
             showSlide(slideIndex);
-        }, 5000);
+        }, 3000);
     </script>
 </body>
 </html>
