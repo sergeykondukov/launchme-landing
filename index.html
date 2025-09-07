@@ -1,52 +1,237 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>LaunchMe - Privacy Policy</title>
     <meta charset="utf-8">
-    <style>
-        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.6; }
-        h1 { color: #333; border-bottom: 2px solid #007AFF; padding-bottom: 10px; }
-        h2 { color: #333; margin-top: 30px; }
-        p { margin-bottom: 15px; }
-        .last-updated { color: #333; font-style: italic; }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LaunchMe — Customizable App Launcher for Mac</title>
+    <!--
+      Landing page for LaunchMe
+      - Simple, modular HTML structure
+      - Styled via /css/style.css
+      - Interactions in /js/main.js
+      - Images replaced with placeholders to be swapped later
+      - Built for GitHub Pages (pure HTML/CSS/JS)
+    -->
+    <link rel="preload" href="/Users/sergeykondukov/Documents/Appsss/launchme-landing/css/style.css" as="style">
+    <link rel="stylesheet" href="/Users/sergeykondukov/Documents/Appsss/launchme-landing/css/style.css">
 </head>
 <body>
-    <h1>Privacy Policy for LaunchMe</h1>
-    <p class="last-updated"><strong>Last Updated:</strong> September 2025</p>
-    
-    <p>This Privacy Policy describes how LaunchMe ("we," "us," or "our") collects, uses, and discloses your information when you use our macOS application (the "Service").</p>
+    <!--
+      Header / Top Navigation
+      Contains logo and lightweight nav. Anchor links provide smooth scroll (handled in JS).
+    -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="#top" class="brand">
+                <img class="brand-img" src="images/logoicontext.png" alt="LaunchMe" />
+            </a>
+            <nav class="main-nav" aria-label="Primary Navigation">
+                <a href="#features">Features</a>
+                <a href="#customization">Customization</a>
+                <a href="#gallery">Screens</a>
+                <a href="#faq">FAQ</a>
+            </nav>
+        </div>
+    </header>
 
-    <h2>1. No Data Collection</h2>
-    <p>We believe in your privacy. LaunchMe is designed to be a simple, effective, and private tool.</p>
-    
-    <p>The application does not collect, store, transmit, or share any personal information, usage data, or device information. All of your application data, folder preferences, and configuration settings are stored locally on your device and are never sent to us or any third party.</p>
-    
-    <p>Because we do not collect any data, the concepts of data usage, sharing, and retention are not applicable to our Service.</p>
+    <!-- Hero Section -->
+    <main id="top">
+        <section class="hero">
+            <div class="container hero-inner">
+                <!-- Top hero image -->
+                <img class="hero-image" src="images/topimage.png" alt="LaunchMe preview" />
+                <p class="tagline">Launchpad you were waiting for</p>
+                <h1 class="hero-title">Customizable App Launcher<br>for your Mac</h1>
+                <p class="hero-sub">Hide apps, tile folders, focus. Just 0.99€/month</p>
+                <div class="cta-group">
+                    <a class="app-badge" href="">
+                        <img src="images/app-store-badge.svg" alt="Download on the Mac App Store">
+                    </a>
+                </div>
+            </div>
+        </section>
 
-    <h2>2. Local Data Storage</h2>
-    <p>LaunchMe stores the following information locally on your device:</p>
-    <ul>
-        <li>Your app arrangements and folder configurations</li>
-        <li>Custom folder bookmarks (for accessing your selected folders)</li>
-        <li>Appearance preferences and settings</li>
-        <li>Subscription status (handled by Apple's StoreKit)</li>
-    </ul>
-    <p>This data remains on your device and is never transmitted to external servers.</p>
+        <!-- Intro / Features preview grid -->
+        <section id="features" class="section features">
+            <div class="container">
+                <p class="section-kicker">Introducing</p>
+                <h2 class="section-title">Customizable App Launcher<br>for your Mac</h2>
+                <p class="section-sub">Your personal launcher: place apps, create folders, and customize appearance.</p>
+                <!-- Demo using new reusable card components -->
+                <div class="lm-cards-row" style="margin-bottom:30px;">
+                    <!-- Wide card example -->
+                    <article class="lm-card lm-card--wide" style="--card-bg-color:#000;">
+                        <div class="lm-card__content">
+                            <h3 class="lm-card__title">Set Custom Wallpaper</h3>
+                        </div>
+                        <!-- foreground image anchored to bottom -->
+                        <img class="lm-card__image" src="images/topimage.png" alt="LaunchMe app preview">
+                    </article>
+                </div>
 
-    <h2>3. Third-Party Services</h2>
-    <p>We use Apple's StoreKit for subscription management. Apple handles all payment processing and subscription data according to their privacy policy. We do not have access to your payment information or Apple ID details.</p>
+                <div class="lm-cards-row lm-cards-row--split">
+                    <!-- Square card example 1 -->
+                    <article class="lm-card lm-card--square" style="--card-bg-color:#000;"> 
+                        <div class="lm-card__content">
+                            <h3 class="lm-card__title">Layout Freedom</h3>
+                            <p class="lm-card__subtitle">Place your apps as you want</p>
+                        </div>
+                        <div class="lm-card__image placeholder-img" aria-hidden="true"></div>
+                    </article>
 
-    <h2>4. Your Rights</h2>
-    <p>Because the application does not collect or store any of your personal information, the rights to access, correct, or delete data are not applicable.</p>
+                    <!-- Square card example 2 -->
+                    <article class="lm-card lm-card--square" style="--card-bg-color:#000;">
+                        <div class="lm-card__content">
+                            <h3 class="lm-card__title">Add Folders</h3>
+                            <p class="lm-card__subtitle">Combine your apps with fast access to folders</p>
+                        </div>
+                        <div class="lm-card__image placeholder-img" aria-hidden="true"></div>
+                    </article>
+                </div>
+            </div>
+        </section>
 
-    <h2>5. Children's Privacy</h2>
-    <p>Our Service does not collect personal information from anyone, including children under the age of 13.</p>
+        <!-- Customization Section -->
+        <section id="customization" class="section customization">
+            <div class="container">
+                <p class="section-kicker">Customization</p>
+                <h2 class="section-title">Make it yours</h2>
+                <p class="section-sub">Fine-tune folders: colors, emoji, cover image.</p>
+                <!-- Use only new card components -->
+                <div class="lm-cards-row lm-cards-row--split">
+                    <article class="lm-card lm-card--square" style="--card-bg-color:#000;">
+                        <div class="lm-card__content">
+                            <h3 class="lm-card__title">Folder Styles</h3>
+                            <p class="lm-card__subtitle">Colors, emoji, cover image</p>
+                        </div>
+                        <div class="lm-card__image placeholder-img" aria-hidden="true"></div>
+                    </article>
+                    <article class="lm-card lm-card--square" style="--card-bg-color:#000;">
+                        <div class="lm-card__content">
+                            <h3 class="lm-card__title">Combine & Group</h3>
+                            <p class="lm-card__subtitle">Fast access to folders</p>
+                        </div>
+                        <div class="lm-card__image placeholder-img" aria-hidden="true"></div>
+                    </article>
+                </div>
 
-    <h2>6. Changes to This Policy</h2>
-    <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new policy on this page. If we ever change our data practices in the future, we will update this policy and provide clear information about what has changed.</p>
+                <!-- Wide -->
+                <div class="lm-cards-row" style="margin:30px 0;">
+                    <article class="lm-card lm-card--wide" style="--card-bg-color:#000;">
+                        <div class="lm-card__content">
+                            <h3 class="lm-card__title">Wallpaper Control</h3>
+                        </div>
+                        <div class="lm-card__image placeholder-img" aria-hidden="true"></div>
+                    </article>
+                </div>
 
-    <h2>7. Contact Us</h2>
-    <p>If you have any questions about this Privacy Policy, please contact us at: <a href="mailto:kondukov.info@gmail.com">kondukov.info@gmail.com</a></p>
+                <!-- Squares -->
+                <div class="lm-cards-row lm-cards-row--split">
+                    <article class="lm-card lm-card--square" style="--card-bg-color:#000;">
+                        <div class="lm-card__content">
+                            <h3 class="lm-card__title">Folders Emoji</h3>
+                            <p class="lm-card__subtitle">Pick an emoji cover</p>
+                        </div>
+                        <div class="lm-card__image placeholder-img" aria-hidden="true"></div>
+                    </article>
+                    <article class="lm-card lm-card--square" style="--card-bg-color:#000;">
+                        <div class="lm-card__content">
+                            <h3 class="lm-card__title">Colors & Covers</h3>
+                            <p class="lm-card__subtitle">Make it personal</p>
+                        </div>
+                        <div class="lm-card__image placeholder-img" aria-hidden="true"></div>
+                    </article>
+                </div>
+
+                <!-- Wide -->
+                <div class="lm-cards-row" style="margin-top:30px;">
+                    <article class="lm-card lm-card--wide" style="--card-bg-color:#000;">
+                        <div class="lm-card__content">
+                            <h3 class="lm-card__title">Quick Access</h3>
+                        </div>
+                        <div class="lm-card__image placeholder-img" aria-hidden="true"></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Big Screenshot / Gallery Section -->
+        <section id="gallery" class="section gallery">
+            <div class="container" data-gallery-scrub>
+                <!-- Scroll-driven stage: sticky block that scrubs with scroll -->
+                <div class="gallery-stage" data-gallery-stage>
+                    <img class="gallery-stage__image" src="images/showmacimg.png" alt="LaunchMe on Mac">
+                    <div class="gallery-stage__overlay" aria-hidden="true"></div>
+                    <div class="gallery-stage__label" aria-hidden="true">Yes, it’s live</div>
+                </div>
+                <p class="gallery-caption">Curated animated wallpapers to help you focus, relax, or get inspired. Choose the mood that matches your moment.</p>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="section faq">
+            <div class="container">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <!--
+                  Accessible accordion: buttons control hidden panels. All wired in JS.
+                -->
+                <div class="accordion" data-accordion>
+                    <div class="accordion-item">
+                        <button class="accordion-trigger" aria-expanded="false">What is LaunchMe?</button>
+                        <div class="accordion-panel" hidden>
+                            <p>LaunchMe is a customizable app launcher for macOS with folder tiles and layout freedom.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-trigger" aria-expanded="false">How do I get started?</button>
+                        <div class="accordion-panel" hidden>
+                            <p>Download, open, and start placing apps. Create folders for quick access.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-trigger" aria-expanded="false">Can I customize folders?</button>
+                        <div class="accordion-panel" hidden>
+                            <p>Yes. Choose color, emoji, and cover image for each folder.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-trigger" aria-expanded="false">Does it work with multiple displays?</button>
+                        <div class="accordion-panel" hidden>
+                            <p>Yes, the launcher is display-aware and keeps your layout consistent.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call To Action -->
+        <section id="download" class="section cta">
+            <div class="container">
+                <div class="cta-card">
+                    <div class="placeholder ratio-1x1 icon" aria-hidden="true"></div>
+                    <div>
+                        <h3>Combine your apps with fast access to folders</h3>
+                        <a class="app-badge" href="">
+                            <img src="images/app-store-badge.svg" alt="Download on the Mac App Store">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer with Privacy link -->
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <a href="#top" class="brand small"><img class="brand-img" src="images/logoicontext.png" alt="LaunchMe" /></a>
+            <nav class="footer-nav" aria-label="Footer">
+                <a href="/Users/sergeykondukov/Documents/Appsss/launchme-landing/support.html">Support</a>
+                <a href="/Users/sergeykondukov/Documents/Appsss/launchme-landing/privacy.html">Privacy Policy</a>
+            </nav>
+        </div>
+    </footer>
+
+    <!-- Scripts loaded at end for performance -->
+    <script src="/Users/sergeykondukov/Documents/Appsss/launchme-landing/js/main.js"></script>
 </body>
 </html>
