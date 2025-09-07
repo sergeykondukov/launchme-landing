@@ -1,0 +1,196 @@
+/*
+  Global stylesheet for LaunchMe landing and docs
+  - Dark, glassy look inspired by the screenshot
+  - Clear class names; lots of comments for future edits
+*/
+
+:root {
+  --bg: #071826;
+  --bg-elev: #0f2536;
+  --text: #e6f1fa;
+  --muted: #a9c0d4;
+  --brand: #52a8ff;
+  --brand-2: #7c5cff;
+  --card: rgba(255,255,255,0.06);
+  --border: rgba(255,255,255,0.12);
+  --radius: 14px;
+  --radius-lg: 24px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.35);
+  --lm-card-height: 340px; /* unified height for wide and square cards */
+}
+
+/* Base resets */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { color: #fff; }
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: saturate(160%) blur(12px);
+  background: rgba(7,24,38,0.85);
+  border-bottom: 1px solid var(--border);
+}
+.site-header.minimal { position: static; }
+.header-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px;
+}
+.brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; }
+.brand.small { font-size: 14px; }
+.brand-mark { font-size: 20px; }
+.brand-name { letter-spacing: 0.2px; }
+.brand-img { height: 28px; display:block; }
+.brand.small .brand-img { height: 22px; }
+.main-nav a { margin-left: 18px; color: var(--muted); }
+.main-nav a:hover { color: #fff; }
+
+/* Hero */
+.hero { padding: 64px 0 40px; text-align: center; }
+.hero-inner { display: grid; gap: 18px; justify-items: center; }
+.tagline { color: var(--muted); margin: 0; font-size: 26px; font-weight: 500; }
+.hero-title { font-size: 60px; line-height: 1.1; margin: 0; font-weight: 800; }
+.hero-sub { color: var(--muted); margin-top: -6px; font-size: 20px; font-weight: 500; }
+.cta-group { display: flex; gap: 12px; margin-top: 6px; }
+
+.button { display: inline-block; padding: 12px 18px; border-radius: 10px; border: 1px solid var(--border); background: var(--card); color: #fff; }
+.button.primary { background: linear-gradient(90deg, var(--brand), var(--brand-2)); border-color: transparent; }
+.button.ghost { background: transparent; }
+
+/* App Store badge */
+.app-badge img { height: 44px; display: block; }
+
+/* Sections */
+.section { padding: 64px 0; }
+.section-kicker { text-align: center; color: var(--muted); margin: 0 0 8px; font-size: 26px; font-weight: 500; }
+.section-title { text-align: center; margin: 0 0 8px; font-size: 60px; font-weight: 800; line-height: 1.1; }
+.section-sub { text-align: center; color: var(--muted); margin: 0 0 48px; font-size: 20px; font-weight: 500; }
+
+/* Cards and grids */
+.grid { display: grid; gap: 18px; }
+.grid-2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+.grid-4 { grid-template-columns: repeat(4, minmax(0,1fr)); }
+@media (max-width: 800px) {
+  .grid-2 { grid-template-columns: 1fr; }
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+.card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; box-shadow: var(--shadow); }
+.card-title { margin: 10px 0 2px; font-size: 18px; }
+.card-text { margin: 0; color: var(--muted); }
+
+/* Placeholder blocks to swap with real images later */
+.placeholder { background: var(--bg-elev); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); }
+.placeholder-hero { width: 100%; max-width: 1100px; height: 300px; border-radius: var(--radius-lg); }
+.hero-image { width: 100%; max-width: 1100px; height: auto; object-fit: contain; border-radius: var(--radius-lg); display:block; }
+.ratio-16x9 { width: 100%; padding-top: 56.25%; position: relative; }
+.ratio-16x9::after { content: ""; position: absolute; inset: 0; }
+.ratio-1x1 { width: 100%; padding-top: 100%; position: relative; }
+.ratio-1x1::after { content: ""; position: absolute; inset: 0; }
+.wide { max-width: 900px; margin: 0 auto; }
+.thumbs .small { height: 100px; }
+.icon { width: 60px; height: 60px; border-radius: 12px; }
+
+/* CTA card */
+.cta-card { display: grid; grid-template-columns: 60px 1fr; align-items: center; gap: 16px; background: var(--card); border: 1px solid var(--border); padding: 18px; border-radius: var(--radius-lg); box-shadow: var(--shadow); }
+
+/* Gallery */
+.gallery { padding-top: 24px; }
+.gallery .container { max-width: none; padding: 0; position: relative; height: 200vh; }
+.gallery-main-image { display:block; width:100%; max-width:900px; margin:0 auto; border: none; box-shadow: none; border-radius: 0; background: transparent; }
+
+/* Scroll-driven gallery stage */
+.gallery-stage { position: sticky; top: 0; height: 100vh; min-height: 520px; width: 100vw; display: grid; place-items: center; overflow: hidden; }
+.gallery-stage__image { width: 100vw; height: auto; transform: translateZ(0) scale(1.6); filter: blur(8px); backface-visibility: hidden; will-change: transform, filter; }
+.gallery-stage__overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.35); backdrop-filter: blur(6px); will-change: opacity; }
+.gallery-stage { contain: layout paint; }
+.gallery-stage__label { position: absolute; inset: 0; display:flex; align-items:center; justify-content:center; text-align:center; font-size: 60px; font-weight: 800; letter-spacing: 0.2px; transition: opacity 0.2s linear; background: transparent; }
+.gallery-caption { text-align: center; color: var(--muted); font-size: 20px; font-weight: 500; max-width: 920px; margin: 30px auto 0; padding: 0 20px; }
+
+/* Accordion */
+.accordion { max-width: 800px; margin: 0 auto; }
+.accordion-item { border-bottom: 1px solid var(--border); }
+.accordion-trigger { width: 100%; text-align: left; background: transparent; border: 0; color: #fff; padding: 14px 0; font-size: 16px; cursor: pointer; }
+.accordion-panel { color: var(--muted); padding: 0 0 14px; }
+
+/* Footer */
+.site-footer { border-top: 1px solid var(--border); background: #06131e; margin-top: 40px; }
+.footer-inner { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; }
+.footer-nav a { color: var(--muted); margin-left: 14px; }
+.footer-nav a:hover { color: #fff; }
+
+/* Docs page typography */
+.doc .doc-main { padding: 40px 0; }
+.doc .doc-main h1 { border-bottom: 2px solid var(--brand); padding-bottom: 10px; }
+.doc .doc-main h2 { margin-top: 28px; }
+.last-updated { color: var(--muted); font-style: italic; }
+
+/* =============================
+   Reusable Card Components (Wide & Square)
+   - Title: 16px, uppercase, bold
+   - Subtitle: 26px, bold (optional)
+   - Background: color or image via CSS variables
+   - Foreground image sticks to bottom, spans full width
+   ============================= */
+
+.lm-cards-row {
+  /* Row that holds one wide card or two square cards */
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px; /* required spacing between cards */
+}
+@media (min-width: 900px) {
+  .lm-cards-row.lm-cards-row--split {
+    grid-template-columns: 1fr 1fr; /* two squares next to each other */
+  }
+}
+
+.lm-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 50px; /* per spec: large rounded corners */
+  box-shadow: none; /* remove shadows as requested */
+  border: none; /* remove strokes/borders as requested */
+  background: #000; /* default black background until real imagery arrives */
+  /* Allow custom backgrounds */
+  background-image: var(--card-bg-image, none);
+  background-color: var(--card-bg-color, #000);
+  background-size: cover;
+  background-position: center;
+}
+
+/* internal layout */
+.lm-card__content { position: relative; z-index: 2; padding: 18px 20px; text-align: center; }
+.lm-card__title { margin: 0; font-size: 16px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; }
+.lm-card__subtitle { margin: 6px 0 0; font-size: 26px; font-weight: 800; line-height: 1.1; }
+
+/* bottom-anchored foreground image */
+.lm-card__image {
+  position: absolute; left: 0; right: 0; bottom: 0; z-index: 1;
+  width: 100%; height: auto; display: block;
+}
+
+/* Sizes */
+.lm-card--wide { height: auto; }
+.lm-card--square { height: auto; aspect-ratio: 1 / 1; }
+
+/* Placeholder visual if no real image is provided */
+.lm-card__image.placeholder-img { height: 46%; background: #000; }
+
