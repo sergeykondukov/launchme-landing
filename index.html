@@ -80,10 +80,13 @@
                     </article>
 
                     <!-- Square card example 2 -->
-                    <article class="lm-card lm-card--square" style="--card-bg-color:#000;">
+                    <article class="lm-card lm-card--square lm-card--icon-left" style="--card-bg-color:#000;">
                         <div class="lm-card__content">
-                            <h3 class="lm-card__title">Add Folders</h3>
-                            <p class="lm-card__subtitle">Combine your apps with fast access to folders</p>
+                            <img class="lm-card__icon" src="images/logo-icon.png" alt="">
+                            <div>
+                                <h3 class="lm-card__title">Add Folders</h3>
+                                <p class="lm-card__subtitle">Combine your apps with fast access to folders</p>
+                            </div>
                         </div>
                         <div class="lm-card__image placeholder-img" aria-hidden="true"></div>
                     </article>
@@ -171,7 +174,7 @@
         <!-- FAQ Section -->
         <section id="faq" class="section faq">
             <div class="container">
-                <h2 class="section-title">Frequently Asked Questions</h2>
+                <h2 class="section-title">FAQ</h2>
                 <!--
                   Accessible accordion: buttons control hidden panels. All wired in JS.
                 -->
@@ -207,14 +210,14 @@
         <!-- Call To Action -->
         <section id="download" class="section cta">
             <div class="container">
-                <div class="cta-card">
-                    <div class="placeholder ratio-1x1 icon" aria-hidden="true"></div>
-                    <div>
-                        <h3>Combine your apps with fast access to folders</h3>
+                <div class="cta-pill">
+                    <div class="cta-pill__left">
+                        <h3 class="cta-pill__title">Get LaunchMe<br>and launch apps like a pro</h3>
                         <a class="app-badge" href="">
                             <img src="images/app-store-badge.svg" alt="Download on the Mac App Store">
                         </a>
                     </div>
+                    <img class="cta-pill__icon" src="images/logo-icon.png" alt="">
                 </div>
             </div>
         </section>

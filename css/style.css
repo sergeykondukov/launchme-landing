@@ -47,7 +47,7 @@ a:hover { color: #fff; }
   z-index: 10;
   backdrop-filter: saturate(160%) blur(12px);
   background: rgba(7,24,38,0.85);
-  border-bottom: 1px solid var(--border);
+  border-bottom: none; /* remove stroke */
 }
 .site-header.minimal { position: static; }
 .header-inner {
@@ -76,7 +76,7 @@ a:hover { color: #fff; }
 .button.ghost { background: transparent; }
 
 /* App Store badge */
-.app-badge img { height: 44px; display: block; }
+.app-badge img { height: 60px; display: block; }
 
 /* Sections */
 .section { padding: 64px 0; }
@@ -131,7 +131,7 @@ a:hover { color: #fff; }
 .accordion-panel { color: var(--muted); padding: 0 0 14px; }
 
 /* Footer */
-.site-footer { border-top: 1px solid var(--border); background: #06131e; margin-top: 40px; }
+.site-footer { border-top: none; background: #06131e; margin-top: 40px; }
 .footer-inner { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; }
 .footer-nav a { color: var(--muted); margin-left: 14px; }
 .footer-nav a:hover { color: #fff; }
@@ -193,4 +193,30 @@ a:hover { color: #fff; }
 
 /* Placeholder visual if no real image is provided */
 .lm-card__image.placeholder-img { height: 46%; background: #000; }
+
+/* =============================
+   Dedicated CTA Pill component (bottom card)
+   - Fixed size 870x290 on desktop
+   - Black background, no border/shadow
+   - Radius 85, text left, large icon right
+   ============================= */
+.cta-pill { width: 870px; min-height: 290px; height: auto; margin: 0 auto; background: #000; border: none; box-shadow: none; border-radius: 85px; display: grid; grid-template-columns: 1fr 220px; align-items: center; padding: 40px; gap: 24px; }
+.cta-pill__title { margin: 0 0 18px; font-size: 28px; font-weight: 800; line-height: 1.25; }
+.cta-pill__icon { width: 180px; height: 180px; display: block; margin-left: auto; object-fit: contain; }
+.cta-pill__left { display: flex; flex-direction: column; align-items: flex-start; }
+@media (max-width: 940px) {
+  .cta-pill { width: calc(100% - 40px); min-height: 290px; height: auto; grid-template-columns: 1fr 180px; padding: 24px; }
+  .cta-pill__icon { width: 160px; height: 160px; }
+}
+
+/* Variant: icon on the left within content for specific card */
+.lm-card--icon-left { border-radius: 85px; background: #000; box-shadow: none; border: none; }
+.lm-card--icon-left .lm-card__content { display: inline-flex; align-items: center; justify-content: center; gap: 12px; text-align: center; }
+.lm-card__icon { width: 40px; height: 40px; display: inline-block; }
+
+/* CTA fixed-size variant (bottom card) */
+.lm-card--fixed-cta { width: 870px; height: 290px; margin: 0 auto; }
+@media (max-width: 940px) {
+  .lm-card--fixed-cta { width: calc(100% - 40px); height: 290px; }
+}
 
