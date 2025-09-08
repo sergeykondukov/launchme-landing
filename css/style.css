@@ -42,8 +42,10 @@ a:hover { color: #fff; }
 
 /* Header */
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 10;
   backdrop-filter: saturate(160%) blur(12px);
   background: rgba(7,24,38,0.85);
@@ -60,11 +62,10 @@ a:hover { color: #fff; }
 .brand-name { letter-spacing: 0.2px; }
 .brand-img { height: 28px; display:block; }
 .brand.small .brand-img { height: 22px; }
-.main-nav a { margin-left: 18px; color: var(--muted); }
-.main-nav a:hover { color: #fff; }
+.header-download img { height: 36px; display: block; }
 
 /* Hero */
-.hero { padding: 64px 0 40px; text-align: center; }
+.hero { padding: 128px 0 40px; text-align: center; }
 .hero-inner { display: grid; gap: 18px; justify-items: center; }
 .tagline { color: var(--muted); margin: 0; font-size: 26px; font-weight: 500; }
 .hero-title { font-size: 60px; line-height: 1.1; margin: 0; font-weight: 800; }
@@ -127,7 +128,9 @@ a:hover { color: #fff; }
 /* Accordion */
 .accordion { max-width: 800px; margin: 0 auto; }
 .accordion-item { border-bottom: 1px solid var(--border); }
-.accordion-trigger { width: 100%; text-align: left; background: transparent; border: 0; color: #fff; padding: 14px 0; font-size: 16px; cursor: pointer; }
+.accordion-trigger { width: 100%; text-align: left; background: transparent; border: 0; color: #fff; padding: 14px 0; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: space-between; }
+.accordion-trigger::after { content: "+"; font-size: 20px; font-weight: 300; transition: transform 0.2s ease; }
+.accordion-trigger[aria-expanded="true"]::after { content: "−"; }
 .accordion-panel { color: var(--muted); padding: 0 0 14px; }
 
 /* Footer */
