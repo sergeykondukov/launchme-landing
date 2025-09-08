@@ -69,6 +69,27 @@ document.addEventListener('click', function (e) {
   const label = stage.querySelector('.gallery-stage__label');
   const scrubContainer = document.querySelector('[data-gallery-scrub]');
 
+  // If on mobile (<= 767px), show a simple static frame without scroll-driven animation
+  function applyMobileStatic() {
+    if (!img || !videoHost) return;
+    img.style.transform = 'scale(1) translateY(0)';
+    img.style.filter = 'none';
+    const host = stage.querySelector('.gallery-stage__video');
+    if (host) {
+      host.style.transform = 'scale(1) translateY(0)';
+      host.style.filter = 'none';
+    }
+    const videoEl = stage.querySelector('.gallery-stage__video-box video');
+    if (videoEl) videoEl.style.filter = 'none';
+    if (overlay) {
+      overlay.style.opacity = '0';
+      overlay.style.backdropFilter = 'none';
+    }
+    if (label) label.style.display = 'none';
+  }
+
+  // Defer mobile static mode until after video is mounted
+
   // Inject video if data attributes are present on the stage or its container
   // Usage example (HTML):
   // <div class="gallery-stage" data-gallery-stage data-video-src="videos/demo.mp4" data-video-poster="images/poster.jpg"></div>
@@ -96,6 +117,11 @@ document.addEventListener('click', function (e) {
     videoHost.appendChild(video);
   })();
 
+  if (window.matchMedia && window.matchMedia('(max-width: 767px)').matches) {
+    applyMobileStatic();
+    return; // skip binding scroll handlers on mobile
+  }
+
   function update() {
     const vh = window.innerHeight || document.documentElement.clientHeight;
     const top = scrubContainer.offsetTop;                 // section start Y
@@ -112,15 +138,20 @@ document.addEventListener('click', function (e) {
     // End scale should make image width = 120% of wide card width
     const wideRef = document.querySelector('.lm-card--wide');
     const wideWidth = wideRef ? wideRef.getBoundingClientRect().width : 1100;
-    const targetEndScale = Math.min(1, (1.2 * wideWidth) / (window.innerWidth || 1));
+    // Base end scale derived from reference width vs viewport
+    let targetEndScale = (1.2 * wideWidth) / (window.innerWidth || 1);
+    // Optional desktop-only boost to make the final state larger
+    const styleVars = getComputedStyle(stage);
+    const boost = parseFloat(styleVars.getPropertyValue('--final-scale-boost')) || 1;
+    targetEndScale = targetEndScale * boost;
+    // Clamp to avoid excessive growth on very large boosts
+    targetEndScale = Math.min(targetEndScale, 1.8);
     const startScale = 1.89; // Increased initial zoom by ~5% for a tighter starting view
     const scale = startScale - (startScale - targetEndScale) * t; // ease linear with scroll
     const blur  = 24  * (1 - t);      // 24px -> 0px (stronger blur)
-    // Vertical motion: start with an upward overshoot that returns, then apply final downward settle
+    // Vertical motion: small start overshoot, and center the frame at the end
     const styles = getComputedStyle(stage);
-    const finalShift = parseFloat(styles.getPropertyValue('--stage-final-shift-y')) || 0;
     const startOvershootRaw = styles.getPropertyValue('--stage-start-overshoot').trim() || '0';
-    // Convert overshoot to px if given in vh
     let startOvershoot;
     if (startOvershootRaw.endsWith('vh')) {
       const num = parseFloat(startOvershootRaw);
@@ -131,20 +162,38 @@ document.addEventListener('click', function (e) {
       startOvershoot = parseFloat(startOvershootRaw) || 0;
     }
     // Ease overshoot from -startOvershoot at t=0 to 0 at t=1 (ease-out)
-    const overshootY = -(1 - (t)) * startOvershoot;
-    // Ease final settle from 0 to +finalShift (ease-out squared)
-    const settleY = (1 - (1 - t) * (1 - t)) * finalShift;
-    const shiftY = overshootY + settleY;
+    const overshootY = -(1 - t) * startOvershoot;
+    // Centering: compute the scaled frame height and center it vertically at the end
+    const frameWidthPx = img.offsetWidth || 0; // equals --frame-w
+    let imageAspect = 0;
+    if (img.naturalWidth && img.naturalHeight) {
+      imageAspect = img.naturalHeight / img.naturalWidth;
+    } else {
+      const rect = img.getBoundingClientRect();
+      imageAspect = rect.height > 0 && frameWidthPx > 0 ? (rect.height / Math.max(scale, 0.0001)) / frameWidthPx : 0.62;
+    }
+    const scaledHeight = frameWidthPx * imageAspect * scale;
+    const centerY = (vh - scaledHeight) / 2; // where the top should end up at t=1
+    const shiftY = overshootY + centerY * (t * t); // smoothly approach center as t->1
     img.style.transform = 'translateY(' + shiftY.toFixed(2) + 'px) scale(' + scale.toFixed(3) + ')';
-    img.style.filter = 'blur(' + blur.toFixed(2) + 'px)';
+    // Apply half-strength blur to the laptop image only
+    img.style.filter = 'blur(' + (blur / 2).toFixed(2) + 'px)';
 
     // Keep overlay video visually glued to the image scale for realism
     if (videoHost) {
       const host = stage.querySelector('.gallery-stage__video');
-      if (host) host.style.transform = 'translateY(' + shiftY.toFixed(2) + 'px) scale(' + scale.toFixed(3) + ')';
+      if (host) {
+        // Slightly overscale video at start to avoid gaps between frame and video
+        const videoBoost = parseFloat(styles.getPropertyValue('--video-start-boost')) || 1.05; // 5% at t=0
+        const boostFactor = 1 + (videoBoost - 1) * (1 - t); // -> 1 at t=1
+        const videoScale = scale * boostFactor;
+        host.style.transform = 'translateY(' + shiftY.toFixed(2) + 'px) scale(' + videoScale.toFixed(3) + ')';
+        // Apply same blur to the video container so its edges blur uniformly with the image
+        host.style.filter = 'blur(' + blur.toFixed(2) + 'px)';
+      }
       const videoEl = videoHost.querySelector('video');
       if (videoEl) {
-        // Mirror the same blur value to guarantee consistent effect across browsers
+        // Also apply to the video element for browsers that ignore container filter on children
         videoEl.style.filter = 'blur(' + blur.toFixed(2) + 'px)';
       }
     }

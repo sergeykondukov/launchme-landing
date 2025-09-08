@@ -113,31 +113,32 @@ a:hover { color: #fff; }
 .cta-card { display: grid; grid-template-columns: 60px 1fr; align-items: center; gap: 16px; background: var(--card); border: 1px solid var(--border); padding: 18px; border-radius: var(--radius-lg); box-shadow: var(--shadow); }
 
 /* Gallery */
-.gallery { padding-top: 24px; }
+.gallery { padding-top: 0; background: #000; }
 .gallery .container { max-width: none; padding: 0; position: relative; /* Let the section height adapt; keep extra scroll via a variable */ min-height: calc(100vh + var(--gallery-extra-scroll, 60vh)); height: auto; display: flex; flex-direction: column; }
 .gallery-main-image { display:block; width:100%; max-width:900px; margin:0 auto; border: none; box-shadow: none; border-radius: 0; background: transparent; }
 
 /* Scroll-driven gallery stage */
-.gallery-stage { position: sticky; top: 0; height: 100vh; min-height: 520px; width: 100vw; display: grid; align-items: start; justify-items: center; overflow: visible; --stage-final-shift-y: 60px; --stage-start-overshoot: 5vh; }
+.gallery-stage { position: sticky; top: 0; height: 100vh; min-height: 520px; width: 100vw; display: grid; align-items: start; justify-items: center; overflow: visible; --stage-final-shift-y: 60px; --stage-start-overshoot: 5vh; /* Unified frame width for both image and video */ --frame-w: min(1400px, 98vw); --final-scale-boost: 1.3; }
 /* Ensure image and video scale from the same anchor to avoid desync while scrolling */
 .gallery-stage__image, .gallery-stage__video, .gallery-stage__video-box { transform-origin: top center; }
 .gallery-stage__video {
   /* Positioned overlay to simulate video playing inside laptop screen */
   position: absolute;
-  top: 0; left: 0; right: 0; margin: 0 auto; /* true centering without translate */
-  width: 100vw; height: 0; /* width anchor; children absolutely placed */
+  top: 0; left: 0; right: 0; margin: 0 auto; /* true centering */
+  width: var(--frame-w); height: 0; /* width anchor; children absolutely placed */
   display: grid;
   place-items: center;
   pointer-events: none; /* overlay is decorative */
   z-index: 1; /* below image, above stage background */
+  will-change: transform, filter;
 }
 .gallery-stage__video-box {
   /* Define the exact screen window. This clips any overflow. */
   position: absolute;
-  left: var(--screen-left, 19%);
-  top: var(--screen-top, 11%);
-  /* Responsive width tied to stage; do not force a min larger than the viewport */
-  width: min(var(--screen-width, 62%), 100vw);
+  /* Use ratios relative to the unified frame width so video scales 1:1 with the PNG */
+  left: calc(var(--screen-left-r, 0.09) * var(--frame-w));
+  top: calc(var(--screen-top-r, 0.02) * var(--frame-w));
+  width: calc(var(--screen-width-r, 0.82) * var(--frame-w));
   /* Maintain strict proportion; height derives from width automatically */
   aspect-ratio: var(--screen-aspect-ratio, 1.6);
   height: auto;
@@ -154,8 +155,22 @@ a:hover { color: #fff; }
   height: 100%;
   object-fit: cover;
   object-position: center;
+  /* Optional mask to perfectly match the laptop screen shape.
+     Provide a screen-only alpha mask (white=visible screen, black=hidden bezel) and set
+     --screen-mask-url: url('images/screen-mask.png') on .gallery-stage (or container). */
+  -webkit-mask-image: var(--screen-mask-url, none);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  /* Stretch mask to element box to avoid misalignment with laptop PNG */
+  -webkit-mask-size: 100% 100%;
+  -webkit-mask-mode: luminance;
+  mask-image: var(--screen-mask-url, none);
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: 100% 100%;
+  mask-mode: luminance;
 }
-.gallery-stage__image { position: absolute; top: 0; left: 0; right: 0; margin: 0 auto; transform: scale(1.6); z-index: 2; width: 100vw; height: auto; filter: blur(8px); backface-visibility: hidden; will-change: transform, filter; }
+.gallery-stage__image { position: absolute; top: 0; left: 0; right: 0; margin: 0 auto; transform: scale(1.6); z-index: 2; width: var(--frame-w); height: auto; filter: blur(8px); backface-visibility: hidden; will-change: transform, filter; }
 .gallery-stage__overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.35); backdrop-filter: blur(6px); will-change: opacity; z-index: 5; }
 .gallery-stage { contain: layout paint; }
 .gallery-stage__label { position: absolute; inset: 0; display:flex; align-items:center; justify-content:center; text-align:center; font-size: 60px; font-weight: 800; letter-spacing: 0.2px; transition: opacity 0.2s linear; background: transparent; z-index: 6; }
@@ -166,15 +181,58 @@ a:hover { color: #fff; }
 /* Responsive tuning for mobile/portrait to keep the video fully inside the laptop screen
    We override the screen window variables so the video scales with the PNG cutout */
 @media (max-width: 700px) {
-  .gallery-stage {
-    --screen-left: 6% !important;
-    --screen-top: 12% !important;
-    --screen-width: 88% !important;
-    --screen-aspect-ratio: 1.6 !important; /* 16/10 */
-    --stage-final-shift-y: 140px !important;
-    --stage-start-overshoot: 6vh !important;
-    /* no hard min width on very small screens to avoid clipping */
-  }
+  .gallery-stage { --frame-w: min(1800px, 98vw); --stage-final-shift-y: 140px; --stage-start-overshoot: 6vh; --final-scale-boost: 1; }
+}
+
+/* Responsive final scale tuning */
+@media (max-width: 1700px) and (min-width: 1400px) {
+  .gallery-stage { --final-scale-boost: 0.95; }
+}
+@media (max-width: 1399px) and (min-width: 1200px) {
+  .gallery-stage { --final-scale-boost: 0.85; }
+}
+@media (max-width: 1199px) and (min-width: 1024px) {
+  .gallery-stage { --final-scale-boost: 0.80; }
+}
+@media (max-width: 1024px) and (min-width: 900px) {
+  .gallery-stage { --final-scale-boost: 0.8; }
+}
+
+/* Phones and small tablets */
+@media (max-width: 899px) and (min-width: 768px) {
+  .gallery-stage { --final-scale-boost: 0.85; }
+}
+@media (max-width: 767px) and (min-width: 600px) {
+  .gallery-stage { --final-scale-boost: 0.85; }
+}
+/* Phones granular sizes */
+@media (max-width: 599px) and (min-width: 440px) {
+  .gallery-stage { --final-scale-boost: 0.85; }
+}
+@media (max-width: 439px) and (min-width: 375px) {
+  .gallery-stage { --final-scale-boost: 0.80; }
+}
+@media (max-width: 374px) {
+  .gallery-stage { --final-scale-boost: 0.60; }
+}
+
+/* Reduce gallery section height on mobile to ~half */
+@media (max-width: 767px) {
+  .gallery { padding-top: 26px; }
+  .gallery .container { min-height: auto; height: auto; }
+  /* Make stage a normal block with intrinsic height via aspect-ratio */
+  .gallery-stage { position: relative; top: auto; height: auto; min-height: 0; aspect-ratio: var(--mobile-stage-aspect, 16/10); width: var(--mobile-stage-width, 100%); margin: 0 auto; }
+  /* Lay out frame and video to fill the stage area */
+  .gallery-stage__image { position: absolute; inset: 0; margin: 0; width: 100%; height: 100%; transform: none; filter: none; }
+  .gallery-stage__video { position: absolute; inset: 0; width: 100%; height: 100%; transform: none; filter: none; }
+  .gallery-stage__video-box { left: calc(var(--screen-left-r, 0.09) * 100%); top: calc(var(--screen-top-r, 0.02) * 100% + var(--mobile-screen-shift,2px)); width: calc(var(--screen-width-r, 0.82) * 100%); aspect-ratio: var(--screen-aspect-ratio, 1.6); height: auto; transform: none; }
+  .gallery-stage__overlay, .gallery-stage__label { display: none; }
+  /* Left-align caption on mobile for readability */
+  .gallery-caption { text-align: left; margin-left: 20px; margin-right: 20px; }
+}
+@media (max-width: 599px) {
+  .gallery .container { min-height: auto; }
+  .gallery-stage { height: auto; }
 }
 
 /* Accordion */
