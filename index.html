@@ -155,8 +155,17 @@
         <section id="gallery" class="section gallery">
             <div class="container" data-gallery-scrub>
                 <!-- Scroll-driven stage: sticky block that scrubs with scroll -->
-                <div class="gallery-stage" data-gallery-stage>
+                <div class="gallery-stage" data-gallery-stage data-video-src="images/demo.mp4" data-video-loop="true" data-video-muted="true" data-video-autoplay="true" style="--screen-left:9%; --screen-top:2%; --screen-width:82%; --screen-aspect-ratio:1.54; --screen-radius:2px; --stage-final-shift-y:100px; --screen-offset-y: -12px; --mobile-stage-width: 92vw;">
                     <img class="gallery-stage__image" src="images/showmacimg.png" alt="LaunchMe on Mac">
+                    <!--
+                      Overlay video container:
+                      - The video is absolutely positioned to simulate playing inside the laptop screen.
+                      - Use inline CSS variables to fine-tune placement if needed.
+                      - Example: set data-video-src on the stage to auto-inject a <video> via JS.
+                    -->
+                    <div class="gallery-stage__video" aria-hidden="true">
+                        <div class="gallery-stage__video-box"></div>
+                    </div>
                     <div class="gallery-stage__overlay" aria-hidden="true"></div>
                     <div class="gallery-stage__label" aria-hidden="true">Yes, it’s live</div>
                 </div>
