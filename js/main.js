@@ -64,9 +64,37 @@ document.addEventListener('click', function (e) {
   const stage = document.querySelector('[data-gallery-stage]');
   if (!stage) return;
   const img = stage.querySelector('.gallery-stage__image');
+  const videoHost = stage.querySelector('.gallery-stage__video-box') || stage.querySelector('.gallery-stage__video');
   const overlay = stage.querySelector('.gallery-stage__overlay');
   const label = stage.querySelector('.gallery-stage__label');
   const scrubContainer = document.querySelector('[data-gallery-scrub]');
+
+  // Inject video if data attributes are present on the stage or its container
+  // Usage example (HTML):
+  // <div class="gallery-stage" data-gallery-stage data-video-src="videos/demo.mp4" data-video-poster="images/poster.jpg"></div>
+  (function mountOverlayVideo() {
+    if (!videoHost) return;
+    const src = stage.getAttribute('data-video-src') || scrubContainer.getAttribute('data-video-src');
+    if (!src) return;
+    const poster = stage.getAttribute('data-video-poster') || scrubContainer.getAttribute('data-video-poster') || '';
+    const loop = (stage.getAttribute('data-video-loop') || 'true') === 'true';
+    const muted = (stage.getAttribute('data-video-muted') || 'true') === 'true';
+    const autoplay = (stage.getAttribute('data-video-autoplay') || 'true') === 'true';
+    const video = document.createElement('video');
+    video.src = src;
+    if (poster) video.poster = poster;
+    video.loop = loop;
+    video.muted = muted;
+    video.autoplay = autoplay;
+    video.playsInline = true;
+    video.preload = 'auto';
+    video.controls = false;
+    // Start playback when can play to avoid jank
+    video.addEventListener('canplay', function () {
+      if (autoplay) video.play().catch(function () {});
+    });
+    videoHost.appendChild(video);
+  })();
 
   function update() {
     const vh = window.innerHeight || document.documentElement.clientHeight;
@@ -85,15 +113,47 @@ document.addEventListener('click', function (e) {
     const wideRef = document.querySelector('.lm-card--wide');
     const wideWidth = wideRef ? wideRef.getBoundingClientRect().width : 1100;
     const targetEndScale = Math.min(1, (1.2 * wideWidth) / (window.innerWidth || 1));
-    const startScale = 1.8;
+    const startScale = 1.89; // Increased initial zoom by ~5% for a tighter starting view
     const scale = startScale - (startScale - targetEndScale) * t; // ease linear with scroll
     const blur  = 24  * (1 - t);      // 24px -> 0px (stronger blur)
-    img.style.transform = 'scale(' + scale.toFixed(3) + ')';
+    // Vertical motion: start with an upward overshoot that returns, then apply final downward settle
+    const styles = getComputedStyle(stage);
+    const finalShift = parseFloat(styles.getPropertyValue('--stage-final-shift-y')) || 0;
+    const startOvershootRaw = styles.getPropertyValue('--stage-start-overshoot').trim() || '0';
+    // Convert overshoot to px if given in vh
+    let startOvershoot;
+    if (startOvershootRaw.endsWith('vh')) {
+      const num = parseFloat(startOvershootRaw);
+      startOvershoot = (window.innerHeight || document.documentElement.clientHeight) * (num / 100);
+    } else if (startOvershootRaw.endsWith('px')) {
+      startOvershoot = parseFloat(startOvershootRaw);
+    } else {
+      startOvershoot = parseFloat(startOvershootRaw) || 0;
+    }
+    // Ease overshoot from -startOvershoot at t=0 to 0 at t=1 (ease-out)
+    const overshootY = -(1 - (t)) * startOvershoot;
+    // Ease final settle from 0 to +finalShift (ease-out squared)
+    const settleY = (1 - (1 - t) * (1 - t)) * finalShift;
+    const shiftY = overshootY + settleY;
+    img.style.transform = 'translateY(' + shiftY.toFixed(2) + 'px) scale(' + scale.toFixed(3) + ')';
     img.style.filter = 'blur(' + blur.toFixed(2) + 'px)';
+
+    // Keep overlay video visually glued to the image scale for realism
+    if (videoHost) {
+      const host = stage.querySelector('.gallery-stage__video');
+      if (host) host.style.transform = 'translateY(' + shiftY.toFixed(2) + 'px) scale(' + scale.toFixed(3) + ')';
+      const videoEl = videoHost.querySelector('video');
+      if (videoEl) {
+        // Mirror the same blur value to guarantee consistent effect across browsers
+        videoEl.style.filter = 'blur(' + blur.toFixed(2) + 'px)';
+      }
+    }
 
     // Overlay and label fade out with progress
     const overlayOpacity = 0.4 * (1 - t);
     overlay.style.opacity = overlayOpacity.toFixed(3);
+    // Apply matching blur via backdrop-filter so content behind (image + video) blurs together
+    overlay.style.backdropFilter = 'blur(' + blur.toFixed(2) + 'px)';
     label.style.opacity = (1 - t).toFixed(3);
 
     // The 200vh container height naturally forces one extra viewport of scroll here

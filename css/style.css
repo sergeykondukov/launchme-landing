@@ -118,11 +118,40 @@ a:hover { color: #fff; }
 .gallery-main-image { display:block; width:100%; max-width:900px; margin:0 auto; border: none; box-shadow: none; border-radius: 0; background: transparent; }
 
 /* Scroll-driven gallery stage */
-.gallery-stage { position: sticky; top: 0; height: 100vh; min-height: 520px; width: 100vw; display: grid; place-items: center; overflow: hidden; }
-.gallery-stage__image { width: 100vw; height: auto; transform: translateZ(0) scale(1.6); filter: blur(8px); backface-visibility: hidden; will-change: transform, filter; }
-.gallery-stage__overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.35); backdrop-filter: blur(6px); will-change: opacity; }
+.gallery-stage { position: sticky; top: 0; height: 100vh; min-height: 520px; width: 100vw; display: grid; place-items: center; overflow: hidden; --stage-final-shift-y: 60px; --stage-start-overshoot: 5vh; }
+/* Ensure image and video scale from the same anchor to avoid desync while scrolling */
+.gallery-stage__image, .gallery-stage__video, .gallery-stage__video-box { transform-origin: top center; }
+.gallery-stage__video {
+  /* Positioned overlay to simulate video playing inside laptop screen */
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none; /* overlay is decorative */
+  z-index: 1; /* below image, above stage background */
+}
+.gallery-stage__video-box {
+  /* Define the exact screen window. This clips any overflow. */
+  position: absolute;
+  left: var(--screen-left, 19%);
+  top: var(--screen-top, 11%);
+  width: var(--screen-width, 62%);
+  height: var(--screen-height, 62%);
+  border-radius: var(--screen-radius, 12px);
+  overflow: hidden;
+  pointer-events: none;
+}
+.gallery-stage__video-box video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.gallery-stage__image { position: relative; z-index: 2; width: 100vw; height: auto; transform: translateZ(0) scale(1.6); filter: blur(8px); backface-visibility: hidden; will-change: transform, filter; }
+.gallery-stage__overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.35); backdrop-filter: blur(6px); will-change: opacity; z-index: 5; }
 .gallery-stage { contain: layout paint; }
-.gallery-stage__label { position: absolute; inset: 0; display:flex; align-items:center; justify-content:center; text-align:center; font-size: 60px; font-weight: 800; letter-spacing: 0.2px; transition: opacity 0.2s linear; background: transparent; }
+.gallery-stage__label { position: absolute; inset: 0; display:flex; align-items:center; justify-content:center; text-align:center; font-size: 60px; font-weight: 800; letter-spacing: 0.2px; transition: opacity 0.2s linear; background: transparent; z-index: 6; }
 .gallery-caption { text-align: center; color: var(--muted); font-size: 20px; font-weight: 500; max-width: 920px; margin: 12px auto 0; padding: 0 20px; }
 /* Keep caption inside the gallery container but visually at the bottom under the image */
 .gallery .gallery-caption { margin-top: auto; padding-top: 12px; }
