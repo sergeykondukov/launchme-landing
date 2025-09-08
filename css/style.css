@@ -168,7 +168,6 @@ a:hover { color: #fff; }
   border-radius: 50px; /* per spec: large rounded corners */
   box-shadow: none; /* remove shadows as requested */
   border: none; /* remove strokes/borders as requested */
-  background: #000; /* default black background until real imagery arrives */
   /* Allow custom backgrounds */
   background-image: var(--card-bg-image, none);
   background-color: var(--card-bg-color, #000);
@@ -177,7 +176,7 @@ a:hover { color: #fff; }
 }
 
 /* internal layout */
-.lm-card__content { position: relative; z-index: 2; padding: 18px 20px; text-align: center; }
+.lm-card__content { position: relative; z-index: 2; padding: 40px 20px 18px 20px; text-align: center; }
 .lm-card__title { margin: 0; font-size: 16px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; }
 .lm-card__subtitle { margin: 6px 0 0; font-size: 26px; font-weight: 800; line-height: 1.1; }
 
@@ -185,6 +184,28 @@ a:hover { color: #fff; }
 .lm-card__image {
   position: absolute; left: 0; right: 0; bottom: 0; z-index: 1;
   width: 100%; height: auto; display: block;
+}
+.lm-card__image[src*="dynamic-wallpaper"],
+.lm-card__image[src*="liquid-glass"] {
+  top: 20%; /* leave 20% space at top */
+  height: 80%; /* fill remaining 80% */
+  object-fit: contain; /* scale down to fit, maintain aspect ratio */
+}
+.lm-card--square .lm-card__image {
+  top: 0; /* no top offset for square cards */
+  height: 100%; /* fill full height */
+}
+@media (max-width: 800px) {
+  .lm-card__image[src*="dynamic-wallpaper"],
+  .lm-card__image[src*="liquid-glass"] {
+    top: 20%; /* same behavior on mobile */
+    height: 80%;
+    object-fit: contain;
+  }
+  .lm-card--square .lm-card__image {
+    top: 0; /* no top offset for square cards on mobile */
+    height: 100%;
+  }
 }
 
 /* Sizes */
