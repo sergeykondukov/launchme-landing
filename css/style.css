@@ -114,7 +114,7 @@ a:hover { color: #fff; }
 
 /* Gallery */
 .gallery { padding-top: 24px; }
-.gallery .container { max-width: none; padding: 0; position: relative; height: 200vh; }
+.gallery .container { max-width: none; padding: 0; position: relative; height: 200vh; display: flex; flex-direction: column; }
 .gallery-main-image { display:block; width:100%; max-width:900px; margin:0 auto; border: none; box-shadow: none; border-radius: 0; background: transparent; }
 
 /* Scroll-driven gallery stage */
@@ -123,7 +123,9 @@ a:hover { color: #fff; }
 .gallery-stage__overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.35); backdrop-filter: blur(6px); will-change: opacity; }
 .gallery-stage { contain: layout paint; }
 .gallery-stage__label { position: absolute; inset: 0; display:flex; align-items:center; justify-content:center; text-align:center; font-size: 60px; font-weight: 800; letter-spacing: 0.2px; transition: opacity 0.2s linear; background: transparent; }
-.gallery-caption { text-align: center; color: var(--muted); font-size: 20px; font-weight: 500; max-width: 920px; margin: 30px auto 0; padding: 0 20px; }
+.gallery-caption { text-align: center; color: var(--muted); font-size: 20px; font-weight: 500; max-width: 920px; margin: 12px auto 0; padding: 0 20px; }
+/* Keep caption inside the gallery container but visually at the bottom under the image */
+.gallery .gallery-caption { margin-top: auto; padding-top: 12px; }
 
 /* Accordion */
 .accordion { max-width: 800px; margin: 0 auto; }
