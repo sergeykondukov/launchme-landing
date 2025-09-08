@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LaunchMe — Customizable App Launcher for Mac</title>
+    <!--
+      Landing page for LaunchMe
+      - Simple, modular HTML structure
+      - Styled via /css/style.css
+      - Interactions in /js/main.js
+      - Images replaced with placeholders to be swapped later
+      - Built for GitHub Pages (pure HTML/CSS/JS)
+    -->
+    <link rel="preload" href="/Users/sergeykondukov/Documents/Appsss/launchme-landing/css/style.css" as="style">
+    <link rel="stylesheet" href="/Users/sergeykondukov/Documents/Appsss/launchme-landing/css/style.css">
+</head>
+<body>
+    <!--
+      Header / Top Navigation
+      Contains logo and lightweight nav. Anchor links provide smooth scroll (handled in JS).
+    -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="#top" class="brand">
+                <img class="brand-img" src="images/logoicontext.png" alt="LaunchMe" />
+            </a>
+            <a class="header-download" href="">
+                <img src="images/app-store-badge.svg" alt="Download LaunchMe on the Mac App Store">
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main id="top">
+        <section class="hero">
+            <div class="container hero-inner">
+                <!-- Top hero image -->
+                <img class="hero-image" src="images/topimage.png" alt="LaunchMe preview" />
+                <p class="tagline">Launchpad you've been waiting for</p>
+                <h1 class="hero-title">Customizable App Launcher<br>for your Mac </h1>
+                <p class="hero-sub">Customize, set wallpaper, make it work your way</p>
+                <div class="cta-group">
+                    <a class="app-badge" href="">
+                        <img src="images/app-store-badge.svg" alt="Download on the Mac App Store">
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Intro / Features preview grid -->
+        <section id="features" class="section features">
+            <div class="container">
+                <!-- <p class="section-kicker">Introducing</p>
+                <h2 class="section-title">Customizable App Launcher<br>for your Mac</h2>
+                <p class="section-sub">Your personal launcher: place apps, create folders, and customize appearance.</p> -->
+                <!-- Demo using new reusable card components -->
+                <div class="lm-cards-row" style="margin-bottom:30px;">
+                    <!-- Wide card example -->
+                    <article class="lm-card lm-card--wide" style="background-image: url('./images/card-bg.png'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: scroll;">
+                        <div class="lm-card__content">
+                            <h3 class="lm-card__title">Liquid Glass or Flat - You Choose</h3>
+                        </div>
+                        <!-- foreground image anchored to bottom -->
+                        <img class="lm-card__image" src="images/liquid-glass.png" alt="Liquid glass preview">
+                    </article>
+                </div>
+
+                <div class="lm-cards-row lm-cards-row--split">
+                    <!-- Square card example 1 -->
+                    <article class="lm-card lm-card--square" style="--card-bg-color:#000;"> 
+                        <div class="lm-card__content">
+                            <h3 class="lm-card__title">Layout Freedom</h3>
+                            <p class="lm-card__subtitle">Place your apps as you want</p>
+                        </div>
+                        <img class="lm-card__image" src="images/layout-freedom.png" alt="Layout freedom preview">
+                    </article>
+
+                    <!-- Square card example 2 -->
+                    <article class="lm-card lm-card--square" style="--card-bg-color:#000;">
+                        <div class="lm-card__content">
+                            <h3 class="lm-card__title">Add Folders</h3>
+                            <p class="lm-card__subtitle">Combine your apps with<br>fast access to folders</p>
+                        </div>
+                        <img class="lm-card__image" src="images/add-folder.png" alt="Add folder preview">
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Customization Section -->
+        <section id="customization" class="section customization">
+            <div class="container">
+                <p class="section-kicker">Customization</p>
+                <h2 class="section-title">Make it yours</h2>
+                <p class="section-sub">Customize LaunchMe to match your vibe - cozy, minimalistic, or anything you want.<br>Make it truly yours</p>
+                <!-- Use only new card components -->
+                <div class="lm-cards-row lm-cards-row--split">
+                    <article class="lm-card lm-card--square" style="--card-bg-color:#000;">
+                        <div class="lm-card__content">
+                            <h3 class="lm-card__title">Folder Styles</h3>
+                            <p class="lm-card__subtitle">Colors, emoji, cover image</p>
+                        </div>
+                        <img class="lm-card__image" src="images/custom-folders.png" alt="Custom folders preview">
+                    </article>
+                    <article class="lm-card lm-card--square" style="--card-bg-color:#000;">
+                        <div class="lm-card__content">
+                            <h3 class="lm-card__title">System Icon Appearance</h3>
+                            <p class="lm-card__subtitle">Dark | Light | Tinted</p>
+                        </div>
+                        <img class="lm-card__image" src="images/system-icons.png" alt="System icons preview">
+                    </article>
+                </div>
+
+                <!-- Wide -->
+                <div class="lm-cards-row" style="margin:30px 0;">
+                    <article class="lm-card lm-card--wide" style="background-image: url('./images/card-bg.png'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: scroll;">
+                        <div class="lm-card__content">
+                            <h3 class="lm-card__title">Set custom wallpaper - static, dynamic or even LIVE</h3>
+                        </div>
+                        <img class="lm-card__image" src="images/dynamic-wallpaper.png" alt="Dynamic wallpaper preview">
+                    </article>
+                </div>
+
+                <!-- Squares -->
+                <div class="lm-cards-row lm-cards-row--split">
+                    <article class="lm-card lm-card--square" style="--card-bg-color:#000;">
+                        <div class="lm-card__content">
+                            <h3 class="lm-card__title">You Rule Here</h3>
+                            <p class="lm-card__subtitle">Hide app names or<br>completely hide apps</p>
+                        </div>
+                        <img class="lm-card__image" src="images/hide-apps.png" alt="Hide apps preview">
+                    </article>
+                    <article class="lm-card lm-card--square" style="--card-bg-color:#000;">
+                        <div class="lm-card__content">
+                            <h3 class="lm-card__title">Icon Size</h3>
+                            <p class="lm-card__subtitle">Adjust icon size<br>to better fit your screen</p>
+                        </div>
+                        <img class="lm-card__image" src="images/icons-size.png" alt="Icon size preview">
+                    </article>
+                </div>
+
+                <!-- Wide -->
+                <div class="lm-cards-row" style="margin-top:30px;">
+                    <article class="lm-card lm-card--wide" style="background-image: url('./images/monitor-image.png'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: scroll;">
+                        <div class="lm-card__content">
+                            <!-- <h3 class="lm-card__title">Quick Access</h3> -->
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Big Screenshot / Gallery Section -->
+        <section id="gallery" class="section gallery">
+            <div class="container" data-gallery-scrub>
+                <!-- Scroll-driven stage: sticky block that scrubs with scroll -->
+                <div class="gallery-stage" data-gallery-stage>
+                    <img class="gallery-stage__image" src="images/showmacimg.png" alt="LaunchMe on Mac">
+                    <div class="gallery-stage__overlay" aria-hidden="true"></div>
+                    <div class="gallery-stage__label" aria-hidden="true">Yes, it’s live</div>
+                </div>
+                <p class="gallery-caption">Set animated live wallpapers to match your mood in the moment. They'll make LaunchMe always fit your style and surroundings.<br>You can use MP4, MOV, AVI, MKV formats.</p>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="section faq">
+            <div class="container">
+                <h2 class="section-title">FAQ</h2>
+                <!--
+                  Accessible accordion: buttons control hidden panels. All wired in JS.
+                -->
+                <div class="accordion" data-accordion>
+                    <div class="accordion-item">
+                        <button class="accordion-trigger" aria-expanded="false">What is LaunchMe?</button>
+                        <div class="accordion-panel" hidden>
+                            <p>As macOS Tahoe removed the original Launchpad, but we loved it so much, we decided to create our own version of it — the way it must be. It has customization options to let users make their workspace more inspiring and perfect for them. Also, you can group apps and folders for fast access to your files right from LaunchMe. Folders are also customizable, and you can set your own color, cover image, or emoji.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-trigger" aria-expanded="false">How to start using LaunchMe?</button>
+                        <div class="accordion-panel" hidden>
+                            <p>Download LaunchMe from the Mac App Store - it's easy. You can use it for free, or unlock full access with a subscription or a lifetime license.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-trigger" aria-expanded="false">Can I try Pro for free?</button>
+                        <div class="accordion-panel" hidden>
+                            <p>Yes. You can use the 7-day Free Trial to try out LaunchMe PRO. Purchase LaunchMe PRO or LITE to unlock premium features.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-trigger" aria-expanded="false">What will I get in PRO or LITE?</button>
+                        <div class="accordion-panel" hidden>
+                            <p>In PRO, you will get access to all premium features of LaunchMe such as wallpapers, folder customization, hide apps, hide titles, Liquid Glass Theme, and many other features we will add in the future. LITE is made for users who don't need customization but want to support us and still get part of the premium features such as Liquid Glass, Hide Apps, and Hide Titles.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-trigger" aria-expanded="false">Can I set my own files for Wallpapers?</button>
+                        <div class="accordion-panel" hidden>
+                            <p>Yes, we have 3 types of wallpaper:<br>
+                            • Image: choose any image you want in .PNG or .JPG.<br>
+                            • Dynamic: this wallpaper will adapt to your current Dark/Light mode. Use .HEIC format.<br>
+                            • Live: set your video file in formats: MP4, MOV, AVI, MKV.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-trigger" aria-expanded="false">Does LaunchMe impact performance or battery?</button>
+                        <div class="accordion-panel" hidden>
+                            <p>LaunchMe is optimized not to impact your system and uses minimal resources. When LaunchMe is hidden, it uses none of your resources and all processes are paused until you open the window.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-trigger" aria-expanded="false">Does it work with multiple displays?</button>
+                        <div class="accordion-panel" hidden>
+                            <p>Yes. LaunchMe will open a full-screen window on the monitor where your cursor is located. Make sure your cursor is not located on a display with another full-screen app.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-trigger" aria-expanded="false">Do I need to register an account?</button>
+                        <div class="accordion-panel" hidden>
+                            <p>No. You only need to be logged in to your Apple iCloud account on your Mac. Your subscription will be managed by Apple.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-trigger" aria-expanded="false">Can I cancel my subscription?</button>
+                        <div class="accordion-panel" hidden>
+                            <p>Yes. You can cancel anytime in the subscription manager of your Apple Account.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-trigger" aria-expanded="false">Why does LaunchMe ask for permission to control my Mac?</button>
+                        <div class="accordion-panel" hidden>
+                            <p>LaunchMe needs user permission to launch apps on your computer and read the Applications folder. LaunchMe does not collect any information from your computer. All information needed for LaunchMe to work (like apps or folder paths) is managed locally on your computer.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-trigger" aria-expanded="false">Can I use the "Pinch Gesture" to open LaunchMe?</button>
+                        <div class="accordion-panel" hidden>
+                            <p>No. The gesture feature is a private macOS feature, and Apple does not allow us to use it in our app. But you can use other tools such as BetterTouchTool to set up a gesture to open LaunchMe. Or you can use keyboard shortcuts and set your own shortcut in settings.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call To Action -->
+        <section id="download" class="section cta">
+            <div class="container">
+                <div class="cta-pill">
+                    <div class="cta-pill__left">
+                        <h3 class="cta-pill__title">Get LaunchMe<br>and launch apps like a pro</h3>
+                        <a class="app-badge" href="">
+                            <img src="images/app-store-badge.svg" alt="Download on the Mac App Store">
+                        </a>
+                    </div>
+                    <img class="cta-pill__icon" src="images/logo-icon.png" alt="">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer with Privacy link -->
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <a href="#top" class="brand small"><img class="brand-img" src="images/logoicontext.png" alt="LaunchMe" /></a>
+            <nav class="footer-nav" aria-label="Footer">
+                <a href="/Users/sergeykondukov/Documents/Appsss/launchme-landing/support.html">Support</a>
+                <a href="/Users/sergeykondukov/Documents/Appsss/launchme-landing/privacy.html">Privacy Policy</a>
+            </nav>
+        </div>
+    </footer>
+
+    <!-- Scripts loaded at end for performance -->
+    <script src="/Users/sergeykondukov/Documents/Appsss/launchme-landing/js/main.js"></script>
+</body>
+</html>
