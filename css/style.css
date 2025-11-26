@@ -946,6 +946,16 @@ a:hover { color: #fff; }
   }
   .blog-sidebar {
     position: static;
+    display: none; /* hide sidebar (articles menu + links) on mobile */
+  }
+}
+
+/* Extra padding on mobile so text doesn't touch screen edges */
+@media (max-width: 640px) {
+  .blog .blog-main,
+  .article-page .blog-main {
+    padding-left: 16px;
+    padding-right: 16px;
   }
 }
 
