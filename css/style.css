@@ -346,6 +346,18 @@ a:hover { color: #fff; }
 .cta-pill__title { margin: 0 0 18px; font-size: 28px; font-weight: 800; line-height: 1.25; }
 .cta-pill__icon { width: 180px; height: 180px; display: block; margin-left: auto; object-fit: contain; }
 .cta-pill__left { display: flex; flex-direction: column; align-items: flex-start; }
+
+/* When CTA pill is used inside a blog article, keep it within the content column */
+.blog-article .section.cta {
+  padding: 0; /* remove extra vertical padding inside article */
+}
+.blog-article .section.cta .container {
+  padding: 0; /* rely on article padding instead of global container padding */
+}
+.blog-article .cta-pill {
+  width: 100%;
+  max-width: 100%;
+}
 @media (max-width: 940px) {
   .cta-pill { width: calc(100% - 40px); min-height: 290px; height: auto; grid-template-columns: 1fr 180px; padding: 24px; }
   .cta-pill__icon { width: 160px; height: 160px; }
@@ -642,6 +654,396 @@ a:hover { color: #fff; }
   
   .help-center .help-main {
     padding: 30px 0 60px;
+  }
+
+/* =============================
+   Blog Page Styles
+   - Reuses doc look with article-specific layout
+   - Placeholder images mirror Help styling
+   ============================= */
+.blog .blog-main {
+  /* horizontal padding on all screen sizes so text never touches edges */
+  padding: 40px 20px 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.article-page .blog-main {
+  /* same horizontal padding behavior for article pages */
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.blog .blog-main h1 {
+  margin: 0 0 12px;
+  border-bottom: 2px solid var(--brand);
+  padding-bottom: 10px;
+}
+
+.blog-intro {
+  color: var(--muted);
+  font-size: 18px;
+  margin-bottom: 32px;
+}
+
+.blog-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 50px;
+  align-items: start;
+}
+
+.blog-articles {
+  max-width: 980px;        /* center article cards similar to DrBuho layout */
+  margin: 0 auto;
+}
+
+.blog-sidebar {
+  position: sticky;
+  top: 80px;
+}
+
+.blog-nav,
+.blog-subscribe {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px;
+  box-shadow: var(--shadow);
+}
+
+.blog-nav + .blog-subscribe {
+  margin-top: 20px;
+}
+
+.blog-nav-title {
+  margin: 0 0 14px;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.blog-nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.blog-nav-link {
+  color: var(--muted);
+  padding: 8px 0;
+  display: inline-flex;
+  transition: color 0.2s ease;
+}
+
+.blog-nav-link:hover {
+  color: var(--text);
+}
+
+.blog-nav-link.active {
+  color: var(--brand);
+  font-weight: 600;
+}
+
+.blog-subscribe h3 {
+  margin-top: 0;
+}
+
+.blog-article {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  margin: 0 0 40px;
+  box-shadow: var(--shadow);
+}
+
+.blog-article h2 {
+  margin-top: 8px;
+  font-size: 42px; /* make main blog titles larger for better hierarchy */
+}
+
+.blog-meta {
+  color: var(--muted);
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0;
+}
+
+.blog-image-placeholder {
+  /* Match Help Center image block spacing and shape */
+  margin: 32px 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  width: 100%;
+}
+
+.blog-image {
+  /* Gray placeholder style, similar to help-image-gray */
+  width: 100%;
+  height: 400px;
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  position: relative;
+}
+
+.blog-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(45deg, rgba(255,255,255,0.02) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(255,255,255,0.02) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.02) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.02) 75%);
+  background-size: 20px 20px;
+  opacity: 0.5;
+}
+
+.blog-image-img {
+  /* Same scaling as Help Center images (.help-image) */
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+.blog-image-caption {
+  font-size: 14px;
+  color: var(--muted);
+  padding: 10px 14px;
+  margin: 0;
+}
+
+.blog-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+  font-size: 13px;
+  color: var(--brand);
+}
+
+.blog-tags span {
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 999px;
+  padding: 4px 12px;
+}
+
+.article-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin-top: 18px;
+}
+
+/* Article detail page layout (centered content like DrBuho) */
+.article-main {
+  max-width: 900px;
+  margin: 0 auto 80px;
+}
+
+.article-page-article {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 32px 0 0;
+}
+
+.article-page .blog-article h1 {
+  margin: 0 0 10px;
+  font-size: 44px;
+}
+
+.breadcrumbs {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 22px;
+}
+
+.breadcrumbs a {
+  color: var(--muted);
+}
+
+.breadcrumbs a:hover {
+  color: var(--text);
+}
+
+.breadcrumbs-separator {
+  margin: 0 4px;
+}
+
+/* Blog list card (index page) */
+.blog-card {
+  margin-bottom: 32px;
+}
+
+.blog-card__inner {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 24px;
+  background: #f9fbff;
+  border-radius: 40px;
+  color: #000;
+  text-decoration: none;
+  padding: 20px 24px;
+  box-shadow: 0 18px 50px rgba(0,0,0,0.4);
+}
+
+.blog-card__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 26px;
+  display: block;
+}
+
+.blog-card__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.blog-card__title {
+  margin: 4px 0 8px;
+  font-size: 24px;
+  font-weight: 800;
+  color: #000;
+}
+
+.blog-card__excerpt {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  max-width: 460px;
+}
+
+.blog-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+  font-size: 13px;
+}
+
+.blog-card__read {
+  font-weight: 600;
+  color: #000;
+}
+
+.blog-card__meta {
+  color: #555;
+}
+
+@media (max-width: 900px) {
+  .blog-card__inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 960px) {
+  .blog-layout {
+    grid-template-columns: 1fr;
+  }
+  .blog-sidebar {
+    position: static;
+    display: none; /* hide sidebar (articles menu + links) on mobile/tablet */
+  }
+}
+
+/* =============================
+   Blog List Card – fallback styles
+   - Duplicated here at end to guarantee they apply
+   - Ensures Safari picks up correct layout even if previous rules are skipped
+   ============================= */
+.blog .blog-articles {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.blog .blog-card {
+  margin-bottom: 32px;
+}
+
+.blog .blog-card__inner {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 24px;
+  background: #f9fbff;
+  border-radius: 40px;
+  color: #000;
+  text-decoration: none;
+  padding: 20px 24px;
+  box-shadow: 0 18px 50px rgba(0,0,0,0.4);
+}
+
+.blog .blog-card__thumb {
+  overflow: hidden;
+  border-radius: 26px;
+}
+
+.blog .blog-card__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.blog .blog-card__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.blog .blog-card__title {
+  margin: 4px 0 8px;
+  font-size: 24px;
+  font-weight: 800;
+  color: #000;
+}
+
+.blog .blog-card__excerpt {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  max-width: 460px;
+}
+
+.blog .blog-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+  font-size: 13px;
+}
+
+.blog .blog-card__read {
+  font-weight: 600;
+  color: #000;
+}
+
+.blog .blog-card__meta {
+  color: #555;
+}
+
+@media (max-width: 900px) {
+  .blog .blog-card__inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .help-center .help-main {
+    padding-left: 16px;
+    padding-right: 16px;
   }
 }
 
