@@ -214,4 +214,20 @@ document.addEventListener('click', function (e) {
   window.addEventListener('load', update);
 })();
 
+// Track App Store button clicks in Google Analytics 4
+// This handler listens for clicks on any <a data-ga="app-store"> link.
+document.addEventListener('click', function (e) {
+  var link = e.target.closest && e.target.closest('a[data-ga="app-store"]');
+  if (!link) return;
+
+  // Do nothing if GA is not loaded (keeps code safe on pages without GA).
+  if (typeof gtag !== 'function') return;
+
+  // Send custom GA4 event for App Store clicks.
+  // link_area helps see where on the site people click (hero, footer, blog, etc.).
+  gtag('event', 'app_store_click', {
+    link_url: link.href,
+    link_area: link.getAttribute('data-ga-area') || 'unknown'
+  });
+});
 
