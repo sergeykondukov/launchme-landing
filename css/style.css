@@ -879,6 +879,20 @@ a:hover { color: #fff; }
   margin: 0 4px;
 }
 
+/* Highlighted inline link for Pinch Gesture download */
+.help-center .pinch-download-link {
+  text-decoration: underline;
+  font-weight: 600;
+  color: var(--brand);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.help-center .pinch-download-link:hover {
+  text-decoration: underline;
+  color: #fff;
+}
+
 /* Blog list card (index page) */
 .blog-card {
   margin-bottom: 32px;
