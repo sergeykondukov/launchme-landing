@@ -326,6 +326,20 @@ a:hover { color: #fff; }
 .accordion-trigger[aria-expanded="true"]::after { content: "−"; }
 .accordion-panel { color: var(--muted); padding: 0 0 14px; }
 
+/* Link inside FAQ answers (for Pinch Gesture article, etc.)
+   - Blue underlined text so it is clearly a clickable link */
+.faq-link {
+  color: var(--brand);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  font-weight: 600;
+}
+
+.faq-link:hover {
+  color: #ffffff;
+}
+
 /* Footer */
 .site-footer { border-top: none; background: #06131e; margin-top: 40px; }
 .footer-inner { display: flex; align-items: center; justify-content: space-between; padding: 22px 20px; }
