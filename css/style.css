@@ -178,6 +178,81 @@ a:hover { color: #fff; }
 /* Keep caption inside the gallery container but visually at the bottom under the image */
 .gallery .gallery-caption { margin-top: auto; padding-top: 12px; }
 
+/* =============================
+   LaunchMe Features grid (homepage, before FAQ)
+   - 4 columns x 5 rows on desktop via .grid-4 helper
+   - On small screens it collapses to 2/1 columns (handled by .grid-4 media)
+   - Icon placeholders now; real icons will be connected later
+   ============================= */
+.lm-features {
+  /* Slightly different background shade to separate from gallery and FAQ */
+  background: #04111c;
+}
+
+.lm-features-grid {
+  /* Extra top margin so the title breathes above the grid */
+  margin-top: 40px;
+}
+
+.lm-feature-tile {
+  /* Simple card-like tile without heavy effects to keep UI clean */
+  background: var(--card);
+  border-radius: 22px;
+  /* No stroke/border – matches clean look from the design */
+  border: none;
+  padding: 20px 18px 18px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.lm-feature-icon-placeholder {
+  /* This block will later be replaced by real icons */
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  background: var(--bg-elev);
+  border: 1px dashed rgba(255,255,255,0.25);
+}
+
+/* Real feature icons for LaunchMe Features grid
+   - No rounding or clipping: icons should keep their original shape
+   - Only define size so grid stays consistent */
+.lm-feature-icon {
+  width: 48px;
+  height: 48px;
+  display: block;
+}
+
+.lm-feature-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.lm-feature-sub {
+  margin: 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* Link-style text button inside Trackpad Gesture tile
+   - Underlined text as in design
+   - Kept simple so it is easy to reuse or tweak later */
+.lm-feature-link {
+  /* Always show underline so it is clearly a link */
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  color: var(--brand);
+  font-weight: 600;
+}
+
+.lm-feature-link:hover {
+  color: #ffffff;
+}
+
 /* Responsive tuning for mobile/portrait to keep the video fully inside the laptop screen
    We override the screen window variables so the video scales with the PNG cutout */
 @media (max-width: 700px) {
@@ -250,6 +325,20 @@ a:hover { color: #fff; }
 .accordion-trigger::after { content: "+"; font-size: 20px; font-weight: 300; transition: transform 0.2s ease; }
 .accordion-trigger[aria-expanded="true"]::after { content: "−"; }
 .accordion-panel { color: var(--muted); padding: 0 0 14px; }
+
+/* Link inside FAQ answers (for Pinch Gesture article, etc.)
+   - Blue underlined text so it is clearly a clickable link */
+.faq-link {
+  color: var(--brand);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  font-weight: 600;
+}
+
+.faq-link:hover {
+  color: #ffffff;
+}
 
 /* Footer */
 .site-footer { border-top: none; background: #06131e; margin-top: 40px; }
