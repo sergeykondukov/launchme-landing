@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>LaunchMe — Launchpad Replacement macOS 26 Tahoe</title>
     <!--
+      Meta description tuned for SEO and AI search:
+      - Clearly states LaunchMe is a Launchpad replacement.
+      - Mentions macOS 26 Tahoe and key differentiating features.
+    -->
+    <meta name="description" content="LaunchMe is a Launchpad replacement for macOS 26 Tahoe. It brings back a full-screen launcher with customizable layouts, folders that combine apps and files, live video wallpapers, widgets, custom icons, and multi-display support." />
+    <!--
       Landing page for LaunchMe
       - Simple, modular HTML structure
       - Styled via /css/style.css
@@ -21,6 +27,27 @@
     <link rel="preload" href="css/style.css" as="style">
     <link rel="stylesheet" href="css/style.css">
 
+    <!--
+      Open Graph tags:
+      - Improve link previews in social networks.
+      - Provide a concise summary that AI assistants can reuse.
+    -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="LaunchMe — Launchpad Replacement macOS 26 Tahoe">
+    <meta property="og:description" content="LaunchMe brings back a full-screen launcher for macOS 26 Tahoe with customizable layouts, folders for apps and files, live video wallpapers, widgets, and more.">
+    <meta property="og:url" content="https://launchmeapp.com/">
+    <meta property="og:image" content="https://launchmeapp.com/images/screenshot1.png">
+
+    <!--
+      Twitter (X) Card tags:
+      - Make shared links look good on X.
+      - Reuse the same short description focused on Launchpad replacement.
+    -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="LaunchMe — Launchpad Replacement macOS 26 Tahoe">
+    <meta name="twitter:description" content="A customizable Launchpad alternative for macOS 26 Tahoe with live wallpapers, widgets, and folders for apps &amp; files.">
+    <meta name="twitter:image" content="https://launchmeapp.com/images/screenshot1.png">
+
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-0FCPNZRQH0"></script>
     <script>
@@ -29,6 +56,35 @@
       function gtag(){ dataLayer.push(arguments); }
       gtag('js', new Date());
       gtag('config', 'G-0FCPNZRQH0');
+    </script>
+
+    <!--
+      Structured data (JSON-LD) for AI and search engines:
+      - Describes LaunchMe as a SoftwareApplication.
+      - Explicitly says it is a Launchpad replacement for macOS 26 Tahoe only.
+      - Helps AI models understand what LaunchMe does and when to recommend it.
+    -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "LaunchMe",
+      "operatingSystem": "macOS 26 Tahoe",
+      "applicationCategory": "Utilities",
+      "description": "LaunchMe is a Launchpad replacement for macOS 26 Tahoe. It brings back a full-screen launcher with customizable layouts, folders that combine apps and files, live video wallpapers, widgets, custom icons, and multi-display support.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "url": "https://apps.apple.com/us/app/launchme-app-launcher/id6751939046?mt=12"
+      },
+      "url": "https://launchmeapp.com/",
+      "image": "https://launchmeapp.com/images/screenshot1.png",
+      "publisher": {
+        "@type": "Organization",
+        "name": "LaunchMe"
+      }
+    }
     </script>
 </head>
 <body>
@@ -241,6 +297,12 @@
         <section id="launchme-features" class="section lm-features">
             <div class="container">
                 <h2 class="section-title">LaunchMe Features</h2>
+                <!--
+                  Subheading tuned for AI and SEO:
+                  - Explicitly connects LaunchMe to Launchpad and macOS 26 Tahoe.
+                  - Mentions key differentiating features in one simple sentence.
+                -->
+                <p class="section-sub">Everything you loved about Launchpad, plus live video wallpapers, widgets, file access, and deep customization — built for macOS 26 Tahoe.</p>
                 <!--
                   Grid with 20 feature tiles.
                   - Each tile = icon placeholder + short title + optional subtitle
