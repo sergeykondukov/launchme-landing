@@ -1,0 +1,44 @@
+{
+  "features": [
+    ["Widgets", "Pro"],
+    ["Live Wallpaper", "Pro"],
+    ["Dynamic Wallpaper", "Pro"],
+    ["Search Files", "Free"],
+    ["Clipboard", "Free"],
+    ["Calculator", "Free"],
+    ["Hot Corners", "Free"],
+    ["Gesture Invoke", "Free"],
+    ["Add files to Folders", "Free"],
+    ["Customize Files Icon", "Pro"],
+    ["App icons Customization", "Pro"],
+    ["Clear Colored Icons", "Pro"],
+    ["Hide Titles", "Pro"],
+    ["Hide Apps", "Pro"],
+    ["Save Layouts", "Free"],
+    ["Change icons size", "Free"],
+    ["Auto Dark / Light Theme", "Free"],
+    ["Page with Categories", "Free"],
+    ["Free Layout Grid", "Free"],
+    ["Snow animation", "Free"],
+    ["Glass or Flat themes", "Pro"]
+  ],
+  "competitors": {
+    "launchie": {
+      "name": "Launchie",
+      "overrides": {
+        "Hot Corners": "PAID",
+        "Gesture Invoke": "PAID",
+        "Hide Apps": "PAID"
+      }
+    },
+    "appgrid": { "name": "AppGrid" },
+    "apphub": { "name": "AppHub" },
+    "buho-launchpad": { "name": "Buho Launchpad" },
+    "folderx": { "name": "FolderX" },
+    "hotlaunch": { "name": "HotLaunch" },
+    "launchnext": { "name": "LaunchNext" },
+    "launchos": { "name": "LaunchOS" },
+    "qal-pro": { "name": "QAL Pro" },
+    "udock": { "name": "Udock" }
+  }
+}
