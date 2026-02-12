@@ -801,7 +801,8 @@ a:hover { color: #fff; }
   box-shadow: var(--shadow);
 }
 
-.blog-nav + .blog-subscribe {
+.blog-nav + .blog-subscribe,
+.blog-subscribe + .blog-nav {
   margin-top: 20px;
 }
 
@@ -869,6 +870,94 @@ a:hover { color: #fff; }
   border-radius: var(--radius);
   overflow: hidden;
   width: 100%;
+}
+
+/* Comparison table in blog articles (LaunchMe vs X) */
+.blog-comparison-table-wrap {
+  margin: 32px 0;
+  overflow-x: auto;
+  width: 100%;
+}
+
+.blog-comparison-table {
+  width: 100%;
+  min-width: 320px;
+  table-layout: fixed;
+  border-collapse: collapse;
+  background: var(--bg-elev);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.blog-comparison-table caption {
+  text-align: left;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 16px 18px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Colored header row: darker blue, rounded top corners, no vertical borders */
+.blog-comparison-table thead th {
+  background: #1a2d42;
+  color: var(--text);
+  font-weight: 600;
+  padding: 14px 18px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 15px;
+}
+
+.blog-comparison-table thead th:first-child {
+  border-top-left-radius: var(--radius);
+}
+
+.blog-comparison-table thead th:last-child {
+  border-top-right-radius: var(--radius);
+  text-align: center;
+}
+
+.blog-comparison-table thead th:nth-child(2) {
+  text-align: center;
+}
+
+/* Equal column widths (full width, equal spacing between columns) */
+.blog-comparison-table th:nth-child(1),
+.blog-comparison-table td:nth-child(1) {
+  width: 33.33%;
+}
+
+.blog-comparison-table th:nth-child(2),
+.blog-comparison-table td:nth-child(2) {
+  width: 33.33%;
+  text-align: center;
+}
+
+.blog-comparison-table th:nth-child(3),
+.blog-comparison-table td:nth-child(3) {
+  width: 33.34%;
+  text-align: center;
+}
+
+/* Body: visible horizontal dividers only (no vertical lines) */
+.blog-comparison-table tbody td {
+  padding: 12px 18px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--text);
+  font-size: 15px;
+}
+
+.blog-comparison-table tbody td:nth-child(2),
+.blog-comparison-table tbody td:nth-child(3) {
+  text-align: center;
+}
+
+.blog-comparison-table tbody tr:last-child td {
+  border-bottom: none;
 }
 
 .blog-image {
