@@ -17,6 +17,7 @@
     ["Save Layouts", "Free"],
     ["Sort apps A-Z", "Free"],
     ["Change icons size", "Free"],
+    ["Auto System Icon Style", "Free"],
     ["Auto Dark / Light Theme", "Free"],
     ["Page with Categories", "Free"],
     ["Free Layout Grid", "Free"],
@@ -48,7 +49,15 @@
         "Hide Apps": "PAID"
       }
     },
-    "buho-launchpad": { "name": "Buho Launchpad" },
+    "buho-launchpad": {
+      "name": "Buho Launchpad",
+      "overrides": {
+        "Gesture Invoke": "PAID",
+        "Save Layouts": "PAID",
+        "Change icons size": "PAID",
+        "Auto System Icon Style": "PAID"
+      }
+    },
     "folderx": { "name": "FolderX" },
     "hotlaunch": { "name": "HotLaunch" },
     "launchnext": { "name": "LaunchNext" },
