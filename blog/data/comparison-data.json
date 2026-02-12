@@ -69,7 +69,12 @@
         "Hide Apps": "PAID"
       }
     },
-    "qal-pro": { "name": "QAL Pro" },
+    "qal-pro": {
+      "name": "QAL Pro",
+      "overrides": {
+        "Hide Apps": "PAID"
+      }
+    },
     "udock": { "name": "Udock" }
   }
 }
