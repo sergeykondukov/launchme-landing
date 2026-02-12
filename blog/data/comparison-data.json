@@ -15,6 +15,7 @@
     ["Hide Titles", "Pro"],
     ["Hide Apps", "Pro"],
     ["Save Layouts", "Free"],
+    ["Sort apps A-Z", "Free"],
     ["Change icons size", "Free"],
     ["Auto Dark / Light Theme", "Free"],
     ["Page with Categories", "Free"],
@@ -31,13 +32,27 @@
         "Hide Apps": "PAID"
       }
     },
-    "appgrid": { "name": "AppGrid" },
+    "appgrid": {
+      "name": "AppGrid",
+      "overrides": {
+        "Hide Apps": "PAID",
+        "Save Layouts": "PAID",
+        "Sort apps A-Z": "PAID"
+      }
+    },
     "apphub": { "name": "AppHub" },
     "buho-launchpad": { "name": "Buho Launchpad" },
     "folderx": { "name": "FolderX" },
     "hotlaunch": { "name": "HotLaunch" },
     "launchnext": { "name": "LaunchNext" },
-    "launchos": { "name": "LaunchOS" },
+    "launchos": {
+      "name": "LaunchOS",
+      "overrides": {
+        "Gesture Invoke": "PAID",
+        "Hot Corners": "PAID",
+        "Hide Apps": "PAID"
+      }
+    },
     "qal-pro": { "name": "QAL Pro" },
     "udock": { "name": "Udock" }
   }
