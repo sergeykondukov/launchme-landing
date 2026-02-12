@@ -40,7 +40,14 @@
         "Sort apps A-Z": "PAID"
       }
     },
-    "apphub": { "name": "AppHub" },
+    "apphub": {
+      "name": "AppHub",
+      "overrides": {
+        "Hot Corners": "PAID",
+        "Change icons size": "PAID",
+        "Hide Apps": "PAID"
+      }
+    },
     "buho-launchpad": { "name": "Buho Launchpad" },
     "folderx": { "name": "FolderX" },
     "hotlaunch": { "name": "HotLaunch" },
