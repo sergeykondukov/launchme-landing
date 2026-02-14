@@ -253,6 +253,80 @@ a:hover { color: #fff; }
   color: #ffffff;
 }
 
+/* =============================
+   Supported Languages section
+   - Placed between LaunchMe Features and FAQ
+   - Uses a clean, simple grid for fast scanning
+   - Extra semantic clarity in HTML helps SEO/GEO (AI search)
+   ============================= */
+.supported-languages {
+  /* Slightly darker panel to visually separate this block */
+  background: #03101a;
+}
+
+.languages-grid {
+  /* Semantic list reset + fixed grid like in the screenshot */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  /* 9 languages in one row on desktop */
+  grid-template-columns: repeat(9, 70px);
+  justify-content: center;
+  gap: 22px 20px;
+}
+
+.language-item {
+  /* Keep every language centered and compact */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.language-flag {
+  /* Exactly as requested: 70x70 flags */
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+.language-name {
+  /* Exactly as requested: text size 12 and 16px offset from icon */
+  margin-top: 16px;
+  font-size: 12px;
+  color: #e8f2fb;
+  line-height: 1.25;
+}
+
+.language-soon {
+  /* Small secondary label for languages marked as upcoming */
+  margin-top: 4px;
+  font-size: 8px;
+  line-height: 1.1;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.language-note {
+  /* Small inline note used in language names, e.g. "(Portugal)" */
+  font-size: 8px;
+  line-height: 1;
+  color: var(--muted);
+}
+
+/* Mobile layout: 6 languages in one row */
+@media (max-width: 767px) {
+  .languages-grid {
+    grid-template-columns: repeat(6, 70px);
+    justify-content: center;
+    gap: 18px 12px;
+  }
+}
+
 /* Responsive tuning for mobile/portrait to keep the video fully inside the laptop screen
    We override the screen window variables so the video scales with the PNG cutout */
 @media (max-width: 700px) {
@@ -744,6 +818,7 @@ a:hover { color: #fff; }
   .help-center .help-main {
     padding: 30px 0 60px;
   }
+}
 
 /* =============================
    Blog Page Styles
