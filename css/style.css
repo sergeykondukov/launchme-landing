@@ -318,12 +318,20 @@ a:hover { color: #fff; }
   color: var(--muted);
 }
 
-/* Mobile layout: 6 languages in one row */
+/* Mobile layout: 4 languages per row to avoid horizontal scroll on narrow screens.
+   Uses 1fr for flexible columns so grid fits viewport width. */
 @media (max-width: 767px) {
   .languages-grid {
-    grid-template-columns: repeat(6, 70px);
+    grid-template-columns: repeat(4, 1fr);
     justify-content: center;
     gap: 18px 12px;
+  }
+  /* Scale down flags on mobile so they fit within flexible columns */
+  .language-flag {
+    width: 100%;
+    max-width: 70px;
+    height: auto;
+    aspect-ratio: 1;
   }
 }
 
