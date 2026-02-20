@@ -1,0 +1,6 @@
+# robots.txt for launchmeapp.com
+# Allows all crawlers to index the site; points to sitemap for discovery.
+User-agent: *
+Allow: /
+
+Sitemap: https://launchmeapp.com/sitemap.xml
