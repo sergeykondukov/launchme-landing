@@ -503,6 +503,24 @@ a:hover { color: #fff; }
   }
 }
 
+/* When wide card becomes square (mobile): reduce height by 30%, image fills width and hugs bottom */
+@media (max-width: 767px) {
+  .lm-card--wide {
+    height: auto !important;
+    aspect-ratio: 10 / 7; /* 70% of square height — 30% reduction */
+  }
+  .lm-card--wide .lm-card__image[src*="dynamic-wallpaper"],
+  .lm-card--wide .lm-card__image[src*="liquid-glass"],
+  .lm-card--wide .lm-card__image[src*="dynamic-weather"] {
+    top: auto;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: bottom center;
+  }
+}
+
 /* Sizes */
 .lm-card--wide { height: auto; }
 .lm-card--square { height: auto; aspect-ratio: 1 / 1; }
