@@ -124,6 +124,26 @@
             justify-content: center;
         }
         /*
+          Screenshot cards: image centered with side padding, rounded corners on image.
+        */
+        .press-asset-card--screenshot .press-asset-card__preview {
+            overflow: visible;
+            border-radius: calc(var(--radius-lg) - 8px);
+            min-height: 160px;
+            height: 160px;
+            padding: 0 12px;
+        }
+        /* Centered, contain to fit, small radius on the image itself */
+        .press-asset-card--screenshot .press-asset-card__preview img {
+            position: relative;
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+        /*
           Inner background: colored area behind the image.
           Radius = outer - padding. Outer 24px, inner padding ~12px → inner radius ~12px.
           Uses --preview-bg set per card (F8F9FA or #202124).
@@ -300,9 +320,9 @@
             <!--
               Row 3: Screenshots (all F8F9FA)
               SEO/performance: use small previews for display, full-size for download only.
-              Previews ~150-225 KB vs originals 1.4-2.6 MB - much faster page load.
+              --screenshot: image fills area, clipped by rounded corners.
             -->
-            <article class="press-asset-card" role="listitem" style="--preview-bg: #F8F9FA;">
+            <article class="press-asset-card press-asset-card--screenshot" role="listitem" style="--preview-bg: #F8F9FA;">
                 <div class="press-asset-card__preview">
                     <div class="press-asset-card__preview-bg"></div>
                     <img src="../images/press/screenshot-dark-preview.png" alt="LaunchMe app screenshot - dark theme">
@@ -311,7 +331,7 @@
                 </div>
                 <p class="press-asset-card__label">Screenshot - Dark</p>
             </article>
-            <article class="press-asset-card" role="listitem" style="--preview-bg: #F8F9FA;">
+            <article class="press-asset-card press-asset-card--screenshot" role="listitem" style="--preview-bg: #F8F9FA;">
                 <div class="press-asset-card__preview">
                     <div class="press-asset-card__preview-bg"></div>
                     <img src="../images/press/screenshot-light-preview.png" alt="LaunchMe app screenshot - light theme">
@@ -320,7 +340,7 @@
                 </div>
                 <p class="press-asset-card__label">Screenshot - Light</p>
             </article>
-            <article class="press-asset-card" role="listitem" style="--preview-bg: #F8F9FA;">
+            <article class="press-asset-card press-asset-card--screenshot" role="listitem" style="--preview-bg: #F8F9FA;">
                 <div class="press-asset-card__preview">
                     <div class="press-asset-card__preview-bg"></div>
                     <img src="../images/press/screenshot-color-preview.png" alt="LaunchMe app screenshot - colorful theme">
@@ -328,6 +348,35 @@
                     <a href="../images/press/screenshot-color.png" class="press-asset-card__download" download="LaunchMe-screenshot-colorful.png">Download PNG</a>
                 </div>
                 <p class="press-asset-card__label">Screenshot - Colorful</p>
+            </article>
+
+            <!-- Row 4: Full screenshots (blur, dark, light) - fill area, rounded clip -->
+            <article class="press-asset-card press-asset-card--screenshot" role="listitem" style="--preview-bg: #F8F9FA;">
+                <div class="press-asset-card__preview">
+                    <div class="press-asset-card__preview-bg"></div>
+                    <img src="../images/press/screenshot-full-blur-preview.png" alt="LaunchMe full screenshot with blur">
+                    <div class="press-asset-card__overlay" aria-hidden="true"></div>
+                    <a href="../images/press/screenshot-full-blur.png" class="press-asset-card__download" download="LaunchMe-screenshot-full-blur.png">Download PNG</a>
+                </div>
+                <p class="press-asset-card__label">Screenshot Full - Blur</p>
+            </article>
+            <article class="press-asset-card press-asset-card--screenshot" role="listitem" style="--preview-bg: #F8F9FA;">
+                <div class="press-asset-card__preview">
+                    <div class="press-asset-card__preview-bg"></div>
+                    <img src="../images/press/screenshot-full-dark-preview.png" alt="LaunchMe full screenshot - dark">
+                    <div class="press-asset-card__overlay" aria-hidden="true"></div>
+                    <a href="../images/press/screenshot-full-dark.png" class="press-asset-card__download" download="LaunchMe-screenshot-full-dark.png">Download PNG</a>
+                </div>
+                <p class="press-asset-card__label">Screenshot Full - Dark</p>
+            </article>
+            <article class="press-asset-card press-asset-card--screenshot" role="listitem" style="--preview-bg: #F8F9FA;">
+                <div class="press-asset-card__preview">
+                    <div class="press-asset-card__preview-bg"></div>
+                    <img src="../images/press/screenshot-full-light-preview.png" alt="LaunchMe full screenshot - light">
+                    <div class="press-asset-card__overlay" aria-hidden="true"></div>
+                    <a href="../images/press/screenshot-full-light.png" class="press-asset-card__download" download="LaunchMe-screenshot-full-light.png">Download PNG</a>
+                </div>
+                <p class="press-asset-card__label">Screenshot Full - Light</p>
             </article>
         </div>
     </main>
