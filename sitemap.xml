@@ -11,12 +11,12 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://launchmeapp.com/help.html</loc>
+    <loc>https://launchmeapp.com/help/</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://launchmeapp.com/support.html</loc>
+    <loc>https://launchmeapp.com/support/</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
@@ -26,7 +26,7 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://launchmeapp.com/privacy.html</loc>
+    <loc>https://launchmeapp.com/privacy/</loc>
     <priority>0.5</priority>
     <changefreq>yearly</changefreq>
   </url>
