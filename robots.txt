@@ -1,5 +1,6 @@
 # robots.txt for launchmeapp.com
 # Allows all crawlers to index the site; points to sitemap for discovery.
+# Sitemap URL must be HTTPS only to avoid "pages in multiple sitemaps" (http+https).
 User-agent: *
 Allow: /
 

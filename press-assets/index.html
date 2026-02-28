@@ -217,7 +217,7 @@
     <!-- Header: same as other pages -->
     <header class="site-header">
         <div class="container header-inner">
-            <a href="../index.html" class="brand">
+            <a href="/" class="brand">
                 <img class="brand-img" src="../images/logoicontext.png" alt="LaunchMe" />
             </a>
             <a class="header-download" href="https://apps.apple.com/app/apple-store/id6751939046?pt=128114906&ct=Website&mt=8" data-ga="app-store" data-ga-area="press-header">
@@ -297,11 +297,15 @@
                 <p class="press-asset-card__label">Logo - White</p>
             </article>
 
-            <!-- Row 3: Screenshots (all F8F9FA) -->
+            <!--
+              Row 3: Screenshots (all F8F9FA)
+              SEO/performance: use small previews for display, full-size for download only.
+              Previews ~150-225 KB vs originals 1.4-2.6 MB - much faster page load.
+            -->
             <article class="press-asset-card" role="listitem" style="--preview-bg: #F8F9FA;">
                 <div class="press-asset-card__preview">
                     <div class="press-asset-card__preview-bg"></div>
-                    <img src="../images/press/screenshot-dark.png" alt="LaunchMe app screenshot - dark theme">
+                    <img src="../images/press/screenshot-dark-preview.png" alt="LaunchMe app screenshot - dark theme">
                     <div class="press-asset-card__overlay" aria-hidden="true"></div>
                     <a href="../images/press/screenshot-dark.png" class="press-asset-card__download" download="LaunchMe-screenshot-dark.png">Download PNG</a>
                 </div>
@@ -310,7 +314,7 @@
             <article class="press-asset-card" role="listitem" style="--preview-bg: #F8F9FA;">
                 <div class="press-asset-card__preview">
                     <div class="press-asset-card__preview-bg"></div>
-                    <img src="../images/press/screenshot-light.png" alt="LaunchMe app screenshot - light theme">
+                    <img src="../images/press/screenshot-light-preview.png" alt="LaunchMe app screenshot - light theme">
                     <div class="press-asset-card__overlay" aria-hidden="true"></div>
                     <a href="../images/press/screenshot-light.png" class="press-asset-card__download" download="LaunchMe-screenshot-light.png">Download PNG</a>
                 </div>
@@ -319,7 +323,7 @@
             <article class="press-asset-card" role="listitem" style="--preview-bg: #F8F9FA;">
                 <div class="press-asset-card__preview">
                     <div class="press-asset-card__preview-bg"></div>
-                    <img src="../images/press/screenshot-color.png" alt="LaunchMe app screenshot - colorful theme">
+                    <img src="../images/press/screenshot-color-preview.png" alt="LaunchMe app screenshot - colorful theme">
                     <div class="press-asset-card__overlay" aria-hidden="true"></div>
                     <a href="../images/press/screenshot-color.png" class="press-asset-card__download" download="LaunchMe-screenshot-colorful.png">Download PNG</a>
                 </div>
@@ -331,7 +335,7 @@
     <!-- Footer with Press Assets link -->
     <footer class="site-footer">
         <div class="container footer-inner">
-            <a href="../index.html" class="brand small"><img class="brand-img" src="../images/logoicontext.png" alt="LaunchMe" /></a>
+            <a href="/" class="brand small"><img class="brand-img" src="../images/logoicontext.png" alt="LaunchMe" /></a>
             <nav class="footer-nav" aria-label="Footer">
                 <a href="../support.html">Support</a>
                 <a href="../privacy.html">Privacy Policy</a>
