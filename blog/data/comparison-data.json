@@ -16,13 +16,10 @@
     ["Hide Apps", "Pro"],
     ["Save Layouts", "Free"],
     ["Sort apps A-Z", "Free"],
-    ["Change icons size", "Free"],
     ["Auto System Icon Style", "Free"],
-    ["Auto Dark / Light Theme", "Free"],
     ["Page with Categories", "Free"],
-    ["Free Layout Grid", "Free"],
-    ["Snow animation", "Free"],
-    ["Glass or Flat themes", "Pro"]
+    ["Customizable Grid with apps", "Free"],
+    ["Extensions ecosystem", "–"]
   ],
   "competitors": {
     "launchie": {
@@ -45,7 +42,6 @@
       "name": "AppHub",
       "overrides": {
         "Hot Corners": "PAID",
-        "Change icons size": "PAID",
         "Hide Apps": "PAID"
       }
     },
@@ -54,7 +50,6 @@
       "overrides": {
         "Gesture Invoke": "PAID",
         "Save Layouts": "PAID",
-        "Change icons size": "PAID",
         "Auto System Icon Style": "PAID"
       }
     },
@@ -75,6 +70,15 @@
         "Hide Apps": "PAID"
       }
     },
-    "udock": { "name": "Udock" }
+    "udock": { "name": "Udock" },
+    "raycast": {
+      "name": "Raycast",
+      "overrides": {
+        "Search Files": "Free",
+        "Calculator": "Free",
+        "Clipboard": "Pro",
+        "Extensions ecosystem": "Yes"
+      }
+    }
   }
 }
