@@ -1,0 +1,3 @@
+# Netlify (and compatible hosts): normalize /account to the folder route.
+# Browsers keep the URL fragment across this redirect, so Supabase recovery hashes stay intact.
+/account   /account/   301

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Account — LaunchMe</title>
+    <meta name="robots" content="noindex">
+    <!--
+      Some hosts resolve /account to account.html. Supabase adds tokens in the hash (#...).
+      We normalize to /account/ and re-attach the same hash so recovery keeps working.
+    -->
+    <script>
+      (function () {
+        var h = window.location.hash || ''
+        window.location.replace('/account/' + h)
+      })()
+    </script>
+    <link rel="canonical" href="https://launchmeapp.com/account/">
+</head>
+<body>
+    <p>Redirecting to <a href="/account/">account</a>…</p>
+</body>
+</html>

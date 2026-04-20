@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Account — LaunchMe</title>
+    <meta name="description" content="LaunchMe account: password reset after email link, and how LaunchMe uses your Apple subscription.">
+    <link rel="canonical" href="https://launchmeapp.com/account/">
+
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Google Analytics 4 (same property as the rest of the site) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0FCPNZRQH0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-0FCPNZRQH0');
+    </script>
+</head>
+<body class="doc account-page">
+    <!--
+      /account — used as Supabase Auth redirect_to for password recovery from LaunchMe (Direct).
+      When the URL hash contains type=recovery, the bundled script shows the reset form.
+      Otherwise visitors see normal explanatory content (no broken layout).
+    -->
+    <header class="site-header minimal">
+        <div class="container header-inner">
+            <a class="brand" href="/"><img class="brand-img" src="../images/logoicontext.png" alt="LaunchMe"></a>
+            <a class="button ghost header-download" href="https://apps.apple.com/app/apple-store/id6751939046?pt=128114906&ct=Website&mt=8">Mac App Store</a>
+        </div>
+    </header>
+
+    <main class="help-main container account-main">
+        <h1>Account</h1>
+
+        <!-- Shown when the site was deployed without running build:account with env vars. -->
+        <section id="account-config-missing" class="account-card account-card--warn" hidden>
+            <h2>Configuration required</h2>
+            <p>Password reset is not available on this copy of the site yet. The team needs to deploy with <code>NEXT_PUBLIC_SUPABASE_URL</code> and <code>NEXT_PUBLIC_SUPABASE_ANON_KEY</code> set, then run <code>pnpm run build:account</code> before publishing.</p>
+        </section>
+
+        <!-- Default content when the visitor is not in an email recovery flow. -->
+        <div id="account-default-panel" class="account-default">
+            <p class="help-intro">LaunchMe on the Mac App Store uses your Apple ID. There is no separate website login for the store version.</p>
+            <section class="account-card">
+                <h2>LaunchMe (Direct)</h2>
+                <p>If you use LaunchMe <strong>Direct</strong> with email and password, you sign in inside the app. Password reset links from email open on this page so you can choose a new password securely.</p>
+                <p class="account-muted">After a successful reset, open LaunchMe (Direct) and sign in with your email and the new password.</p>
+            </section>
+            <section class="account-card">
+                <h2>Need the app?</h2>
+                <p><a class="button primary" href="https://apps.apple.com/app/apple-store/id6751939046?pt=128114906&ct=Website&mt=8">Download on the Mac App Store</a></p>
+                <p><a href="/">← Back to LaunchMe home</a></p>
+            </section>
+        </div>
+
+        <!-- Visible only for Supabase recovery hash (type=recovery). Populated by js/account.bundle.js. -->
+        <div id="account-recovery-panel" class="account-recovery" hidden>
+            <section class="account-card">
+                <h2>Set a new password</h2>
+                <p class="account-muted">You opened a valid reset link. Choose a new password for your LaunchMe (Direct) account.</p>
+
+                <p id="account-recovery-session-error" class="account-error" role="alert" hidden></p>
+
+                <form id="account-recovery-form" novalidate>
+                    <div class="account-field">
+                        <label for="account-new-password">New password</label>
+                        <input id="account-new-password" name="password" type="password" autocomplete="new-password" required minlength="8">
+                    </div>
+                    <div class="account-field">
+                        <label for="account-new-password-confirm">Confirm password</label>
+                        <input id="account-new-password-confirm" name="password_confirm" type="password" autocomplete="new-password" required minlength="8">
+                    </div>
+                    <p id="account-recovery-error" class="account-error" role="alert" hidden></p>
+                    <button type="submit" class="button primary" id="account-recovery-submit">Save password</button>
+                </form>
+            </section>
+        </div>
+
+        <div id="account-recovery-success" class="account-recovery-success" hidden>
+            <section class="account-card account-card--success">
+                <h2>Password updated</h2>
+                <p>Your password was saved. You can sign in inside <strong>LaunchMe (Direct)</strong> with your email and the new password.</p>
+                <p><a class="button primary" href="/">Back to LaunchMe home</a></p>
+            </section>
+        </div>
+    </main>
+
+    <!--
+      Bundled by: pnpm run build:account
+      File js/account.bundle.js is gitignored; production and local testing require a build once env is set.
+    -->
+    <script type="module" src="../js/account.bundle.js"></script>
+</body>
+</html>

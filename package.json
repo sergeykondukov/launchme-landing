@@ -2,9 +2,16 @@
   "name": "launchme-landing",
   "private": true,
   "scripts": {
+    "build": "pnpm run build:account",
+    "build:account": "node scripts/build-account.mjs",
     "start": "serve ."
   },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.49.1"
+  },
   "devDependencies": {
+    "dotenv": "^16.4.7",
+    "esbuild": "^0.25.0",
     "serve": "^14.2.4"
   }
 }

@@ -1,0 +1,9 @@
+# Dependencies — never commit (restore with pnpm install)
+node_modules/
+
+# Local env with Supabase keys (never commit)
+.env
+.env.local
+
+# Generated at build time from NEXT_PUBLIC_* (see package.json "build:account")
+js/account.bundle.js
