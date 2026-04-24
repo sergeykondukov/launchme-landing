@@ -433,6 +433,8 @@ a:hover { color: #fff; }
 .doc .doc-main { padding: 40px 0; }
 .doc .doc-main h1 { border-bottom: 2px solid var(--brand); padding-bottom: 10px; }
 .doc .doc-main h2 { margin-top: 28px; }
+/* Subsections (e.g. Privacy §4.1–4.4): slightly tighter than h2 so the outline reads clearly. */
+.doc .doc-main h3 { margin-top: 20px; }
 .last-updated { color: var(--muted); font-style: italic; }
 
 /* =============================
