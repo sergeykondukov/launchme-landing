@@ -21,6 +21,11 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://launchmeapp.com/pricing/</loc>
+    <priority>0.85</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://launchmeapp.com/press-assets/</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>

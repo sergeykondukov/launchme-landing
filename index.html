@@ -106,13 +106,18 @@
       Contains logo and lightweight nav. Anchor links provide smooth scroll (handled in JS).
     -->
     <header class="site-header">
-        <div class="container header-inner">
+        <div class="container header-inner header-inner--split">
             <a href="#top" class="brand">
                 <img class="brand-img" src="images/logoicontext.png" alt="LaunchMe" />
             </a>
-            <a class="header-download" href="https://apps.apple.com/app/apple-store/id6751939046?pt=128114906&ct=Website&mt=8" data-ga="app-store" data-ga-area="header">
-                <img src="images/app-store-badge.svg" alt="Download LaunchMe on the Mac App Store">
-            </a>
+            <span class="header-spacer" aria-hidden="true"></span>
+            <div class="header-actions">
+                <!-- Text link to the public pricing page (Free vs Pro, plans). -->
+                <a href="/pricing/" class="header-pricing-btn" data-ga="nav-pricing" data-ga-area="header">Pricing</a>
+                <a class="header-download" href="https://apps.apple.com/app/apple-store/id6751939046?pt=128114906&ct=Website&mt=8" data-ga="app-store" data-ga-area="header">
+                    <img src="images/app-store-badge.svg" alt="Download LaunchMe on the Mac App Store">
+                </a>
+            </div>
         </div>
     </header>
 
@@ -836,6 +841,7 @@
             <!-- Canonical URLs (no .html/index) for SEO consistency -->
             <nav class="footer-nav" aria-label="Footer">
                 <a href="/support/">Support</a>
+                <a href="/pricing/">Pricing</a>
                 <a href="/privacy/">Privacy Policy</a>
                 <a href="/terms/">Terms of Service</a>
                 <a href="/refunds/">Refund Policy</a>

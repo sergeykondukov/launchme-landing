@@ -4,7 +4,8 @@
   "scripts": {
     "build": "pnpm run build:account",
     "build:account": "node scripts/build-account.mjs",
-    "start": "serve ."
+    "start": "serve .",
+    "start:ipv4": "serve . -l tcp://127.0.0.1:3000"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.49.1"
