@@ -11,7 +11,7 @@ Official references:
 - [Password-based Auth](https://supabase.com/docs/guides/auth/passwords)
 - [JavaScript `updateUser`](https://supabase.com/docs/reference/javascript/auth-updateuser)
 
-### Environment variables
+### Environment variables 
 
 Copy `env.example` to `.env` and set:
 
