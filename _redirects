@@ -1,3 +1,5 @@
 # Netlify (and compatible hosts): normalize /account to the folder route.
 # Browsers keep the URL fragment across this redirect, so Supabase recovery hashes stay intact.
 /account   /account/   301
+# Paddle checkout deep links from app should always resolve to the route folder.
+/paddle   /paddle/   301

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LaunchMe - Secure Checkout</title>
+    <meta name="description" content="Secure LaunchMe checkout powered by Paddle.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="canonical" href="https://launchmeapp.com/paddle/">
+
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .paddle-page {
+            min-height: 100vh;
+            background: var(--lm-features-bg, #04111c);
+            color: var(--text);
+        }
+        .paddle-wrap {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 120px 20px 48px;
+            text-align: center;
+        }
+        .paddle-card {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 18px;
+            padding: 24px 20px;
+        }
+        .paddle-title {
+            margin: 0 0 8px;
+            font-size: 30px;
+            line-height: 1.2;
+        }
+        .paddle-status {
+            margin: 8px 0 0;
+            color: var(--muted);
+            font-size: 15px;
+            line-height: 1.45;
+        }
+        .paddle-status.is-error {
+            color: #ffb7b7;
+        }
+        .paddle-note {
+            margin: 14px 0 0;
+            color: var(--muted);
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body class="paddle-page">
+    <main class="paddle-wrap">
+        <div class="paddle-card" role="status" aria-live="polite">
+            <h1 class="paddle-title">Checkout</h1>
+            <p id="paddle-status" class="paddle-status">Preparing secure checkout…</p>
+            <p class="paddle-note">Secure checkout powered by Paddle.</p>
+        </div>
+    </main>
+
+    <!-- Build-time generated public config (token + env). -->
+    <script src="../js/paddle-config.js"></script>
+    <!-- Paddle Billing v2 SDK -->
+    <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
+    <script>
+      (function initPaddleCheckoutPage() {
+        const statusEl = document.getElementById('paddle-status');
+
+        function setStatus(message, isError) {
+          statusEl.textContent = message;
+          statusEl.classList.toggle('is-error', Boolean(isError));
+        }
+
+        const params = new URLSearchParams(window.location.search);
+        const transactionId = params.get('_ptxn');
+        if (!transactionId) {
+          // Clear fallback for malformed/deep links: user opened /paddle without transaction id.
+          setStatus('Missing transaction id. Please reopen checkout from the app.');
+          return;
+        }
+
+        const cfg = window.PADDLE_CONFIG || {};
+        if (!cfg.clientToken) {
+          // We cannot initialize Paddle without a client-side token.
+          setStatus('Checkout is not configured. Missing Paddle client token.', true);
+          return;
+        }
+
+        if (!window.Paddle) {
+          setStatus('Unable to load Paddle.js. Please refresh and try again.', true);
+          return;
+        }
+
+        try {
+          // Paddle requires explicit sandbox setup for test environments.
+          if (cfg.env === 'sandbox' && window.Paddle.Environment && typeof window.Paddle.Environment.set === 'function') {
+            window.Paddle.Environment.set('sandbox');
+          }
+
+          // Important: do not call Paddle.Checkout.open() for _ptxn flow.
+          // Paddle.js opens the checkout automatically when URL has ?_ptxn=...
+          window.Paddle.Initialize({
+            token: cfg.clientToken
+          });
+
+          setStatus('Opening secure checkout…');
+        } catch (error) {
+          const message = error && error.message ? error.message : 'Unknown Paddle initialization error';
+          setStatus('Failed to initialize checkout: ' + message, true);
+        }
+      })();
+    </script>
+</body>
+</html>

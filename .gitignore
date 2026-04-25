@@ -7,3 +7,4 @@ node_modules/
 
 # Generated at build time from NEXT_PUBLIC_* (see package.json "build:account")
 js/account.bundle.js
+js/paddle-config.js

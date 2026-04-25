@@ -2,8 +2,9 @@
   "name": "launchme-landing",
   "private": true,
   "scripts": {
-    "build": "pnpm run build:account",
+    "build": "pnpm run build:account && pnpm run build:paddle",
     "build:account": "node scripts/build-account.mjs",
+    "build:paddle": "node scripts/build-paddle-config.mjs",
     "start": "serve .",
     "start:ipv4": "serve . -l tcp://127.0.0.1:3000"
   },

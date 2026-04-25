@@ -17,6 +17,8 @@ Copy `env.example` to `.env` and set:
 
 - `NEXT_PUBLIC_SUPABASE_URL`
 - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+- `PADDLE_CLIENT_TOKEN`
+- `PADDLE_ENV` (`sandbox` or `production`)
 
 Use the same names in Netlify, Vercel, or GitHub Actions. The anon key is public by design but must not be hard-coded in git; inject it at build time.
 
@@ -37,10 +39,15 @@ Custom domain (`launchmeapp.com`) stays under **Settings → Pages** as today; t
 
 ```bash
 pnpm install
-pnpm run build:account
+pnpm run build
 ```
 
-This writes `js/account.bundle.js` (gitignored). Production deploys should run `pnpm run build` (or `build:account`) with the variables above exported or present in `.env`.
+This writes:
+
+- `js/account.bundle.js` (Supabase account flow)
+- `js/paddle-config.js` (public Paddle checkout config)
+
+Both are gitignored. Production deploys should run `pnpm run build` with required env vars exported or present in `.env`.
 
 ### Local verification (password reset)
 
@@ -55,3 +62,32 @@ If the link is expired or reused, the page should show a clear error instead of 
 ### Routing note
 
 Supabase may redirect to `https://launchmeapp.com/account` (no trailing slash). Netlify `_redirects` issues a single 301 to `/account/`; browsers keep the **fragment** on that redirect, so recovery still works. If you use another host, add an equivalent rule (avoid redirect rules that also match `/account/` or you can create a redirect loop).
+
+## Paddle checkout route (`/paddle`)
+
+`/paddle` is a dedicated page for Paddle Billing checkout deep links coming from the app.
+
+### Why a separate route
+
+- The app opens checkout links that include a transaction query param (for example `?_ptxn=txn_xxx`).
+- Paddle.js should load in an isolated page so marketing/home content does not interfere with checkout UI.
+- For `_ptxn` flow, we initialize Paddle and let the SDK auto-open checkout from URL.
+
+### Local run and test
+
+1. Set `.env` values:
+   - `PADDLE_CLIENT_TOKEN=...`
+   - `PADDLE_ENV=sandbox` (or `production`)
+2. Build generated browser files:
+   ```bash
+   pnpm run build
+   ```
+3. Start static server:
+   ```bash
+   pnpm start
+   ```
+4. Test route with transaction:
+   - `http://localhost:3000/paddle?_ptxn=txn_xxx`
+5. Fallback checks:
+   - Open `http://localhost:3000/paddle` and confirm message: **Missing transaction id**.
+   - If token/env is wrong, the page shows an initialization error instead of a blank page.
