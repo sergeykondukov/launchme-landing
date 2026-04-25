@@ -18,6 +18,10 @@ on:
   # Lets you run the workflow manually from the Actions tab (useful after changing secrets).
   workflow_dispatch:
 
+# Opt into Node 24 runtime for GitHub-hosted JavaScript actions ahead of Node 20 removal.
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 permissions:
   contents: read
   pages: write
