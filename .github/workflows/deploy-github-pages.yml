@@ -1,7 +1,11 @@
 # Build the static site on GitHub (injects Supabase keys into js/account.bundle.js) and publish to GitHub Pages.
 #
 # One-time repo setup (you do this in the GitHub website UI):
-# 1) Settings → Secrets and variables → Actions → add NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY
+# 1) Settings → Secrets and variables → Actions → add:
+#    - NEXT_PUBLIC_SUPABASE_URL
+#    - NEXT_PUBLIC_SUPABASE_ANON_KEY
+#    - PADDLE_CLIENT_TOKEN
+#    - PADDLE_ENV (sandbox or production)
 # 2) Settings → Pages → Build and deployment → Source: "GitHub Actions" (not "Deploy from a branch")
 
 name: Deploy GitHub Pages
@@ -47,11 +51,13 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       # Secrets you added in GitHub become env vars only for this step (they are not written into the repo).
-      - name: Build account bundle (Supabase client + recovery UI)
+      - name: Build static assets (Supabase + Paddle config)
         run: pnpm run build
         env:
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
           NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+          PADDLE_CLIENT_TOKEN: ${{ secrets.PADDLE_CLIENT_TOKEN }}
+          PADDLE_ENV: ${{ secrets.PADDLE_ENV }}
 
       # The Pages artifact must be small; node_modules is huge and not served to visitors.
       - name: Remove node_modules before upload
