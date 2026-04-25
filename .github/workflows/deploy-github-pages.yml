@@ -59,6 +59,12 @@ jobs:
           PADDLE_CLIENT_TOKEN: ${{ secrets.PADDLE_CLIENT_TOKEN }}
           PADDLE_ENV: ${{ secrets.PADDLE_ENV }}
 
+      # Guardrail: fail deploy early if generated browser files are missing.
+      - name: Verify generated bundles exist
+        run: |
+          test -f js/account.bundle.js
+          test -f js/paddle-config.js
+
       # The Pages artifact must be small; node_modules is huge and not served to visitors.
       - name: Remove node_modules before upload
         run: rm -rf node_modules
