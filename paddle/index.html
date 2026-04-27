@@ -102,7 +102,19 @@
           // Important: do not call Paddle.Checkout.open() for _ptxn flow.
           // Paddle.js opens the checkout automatically when URL has ?_ptxn=...
           window.Paddle.Initialize({
-            token: cfg.clientToken
+            token: cfg.clientToken,
+            // After successful Paddle overlay payment, hand off to the macOS app.
+            eventCallback: function (event) {
+              if (event && event.name === 'checkout.completed') {
+                if (event.data && event.data.transaction_id) {
+                  window.location.href =
+                    'launchme://paddle-checkout/complete?_ptxn=' +
+                    encodeURIComponent(event.data.transaction_id);
+                } else {
+                  window.location.href = 'launchme://paddle-checkout/complete';
+                }
+              }
+            }
           });
 
           setStatus('Opening secure checkout…');
