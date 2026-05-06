@@ -2,7 +2,8 @@
   "name": "launchme-landing",
   "private": true,
   "scripts": {
-    "build": "pnpm run build:account && pnpm run build:paddle",
+    "build": "pnpm run build:headers && pnpm run build:account && pnpm run build:paddle",
+    "build:headers": "node scripts/build-headers.mjs",
     "build:account": "node scripts/build-account.mjs",
     "build:paddle": "node scripts/build-paddle-config.mjs",
     "start": "serve .",

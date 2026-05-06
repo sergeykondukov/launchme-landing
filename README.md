@@ -2,6 +2,13 @@
 
 Static site: HTML, CSS, and a small amount of JavaScript served from the repository root (no Next.js or Astro). GitHub Pages–friendly paths. Netlify `_redirects` normalizes `/account` → `/account/` in production; the local `serve` package already serves both `/account` and `/account/` without extra config.
 
+## Shared site header (partials + build step)
+
+The same navigation bar is not copy-pasted by hand: source lives under `partials/` (`header-marketing.html`, `header-minimal.html`, `header-account.html`) and is stitched into every mapped page by `scripts/build-headers.mjs` when you run `pnpm run build:headers` (also runs at the start of `pnpm run build`).
+
+- **Edit** the partials (or the `DMG_URL` constant in `scripts/build-headers.mjs` when you ship a new `LaunchMeDirect-*.dmg`).
+- **Do not** hand-edit `<header class="site-header">…</header>` blocks on listed pages — they are overwritten on the next header build.
+
 ## Account page and Supabase password reset
 
 LaunchMe **(Direct)** uses Supabase Auth. Forgot-password emails redirect to **`https://launchmeapp.com/account/`** (see Supabase **Site URL** / **Redirect URLs**). Tokens arrive in the URL **hash** (`#…&type=recovery…`). The UI is implemented in `src/account/main.js`, bundled to `js/account.bundle.js` so secrets are not committed.
@@ -44,10 +51,11 @@ pnpm run build
 
 This writes:
 
+- Injected `<header>…</header>` blocks from `partials/` / `scripts/build-headers.mjs`
 - `js/account.bundle.js` (Supabase account flow)
 - `js/paddle-config.js` (public Paddle checkout config)
 
-Both are gitignored. Production deploys should run `pnpm run build` with required env vars exported or present in `.env`.
+Headers are written into tracked HTML files (not a separate `dist/` folder). Account and Paddle bundles are gitignored.
 
 ### Local verification (password reset)
 

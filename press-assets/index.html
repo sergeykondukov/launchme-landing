@@ -234,17 +234,24 @@
     </style>
 </head>
 <body>
-    <!-- Header: same as other pages -->
+    <!-- Nav from partials/header-marketing.html (pnpm run build:headers). -->
     <header class="site-header">
-        <div class="container header-inner">
+        <div class="container header-inner header-inner--split">
             <a href="/" class="brand">
-                <img class="brand-img" src="../images/logoicontext.png" alt="LaunchMe" />
+                <img class="brand-img" src="/images/logoicontext.png" alt="LaunchMe" />
             </a>
-            <a class="header-download" href="https://apps.apple.com/app/apple-store/id6751939046?pt=128114906&ct=Website&mt=8" data-ga="app-store" data-ga-area="press-header">
-                <img src="../images/app-store-badge.svg" alt="Download LaunchMe on the Mac App Store">
-            </a>
+            <span class="header-spacer" aria-hidden="true"></span>
+            <div class="header-actions">
+                <a href="/pricing/" class="header-pricing-btn" data-ga="nav-pricing" data-ga-area="header">Pricing</a>
+                <a class="header-download" href="/updates/LaunchMeDirect-1.112.6.dmg" data-ga="direct-dmg" data-ga-area="press-header">
+                    <img src="/images/download-button.svg" alt="Download LaunchMe for Mac (direct download)">
+                </a>
+            </div>
         </div>
     </header>
+
+
+
 
     <main>
         <section class="press-assets-hero">
