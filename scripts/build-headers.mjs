@@ -6,17 +6,16 @@
  * Why: static GitHub Pages site has no server-side includes; one partial + this script = single place
  * to change navigation and DMG URL across the whole site.
  *
- * DMG URL lives here only — bump when you ship a new LaunchMeDirect-x.y.z.dmg.
+ * DMG path: scripts/site-config.mjs (shared with Sparkle / hero / article CTAs).
  */
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import { DMG_PATH } from './site-config.mjs';
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
-
-/** Bump together with Sparkle appcast + hero CTAs when you release a new Direct build. */
-const DMG_URL = '/updates/LaunchMeDirect-1.112.6.dmg';
 
 /** Horizontal whitespace before `<header>` is included so repeated builds do not stack indent. */
 const HEADER_RE = /[^\S\r\n]*<header\s+class="site-header(?:\s+minimal)?"[^>]*>[\s\S]*?<\/header>/;
@@ -31,11 +30,11 @@ function applyMarketing(template, { homeHref, pricingAria, downloadGa }) {
     .replaceAll('__HOME_HREF__', homeHref)
     .replaceAll('__PRICING_ARIA__', pricingAria ? ' aria-current="page"' : '')
     .replaceAll('__DOWNLOAD_GA_AREA__', downloadGa)
-    .replaceAll('__DMG_URL__', DMG_URL);
+    .replaceAll('__DMG_URL__', DMG_PATH);
 }
 
 function applyAccount(template) {
-  return template.replaceAll('__DMG_URL__', DMG_URL);
+  return template.replaceAll('__DMG_URL__', DMG_PATH);
 }
 
 /**
@@ -147,7 +146,7 @@ function main() {
     console.log(`ok: ${rel}`);
   }
 
-  console.log(`\nbuild-headers: updated ${updated} file(s). DMG_URL=${DMG_URL}`);
+  console.log(`\nbuild-headers: updated ${updated} file(s). DMG_PATH=${DMG_PATH}`);
 }
 
 main();

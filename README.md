@@ -2,11 +2,18 @@
 
 Static site: HTML, CSS, and a small amount of JavaScript served from the repository root (no Next.js or Astro). GitHub Pages–friendly paths. Netlify `_redirects` normalizes `/account` → `/account/` in production; the local `serve` package already serves both `/account` and `/account/` without extra config.
 
+## Download URL, hero CTA, and App Store → Direct badges
+
+- **One DMG name** for the whole static site: `scripts/site-config.mjs` (`DMG_FILENAME` / `DMG_PATH` / `DMG_ABS_URL`). Bump this when you upload a new `LaunchMeDirect-*.dmg` to `/updates/` (and keep `updates/appcast.xml` in sync for Sparkle).
+- **Homepage hero** (single white download badge) is defined in `partials/hero-cta.html` and injected into `index.html` between `<!-- LAUNCHME_HERO_CTA_BEGIN -->` / `<!-- LAUNCHME_HERO_CTA_END -->` by `scripts/build-download-badges.mjs`. Do not hand-edit the inner `<a class="app-badge">…</a>` between those markers.
+
+Run **`pnpm run build:download-badges`** (included in **`pnpm run build`**) after changing the partial or config.
+
 ## Shared site header (partials + build step)
 
-The same navigation bar is not copy-pasted by hand: source lives under `partials/` (`header-marketing.html`, `header-minimal.html`, `header-account.html`) and is stitched into every mapped page by `scripts/build-headers.mjs` when you run `pnpm run build:headers` (also runs at the start of `pnpm run build`).
+The same navigation bar is not copy-pasted by hand: source lives under `partials/` (`header-marketing.html`, `header-minimal.html`, `header-account.html`) and is stitched into every mapped page by `scripts/build-headers.mjs` when you run `pnpm run build:headers` (also runs as part of **`pnpm run build`**).
 
-- **Edit** the partials (or the `DMG_URL` constant in `scripts/build-headers.mjs` when you ship a new `LaunchMeDirect-*.dmg`).
+- **Edit** the partials (and **`scripts/site-config.mjs`** for the DMG path used inside header badges).
 - **Do not** hand-edit `<header class="site-header">…</header>` blocks on listed pages — they are overwritten on the next header build.
 
 ## Account page and Supabase password reset
@@ -51,11 +58,12 @@ pnpm run build
 
 This writes:
 
+- Regenerated download CTAs from `partials/hero-cta.html` / `scripts/build-download-badges.mjs`
 - Injected `<header>…</header>` blocks from `partials/` / `scripts/build-headers.mjs`
 - `js/account.bundle.js` (Supabase account flow)
 - `js/paddle-config.js` (public Paddle checkout config)
 
-Headers are written into tracked HTML files (not a separate `dist/` folder). Account and Paddle bundles are gitignored.
+Generated HTML fragments and injected bundles use paths from **`scripts/site-config.mjs`** where applicable. Account and Paddle bundles are gitignored.
 
 ### Local verification (password reset)
 
