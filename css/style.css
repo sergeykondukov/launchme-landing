@@ -58,7 +58,7 @@ a:hover { color: #fff; }
   display: flex; align-items: center; justify-content: space-between;
   height: 64px;
 }
-/* When the header includes a middle spacer + actions (e.g. Pricing + App Store badge). */
+/* When the header includes a middle spacer + actions (e.g. Pricing + download badge). */
 .header-inner--split .header-spacer {
   flex: 1 1 auto;
   min-width: 8px;
@@ -69,7 +69,7 @@ a:hover { color: #fff; }
   gap: 14px;
   flex-shrink: 0;
 }
-/* Pricing in header: plain text link (same bar as App Store badge, not a pill CTA). */
+/* Pricing in header: plain text link (same bar as download badge, not a pill CTA). */
 .header-pricing-btn {
   display: inline-flex;
   align-items: center;
@@ -137,40 +137,12 @@ a:hover { color: #fff; }
   align-items: center;
 }
 
-/*
-  Direct DMG download: same row height as the Mac App Store badge (.app-badge img is 60px tall).
-  Visual language matches Apple’s badge asset — white capsule, black type, light edge (see app-store-badge.svg).
-*/
-.hero-direct-download {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-  min-height: 60px;
-  padding: 0 22px;
-  border-radius: 12px;
-  font-size: 16px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  color: #000;
-  background: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
-  transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
-}
-.hero-direct-download:hover {
-  color: #000;
-  background: #f5f5f7;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transform: translateY(-1px);
-}
+/* App Store / direct-download badges: hero CTAs use the same SVG badge sizing (.app-badge img). */
+.app-badge img { height: 60px; display: block; }
 
 .button { display: inline-block; padding: 12px 18px; border-radius: 10px; border: 1px solid var(--border); background: var(--card); color: #fff; }
 .button.primary { background: linear-gradient(90deg, var(--brand), var(--brand-2)); border-color: transparent; }
 .button.ghost { background: transparent; }
-
-/* App Store badge */
-.app-badge img { height: 60px; display: block; }
 
 /* Sections */
 .section { padding: 64px 0; }
