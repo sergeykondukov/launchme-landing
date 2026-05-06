@@ -127,7 +127,40 @@ a:hover { color: #fff; }
 .tagline { color: var(--muted); margin: 0; font-size: 26px; font-weight: 500; }
 .hero-title { font-size: 60px; line-height: 1.1; margin: 0; font-weight: 800; }
 .hero-sub { color: var(--muted); margin-top: -6px; font-size: 20px; font-weight: 500; }
-.cta-group { display: flex; gap: 12px; margin-top: 6px; }
+/* Hero CTAs: App Store badge + optional direct DMG; wrap on narrow screens. */
+.cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 6px;
+  justify-content: center;
+  align-items: center;
+}
+
+/*
+  Direct DMG download (same vertical band as the Mac App Store badge image).
+  Badge graphics are 60px tall (.app-badge img); we match that so the row looks even.
+*/
+.hero-direct-download {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60px;
+  padding: 0 24px;
+  border-radius: 12px;
+  font-size: 17px;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(90deg, var(--brand), var(--brand-2));
+  border: 1px solid transparent;
+  box-shadow: var(--shadow);
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+.hero-direct-download:hover {
+  color: #fff;
+  filter: brightness(1.06);
+  transform: translateY(-1px);
+}
 
 .button { display: inline-block; padding: 12px 18px; border-radius: 10px; border: 1px solid var(--border); background: var(--card); color: #fff; }
 .button.primary { background: linear-gradient(90deg, var(--brand), var(--brand-2)); border-color: transparent; }

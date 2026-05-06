@@ -231,3 +231,15 @@ document.addEventListener('click', function (e) {
   });
 });
 
+// Track direct DMG downloads (Sparkle Direct build) for the same link_area idea as App Store.
+document.addEventListener('click', function (e) {
+  var link = e.target.closest && e.target.closest('a[data-ga="direct-dmg"]');
+  if (!link) return;
+  if (typeof gtag !== 'function') return;
+
+  gtag('event', 'direct_dmg_click', {
+    link_url: link.href,
+    link_area: link.getAttribute('data-ga-area') || 'unknown'
+  });
+});
+
