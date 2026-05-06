@@ -5,5 +5,22 @@
     <link>https://launchmeapp.com/updates/appcast.xml</link>
     <description>LaunchMe Direct app updates</description>
     <language>en</language>
+    <!-- Newest release first (Sparkle reads the feed and picks the latest matching item). -->
+    <item>
+      <title>Version 1.112.6</title>
+      <pubDate>Wed, 06 May 2026 08:32:37 +0000</pubDate>
+      <sparkle:version>78</sparkle:version>
+      <sparkle:shortVersionString>1.112.6</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+      <description><![CDATA[
+    <h3>What's new</h3>
+    <ul><li>First direct version of LaunchMe</li></ul>
+  ]]></description>
+      <enclosure
+        url="https://launchmeapp.com/updates/LaunchMeDirect-1.112.6.dmg"
+        sparkle:edSignature="mZ20imFld1cvISGppUjpHvXUfUQTuNps3+N5UhEnwZyItTsHtgoZcxgtgI0MyXbqOCzr+a1YNnIUstbf5yygDg=="
+        length="29185191"
+        type="application/x-apple-diskimage"/>
+    </item>
   </channel>
 </rss>
