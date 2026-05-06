@@ -162,6 +162,14 @@ a:hover { color: #fff; }
   transform: translateY(-1px);
 }
 
+/*
+  TEMPORARY: hide the direct DMG hero button without deleting markup.
+  To restore: remove class hero-direct-download--temp-hidden from index.html and delete this rule.
+*/
+.hero-direct-download--temp-hidden {
+  display: none !important;
+}
+
 .button { display: inline-block; padding: 12px 18px; border-radius: 10px; border: 1px solid var(--border); background: var(--card); color: #fff; }
 .button.primary { background: linear-gradient(90deg, var(--brand), var(--brand-2)); border-color: transparent; }
 .button.ghost { background: transparent; }
