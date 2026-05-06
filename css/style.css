@@ -138,36 +138,31 @@ a:hover { color: #fff; }
 }
 
 /*
-  Direct DMG download (same vertical band as the Mac App Store badge image).
-  Badge graphics are 60px tall (.app-badge img); we match that so the row looks even.
+  Direct DMG download: same row height as the Mac App Store badge (.app-badge img is 60px tall).
+  Visual language matches Apple’s badge asset — white capsule, black type, light edge (see app-store-badge.svg).
 */
 .hero-direct-download {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
   min-height: 60px;
-  padding: 0 24px;
+  padding: 0 22px;
   border-radius: 12px;
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 600;
-  color: #fff;
-  background: linear-gradient(90deg, var(--brand), var(--brand-2));
-  border: 1px solid transparent;
-  box-shadow: var(--shadow);
-  transition: transform 0.15s ease, filter 0.15s ease;
+  letter-spacing: 0.02em;
+  color: #000;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+  transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
 }
 .hero-direct-download:hover {
-  color: #fff;
-  filter: brightness(1.06);
+  color: #000;
+  background: #f5f5f7;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transform: translateY(-1px);
-}
-
-/*
-  TEMPORARY: hide the direct DMG hero button without deleting markup.
-  To restore: remove class hero-direct-download--temp-hidden from index.html and delete this rule.
-*/
-.hero-direct-download--temp-hidden {
-  display: none !important;
 }
 
 .button { display: inline-block; padding: 12px 18px; border-radius: 10px; border: 1px solid var(--border); background: var(--card); color: #fff; }
