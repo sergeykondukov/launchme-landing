@@ -7,19 +7,19 @@
     <language>en</language>
     <!-- Newest release first (Sparkle reads the feed and picks the latest matching item). -->
     <item>
-      <title>Version 1.112.8</title>
-      <pubDate>Thu, 28 May 2026 04:08:42 +0000</pubDate>
-      <sparkle:version>90</sparkle:version>
-      <sparkle:shortVersionString>1.112.8</sparkle:shortVersionString>
+      <title>Version 1.112.9</title>
+      <pubDate>Thu, 28 May 2026 04:38:28 +0000</pubDate>
+      <sparkle:version>92</sparkle:version>
+      <sparkle:shortVersionString>1.112.9</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
       <description><![CDATA[
         <h3>What's new</h3>
-        <ul><li>Small bug fixes and improvements</li></ul>
+        <ul><li>Small updates and improvements</li></ul>
       ]]></description>
       <enclosure
-        url="https://launchmeapp.com/updates/LaunchMeDirect-1.112.8.dmg"
-        sparkle:edSignature="2NuFtW4IFkos11E+88oiRyTEKCsA2OlvwPE02+iEu9Ee7EkEVWiPOT+bNMj8iltD1OZD6WLoY/aYB6I4S/fvAg=="
-        length="29159850"
+        url="https://launchmeapp.com/updates/LaunchMeDirect-1.112.9.dmg"
+        sparkle:edSignature="Da2piHBZ8J5T3K0vrbTIHtpb5R7SQuxbdNuIjOKskN5P1Hv6UrP2aOeRY03O6LdgvZm6qU3HQACbMAHe3NdYBg=="
+        length="29165920"
         type="application/x-apple-diskimage"/>
     </item>
 
