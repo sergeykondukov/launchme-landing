@@ -7,20 +7,21 @@
     <language>en</language>
     <!-- Newest release first (Sparkle reads the feed and picks the latest matching item). -->
     <item>
-      <title>Version 1.112.6</title>
-      <pubDate>Wed, 06 May 2026 08:32:37 +0000</pubDate>
-      <sparkle:version>78</sparkle:version>
-      <sparkle:shortVersionString>1.112.6</sparkle:shortVersionString>
+      <title>Version 1.112.8</title>
+      <pubDate>Thu, 28 May 2026 04:08:42 +0000</pubDate>
+      <sparkle:version>90</sparkle:version>
+      <sparkle:shortVersionString>1.112.8</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
       <description><![CDATA[
-    <h3>What's new</h3>
-    <ul><li>First direct version of LaunchMe</li></ul>
-  ]]></description>
+        <h3>What's new</h3>
+        <ul><li>Small bug fixes and improvements</li></ul>
+      ]]></description>
       <enclosure
-        url="https://launchmeapp.com/updates/LaunchMeDirect-1.112.6.dmg"
-        sparkle:edSignature="mZ20imFld1cvISGppUjpHvXUfUQTuNps3+N5UhEnwZyItTsHtgoZcxgtgI0MyXbqOCzr+a1YNnIUstbf5yygDg=="
-        length="29185191"
+        url="https://launchmeapp.com/updates/LaunchMeDirect-1.112.8.dmg"
+        sparkle:edSignature="2NuFtW4IFkos11E+88oiRyTEKCsA2OlvwPE02+iEu9Ee7EkEVWiPOT+bNMj8iltD1OZD6WLoY/aYB6I4S/fvAg=="
+        length="29159850"
         type="application/x-apple-diskimage"/>
     </item>
+
   </channel>
 </rss>
