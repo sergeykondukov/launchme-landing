@@ -98,6 +98,22 @@ function replaceLaunchMeStoreUrls(html) {
 }
 
 /**
+ * Keep previously generated direct-download links on the current DMG.
+ * This prevents old website-hosted builds from staying in article/help CTAs after a release bump.
+ */
+function replaceDirectDmgUrls(html) {
+  return html
+    .replace(
+      /https:\/\/launchmeapp\.com\/updates\/LaunchMeDirect-[^"'\s<>]+\.dmg/g,
+      DMG_ABS_URL
+    )
+    .replace(
+      /\/updates\/LaunchMeDirect-[^"'\s<>]+\.dmg/g,
+      DMG_PATH
+    );
+}
+
+/**
  * JSON-LD `offers.url` reads cleaner as an absolute download URL for schema.org consumers.
  * Only touches the SoftwareApplication block when it still references our DMG path.
  */
@@ -126,6 +142,7 @@ function processFile(absPath) {
   html = replaceAppStoreBadgeAnchors(html);
   html = replaceAccountPrimaryCta(html);
   html = replaceLaunchMeStoreUrls(html);
+  html = replaceDirectDmgUrls(html);
   html = absolutizeJsonLdOfferUrl(html, rel);
   html = polishFaqLinkLabels(html);
 
