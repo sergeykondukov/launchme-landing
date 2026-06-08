@@ -7,21 +7,22 @@
     <language>en</language>
     <!-- Newest release first (Sparkle reads the feed and picks the latest matching item). -->
     <item>
-      <title>Version 1.112.9</title>
-      <pubDate>Thu, 28 May 2026 04:38:28 +0000</pubDate>
-      <sparkle:version>92</sparkle:version>
-      <sparkle:shortVersionString>1.112.9</sparkle:shortVersionString>
+      <title>Version 1.113.0</title>
+      <pubDate>Mon, 08 Jun 2026 08:40:18 +0000</pubDate>
+      <sparkle:version>94</sparkle:version>
+      <sparkle:shortVersionString>1.113.0</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
       <description><![CDATA[
         <h3>What's new</h3>
-        <ul><li>Small updates and improvements</li></ul>
+        <ul><li>New feature: Rename Apps</li></ul>
       ]]></description>
       <enclosure
-        url="https://launchmeapp.com/updates/LaunchMeDirect-1.112.9.dmg"
-        sparkle:edSignature="Da2piHBZ8J5T3K0vrbTIHtpb5R7SQuxbdNuIjOKskN5P1Hv6UrP2aOeRY03O6LdgvZm6qU3HQACbMAHe3NdYBg=="
-        length="29165920"
+        url="https://launchmeapp.com/updates/LaunchMeDirect-1.113.0.dmg"
+        sparkle:edSignature="/zl2jBPR4P4TYgYthqnNF6pUSBFJPexqNi3mKSx11I8zE7ZvjQnlYLBzPbmtujMSCXg+zfv6MwvZFMqJo84ECg=="
+        length="29205974"
         type="application/x-apple-diskimage"/>
     </item>
+
 
   </channel>
 </rss>
