@@ -7,23 +7,20 @@
     <language>en</language>
     <!-- Newest release first (Sparkle reads the feed and picks the latest matching item). -->
     <item>
-      <title>Version 1.114.0</title>
-      <pubDate>Wed, 10 Jun 2026 10:36:49 +0000</pubDate>
-      <sparkle:version>96</sparkle:version>
-      <sparkle:shortVersionString>1.114.0</sparkle:shortVersionString>
+      <title>Version 1.115.0</title>
+      <pubDate>Fri, 12 Jun 2026 11:22:38 +0000</pubDate>
+      <sparkle:version>98</sparkle:version>
+      <sparkle:shortVersionString>1.115.0</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
       <description><![CDATA[
         <h3>What's new</h3>
-        <ul><li>New Feature: Liquid Glass color customization and Clear mode</li></ul>
+        <ul><li>New Features: Liquid Glass color customization and Clear mode | Emoji & Symbols in search bar | Unhide hidden apps</li></ul>
       ]]></description>
       <enclosure
-        url="https://launchmeapp.com/updates/LaunchMeDirect-1.114.0.dmg"
-        sparkle:edSignature="E3vyMY6BLSf9GiSd2a2CMragMfl02a1X/hzXxHeLVkleykV+VQUHBEOO+/CYRCwXHW7DphjcNQhsQOTWFaz/DQ=="
-        length="29384118"
+        url="https://launchmeapp.com/updates/LaunchMeDirect-1.115.0.dmg"
+        sparkle:edSignature="BAGy/KXSl1WXzIO/pacT0H1nc4Qxg2AQSJT/zS1TB/4tDtnRQsfVOHXrBxmwGUkIQSmjIuS52/K1udTyI/UjAg=="
+        length="29790528"
         type="application/x-apple-diskimage"/>
     </item>
-
-
-
   </channel>
 </rss>
