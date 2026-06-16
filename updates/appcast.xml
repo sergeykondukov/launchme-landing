@@ -7,19 +7,19 @@
     <language>en</language>
     <!-- Newest release first (Sparkle reads the feed and picks the latest matching item). -->
     <item>
-      <title>Version 1.117.2</title>
-      <pubDate>Tue, 16 Jun 2026 03:47:20 +0000</pubDate>
-      <sparkle:version>106</sparkle:version>
-      <sparkle:shortVersionString>1.117.2</sparkle:shortVersionString>
+      <title>Version 1.117.3</title>
+      <pubDate>Tue, 16 Jun 2026 10:15:18 +0000</pubDate>
+      <sparkle:version>108</sparkle:version>
+      <sparkle:shortVersionString>1.117.3</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
       <description><![CDATA[
         <h3>What's new</h3>
         <ul><li>New feature in Settings - Gesture Invoke + Perfomans update and bug fixes. Now work and launch faster with 200+ apps</li></ul>
       ]]></description>
       <enclosure
-        url="https://launchmeapp.com/updates/LaunchMeDirect-1.117.2.dmg"
-        sparkle:edSignature="XAUDuN/VKmw1ct2zpkOqfAJGZNoQPv97vjEfdEIP1wmdce65T7BoXsXryVmqSJb213HBeVyGyVRRJdHhaWNgBA=="
-        length="29805745"
+        url="https://launchmeapp.com/updates/LaunchMeDirect-1.117.3.dmg"
+        sparkle:edSignature="ydUw1nITONXNPIHdxkQBLPnsnsa4QA7ggDI03ncDWETIs+Ki9UNc2Soi++UMbvBlp361fWQMat8IHfE38mbpAw=="
+        length="29816827"
         type="application/x-apple-diskimage"/>
     </item>
   </channel>
