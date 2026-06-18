@@ -7,20 +7,24 @@
     <language>en</language>
     <!-- Newest release first (Sparkle reads the feed and picks the latest matching item). -->
     <item>
-      <title>Version 1.117.3</title>
-      <pubDate>Tue, 16 Jun 2026 10:15:18 +0000</pubDate>
-      <sparkle:version>108</sparkle:version>
-      <sparkle:shortVersionString>1.117.3</sparkle:shortVersionString>
+      <title>Version 1.118.0</title>
+      <pubDate>Thu, 18 Jun 2026 13:51:47 +0000</pubDate>
+      <sparkle:version>110</sparkle:version>
+      <sparkle:shortVersionString>1.118.0</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
       <description><![CDATA[
         <h3>What's new</h3>
-        <ul><li>New feature in Settings - Gesture Invoke + Perfomans update and bug fixes. Now work and launch faster with 200+ apps</li></ul>
+        <ul>
+          <li>Music widget - control Spotify and Apple Music with album art in three design styles and background customization.</li>
+          <li>Weather widget - live weather in 9 styles</li>
+          <li>Liquid Glass Theme now is Free</li>
+        </ul>
       ]]></description>
-      <enclosure
-        url="https://launchmeapp.com/updates/LaunchMeDirect-1.117.3.dmg"
-        sparkle:edSignature="ydUw1nITONXNPIHdxkQBLPnsnsa4QA7ggDI03ncDWETIs+Ki9UNc2Soi++UMbvBlp361fWQMat8IHfE38mbpAw=="
-        length="29816827"
-        type="application/x-apple-diskimage"/>
-    </item>
+        <enclosure
+          url="https://launchmeapp.com/updates/LaunchMeDirect-1.118.0.dmg"
+          sparkle:edSignature="k801PyBE0aH3YD34xSKLaVryycVlTbT9/0vMJCzOadUA+LM8OrwilPP9CEcSSyo9YFPs4klGbBbvWJABYZKhCQ=="
+          length="30607356"
+          type="application/x-apple-diskimage"/>
+      </item>
   </channel>
 </rss>
