@@ -7,10 +7,10 @@
     <language>en</language>
     <!-- Newest release first (Sparkle reads the feed and picks the latest matching item). -->
     <item>
-      <title>Version 1.118.0</title>
-      <pubDate>Thu, 18 Jun 2026 13:51:47 +0000</pubDate>
-      <sparkle:version>110</sparkle:version>
-      <sparkle:shortVersionString>1.118.0</sparkle:shortVersionString>
+      <title>Version 1.118.1</title>
+      <pubDate>Fri, 19 Jun 2026 06:31:36 +0000</pubDate>
+      <sparkle:version>112</sparkle:version>
+      <sparkle:shortVersionString>1.118.1</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
       <description><![CDATA[
         <h3>What's new</h3>
@@ -18,12 +18,14 @@
           <li>Music widget - control Spotify and Apple Music with album art in three design styles and background customization.</li>
           <li>Weather widget - live weather in 9 styles</li>
           <li>Liquid Glass Theme now is Free</li>
+          <li>Open over full screen apps - new option in settings</li>
+          <li>New languages added: Ukranian, Vietnamese, Indonesian, Filipino, Polish</li>
         </ul>
       ]]></description>
         <enclosure
-          url="https://launchmeapp.com/updates/LaunchMeDirect-1.118.0.dmg"
-          sparkle:edSignature="k801PyBE0aH3YD34xSKLaVryycVlTbT9/0vMJCzOadUA+LM8OrwilPP9CEcSSyo9YFPs4klGbBbvWJABYZKhCQ=="
-          length="30607356"
+          url="https://launchmeapp.com/updates/LaunchMeDirect-1.118.1.dmg"
+          sparkle:edSignature="jmgJ4m6e57Imtiu6piPQPA/GT7OGMER/hCxC46rkHsSO/c3FSvGkEzNQ+hIGQ6+HX45Dk90mCexU04XqrfbhAA=="
+          length="30679243"
           type="application/x-apple-diskimage"/>
       </item>
   </channel>
