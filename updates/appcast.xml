@@ -7,10 +7,10 @@
     <language>en</language>
     <!-- Newest release first (Sparkle reads the feed and picks the latest matching item). -->
     <item>
-      <title>Version 1.118.2</title>
-      <pubDate>Sat, 20 Jun 2026 07:47:56 +0000</pubDate>
-      <sparkle:version>114</sparkle:version>
-      <sparkle:shortVersionString>1.118.2</sparkle:shortVersionString>
+      <title>Version 1.118.3</title>
+      <pubDate>Sat, 20 Jun 2026 17:57:12 +0000</pubDate>
+      <sparkle:version>116</sparkle:version>
+      <sparkle:shortVersionString>1.118.3</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
       <description><![CDATA[
         <h3>What's new</h3>
@@ -24,10 +24,10 @@
           <li>Cache optimization (might slow app one time while cleaning old cache)</li>
         </ul>
       ]]></description>
-      <enclosure
-          url="https://launchmeapp.com/updates/LaunchMeDirect-1.118.2.dmg"
-          sparkle:edSignature="c+VY88/RunrXUbd7MvEUnGjqrNOkEpiM+M5aEeRylWWVMFcm00EIQ3grF1qKDs9uFs6cTRmX049LMHklycMJBw=="
-          length="30974768"
+        <enclosure
+          url="https://launchmeapp.com/updates/LaunchMeDirect-1.118.3.dmg"
+          sparkle:edSignature="RU0cwukoA1X4b0ioMnVaqucWVLVFklZ8ByjkY5CJ/eJASVkMCyIRehpaAug4eZUfX71Zkle/6dTTbCTmxYiZCg=="
+          length="30974507"
           type="application/x-apple-diskimage"/>
       </item>
   </channel>
