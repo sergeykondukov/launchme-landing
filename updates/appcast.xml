@@ -7,10 +7,10 @@
     <language>en</language>
     <!-- Newest release first (Sparkle reads the feed and picks the latest matching item). -->
     <item>
-      <title>Version 1.118.1</title>
-      <pubDate>Fri, 19 Jun 2026 06:31:36 +0000</pubDate>
-      <sparkle:version>112</sparkle:version>
-      <sparkle:shortVersionString>1.118.1</sparkle:shortVersionString>
+      <title>Version 1.118.2</title>
+      <pubDate>Sat, 20 Jun 2026 07:47:56 +0000</pubDate>
+      <sparkle:version>114</sparkle:version>
+      <sparkle:shortVersionString>1.118.2</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
       <description><![CDATA[
         <h3>What's new</h3>
@@ -20,12 +20,14 @@
           <li>Liquid Glass Theme now is Free</li>
           <li>Open over full screen apps - new option in settings</li>
           <li>New languages added: Ukranian, Vietnamese, Indonesian, Filipino, Polish</li>
+          <li>Hot Key fix + Desable option</li>
+          <li>Cache optimization (might slow app one time while cleaning old cache)</li>
         </ul>
       ]]></description>
-        <enclosure
-          url="https://launchmeapp.com/updates/LaunchMeDirect-1.118.1.dmg"
-          sparkle:edSignature="jmgJ4m6e57Imtiu6piPQPA/GT7OGMER/hCxC46rkHsSO/c3FSvGkEzNQ+hIGQ6+HX45Dk90mCexU04XqrfbhAA=="
-          length="30679243"
+      <enclosure
+          url="https://launchmeapp.com/updates/LaunchMeDirect-1.118.2.dmg"
+          sparkle:edSignature="c+VY88/RunrXUbd7MvEUnGjqrNOkEpiM+M5aEeRylWWVMFcm00EIQ3grF1qKDs9uFs6cTRmX049LMHklycMJBw=="
+          length="30974768"
           type="application/x-apple-diskimage"/>
       </item>
   </channel>
