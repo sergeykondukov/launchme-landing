@@ -94,6 +94,7 @@ const PAGE_HEADERS = {
   'blog/index.html': { variant: 'minimal' },
   'blog/how-to-get-launchpad-back-on-macos-26-tahoe.html': { variant: 'minimal' },
   'blog/launchme-update-1-111.html': { variant: 'minimal' },
+  'blog/launchme-update-1-118.html': { variant: 'minimal' },
   'blog/launchme-vs-appgrid.html': { variant: 'minimal' },
   'blog/launchme-vs-apphub.html': { variant: 'minimal' },
   'blog/launchme-vs-buho-launchpad.html': { variant: 'minimal' },
