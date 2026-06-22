@@ -7,10 +7,10 @@
     <language>en</language>
     <!-- Newest release first (Sparkle reads the feed and picks the latest matching item). -->
     <item>
-      <title>Version 1.118.3</title>
-      <pubDate>Sat, 20 Jun 2026 17:57:12 +0000</pubDate>
-      <sparkle:version>116</sparkle:version>
-      <sparkle:shortVersionString>1.118.3</sparkle:shortVersionString>
+      <title>Version 1.118.4</title>
+      <pubDate>Mon, 22 Jun 2026 08:08:04 +0000</pubDate>
+      <sparkle:version>117</sparkle:version>
+      <sparkle:shortVersionString>1.118.4</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
       <description><![CDATA[
         <h3>What's new</h3>
@@ -22,12 +22,13 @@
           <li>New languages added: Ukranian, Vietnamese, Indonesian, Filipino, Polish</li>
           <li>Hot Key fix + Desable option</li>
           <li>Cache optimization (might slow app one time while cleaning old cache)</li>
+          <li>Auto Folder Grouping + Launchpad layout restore (available under sort button)</li>
         </ul>
       ]]></description>
         <enclosure
-          url="https://launchmeapp.com/updates/LaunchMeDirect-1.118.3.dmg"
-          sparkle:edSignature="RU0cwukoA1X4b0ioMnVaqucWVLVFklZ8ByjkY5CJ/eJASVkMCyIRehpaAug4eZUfX71Zkle/6dTTbCTmxYiZCg=="
-          length="30974507"
+          url="https://launchmeapp.com/updates/LaunchMeDirect-1.118.4.dmg"
+          sparkle:edSignature="kYaW7nYfKtB4PN8/cC9tnNc3yQ+G2igJVSRy5CRBQosee+1jKVn9XRqkFKz10y34Yrwev5AUfxe0MnqNJMSMDA=="
+          length="31076771"
           type="application/x-apple-diskimage"/>
       </item>
   </channel>
