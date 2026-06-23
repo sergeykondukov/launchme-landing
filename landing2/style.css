@@ -1,0 +1,2293 @@
+/*
+  Global stylesheet for LaunchMe landing and docs
+  - Dark, glassy look inspired by the screenshot
+  - Clear class names; lots of comments for future edits
+*/
+
+:root {
+  /* White theme (for /landing2): same design as the homepage, recolored.
+     Background white, cards light grey, text near-black. */
+  --bg: #ffffff;
+  --bg-elev: #ebebed;
+  --text: #1d1d1f;
+  --muted: #6e6e73;
+  --brand: #0071e3;
+  --brand-2: #7c5cff;
+  --card: #f5f5f7;
+  --border: rgba(0,0,0,0.10);
+  --radius: 14px;
+  --radius-lg: 24px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+  --lm-card-height: 340px; /* unified height for wide and square cards */
+  /* Homepage “LaunchMe Features” strip background. */
+  --lm-features-bg: #ffffff;
+}
+
+/* Base resets */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { color: #fff; }
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  backdrop-filter: saturate(160%) blur(12px);
+  background: rgba(7,24,38,0.85);
+  border-bottom: none; /* remove stroke */
+}
+.site-header.minimal { position: static; }
+.header-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px;
+}
+/* When the header includes a middle spacer + actions (e.g. Pricing + download badge). */
+.header-inner--split .header-spacer {
+  flex: 1 1 auto;
+  min-width: 8px;
+}
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
+}
+/* Pricing in header: plain text link (same bar as download badge, not a pill CTA). */
+.header-pricing-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 2px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted);
+  background: none;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.header-pricing-btn:hover {
+  color: #fff;
+  opacity: 1;
+  transform: none;
+  box-shadow: none;
+  text-decoration: none;
+}
+.header-pricing-btn[aria-current="page"] {
+  color: #fff;
+  font-weight: 600;
+  box-shadow: none;
+  text-decoration: none;
+}
+@media (max-width: 520px) {
+  .header-inner--split {
+    flex-wrap: wrap;
+    height: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    gap: 10px;
+  }
+  .header-inner--split .header-spacer {
+    display: none;
+  }
+  .header-inner--split .header-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
+.brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; }
+.brand.small { font-size: 14px; }
+.brand-mark { font-size: 20px; }
+.brand-name { letter-spacing: 0.2px; }
+.brand-img { height: 28px; display:block; }
+.brand.small .brand-img { height: 22px; }
+.header-download img { height: 36px; display: block; }
+
+/* Hero */
+.hero { padding: 128px 0 40px; text-align: center; }
+.hero-inner { display: grid; gap: 18px; justify-items: center; }
+.tagline { color: var(--muted); margin: 0; font-size: 26px; font-weight: 500; }
+.hero-title { font-size: 60px; line-height: 1.1; margin: 0; font-weight: 800; }
+.hero-sub { color: var(--muted); margin-top: -6px; font-size: 20px; font-weight: 500; }
+/* Hero CTAs: App Store badge + optional direct DMG; wrap on narrow screens. */
+.cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 6px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* App Store / direct-download badges: hero CTAs use the same SVG badge sizing (.app-badge img). */
+.app-badge img { height: 60px; display: block; }
+
+.button { display: inline-block; padding: 12px 18px; border-radius: 10px; border: 1px solid var(--border); background: var(--card); color: #fff; }
+.button.primary { background: linear-gradient(90deg, var(--brand), var(--brand-2)); border-color: transparent; }
+.button.ghost { background: transparent; }
+
+/* Sections */
+.section { padding: 64px 0; }
+.section-kicker { text-align: center; color: var(--muted); margin: 0 0 8px; font-size: 26px; font-weight: 500; }
+.section-title { text-align: center; margin: 0 0 8px; font-size: 60px; font-weight: 800; line-height: 1.1; }
+.section-sub { text-align: center; color: var(--muted); margin: 0 0 48px; font-size: 20px; font-weight: 500; }
+
+/* Cards and grids */
+.grid { display: grid; gap: 18px; }
+.grid-2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+.grid-4 { grid-template-columns: repeat(4, minmax(0,1fr)); }
+@media (max-width: 800px) {
+  .grid-2 { grid-template-columns: 1fr; }
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+.card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; box-shadow: var(--shadow); }
+.card-title { margin: 10px 0 2px; font-size: 18px; }
+.card-text { margin: 0; color: var(--muted); }
+
+/* Placeholder blocks to swap with real images later */
+.placeholder { background: var(--bg-elev); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); }
+.placeholder-hero { width: 100%; max-width: 1100px; height: 300px; border-radius: var(--radius-lg); }
+.hero-image { width: 100%; max-width: 1100px; height: auto; object-fit: contain; border-radius: var(--radius-lg); display:block; }
+.ratio-16x9 { width: 100%; padding-top: 56.25%; position: relative; }
+.ratio-16x9::after { content: ""; position: absolute; inset: 0; }
+.ratio-1x1 { width: 100%; padding-top: 100%; position: relative; }
+.ratio-1x1::after { content: ""; position: absolute; inset: 0; }
+.wide { max-width: 900px; margin: 0 auto; }
+.thumbs .small { height: 100px; }
+.icon { width: 60px; height: 60px; border-radius: 12px; }
+
+/* CTA card */
+.cta-card { display: grid; grid-template-columns: 60px 1fr; align-items: center; gap: 16px; background: var(--card); border: 1px solid var(--border); padding: 18px; border-radius: var(--radius-lg); box-shadow: var(--shadow); }
+
+/* Gallery */
+.gallery { padding-top: 0; background: #000; }
+.gallery .container { max-width: none; padding: 0; position: relative; /* Let the section height adapt; keep extra scroll via a variable */ min-height: calc(100vh + var(--gallery-extra-scroll, 60vh)); height: auto; display: flex; flex-direction: column; }
+.gallery-main-image { display:block; width:100%; max-width:900px; margin:0 auto; border: none; box-shadow: none; border-radius: 0; background: transparent; }
+
+/* Scroll-driven gallery stage */
+.gallery-stage { position: sticky; top: 0; height: 100vh; min-height: 520px; width: 100vw; display: grid; align-items: start; justify-items: center; overflow: visible; --stage-final-shift-y: 60px; --stage-start-overshoot: 5vh; /* Unified frame width for both image and video */ --frame-w: min(1400px, 98vw); --final-scale-boost: 1.3; }
+/* Ensure image and video scale from the same anchor to avoid desync while scrolling */
+.gallery-stage__image, .gallery-stage__video, .gallery-stage__video-box { transform-origin: top center; }
+.gallery-stage__video {
+  /* Positioned overlay to simulate video playing inside laptop screen */
+  position: absolute;
+  top: 0; left: 0; right: 0; margin: 0 auto; /* true centering */
+  width: var(--frame-w); height: 0; /* width anchor; children absolutely placed */
+  display: grid;
+  place-items: center;
+  pointer-events: none; /* overlay is decorative */
+  z-index: 1; /* below image, above stage background */
+  will-change: transform, filter;
+}
+.gallery-stage__video-box {
+  /* Define the exact screen window. This clips any overflow. */
+  position: absolute;
+  /* Use ratios relative to the unified frame width so video scales 1:1 with the PNG */
+  left: calc(var(--screen-left-r, 0.09) * var(--frame-w));
+  top: calc(var(--screen-top-r, 0.02) * var(--frame-w));
+  width: calc(var(--screen-width-r, 0.82) * var(--frame-w));
+  /* Maintain strict proportion; height derives from width automatically */
+  aspect-ratio: var(--screen-aspect-ratio, 1.6);
+  height: auto;
+  border-radius: var(--screen-radius, 12px);
+  overflow: hidden;
+  pointer-events: none;
+  /* Fine vertical nudge without changing geometry */
+  transform: translateY(var(--screen-offset-y, 0px));
+}
+.gallery-stage__video-box video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  /* Optional mask to perfectly match the laptop screen shape.
+     Provide a screen-only alpha mask (white=visible screen, black=hidden bezel) and set
+     --screen-mask-url: url('images/screen-mask.png') on .gallery-stage (or container). */
+  -webkit-mask-image: var(--screen-mask-url, none);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  /* Stretch mask to element box to avoid misalignment with laptop PNG */
+  -webkit-mask-size: 100% 100%;
+  -webkit-mask-mode: luminance;
+  mask-image: var(--screen-mask-url, none);
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: 100% 100%;
+  mask-mode: luminance;
+}
+.gallery-stage__image { position: absolute; top: 0; left: 0; right: 0; margin: 0 auto; transform: scale(1.6); z-index: 2; width: var(--frame-w); height: auto; filter: blur(8px); backface-visibility: hidden; will-change: transform, filter; }
+.gallery-stage__overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.35); backdrop-filter: blur(6px); will-change: opacity; z-index: 5; }
+.gallery-stage { contain: layout paint; }
+.gallery-stage__label { position: absolute; inset: 0; display:flex; align-items:center; justify-content:center; text-align:center; font-size: 60px; font-weight: 800; letter-spacing: 0.2px; transition: opacity 0.2s linear; background: transparent; z-index: 6; }
+.gallery-caption { text-align: center; color: var(--muted); font-size: 20px; font-weight: 500; max-width: 920px; margin: 12px auto 0; padding: 0 20px; }
+/* Keep caption inside the gallery container but visually at the bottom under the image */
+.gallery .gallery-caption { margin-top: auto; padding-top: 12px; }
+
+/* =============================
+   LaunchMe Features grid (homepage, before FAQ)
+   - 4 columns x 5 rows on desktop via .grid-4 helper
+   - On small screens it collapses to 2/1 columns (handled by .grid-4 media)
+   - Icon placeholders now; real icons will be connected later
+   ============================= */
+.lm-features {
+  /* Slightly different background shade to separate from gallery and FAQ */
+  background: var(--lm-features-bg);
+}
+
+.lm-features-grid {
+  /* Extra top margin so the title breathes above the grid */
+  margin-top: 40px;
+}
+
+.lm-feature-tile {
+  /* Simple card-like tile without heavy effects to keep UI clean */
+  background: var(--card);
+  border-radius: 22px;
+  /* No stroke/border – matches clean look from the design */
+  border: none;
+  padding: 20px 18px 18px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.lm-feature-icon-placeholder {
+  /* This block will later be replaced by real icons */
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  background: var(--bg-elev);
+  border: 1px dashed rgba(255,255,255,0.25);
+}
+
+/* Real feature icons for LaunchMe Features grid
+   - No rounding or clipping: icons should keep their original shape
+   - Only define size so grid stays consistent */
+.lm-feature-icon {
+  width: 48px;
+  height: 48px;
+  display: block;
+}
+
+.lm-feature-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.lm-feature-sub {
+  margin: 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* Link-style text button inside Trackpad Gesture tile
+   - Underlined text as in design
+   - Kept simple so it is easy to reuse or tweak later */
+.lm-feature-link {
+  /* Always show underline so it is clearly a link */
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  color: var(--brand);
+  font-weight: 600;
+}
+
+.lm-feature-link:hover {
+  color: #ffffff;
+}
+
+/* =============================
+   Supported Languages section
+   - Placed between LaunchMe Features and FAQ
+   - Uses a clean, simple grid for fast scanning
+   - Extra semantic clarity in HTML helps SEO/GEO (AI search)
+   ============================= */
+.supported-languages {
+  /* Slightly darker panel to visually separate this block */
+  background: #03101a;
+}
+
+.languages-grid {
+  /* Semantic list reset + fixed grid like in the screenshot */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  /* 9 languages in one row on desktop */
+  grid-template-columns: repeat(9, 70px);
+  justify-content: center;
+  gap: 22px 20px;
+}
+
+.language-item {
+  /* Keep every language centered and compact */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.language-flag {
+  /* Exactly as requested: 70x70 flags */
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+.language-name {
+  /* Exactly as requested: text size 12 and 16px offset from icon */
+  margin-top: 16px;
+  font-size: 12px;
+  color: #e8f2fb;
+  line-height: 1.25;
+}
+
+.language-soon {
+  /* Small secondary label for languages marked as upcoming */
+  margin-top: 4px;
+  font-size: 8px;
+  line-height: 1.1;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.language-note {
+  /* Small inline note used in language names, e.g. "(Portugal)" */
+  font-size: 8px;
+  line-height: 1;
+  color: var(--muted);
+}
+
+/* Mobile layout: 4 languages per row to avoid horizontal scroll on narrow screens.
+   Uses 1fr for flexible columns so grid fits viewport width. */
+@media (max-width: 767px) {
+  .languages-grid {
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
+    gap: 18px 12px;
+  }
+  /* Scale down flags on mobile so they fit within flexible columns */
+  .language-flag {
+    width: 100%;
+    max-width: 70px;
+    height: auto;
+    aspect-ratio: 1;
+  }
+}
+
+/* Responsive tuning for mobile/portrait to keep the video fully inside the laptop screen
+   We override the screen window variables so the video scales with the PNG cutout */
+@media (max-width: 700px) {
+  .gallery-stage { --frame-w: min(1800px, 98vw); --stage-final-shift-y: 140px; --stage-start-overshoot: 6vh; --final-scale-boost: 1; }
+}
+
+/* Responsive final scale tuning */
+@media (max-width: 1700px) and (min-width: 1400px) {
+  .gallery-stage { --final-scale-boost: 0.95; }
+}
+@media (max-width: 1399px) and (min-width: 1200px) {
+  .gallery-stage { --final-scale-boost: 0.85; }
+}
+@media (max-width: 1199px) and (min-width: 1024px) {
+  .gallery-stage { --final-scale-boost: 0.80; }
+}
+@media (max-width: 1024px) and (min-width: 900px) {
+  .gallery-stage { --final-scale-boost: 0.8; }
+}
+
+/* Phones and small tablets */
+@media (max-width: 899px) and (min-width: 768px) {
+  .gallery-stage { --final-scale-boost: 0.85; }
+}
+@media (max-width: 767px) and (min-width: 600px) {
+  .gallery-stage { --final-scale-boost: 0.85; }
+}
+/* Phones granular sizes */
+@media (max-width: 599px) and (min-width: 440px) {
+  .gallery-stage { --final-scale-boost: 0.85; }
+}
+@media (max-width: 439px) and (min-width: 375px) {
+  .gallery-stage { --final-scale-boost: 0.80; }
+}
+@media (max-width: 374px) {
+  .gallery-stage { --final-scale-boost: 0.60; }
+}
+
+/* Reduce gallery section height on mobile to ~half */
+@media (max-width: 767px) {
+  .gallery { padding-top: 26px; }
+  .gallery .container { min-height: auto; height: auto; }
+  /* Make stage a normal block with intrinsic height via aspect-ratio */
+  .gallery-stage { position: relative; top: auto; height: auto; min-height: 0; aspect-ratio: var(--mobile-stage-aspect, 16/10); width: var(--mobile-stage-width, 100%); margin: 0 auto; }
+  /* Lay out frame and video to fill the stage area */
+  .gallery-stage__image { position: absolute; inset: 0; margin: 0; width: 100%; height: 100%; transform: none; filter: none; }
+  .gallery-stage__video { position: absolute; inset: 0; width: 100%; height: 100%; transform: none; filter: none; }
+  .gallery-stage__video-box { left: calc(var(--screen-left-r, 0.09) * 100%); top: calc(var(--screen-top-r, 0.02) * 100% + var(--mobile-screen-shift,2px)); width: calc(var(--screen-width-r, 0.82) * 100%); aspect-ratio: var(--screen-aspect-ratio, 1.6); height: auto; transform: none; }
+  .gallery-stage__overlay, .gallery-stage__label { display: none; }
+  /* Left-align caption on mobile for readability */
+  .gallery-caption { text-align: left; margin-left: 20px; margin-right: 20px; }
+  /* Ensure feature card hero images hug the bottom on mobile */
+  .lm-card__image[src*="liquid-glass"],
+  .lm-card__image[src*="dynamic-wallpaper"],
+  .lm-card__image[src*="dynamic-weather"] { top: auto; bottom: 0; height: auto; }
+}
+@media (max-width: 599px) {
+  .gallery .container { min-height: auto; }
+  .gallery-stage { height: auto; }
+}
+
+/* Ensure the hero card image sits at the bottom on mobile */
+@media (max-width: 767px) {
+  .lm-card__image { bottom: 0; top: auto; height: auto; }
+}
+
+/* Accordion */
+.accordion { max-width: 800px; margin: 0 auto; }
+.accordion-item { border-bottom: 1px solid var(--border); }
+.accordion-trigger { width: 100%; text-align: left; background: transparent; border: 0; color: #fff; padding: 14px 0; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: space-between; }
+.accordion-trigger::after { content: "+"; font-size: 20px; font-weight: 300; transition: transform 0.2s ease; }
+.accordion-trigger[aria-expanded="true"]::after { content: "−"; }
+.accordion-panel { color: var(--muted); padding: 0 0 14px; }
+
+/* Link inside FAQ answers (for Pinch Gesture article, etc.)
+   - Blue underlined text so it is clearly a clickable link */
+.faq-link {
+  color: var(--brand);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  font-weight: 600;
+}
+
+.faq-link:hover {
+  color: #ffffff;
+}
+
+/* Footer */
+.site-footer { border-top: none; background: #06131e; margin-top: 40px; }
+.footer-inner { display: flex; align-items: center; justify-content: space-between; padding: 22px 20px; }
+.footer-nav a { color: var(--muted); margin-left: 14px; }
+.footer-nav a:hover { color: #fff; }
+
+/* Docs page typography */
+.doc .doc-main { padding: 40px 0; }
+.doc .doc-main h1 { border-bottom: 2px solid var(--brand); padding-bottom: 10px; }
+.doc .doc-main h2 { margin-top: 28px; }
+/* Subsections (e.g. Privacy §4.1–4.4): slightly tighter than h2 so the outline reads clearly. */
+.doc .doc-main h3 { margin-top: 20px; }
+.last-updated { color: var(--muted); font-style: italic; }
+
+/* Visually hidden headings (kept for screen readers / landmark structure). */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* =============================
+   Pricing page
+   - Two-tier layout: narrow Free, wide Pro with plan tiles.
+   - Uses site tokens (--bg-elev, --brand, --border) for consistency with the landing.
+   ============================= */
+.pricing-page {
+  /* Same base color as .lm-features so hero, cards, and feature grid read as one surface. */
+  background: var(--lm-features-bg);
+  min-height: 100vh;
+}
+/* Fixed header + footer use the same hue so no lighter/darker band at top or bottom. */
+.pricing-page .site-header {
+  background: rgba(4, 17, 28, 0.9);
+}
+.pricing-page .site-footer {
+  background: var(--lm-features-bg);
+}
+.pricing-page #top {
+  padding-bottom: 64px;
+}
+.pricing-hero {
+  text-align: center;
+  padding: 104px 0 36px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+.pricing-hero__eyebrow {
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #fff;
+}
+.pricing-hero__title {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+}
+.pricing-hero__sub {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.pricing-cards-wrap {
+  /* Make both pricing cards about 20% narrower vs default container width. */
+  max-width: 880px;
+  padding-bottom: 8px;
+}
+.pricing-vat-note {
+  margin: 24px 0 0;
+  font-size: 10px;
+  line-height: 1.4;
+  color: var(--muted);
+  text-align: center;
+  opacity: 0.92;
+}
+.pricing-cards-grid {
+  display: grid;
+  gap: 22px;
+  align-items: stretch;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 900px) {
+  .pricing-cards-grid {
+    /* Two balanced cards: Free + Lifetime Pro. */
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.pricing-tier {
+  position: relative;
+  border-radius: var(--radius-lg);
+  padding: 28px 24px 26px;
+  /* Glass card base: translucent panel + blur + soft edge. */
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0.05) 38%, rgba(4, 17, 28, 0.66) 100%);
+  border: 1px solid rgba(214, 233, 255, 0.26);
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.52), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(18px) saturate(125%);
+  -webkit-backdrop-filter: blur(18px) saturate(125%);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-height: 620px;
+}
+.pricing-tier::before {
+  /* Ambient glow bubble, similar to reference glass cards. */
+  content: "";
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  top: -150px;
+  right: -110px;
+  background: radial-gradient(circle, rgba(138, 214, 255, 0.35) 0%, rgba(138, 214, 255, 0) 70%);
+  pointer-events: none;
+}
+.pricing-tier::after {
+  /* Soft diagonal specular highlight. */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(122deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.02) 35%, rgba(255, 255, 255, 0) 62%);
+  pointer-events: none;
+}
+.pricing-tier--pro {
+  border-color: rgba(134, 228, 255, 0.45);
+  background: linear-gradient(158deg, rgba(120, 232, 255, 0.17) 0%, rgba(103, 166, 255, 0.1) 34%, rgba(4, 17, 28, 0.66) 100%);
+  box-shadow: 0 30px 66px rgba(0, 0, 0, 0.58), 0 0 0 1px rgba(130, 221, 255, 0.22), 0 0 34px rgba(106, 190, 255, 0.24);
+}
+.pricing-tier--pro::before {
+  background: radial-gradient(circle, rgba(130, 236, 255, 0.52) 0%, rgba(130, 236, 255, 0) 72%);
+}
+.pricing-tier__head--pro {
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.pricing-tier > * {
+  position: relative;
+  z-index: 1;
+}
+.pricing-tier__title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.pricing-tier__tagline {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+.pricing-lifetime-price {
+  margin: 14px 0 0;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 2px;
+  color: #fff;
+}
+.pricing-lifetime-price__currency {
+  font-size: 1.35rem;
+  font-weight: 700;
+  opacity: 0.9;
+}
+.pricing-lifetime-price__amount {
+  font-size: 2.8rem;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  font-weight: 800;
+}
+.pricing-lifetime-price__cents {
+  font-size: 1.3rem;
+  font-weight: 800;
+  opacity: 0.95;
+}
+.pricing-lifetime-meta {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 0.86rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+/* Pro paywall-style list: text rows with round bullet markers (same as Free card). */
+.pricing-pro-features {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.pricing-pro-features__item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  padding-left: 14px;
+}
+/* Small filled circle — classic bullet look instead of checkmarks. */
+.pricing-pro-features__item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--muted);
+}
+.pricing-pro-features__label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.35;
+}
+.pricing-pro-features__hint {
+  font-weight: 500;
+  font-size: 0.88em;
+  color: var(--muted);
+}
+.pricing-pro-features__soon {
+  margin-left: auto;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: rgba(255, 255, 255, 0.08);
+  padding: 4px 9px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+}
+
+/* Keep Free/Lifetime cards readable on smaller screens. */
+@media (max-width: 899px) {
+  .pricing-tier {
+    min-height: auto;
+  }
+}
+
+.pricing-feature-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.pricing-feature-list li {
+  position: relative;
+  padding-left: 14px;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: var(--text);
+}
+.pricing-feature-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--muted);
+}
+
+.pricing-plans {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr;
+  margin-top: 12px;
+}
+@media (min-width: 720px) {
+  .pricing-plans {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+.pricing-plan {
+  padding: 16px 14px;
+  border-radius: var(--radius);
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 100%;
+}
+.pricing-plan--highlight {
+  border-color: rgba(255, 255, 255, 0.35);
+  background: rgba(124, 92, 255, 0.1);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+.pricing-plan__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+/* Yellow pills like the in-app paywall “Most popular” / “Save 44%”. */
+.pricing-plan__pill {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #1a1408;
+  background: linear-gradient(180deg, #ffe566, #f5c400);
+}
+.pricing-plan__row-inner {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+}
+.pricing-plan__main {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.pricing-plan__name {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 800;
+}
+.pricing-plan__billing {
+  margin: 4px 0 0;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+  line-height: 1.35;
+  text-transform: none;
+}
+/* Large price on the right, matching paywall emphasis. */
+.pricing-plan__price {
+  margin: 0;
+  flex: 0 0 auto;
+  text-align: right;
+  line-height: 1;
+  color: #fff;
+  font-weight: 800;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: flex-end;
+  gap: 0 2px;
+}
+.pricing-plan__currency {
+  font-size: 1.1rem;
+  font-weight: 700;
+  opacity: 0.9;
+}
+.pricing-plan__amount {
+  font-size: 1.85rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.pricing-plan__cents {
+  font-size: 1.1rem;
+  font-weight: 800;
+  opacity: 0.95;
+}
+.pricing-plan__period {
+  flex-basis: 100%;
+  margin-top: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-align: right;
+}
+@media (min-width: 720px) {
+  .pricing-plan__period {
+    flex-basis: auto;
+    margin-top: 0;
+    margin-left: 4px;
+    align-self: baseline;
+  }
+  .pricing-plan__price {
+    flex-wrap: nowrap;
+  }
+}
+
+/* =============================
+   Reusable Card Components (Wide & Square)
+   - Title: 16px, uppercase, bold
+   - Subtitle: 26px, bold (optional)
+   - Background: color or image via CSS variables
+   - Foreground image sticks to bottom, spans full width
+   ============================= */
+
+.lm-cards-row {
+  /* Row that holds one wide card or two square cards */
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px; /* required spacing between cards */
+}
+@media (min-width: 900px) {
+  .lm-cards-row.lm-cards-row--split {
+    grid-template-columns: 1fr 1fr; /* two squares next to each other */
+  }
+}
+
+.lm-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 50px; /* per spec: large rounded corners */
+  box-shadow: none; /* remove shadows as requested */
+  border: none; /* remove strokes/borders as requested */
+  /* Allow custom backgrounds */
+  background-image: var(--card-bg-image, none);
+  background-color: var(--card-bg-color, #000);
+  background-size: cover;
+  background-position: center;
+}
+
+/* internal layout */
+.lm-card__content { position: relative; z-index: 2; padding: 40px 20px 18px 20px; text-align: center; }
+.lm-card__title { margin: 0; font-size: 16px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; }
+.lm-card__subtitle { margin: 6px 0 0; font-size: 26px; font-weight: 800; line-height: 1.1; }
+
+/* bottom-anchored foreground image */
+.lm-card__image {
+  position: absolute; left: 0; right: 0; bottom: 0; z-index: 1;
+  width: 100%; height: auto; display: block;
+}
+.lm-card__image[src*="dynamic-wallpaper"],
+.lm-card__image[src*="liquid-glass"],
+.lm-card__image[src*="dynamic-weather"] {
+  top: 20%; /* leave 20% space at top */
+  height: 80%; /* fill remaining 80% */
+  object-fit: contain; /* scale down to fit, maintain aspect ratio */
+}
+.lm-card--square .lm-card__image {
+  top: 0; /* no top offset for square cards */
+  height: 100%; /* fill full height */
+}
+@media (max-width: 800px) {
+  .lm-card__image[src*="dynamic-wallpaper"],
+  .lm-card__image[src*="liquid-glass"],
+  .lm-card__image[src*="dynamic-weather"] {
+    top: 20%; /* same behavior on mobile */
+    height: 80%;
+    object-fit: contain;
+  }
+  .lm-card--square .lm-card__image {
+    top: 0; /* no top offset for square cards on mobile */
+    height: 100%;
+  }
+}
+
+/* When wide card becomes square (mobile): reduce height by 30%, image fills width and hugs bottom */
+@media (max-width: 767px) {
+  .lm-card--wide {
+    height: auto !important;
+    aspect-ratio: 10 / 7; /* 70% of square height — 30% reduction */
+  }
+  .lm-card--wide .lm-card__image[src*="dynamic-wallpaper"],
+  .lm-card--wide .lm-card__image[src*="liquid-glass"],
+  .lm-card--wide .lm-card__image[src*="dynamic-weather"] {
+    top: auto;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: bottom center;
+  }
+}
+
+/* Sizes */
+.lm-card--wide { height: auto; }
+.lm-card--square { height: auto; aspect-ratio: 1 / 1; }
+
+/* Placeholder visual if no real image is provided */
+.lm-card__image.placeholder-img { height: 46%; background: #000; }
+
+/* =============================
+   Dedicated CTA Pill component (bottom card)
+   - Fixed size 870x290 on desktop
+   - Black background, no border/shadow
+   - Radius 85, text left, large icon right
+   ============================= */
+.cta-pill { width: 870px; min-height: 290px; height: auto; margin: 0 auto; background: #000; border: none; box-shadow: none; border-radius: 85px; display: grid; grid-template-columns: 1fr 220px; align-items: center; padding: 40px; gap: 24px; }
+.cta-pill__title { margin: 0 0 18px; font-size: 28px; font-weight: 800; line-height: 1.25; }
+.cta-pill__icon { width: 180px; height: 180px; display: block; margin-left: auto; object-fit: contain; }
+.cta-pill__left { display: flex; flex-direction: column; align-items: flex-start; }
+
+/* When CTA pill is used inside a blog article, keep it within the content column */
+.blog-article .section.cta {
+  padding: 0; /* remove extra vertical padding inside article */
+}
+.blog-article .section.cta .container {
+  padding: 0; /* rely on article padding instead of global container padding */
+}
+.blog-article .cta-pill {
+  width: 100%;
+  max-width: 100%;
+}
+@media (max-width: 940px) {
+  .cta-pill { width: calc(100% - 40px); min-height: 290px; height: auto; grid-template-columns: 1fr 180px; padding: 24px; }
+  .cta-pill__icon { width: 160px; height: 160px; }
+}
+
+/* Mobile layout: vertical stack like the mock */
+@media (max-width: 767px) {
+  .cta-pill { width: calc(100% - 32px); padding: 40px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; text-align: center; border-radius: 50px; margin: 24px auto; }
+  /* Order: icon, text, button (button is inside left block after title) */
+  .cta-pill__icon { order: 0; width: 140px; height: 140px; margin: 0 auto; }
+  .cta-pill__left { order: 1; align-items: center; }
+  .cta-pill__title { font-size: 22px; line-height: 1.3; }
+  .app-badge img { height: 52px; }
+}
+
+/* Variant: icon on the left within content for specific card */
+.lm-card--icon-left { border-radius: 85px; background: #000; box-shadow: none; border: none; }
+.lm-card--icon-left .lm-card__content { display: inline-flex; align-items: center; justify-content: center; gap: 12px; text-align: center; }
+.lm-card__icon { width: 40px; height: 40px; display: inline-block; }
+
+/* CTA fixed-size variant (bottom card) */
+.lm-card--fixed-cta { width: 870px; height: 290px; margin: 0 auto; }
+@media (max-width: 940px) {
+  .lm-card--fixed-cta { width: calc(100% - 40px); height: 290px; }
+}
+
+/* =============================
+   Help Center Page Styles
+   - Two-column layout: content + sidebar
+   - Responsive design for mobile
+   - Full-width image placeholders
+   ============================= */
+
+/* Help Center main container */
+.help-center .help-main {
+  padding: 40px 0 80px;
+  max-width: 1200px;
+}
+
+/* Page title and intro */
+.help-center .help-main h1 {
+  border-bottom: 2px solid var(--brand);
+  padding-bottom: 10px;
+  margin-bottom: 12px;
+}
+
+.help-intro {
+  color: var(--muted);
+  font-size: 18px;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+/* Two-column layout */
+.help-layout {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 60px;
+  align-items: start;
+}
+
+/* Main content area */
+.help-content {
+  min-width: 0; /* Prevent grid overflow */
+}
+
+/* Help topic sections */
+.help-topic {
+  animation: fadeIn 0.3s ease-in;
+}
+
+.help-topic[hidden] {
+  display: none;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.help-topic h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+/* Second major heading inside a topic (e.g. IMPORTANT UPDATE on Help Center Getting Started). */
+.help-topic h2.important-update-heading {
+  margin-top: 36px;
+}
+
+.help-topic h3 {
+  margin-top: 32px;
+  margin-bottom: 12px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.help-topic p {
+  margin-bottom: 16px;
+  line-height: 1.7;
+  color: var(--text);
+}
+
+.help-topic ul {
+  margin: 16px 0;
+  padding-left: 24px;
+  line-height: 1.7;
+}
+
+.help-topic li {
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+.help-topic li strong {
+  color: var(--brand);
+  font-weight: 600;
+}
+
+/* Full-width image placeholders */
+.help-image-placeholder {
+  width: 100%;
+  margin: 32px 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.help-image-gray {
+  width: 100%;
+  height: 400px;
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Optional: add a subtle pattern to gray rectangles */
+.help-image-gray::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(45deg, rgba(255,255,255,0.02) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(255,255,255,0.02) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.02) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.02) 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+  opacity: 0.5;
+}
+
+/* Help Center image styling */
+.help-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+/* Right sidebar menu */
+.help-sidebar {
+  position: sticky;
+  top: 80px; /* Offset from header */
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+}
+
+.help-nav {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+
+.help-nav-title {
+  margin: 0 0 20px;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text);
+}
+
+.help-nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.help-nav-list li {
+  margin-bottom: 8px;
+}
+
+.help-nav-link {
+  display: block;
+  padding: 10px 14px;
+  color: var(--muted);
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.help-nav-link:hover {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.help-nav-link.active {
+  color: var(--brand);
+  background: rgba(82, 168, 255, 0.1);
+  font-weight: 600;
+}
+
+/* Responsive design for tablets and mobile */
+@media (max-width: 1024px) {
+  .help-layout {
+    grid-template-columns: 1fr 240px;
+    gap: 40px;
+  }
+  
+  .help-sidebar {
+    top: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Stack layout on mobile */
+  .help-layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  /* Make sidebar non-sticky and full width on mobile */
+  .help-sidebar {
+    position: static;
+    max-height: none;
+    order: -1; /* Show sidebar before content on mobile */
+  }
+  
+  .help-nav {
+    padding: 20px;
+  }
+  
+  .help-nav-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  
+  .help-nav-list li {
+    margin-bottom: 0;
+  }
+  
+  .help-nav-link {
+    padding: 12px 14px;
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  /* Adjust image placeholder height on mobile */
+  .help-image-gray {
+    height: 250px;
+  }
+  
+  .help-topic h2 {
+    font-size: 28px;
+  }
+  
+  .help-topic h3 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .help-nav-list {
+    grid-template-columns: 1fr;
+  }
+  
+  .help-image-gray {
+    height: 200px;
+  }
+  
+  .help-center .help-main {
+    padding: 30px 0 60px;
+  }
+}
+
+/* =============================
+   Blog Page Styles
+   - Reuses doc look with article-specific layout
+   - Placeholder images mirror Help styling
+   ============================= */
+.blog .blog-main {
+  /* horizontal padding on all screen sizes so text never touches edges */
+  padding: 40px 20px 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.article-page .blog-main {
+  /* same horizontal padding behavior for article pages */
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.blog .blog-main h1 {
+  margin: 0 0 12px;
+  border-bottom: 2px solid var(--brand);
+  padding-bottom: 10px;
+}
+
+.blog-intro {
+  color: var(--muted);
+  font-size: 18px;
+  margin-bottom: 32px;
+}
+
+.blog-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 50px;
+  align-items: start;
+}
+
+.blog-articles {
+  max-width: 980px;        /* center article cards similar to DrBuho layout */
+  margin: 0 auto;
+}
+
+.blog-sidebar {
+  position: sticky;
+  top: 80px;
+}
+
+.blog-nav,
+.blog-subscribe {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px;
+  box-shadow: var(--shadow);
+}
+
+.blog-nav + .blog-subscribe,
+.blog-subscribe + .blog-nav {
+  margin-top: 20px;
+}
+
+.blog-nav-title {
+  margin: 0 0 14px;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.blog-nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px; /* Reduced from 10px — half spacing between article links */
+}
+
+.blog-nav-link {
+  color: var(--muted);
+  padding: 8px 0;
+  display: inline-flex;
+  transition: color 0.2s ease;
+}
+
+.blog-nav-link:hover {
+  color: var(--text);
+}
+
+.blog-nav-link.active {
+  color: var(--brand);
+  font-weight: 600;
+}
+
+.blog-subscribe h3 {
+  margin-top: 0;
+}
+
+.blog-article {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  margin: 0 0 40px;
+  box-shadow: var(--shadow);
+}
+
+.blog-article h2 {
+  margin-top: 8px;
+  font-size: 42px; /* make main blog titles larger for better hierarchy */
+}
+
+.blog-meta {
+  color: var(--muted);
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0;
+}
+
+.blog-image-placeholder {
+  /* Match Help Center image block spacing and shape */
+  margin: 32px 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  width: 100%;
+}
+
+/* Comparison table in blog articles (LaunchMe vs X) */
+.blog-comparison-table-wrap {
+  margin: 32px 0;
+  overflow-x: auto;
+  width: 100%;
+}
+
+.blog-comparison-table {
+  width: 100%;
+  min-width: 320px;
+  table-layout: fixed;
+  border-collapse: collapse;
+  background: var(--bg-elev);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.blog-comparison-table caption {
+  text-align: left;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 16px 18px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Colored header row: darker blue, rounded top corners, no vertical borders */
+.blog-comparison-table thead th {
+  background: #1a2d42;
+  color: var(--text);
+  font-weight: 600;
+  padding: 14px 18px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 15px;
+}
+
+.blog-comparison-table thead th:first-child {
+  border-top-left-radius: var(--radius);
+}
+
+.blog-comparison-table thead th:last-child {
+  border-top-right-radius: var(--radius);
+  text-align: center;
+}
+
+.blog-comparison-table thead th:nth-child(2) {
+  text-align: center;
+}
+
+/* Equal column widths (full width, equal spacing between columns) */
+.blog-comparison-table th:nth-child(1),
+.blog-comparison-table td:nth-child(1) {
+  width: 33.33%;
+}
+
+.blog-comparison-table th:nth-child(2),
+.blog-comparison-table td:nth-child(2) {
+  width: 33.33%;
+  text-align: center;
+}
+
+.blog-comparison-table th:nth-child(3),
+.blog-comparison-table td:nth-child(3) {
+  width: 33.34%;
+  text-align: center;
+}
+
+/* Body: visible horizontal dividers only (no vertical lines) */
+.blog-comparison-table tbody td {
+  padding: 12px 18px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--text);
+  font-size: 15px;
+}
+
+.blog-comparison-table tbody td:nth-child(2),
+.blog-comparison-table tbody td:nth-child(3) {
+  text-align: center;
+}
+
+.blog-comparison-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.blog-image {
+  /* Gray placeholder style, similar to help-image-gray */
+  width: 100%;
+  height: 400px;
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  position: relative;
+}
+
+.blog-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(45deg, rgba(255,255,255,0.02) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(255,255,255,0.02) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.02) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.02) 75%);
+  background-size: 20px 20px;
+  opacity: 0.5;
+}
+
+.blog-image-img {
+  /* Same scaling as Help Center images (.help-image) */
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+.blog-image-caption {
+  font-size: 14px;
+  color: var(--muted);
+  padding: 10px 14px;
+  margin: 0;
+}
+
+.blog-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+  font-size: 13px;
+  color: var(--brand);
+}
+
+.blog-tags span {
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 999px;
+  padding: 4px 12px;
+}
+
+.article-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin-top: 18px;
+}
+
+/* Article detail page layout (centered content like DrBuho) */
+.article-main {
+  max-width: 900px;
+  margin: 0 auto 80px;
+}
+
+.article-page-article {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 32px 0 0;
+}
+
+.article-page .blog-article h1 {
+  margin: 0 0 10px;
+  font-size: 44px;
+}
+
+.breadcrumbs {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 22px;
+}
+
+.breadcrumbs a {
+  color: var(--muted);
+}
+
+.breadcrumbs a:hover {
+  color: var(--text);
+}
+
+.breadcrumbs-separator {
+  margin: 0 4px;
+}
+
+/* Highlighted inline link for Pinch Gesture download */
+.help-center .pinch-download-link {
+  text-decoration: underline;
+  font-weight: 600;
+  color: var(--brand);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.help-center .pinch-download-link:hover {
+  text-decoration: underline;
+  color: #fff;
+}
+
+/* Blog list card (index page) */
+.blog-card {
+  margin-bottom: 40px;
+}
+
+.blog-card:last-child {
+  margin-bottom: 0;
+}
+
+.blog-card + .blog-card {
+  margin-top: 40px !important;
+}
+
+.blog-card__inner {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 24px;
+  background: #f9fbff;
+  border-radius: 40px;
+  color: #000;
+  text-decoration: none;
+  padding: 20px 24px;
+  box-shadow: 0 18px 50px rgba(0,0,0,0.4);
+}
+
+.blog-card__thumb {
+  overflow: hidden;
+  border-radius: 26px;
+  min-height: 160px;
+}
+
+.blog-card__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 26px;
+  display: block;
+}
+
+.blog-card__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.blog-card__title {
+  margin: 4px 0 8px;
+  font-size: 24px;
+  font-weight: 800;
+  color: #000;
+}
+
+.blog-card__excerpt {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  max-width: 460px;
+}
+
+.blog-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+  font-size: 13px;
+}
+
+.blog-card__read {
+  font-weight: 600;
+  color: #000;
+}
+
+.blog-card__meta {
+  color: #555;
+}
+
+/* Mobile: image on top, text below. Image scales to card width. */
+@media (max-width: 900px) {
+  .blog-card__inner {
+    grid-template-columns: 1fr !important;
+    /* Single column: thumb (first in DOM) on top, content below */
+  }
+  .blog-card__thumb {
+    min-height: 0;
+    aspect-ratio: 16/9;
+    /* Image container scales with card width, keeps proportions */
+  }
+  .blog-card__thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 960px) {
+  .blog-layout {
+    grid-template-columns: 1fr;
+  }
+  .blog-sidebar {
+    position: static;
+    display: none; /* hide sidebar (articles menu + links) on mobile/tablet */
+  }
+}
+
+/* =============================
+   Blog List Card – fallback styles
+   - Duplicated here at end to guarantee they apply
+   - Ensures Safari picks up correct layout even if previous rules are skipped
+   ============================= */
+.blog .blog-articles {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.blog .blog-card + .blog-card {
+  margin-top: 40px !important;
+}
+
+.blog .blog-card__inner {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 24px;
+  background: #f9fbff;
+  border-radius: 40px;
+  color: #000;
+  text-decoration: none;
+  padding: 20px 24px;
+  box-shadow: 0 18px 50px rgba(0,0,0,0.4);
+}
+
+.blog .blog-card__thumb {
+  overflow: hidden;
+  border-radius: 26px;
+  min-height: 160px;
+}
+
+.blog .blog-card__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.blog .blog-card__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.blog .blog-card__title {
+  margin: 4px 0 8px;
+  font-size: 24px;
+  font-weight: 800;
+  color: #000;
+}
+
+.blog .blog-card__excerpt {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  max-width: 460px;
+}
+
+.blog .blog-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+  font-size: 13px;
+}
+
+.blog .blog-card__read {
+  font-weight: 600;
+  color: #000;
+}
+
+.blog .blog-card__meta {
+  color: #555;
+}
+
+/* Mobile: image on top, text below. Image scales to card width. */
+@media (max-width: 900px) {
+  .blog .blog-card__inner {
+    grid-template-columns: 1fr !important;
+  }
+  .blog .blog-card__thumb {
+    min-height: 0;
+    aspect-ratio: 16/9;
+  }
+  .blog .blog-card__thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 640px) {
+  .help-center .help-main {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+/* Spacing between blog list cards (must win over other rules) */
+body.blog .blog-articles .blog-card + .blog-card {
+  margin-top: 40px !important;
+}
+
+/* --- /account — LaunchMe (Direct) password reset + general account copy --- */
+.account-page .account-main {
+  padding-top: 100px;
+  padding-bottom: 80px;
+  max-width: 640px;
+}
+
+.account-page .account-main h1 {
+  margin-top: 0;
+}
+
+.account-muted {
+  color: var(--muted);
+  margin-top: 0;
+}
+
+.account-default .help-intro {
+  margin-bottom: 24px;
+}
+
+.account-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+  margin-bottom: 18px;
+  box-shadow: var(--shadow);
+}
+
+.account-card h2 {
+  margin-top: 0;
+  font-size: 1.25rem;
+}
+
+.account-card--warn {
+  border-color: rgba(255, 180, 80, 0.45);
+  background: rgba(255, 180, 80, 0.08);
+}
+
+.account-card--warn code {
+  font-size: 0.85em;
+  color: #ffd9a3;
+}
+
+.account-card--success {
+  border-color: rgba(100, 220, 160, 0.45);
+  background: rgba(100, 220, 160, 0.08);
+}
+
+.account-field {
+  margin-bottom: 14px;
+}
+
+.account-field label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+}
+
+.account-field input {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--bg-elev);
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.account-field input:focus {
+  outline: 2px solid var(--brand);
+  outline-offset: 1px;
+}
+
+.account-error {
+  color: #ffb4b4;
+  margin: 0 0 12px;
+  font-size: 0.95rem;
+}
+
+.account-page .header-download {
+  font-size: 14px;
+  padding: 8px 14px;
+}
+
+#account-recovery-form .button {
+  margin-top: 8px;
+}
+
+/* =============================================================
+   WHITE THEME OVERRIDES (/landing2)
+   The base stylesheet has a number of hard-coded dark colors that
+   don't read from the CSS variables above. These rules recolor the
+   homepage surfaces to the white scheme without touching layout.
+   ============================================================= */
+
+/* Global link hover: dark instead of pure white */
+a:hover { color: #000; }
+
+/* Header: translucent white bar with a hairline */
+.site-header {
+  background: rgba(255,255,255,0.82);
+  border-bottom: 1px solid var(--border);
+}
+
+/* Buttons that hard-coded white text */
+.button { color: #fff; } /* keep gradient buttons readable (unused on home) */
+
+/* Gallery section sat on pure black */
+.gallery { background: #fff; }
+
+/* Supported languages panel */
+.supported-languages { background: #f5f5f7; }
+.language-name { color: var(--text); }
+
+/* FAQ accordion text was hard-coded white */
+.accordion-trigger { color: var(--text); }
+.accordion-item { border-bottom: 1px solid var(--border); }
+
+/* Footer sat on dark navy */
+.site-footer { background: #f5f5f7; border-top: 1px solid var(--border); }
+.footer-nav a:hover,
+.lm-feature-link:hover,
+.faq-link:hover,
+.header-pricing-btn:hover { color: #000; }
+
+/* Cards: force the light-grey surface (squares had inline #000 fallback,
+   wide decorative cards had a dark background image). */
+.lm-card { background-color: #f5f5f7; }
+.lm-card--square { background-color: #f5f5f7; }
+
+/* CTA pill was solid black with white text */
+.cta-pill { background: #f5f5f7; }
+
+/* =============================================================
+   PORTED FROM VERSION 1 (white minimalist) — /landing2
+   Header, pill buttons, and a dock.cool-style hero.
+   ============================================================= */
+
+/* ---- Sticky white header (replaces .site-header markup) ---- */
+.lp-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255,255,255,0.72);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+.lp-header__inner {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.lp-logo img { height: 22px; display: block; }
+.lp-nav { display: flex; align-items: center; gap: 28px; }
+.lp-nav a { font-size: 14px; color: var(--muted); transition: color .15s ease; }
+.lp-nav a:hover { color: var(--text); }
+
+/* Black pill button (header + hero) */
+.lp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 18px;
+  border-radius: 980px;
+  background: var(--text);
+  color: #fff;
+  transition: opacity .15s ease, transform .15s ease;
+  white-space: nowrap;
+}
+.lp-btn:hover { opacity: .85; color: #fff; }
+.lp-btn--lg { font-size: 18px; font-weight: 600; padding: 16px 30px; }
+.lp-btn .apple-glyph { width: 1em; height: 1.15em; margin-top: -2px; }
+
+@media (max-width: 640px) {
+  .lp-nav { gap: 16px; }
+  .lp-nav .lp-nav__link { display: none; }
+}
+
+/* ---- Hero in dock.cool style ---- */
+/* Sticky header no longer needs the old fixed-header top offset. */
+.hero { padding: 64px 0 64px; }
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 10px;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text);
+}
+.hero-eyebrow .apple-glyph { width: 22px; height: 26px; }
+.hero-title { letter-spacing: -0.02em; }
+.hero-sub { max-width: 720px; margin-left: auto; margin-right: auto; }
+.hero-facts {
+  margin: 18px 0 0;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--muted);
+}
+/* Image moved below text + CTA */
+.hero .hero-image { margin-top: 56px; }
+
+/* ---- Section intro eyebrow (ported) ---- */
+.eyebrow {
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--brand);
+  letter-spacing: .2px;
+  margin: 0 0 12px;
+}
+
+/* =============================================================
+   APPLE INTELLIGENCE–STYLE SECTIONS (/landing2)
+   - "Explore" big-card carousel (one card centred, dots + play)
+   - "Visual Intelligence" full-bleed media-top / text-below slider
+   - Grey/dark media placeholders, ready to swap for <img>/<video>
+   ============================================================= */
+
+/* Shared grey media placeholder */
+.ai-media {
+  position: relative;
+  overflow: hidden;
+  background: repeating-linear-gradient(45deg, #ededf0 0 18px, #e4e4ea 18px 36px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ai-media__badge {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .02em;
+  color: #8c8c92;
+  background: rgba(255,255,255,0.72);
+  padding: 8px 16px;
+  border-radius: 999px;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+.ai-media__badge--dark { color: rgba(255,255,255,0.82); background: rgba(255,255,255,0.14); }
+.ai-media > img,
+.ai-media > video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* ---------- "Explore" big-card carousel ---------- */
+.ai-explore { overflow: hidden; }                 /* clip peeking neighbours */
+.ai-explore__title {
+  text-align: left;
+  margin: 0 0 36px;
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  max-width: 22ch;
+}
+.ai-explore__track {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  overflow-y: hidden;                              /* don't trap vertical scroll */
+  scroll-snap-type: x proximity;                   /* gentle snap; no fight with eased scroll */
+  /* First slide starts flush with the heading text; next slide peeks on the right. */
+  padding: 0 24px 0 max(20px, calc((100% - 1100px) / 2 + 20px));
+  scroll-padding-left: max(20px, calc((100% - 1100px) / 2 + 20px));
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.ai-explore__track::-webkit-scrollbar { display: none; }
+.ai-stage {
+  flex: 0 0 min(1000px, 86%);
+  scroll-snap-align: start;
+  border-radius: 28px;
+  overflow: hidden;
+  transform: translateZ(0);       /* own layer → clean rounded-corner clipping (no hairline) */
+}
+.ai-stage__media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: 28px;
+  overflow: hidden;
+  background: transparent;        /* image fully covers it; no bg = no dark hairline at the radius */
+  display: flex;
+  align-items: flex-end;          /* keep placeholder badge clear of the top caption */
+  justify-content: center;
+  padding-bottom: 28px;
+}
+.ai-stage__media > img,
+.ai-stage__media > video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 28px; z-index: 0; }
+/* Dark scrim under the top caption so it stays readable over any image. */
+.ai-stage__media::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 45%;
+  background: linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 100%);
+  z-index: 1;
+}
+.ai-stage__caption {
+  position: absolute;
+  top: 36px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;                 /* centre without using transform */
+  width: min(560px, 84%);
+  text-align: center;
+  font-size: clamp(17px, 1.9vw, 24px);
+  font-weight: 600;
+  line-height: 1.32;
+  color: rgba(255,255,255,0.62);
+  z-index: 2;
+}
+.ai-stage__caption strong { color: #fff; font-weight: 600; }
+/* Light slides (white-background images): no top scrim, dark caption text. */
+.ai-stage--light .ai-stage__media::before { display: none; }
+.ai-stage--light .ai-stage__caption { color: rgba(0,0,0,0.55); }
+.ai-stage--light .ai-stage__caption strong { color: #1d1d1f; }
+
+.ai-explore__controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 32px;
+}
+.ai-explore__dots {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  background: var(--card);
+  height: 44px;            /* match the play/pause button height */
+  padding: 0 20px;
+  border-radius: 999px;
+}
+.ai-dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  background: #c2c2c7;
+  cursor: pointer;
+  transition: width .3s ease, background .3s ease;
+}
+.ai-dot.is-active { width: 26px; background: #6e6e73; }
+.ai-explore__play {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: var(--card);
+  color: var(--text);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.ai-explore__play svg { width: 18px; height: 18px; fill: currentColor; }
+.ai-explore__play .ai-explore__icon-play { display: none; }
+.ai-explore__play.is-paused .ai-explore__icon-pause { display: none; }
+.ai-explore__play.is-paused .ai-explore__icon-play { display: block; }
+
+/* ---------- "Visual Intelligence" full-bleed slider ---------- */
+.ai-vi { overflow: hidden; }                       /* no page-level horizontal scroll */
+.ai-vi__eyebrow { margin: 0 0 10px; font-size: 17px; font-weight: 600; color: var(--text); }
+.ai-vi__title {
+  margin: 0 0 16px;
+  text-align: left;
+  font-size: clamp(30px, 4.4vw, 52px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+  max-width: 18ch;
+}
+.ai-vi__sub {
+  margin: 0 0 40px;
+  font-size: clamp(17px, 2vw, 21px);
+  line-height: 1.45;
+  color: var(--muted);
+  max-width: 640px;
+}
+.ai-vi__track {
+  display: flex;
+  align-items: flex-start;                         /* top-align cards: text length below never shifts them */
+  gap: 24px;
+  overflow-x: auto;
+  overflow-y: hidden;                              /* don't trap vertical scroll */
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  /* Full-bleed: first card aligns with the container, cards run off the right edge. */
+  padding: 0 24px 4px max(20px, calc((100% - 1100px) / 2 + 20px));
+  /* Match the left gutter so snap "start" rests the first card at the text edge
+     (not pinned to the page edge) until you scroll left. */
+  scroll-padding-left: max(20px, calc((100% - 1100px) / 2 + 20px));
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.ai-vi__track::-webkit-scrollbar { display: none; }
+.vi-card { flex: 0 0 auto; scroll-snap-align: start; }
+.vi-card--narrow { width: clamp(240px, 72vw, 300px); }
+.vi-card--wide   { width: clamp(300px, 88vw, 560px); }
+/* All media tiles share the same height; only the width varies (Apple style). */
+.vi-card__media { width: 100%; height: clamp(280px, 30vw, 400px); border-radius: 24px; }
+.vi-card__text {
+  margin: 18px 2px 0;
+  text-align: left;
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.vi-card__text strong { color: var(--text); font-weight: 600; }
+.ai-vi__nav { display: flex; justify-content: flex-end; gap: 12px; margin-top: 30px; }
+.ai-vi__btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: var(--card);
+  color: var(--text);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .15s ease;
+}
+.ai-vi__btn:hover { background: #e3e3e8; }
+.ai-vi__btn svg { width: 22px; height: 22px; }
+
+@media (max-width: 760px) {
+  .ai-stage { flex-basis: 90%; }
+  /* Taller card + smaller caption so long text never collides on narrow screens. */
+  .ai-stage__media { aspect-ratio: 4 / 5; }
+  .ai-stage__caption { top: 24px; width: 86%; font-size: 17px; line-height: 1.3; }
+}
+
+/* Apple-style scroll reveal: fade + slide up (hook class added by JS) */
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity .7s cubic-bezier(.22,.61,.36,1), transform .7s cubic-bezier(.22,.61,.36,1); }
+.reveal.is-in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
