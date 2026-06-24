@@ -20,7 +20,8 @@ const ROOT = path.join(__dirname, '..');
 /** Horizontal whitespace before `<header>` is included so repeated builds do not stack indent. */
 // Matches the legacy `site-header` (first migration) and the new `lp-header` (idempotent
 // rebuilds), tolerating any extra classes (e.g. variant modifiers).
-const HEADER_RE = /[^\S\r\n]*<header\s+class="(?:site-header|lp-header)[^"]*"[^>]*>[\s\S]*?<\/header>/;
+/** Header block + optional header-*.js scripts immediately after it (replaced atomically). */
+const HEADER_RE = /[^\S\r\n]*<header\s+class="(?:site-header|lp-header)[^"]*"[^>]*>[\s\S]*?<\/header>(?:\s*<script\s+src="\/js\/header-[^"]+\.js"\s+defer><\/script>)*/;
 
 function loadPartial(name) {
   const p = path.join(ROOT, 'partials', name);

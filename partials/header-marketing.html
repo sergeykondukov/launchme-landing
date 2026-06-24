@@ -1,12 +1,19 @@
 <header class="lp-header">
     <div class="container lp-header__inner">
         <a href="__HOME_HREF__" class="lp-logo"><img src="/images/logoicontext.png" alt="LaunchMe"></a>
-        <nav class="lp-nav">
+        <!-- Mobile only: opens nav links below the bar (see header-menu.js) -->
+        <button class="lp-nav-toggle" type="button" aria-expanded="false" aria-controls="lp-nav-menu" aria-label="Open menu">
+            <span class="lp-nav-toggle__bar" aria-hidden="true"></span>
+            <span class="lp-nav-toggle__bar" aria-hidden="true"></span>
+            <span class="lp-nav-toggle__bar" aria-hidden="true"></span>
+        </button>
+        <nav class="lp-nav" id="lp-nav-menu" aria-label="Main">
             <a class="lp-nav__link" href="__NAV_PREFIX__#features">Features</a>
             <a class="lp-nav__link" href="__NAV_PREFIX__#customization">Customization</a>
             <a class="lp-nav__link" href="/pricing/" data-ga="nav-pricing" data-ga-area="header"__PRICING_ARIA__>Pricing</a>
-            <a class="lp-btn" href="__DMG_URL__" data-ga="direct-dmg" data-ga-area="__DOWNLOAD_GA_AREA__">Download</a>
+            <a class="lp-btn lp-nav__download" href="__DMG_URL__" data-ga="direct-dmg" data-ga-area="__DOWNLOAD_GA_AREA__">Download</a>
         </nav>
     </div>
 </header>
 <script src="/js/header-scroll.js" defer></script>
+<script src="/js/header-menu.js" defer></script>

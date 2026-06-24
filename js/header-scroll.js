@@ -18,6 +18,7 @@
 
   function setHidden(hidden) {
     header.classList.toggle('is-hidden', hidden);
+    if (hidden) header.dispatchEvent(new CustomEvent('lp-header:close-menu'));
   }
 
   function onScrollFrame() {
