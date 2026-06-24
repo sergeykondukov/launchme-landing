@@ -126,10 +126,10 @@
             <div class="container hero-inner">
                 <p class="hero-eyebrow">
                     <svg class="apple-glyph" viewBox="0 0 384 512" aria-hidden="true"><path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
-                    Launchpad you've been waiting for
+                    Workspace manager for your Mac
                 </p>
-                <h1 class="hero-title">The Launchpad replacement<br>macOS 26 Tahoe deserves.</h1>
-                <p class="hero-sub">LaunchMe brings folders, file search, live wallpapers, widgets, and deep customization into one beautiful full-screen launcher built for macOS 26 Tahoe.</p>
+                <h1 class="hero-title">The Launchpad replacement<br>macOS 26 - 27 deserves.</h1>
+                <p class="hero-sub">LaunchMe brings folders, file search, live wallpapers, widgets, and deep customization into one beautiful full-screen launcher built for macOS 26 & 27.</p>
                 <div class="cta-group">
                     <!-- LAUNCHME_HERO_CTA_BEGIN -->
                     <a class="lp-btn lp-btn--lg" href="/updates/LaunchMeDirect-1.118.4.dmg" data-ga="direct-dmg" data-ga-area="hero">
@@ -138,7 +138,7 @@
                     </a>
                     <!-- LAUNCHME_HERO_CTA_END -->
                 </div>
-                <p class="hero-facts">Free to use &nbsp;·&nbsp; Live wallpapers &nbsp;·&nbsp; Customizable launcher &nbsp;·&nbsp; macOS 26 Tahoe</p>
+                <p class="hero-facts">Customizable &nbsp;·&nbsp; Live wallpapers &nbsp;·&nbsp; Automations &nbsp;·&nbsp; Widgets &nbsp;·&nbsp; Spaces</p>
                 <!-- Hero scene: interactive full-bleed mountains behind the laptop image.
                      - data-layer-top   = main/visible layer (shown by default)
                      - data-layer-reveal = layer revealed in a fluid blob around the cursor
@@ -162,7 +162,7 @@
                 <!-- Section intro (ported from the white minimalist version) -->
                 <p class="eyebrow">Features</p>
                 <h2 class="section-title">Everything Launchpad had.<br>And a lot it didn't.</h2>
-                <p class="section-sub">A full-screen launcher built for the way you actually work — place apps freely, open files fast, and make it yours.</p>
+                <p class="section-sub">A full-screen launcher built for the way you actually work. Search and open files, use Clipboard, and make it yours.</p>
                 <!-- Demo using new reusable card components -->
                 <div class="lm-cards-row" style="margin-bottom:30px;">
                     <!-- Wide card example -->
@@ -432,8 +432,8 @@
         <section id="explore" class="section ai-vi">
             <div class="container">
                 <p class="ai-vi__eyebrow">Inside LaunchMe</p>
-                <h2 class="ai-vi__title">Everything you need, right where you launch.</h2>
-                <p class="ai-vi__sub">A closer look at the features that make LaunchMe more useful every day — on every Mac.</p>
+                <h2 class="ai-vi__title">Everything you need, and so much more.</h2>
+                <p class="ai-vi__sub">A closer look at the features that make LaunchMe more useful every day - on every Mac.</p>
             </div>
             <div class="ai-vi__track" data-vi-track>
                 <article class="vi-card vi-card--narrow">
@@ -983,22 +983,68 @@
         </section>
     </main>
 
-    <!-- Footer with Privacy link -->
+    <!-- Footer: brand + two link columns over an interactive mountains backdrop
+         (the same layers used in the hero) and a large LaunchMe wordmark. -->
     <footer class="site-footer">
-        <div class="container footer-inner">
-            <a href="#top" class="brand small"><img class="brand-img" src="/images/press/logo-black.png" alt="LaunchMe" /></a>
-            <!-- Canonical URLs (no .html/index) for SEO consistency -->
-            <nav class="footer-nav" aria-label="Footer">
-                <a href="/support/">Support</a>
+        <!-- Interactive backdrop: a second instance of the hero's reveal layers. -->
+        <div class="footer-bg" data-interactive aria-hidden="true"
+             data-layer-top="/images/Interactive/interactive-layer-2.png"
+             data-layer-reveal="/images/Interactive/interactive-layer-1.png">
+            <canvas></canvas>
+        </div>
+
+        <div class="container footer-top">
+            <div class="footer-brand">
+                <a href="#top" class="footer-logo"><img src="/images/press/logo-black.png" alt="LaunchMe"></a>
+                <p class="footer-tagline">Your full-screen Mac launcher</p>
+                <p class="footer-desc">LaunchMe brings folders, file search, live wallpapers, widgets, and deep customization into one beautiful full-screen launcher built for macOS 26 Tahoe.</p>
+                <a class="lp-btn lp-btn--lg footer-cta" href="/updates/LaunchMeDirect-1.118.4.dmg" data-ga="direct-dmg" data-ga-area="footer">
+                    <svg class="apple-glyph" viewBox="0 0 384 512" aria-hidden="true"><path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+                    Download for macOS
+                </a>
+                <p class="footer-copy">© 2026 LaunchMe — All rights reserved</p>
+                <p class="footer-author">
+                    Built with <span class="footer-author__love">love</span> by
+                    <a class="footer-author__by" href="https://www.threads.com/@sergey.newton?igshid=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener noreferrer">
+                        <img class="footer-author__avatar" src="/images/sergey-icon.png" alt="Sergey Newton">
+                        Sergey Newton
+                    </a>
+                </p>
+            </div>
+
+            <div class="footer-links">
+            <nav class="footer-col" aria-label="Menu">
+                <h4 class="footer-col__title">Menu</h4>
+                <a href="#top">Home</a>
+                <a href="#features">Features</a>
                 <a href="/pricing/">Pricing</a>
+                <a href="#faq">FAQ</a>
+                <a href="/blog/">Blog</a>
+            </nav>
+
+            <nav class="footer-col" aria-label="Navigation">
+                <h4 class="footer-col__title">Navigation</h4>
+                <a href="/support/">Support</a>
+                <a href="/help/">Help Center</a>
                 <a href="/privacy/">Privacy Policy</a>
                 <a href="/terms/">Terms of Service</a>
                 <a href="/refunds/">Refund Policy</a>
-                <a href="/blog/">Blog</a>
-                <a href="/help/">Help Center</a>
                 <a href="/press-assets/">Press Assets</a>
             </nav>
+
+            <nav class="footer-col" aria-label="Social">
+                <h4 class="footer-col__title">Social</h4>
+                <a href="https://www.instagram.com/launchmeapp?igsh=MWZiMW9qamUzYzNjeA%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer">Instagram</a>
+                <a href="https://www.tiktok.com/@sergey.newton?_r=1&_t=ZS-97T0P0cUuAP" target="_blank" rel="noopener noreferrer">TikTok</a>
+                <a href="https://www.threads.com/@launchmeapp?igshid=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener noreferrer">Threads</a>
+                <a href="https://youtube.com/@sergeynewton?si=iqecQRB7wxNSHLgb" target="_blank" rel="noopener noreferrer">YouTube</a>
+                <a href="https://x.com/sergeynewton?s=11" target="_blank" rel="noopener noreferrer">X</a>
+            </nav>
+            </div>
         </div>
+
+        <!-- Oversized wordmark, clipped by the footer's bottom edge. -->
+        <div class="footer-wordmark" aria-hidden="true">LaunchMe</div>
     </footer>
 
     <!-- Scripts loaded at end for performance -->
@@ -1035,7 +1081,12 @@
                 return b;
             });
 
-            function snapPad() { return parseFloat(getComputedStyle(track).scrollPaddingLeft) || 0; }
+            function snapPad() {
+                // Some engines report scroll-padding as the raw max()/calc() string
+                // (parseFloat → NaN), so fall back to padding-left, which equals it here.
+                var cs = getComputedStyle(track);
+                return parseFloat(cs.scrollPaddingLeft) || parseFloat(cs.paddingLeft) || 0;
+            }
             function targetFor(i) {
                 var t = track.getBoundingClientRect(), e = slides[i].getBoundingClientRect();
                 return track.scrollLeft + (e.left - t.left) - snapPad();
@@ -1055,13 +1106,18 @@
                 if (animId) cancelAnimationFrame(animId);
                 var start = track.scrollLeft, dist = target - start;
                 if (Math.abs(dist) < 1) return;
-                var dur = 700, t0 = null;
+                // Turn off snapping for the duration: otherwise the browser keeps
+                // yanking scrollLeft to the nearest snap point each frame, which
+                // overrides the eased motion and makes the switch look jumpy.
+                track.style.scrollSnapType = 'none';
+                var dur = 800, t0 = null;
                 function ease(p) { return p < 0.5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2; }
                 function frame(ts) {
                     if (t0 === null) t0 = ts;
                     var p = Math.min(1, (ts - t0) / dur);
                     track.scrollLeft = start + dist * ease(p);
-                    if (p < 1) animId = requestAnimationFrame(frame); else animId = null;
+                    if (p < 1) { animId = requestAnimationFrame(frame); }
+                    else { animId = null; track.style.scrollSnapType = ''; } // re-enable snap
                 }
                 animId = requestAnimationFrame(frame);
             }
@@ -1139,12 +1195,11 @@
     })();
     </script>
 
-    <!-- Interactive hero: fluid reveal of layer-1 around the cursor over layer-2 -->
+    <!-- Interactive layers: fluid reveal of layer-1 around the cursor over layer-2.
+         Runs for every [data-interactive] element (hero scene + footer background). -->
     <script>
-    (function () {
-        var root = document.querySelector('[data-interactive]');
-        if (!root) return;
-        var canvas = root.querySelector('.hero-interactive__canvas');
+    function initInteractiveLayer(root) {
+        var canvas = root.querySelector('canvas');
         if (!canvas || !canvas.getContext) return;
         var ctx = canvas.getContext('2d');
 
@@ -1294,7 +1349,8 @@
                 });
             }, { threshold: 0 }).observe(root);
         }
-    })();
+    }
+    [].forEach.call(document.querySelectorAll('[data-interactive]'), initInteractiveLayer);
     </script>
 </body>
 </html>
