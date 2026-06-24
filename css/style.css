@@ -987,21 +987,39 @@ a:hover { color: #fff; }
   }
 }
 
-/* When wide card becomes square (mobile): reduce height by 30%, image fills width and hugs bottom */
+/* Mobile: wide cards become 1:1 squares, same size as .lm-card--square */
 @media (max-width: 767px) {
   .lm-card--wide {
     height: auto !important;
-    aspect-ratio: 10 / 7; /* 70% of square height — 30% reduction */
+    /* Square width, but ~20% shorter than 1:1 on mobile */
+    aspect-ratio: 5 / 4;
   }
-  .lm-card--wide .lm-card__image[src*="dynamic-wallpaper"],
-  .lm-card--wide .lm-card__image[src*="liquid-glass"],
-  .lm-card--wide .lm-card__image[src*="dynamic-weather"] {
+  /* ~2.5× larger than the previous half-size mobile preview (50% → full width) */
+  .lm-card--wide .lm-card__image {
     top: auto;
     bottom: 0;
+    left: 50%;
+    right: auto;
     width: 100%;
     height: auto;
+    max-height: 85%;
+    transform: translateX(-50%);
     object-fit: contain;
     object-position: bottom center;
+  }
+  /* Monitor image: no title — fill the whole card on mobile too */
+  .lm-card--wide.lm-card--media-fill .lm-card__image {
+    inset: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    max-height: none;
+    transform: none;
+    object-fit: cover;
+    object-position: center;
   }
 }
 
@@ -2136,6 +2154,17 @@ body:has(> .lp-header) {
   color: var(--text);
 }
 .hero-eyebrow .apple-glyph { width: 22px; height: 26px; }
+
+@media (max-width: 767px) {
+  /* Stack apple above the eyebrow line — inline row misaligns on narrow screens */
+  .hero-eyebrow {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+  }
+}
+
 .hero-title { letter-spacing: -0.02em; }
 .hero-sub { max-width: 720px; margin-left: auto; margin-right: auto; }
 .hero-facts {

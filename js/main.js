@@ -47,11 +47,13 @@ document.addEventListener('click', function (e) {
       const squares = Array.from(container.querySelectorAll('.lm-card--square'));
       if (squares.length === 0) return;
       const size = squares[0].getBoundingClientRect().width;
+      const isMobileCards = window.matchMedia('(max-width: 767px)').matches;
       squares.forEach(function (sq) {
         sq.style.height = size + 'px';
       });
       container.querySelectorAll('.lm-card--wide').forEach(function (wide) {
-        wide.style.height = size + 'px';
+        // Mobile uses aspect-ratio 1/1 in CSS — clear desktop inline height.
+        wide.style.height = isMobileCards ? '' : size + 'px';
       });
     });
   }
