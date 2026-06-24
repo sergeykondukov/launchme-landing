@@ -36,18 +36,15 @@
       Nav matches the home page: logo, Pricing (current), direct download badge.
       Rebuilt from partials/header-marketing.html (run: pnpm run build:headers).
     -->
-    <header class="site-header">
-        <div class="container header-inner header-inner--split">
-            <a href="/" class="brand">
-                <img class="brand-img" src="/images/logoicontext.png" alt="LaunchMe" />
-            </a>
-            <span class="header-spacer" aria-hidden="true"></span>
-            <div class="header-actions">
-                <a href="/pricing/" class="header-pricing-btn" data-ga="nav-pricing" data-ga-area="header" aria-current="page">Pricing</a>
-                <a class="header-download" href="/updates/LaunchMeDirect-1.118.4.dmg" data-ga="direct-dmg" data-ga-area="pricing-header">
-                    <img src="/images/download-button.svg" alt="Download LaunchMe for Mac (direct download)">
-                </a>
-            </div>
+    <header class="lp-header">
+        <div class="container lp-header__inner">
+            <a href="/" class="lp-logo"><img src="/images/logoicontext.png" alt="LaunchMe"></a>
+            <nav class="lp-nav">
+                <a class="lp-nav__link" href="/#features">Features</a>
+                <a class="lp-nav__link" href="/#customization">Customization</a>
+                <a class="lp-nav__link" href="/pricing/" data-ga="nav-pricing" data-ga-area="header" aria-current="page">Pricing</a>
+                <a class="lp-btn" href="/updates/LaunchMeDirect-1.118.4.dmg" data-ga="direct-dmg" data-ga-area="pricing-header">Download</a>
+            </nav>
         </div>
     </header>
 
@@ -57,7 +54,7 @@
     <main id="top">
         <!-- Short hero: title only (distribution/support copy removed per product request). -->
         <section class="pricing-hero container" aria-labelledby="pricing-heading">
-            <p class="pricing-hero__eyebrow">PRICING</p>
+            <p class="section-kicker">PRICING</p>
             <h1 id="pricing-heading" class="pricing-hero__title">Workspace manager for your Mac</h1>
             <p class="pricing-hero__sub">Use for free, or unlock more features with a LaunchMe Pro.</p>
         </section>
@@ -88,6 +85,9 @@
                         <li>Save layouts</li>
                         <li>Auto system icon style</li>
                         <li>Page with categories</li>
+                        <li>Liquid Glass theme</li>
+                        <li>Emoji &amp; Symbols</li>
+                        <li>Rename apps</li>
                     </ul>
                 </article>
 
@@ -105,6 +105,12 @@
                             <span class="pricing-pro-features__label">Widgets</span>
                         </li>
                         <li class="pricing-pro-features__item">
+                            <span class="pricing-pro-features__label">Music widgets</span>
+                        </li>
+                        <li class="pricing-pro-features__item">
+                            <span class="pricing-pro-features__label">Weather Widgets</span>
+                        </li>
+                        <li class="pricing-pro-features__item">
                             <span class="pricing-pro-features__label">Spaces <span class="pricing-pro-features__hint">(dynamic workspaces)</span></span>
                         </li>
                         <li class="pricing-pro-features__item">
@@ -117,7 +123,7 @@
                             <span class="pricing-pro-features__label">Icons customization</span>
                         </li>
                         <li class="pricing-pro-features__item">
-                            <span class="pricing-pro-features__label">Liquid Glass theme</span>
+                            <span class="pricing-pro-features__label">Liquid Glass customization</span>
                         </li>
                         <li class="pricing-pro-features__item">
                             <span class="pricing-pro-features__label">Clear Colored icons</span>
@@ -143,32 +149,16 @@
         </section>
 
         <!--
-          LaunchMe Features Section — same HTML as index.html (after pricing cards on /pricing/).
-          Image paths use ../ because this file lives in /pricing/. Layout: 4-column grid on desktop.
+          LaunchMe Features grid — same block as index.html #launchme-features.
+          Scroll-reveal animation runs via /js/sections.js (.lm-feature-tile).
         -->
         <section id="launchme-features" class="section lm-features">
             <div class="container">
                 <h2 class="section-title">LaunchMe Features</h2>
-                <!--
-                  Subheading tuned for AI and SEO:
-                  - Explicitly connects LaunchMe to Launchpad and macOS 26 Tahoe.
-                  - Mentions key differentiating features in one simple sentence.
-                -->
                 <p class="section-sub">Everything you loved about Launchpad, plus live video wallpapers, widgets, file access, and deep customization — built for macOS 26 Tahoe.</p>
-                <!--
-                  Grid with 20 feature tiles.
-                  - Each tile = icon placeholder + short title + optional subtitle
-                  - Order and naming follow the provided screenshot as close as possible.
-                -->
                 <div class="grid grid-4 lm-features-grid">
-                    <!-- Row 1 -->
                     <article class="lm-feature-tile">
-                        <!-- Trackpad gesture icon lives in help images folder -->
-                        <img class="lm-feature-icon" src="../images/help/gesture-icon.png" alt="Trackpad gesture icon">
-                        <!--
-                          Title + text-button on the second line.
-                          We keep it inside one heading so both lines share the same font and style.
-                        -->
+                        <img class="lm-feature-icon" src="/images/help/gesture-icon.png" alt="Trackpad gesture icon">
                         <h3 class="lm-feature-title">
                             Trackpad Gesture<br>
                             <a class="lm-feature-link" href="https://launchmeapp.com/help/#pinch-gesture" target="_blank" rel="noopener noreferrer">
@@ -177,142 +167,152 @@
                         </h3>
                     </article>
                     <article class="lm-feature-tile">
-                        <img class="lm-feature-icon" src="../images/features/live-wallpaper-icon.svg" alt="Live wallpaper icon">
+                        <img class="lm-feature-icon" src="/images/features/live-wallpaper-icon.svg" alt="Live wallpaper icon">
                         <h3 class="lm-feature-title">Live Wallpaper<br>AVI, MP4, MOV, MKV</h3>
                     </article>
                     <article class="lm-feature-tile">
-                        <img class="lm-feature-icon" src="../images/features/widgets-icon.svg" alt="Widgets icon">
+                        <img class="lm-feature-icon" src="/images/features/widgets-icon.svg" alt="Widgets icon">
                         <h3 class="lm-feature-title">Widgets</h3>
                     </article>
                     <article class="lm-feature-tile">
-                        <img class="lm-feature-icon" src="../images/features/glass-icon.png" alt="Liquid glass icon">
+                        <img class="lm-feature-icon" src="/images/features/glass-icon.png" alt="Liquid glass icon">
                         <h3 class="lm-feature-title">Liquid Glass</h3>
                     </article>
 
-                    <!-- Row 2 -->
                     <article class="lm-feature-tile">
-                        <img class="lm-feature-icon" src="../images/features/dynamic-wallpaper-icon.svg" alt="Dynamic wallpaper icon">
+                        <img class="lm-feature-icon" src="/images/features/dynamic-wallpaper-icon.svg" alt="Dynamic wallpaper icon">
                         <h3 class="lm-feature-title">Dynamic Wallpaper</h3>
                     </article>
                     <article class="lm-feature-tile">
-                        <img class="lm-feature-icon" src="../images/features/files-fast-icon.svg" alt="Files fast access icon">
+                        <img class="lm-feature-icon" src="/images/features/files-fast-icon.svg" alt="Files fast access icon">
                         <h3 class="lm-feature-title">Files Fast Access</h3>
                     </article>
                     <article class="lm-feature-tile">
-                        <img class="lm-feature-icon" src="../images/features/free-layout-icon.svg" alt="Free layout icon">
+                        <img class="lm-feature-icon" src="/images/features/free-layout-icon.svg" alt="Free layout icon">
                         <h3 class="lm-feature-title">Free Layout</h3>
                     </article>
                     <article class="lm-feature-tile">
-                        <img class="lm-feature-icon" src="../images/features/custom-icons-icon.svg" alt="Custom icons icon">
+                        <img class="lm-feature-icon" src="/images/features/custom-icons-icon.svg" alt="Custom icons icon">
                         <h3 class="lm-feature-title">Custom Icons<br>Change any icon</h3>
                     </article>
 
-                    <!-- Row 3 -->
                     <article class="lm-feature-tile">
-                        <img class="lm-feature-icon" src="../images/features/hide-app-icon.svg" alt="Hide apps icon">
+                        <img class="lm-feature-icon" src="/images/features/hide-app-icon.svg" alt="Hide apps icon">
                         <h3 class="lm-feature-title">Hide Apps<br>Keep space clean</h3>
                     </article>
                     <article class="lm-feature-tile">
-                        <img class="lm-feature-icon" src="../images/features/custom-files-icon.svg" alt="Custom files and folders icon">
+                        <img class="lm-feature-icon" src="/images/features/custom-files-icon.svg" alt="Custom files and folders icon">
                         <h3 class="lm-feature-title">Custom Files &amp; Folders</h3>
                     </article>
                     <article class="lm-feature-tile">
-                        <img class="lm-feature-icon" src="../images/features/clear-colored-icon.svg" alt="Clear colored icons icon">
+                        <img class="lm-feature-icon" src="/images/features/clear-colored-icon.svg" alt="Clear colored icons icon">
                         <h3 class="lm-feature-title">Clear Colored Icons<br>Glass + color</h3>
                     </article>
                     <article class="lm-feature-tile">
-                        <img class="lm-feature-icon" src="../images/features/categories-icon.svg" alt="Categories page icon">
+                        <img class="lm-feature-icon" src="/images/features/categories-icon.svg" alt="Categories page icon">
                         <h3 class="lm-feature-title">Categories Page</h3>
                     </article>
 
-                    <!-- Row 4 -->
                     <article class="lm-feature-tile">
-                        <img class="lm-feature-icon" src="../images/features/tinted-icon.svg" alt="System app icons icon">
+                        <img class="lm-feature-icon" src="/images/features/tinted-icon.svg" alt="System app icons icon">
                         <h3 class="lm-feature-title">System App Icons<br>Tinted · Dark · Light</h3>
                     </article>
                     <article class="lm-feature-tile">
-                        <img class="lm-feature-icon" src="../images/features/key-shortcut-icon.svg" alt="Custom launch shortcut icon">
+                        <img class="lm-feature-icon" src="/images/features/key-shortcut-icon.svg" alt="Custom launch shortcut icon">
                         <h3 class="lm-feature-title">Custom Launch Shortcut<br>Your own hotkey</h3>
                     </article>
                     <article class="lm-feature-tile">
-                        <img class="lm-feature-icon" src="../images/features/hide-title-icon.svg" alt="Hide titles icon">
+                        <img class="lm-feature-icon" src="/images/features/hide-title-icon.svg" alt="Hide titles icon">
                         <h3 class="lm-feature-title">Hide Titles<br>Minimal look</h3>
                     </article>
                     <article class="lm-feature-tile">
-                        <img class="lm-feature-icon" src="../images/features/dark-mode-icon.svg" alt="System dark/light mode icon">
+                        <img class="lm-feature-icon" src="/images/features/dark-mode-icon.svg" alt="System dark/light mode icon">
                         <h3 class="lm-feature-title">System Dark/Light<br>Mode support</h3>
                     </article>
 
-                    <!-- Row 5 -->
                     <article class="lm-feature-tile">
-                        <img class="lm-feature-icon" src="../images/features/full-screen-icon.svg" alt="Full screen mode icon">
+                        <img class="lm-feature-icon" src="/images/features/full-screen-icon.svg" alt="Full screen mode icon">
                         <h3 class="lm-feature-title">Full Screen Mode<br>Immersive launcher</h3>
                     </article>
                     <article class="lm-feature-tile">
-                        <img class="lm-feature-icon" src="../images/features/many-screen-icon.svg" alt="Many screens icon">
+                        <img class="lm-feature-icon" src="/images/features/many-screen-icon.svg" alt="Many screens icon">
                         <h3 class="lm-feature-title">Many Screens<br>Multi‑display support</h3>
                     </article>
                     <article class="lm-feature-tile">
-                        <img class="lm-feature-icon" src="../images/features/hot-corners-icon.svg" alt="Hot corners icon">
+                        <img class="lm-feature-icon" src="/images/features/hot-corners-icon.svg" alt="Hot corners icon">
                         <h3 class="lm-feature-title">Hot Corners<br>Free to use</h3>
                     </article>
                     <article class="lm-feature-tile">
-                        <img class="lm-feature-icon" src="../images/features/icon-size-icon.svg" alt="Control icon size icon">
+                        <img class="lm-feature-icon" src="/images/features/icon-size-icon.svg" alt="Control icon size icon">
                         <h3 class="lm-feature-title">Control Icon Size<br>Adjust grid size</h3>
                     </article>
 
-                    <!-- Row 6: Files search, Clipboard, Calculator, Extra app sources -->
                     <article class="lm-feature-tile">
-                        <img class="lm-feature-icon" src="../images/features/files-search-icon.svg" alt="Files search icon">
+                        <img class="lm-feature-icon" src="/images/features/files-search-icon.svg" alt="Files search icon">
                         <h3 class="lm-feature-title">Files Search<br>Copy, open and more</h3>
                     </article>
                     <article class="lm-feature-tile">
-                        <img class="lm-feature-icon" src="../images/features/clipboard-icon.svg" alt="Clipboard icon">
+                        <img class="lm-feature-icon" src="/images/features/clipboard-icon.svg" alt="Clipboard icon">
                         <h3 class="lm-feature-title">Clipboard<br>Text, files, links</h3>
                     </article>
                     <article class="lm-feature-tile">
-                        <img class="lm-feature-icon" src="../images/features/calculator-icon.svg" alt="Calculator icon">
+                        <img class="lm-feature-icon" src="/images/features/calculator-icon.svg" alt="Calculator icon">
                         <h3 class="lm-feature-title">Calculator<br>In search field</h3>
                     </article>
                     <article class="lm-feature-tile">
-                        <img class="lm-feature-icon" src="../images/features/extra-app-icon.svg" alt="Extra app sources icon">
+                        <img class="lm-feature-icon" src="/images/features/extra-app-icon.svg" alt="Extra app sources icon">
                         <h3 class="lm-feature-title">Extra App Sources<br>Scan apps anywhere</h3>
                     </article>
 
-                    <!-- Row 7: Spaces, Workflows, Themes, Sun Wallpaper -->
                     <article class="lm-feature-tile">
-                        <img class="lm-feature-icon" src="../images/features/square.stack.3d.down.right.fill%201.svg" alt="Spaces icon">
+                        <img class="lm-feature-icon" src="/images/features/square.stack.3d.down.right.fill%201.svg" alt="Spaces icon">
                         <h3 class="lm-feature-title">Spaces<br>Create presets</h3>
                     </article>
                     <article class="lm-feature-tile">
-                        <img class="lm-feature-icon" src="../images/features/workflows-icon.svg" alt="Workflows icon">
+                        <img class="lm-feature-icon" src="/images/features/workflows-icon.svg" alt="Workflows icon">
                         <h3 class="lm-feature-title">Workflows<br>Launch automations</h3>
                     </article>
                     <article class="lm-feature-tile">
-                        <img class="lm-feature-icon" src="../images/features/themes-icon.svg" alt="Themes icon">
+                        <img class="lm-feature-icon" src="/images/features/themes-icon.svg" alt="Themes icon">
                         <h3 class="lm-feature-title">Themes<br>Change manually</h3>
                     </article>
                     <article class="lm-feature-tile">
-                        <img class="lm-feature-icon" src="../images/features/sun-wallpaper-icon.svg" alt="Sun wallpaper icon">
+                        <img class="lm-feature-icon" src="/images/features/sun-wallpaper-icon.svg" alt="Sun wallpaper icon">
                         <h3 class="lm-feature-title">Sun Wallpaper<br>Dynamic by time</h3>
                     </article>
 
-                    <!-- Row 8: Weather Wallpaper, Support, iCloud sync, Ask Ai -->
                     <article class="lm-feature-tile">
-                        <img class="lm-feature-icon" src="../images/features/weather-wallpaper-icon.svg" alt="Weather wallpaper icon">
+                        <img class="lm-feature-icon" src="/images/features/weather-wallpaper-icon.svg" alt="Weather wallpaper icon">
                         <h3 class="lm-feature-title">Weather Wallpaper<br>Real time in any city</h3>
                     </article>
                     <article class="lm-feature-tile">
-                        <img class="lm-feature-icon" src="../images/features/languages-icon.svg" alt="Support languages icon">
+                        <img class="lm-feature-icon" src="/images/features/languages-icon.svg" alt="Support languages icon">
                         <h3 class="lm-feature-title">Support<br>12 languages</h3>
                     </article>
                     <article class="lm-feature-tile">
-                        <img class="lm-feature-icon" src="../images/features/icloud-icon.svg" alt="iCloud sync icon">
+                        <img class="lm-feature-icon" src="/images/features/icloud-icon.svg" alt="iCloud sync icon">
                         <h3 class="lm-feature-title">iCloud Sync<br>Soon</h3>
                     </article>
                     <article class="lm-feature-tile">
-                        <img class="lm-feature-icon" src="../images/features/ai-icon.svg" alt="Ask Ai icon">
+                        <img class="lm-feature-icon" src="/images/features/ai-icon.svg" alt="Ask Ai icon">
                         <h3 class="lm-feature-title">Ask Ai<br>Soon</h3>
+                    </article>
+
+                    <article class="lm-feature-tile">
+                        <img class="lm-feature-icon" src="/images/features/rename-apps-icon.svg" alt="Rename apps icon">
+                        <h3 class="lm-feature-title">Rename apps</h3>
+                    </article>
+                    <article class="lm-feature-tile">
+                        <img class="lm-feature-icon" src="/images/features/face-icon.svg" alt="Emoji and symbols icon">
+                        <h3 class="lm-feature-title">Emoji &amp; Symbols<br>in search bar</h3>
+                    </article>
+                    <article class="lm-feature-tile">
+                        <img class="lm-feature-icon" src="/images/features/weather-widgets-icon.svg" alt="Weather widgets icon">
+                        <h3 class="lm-feature-title">Weather Widgets<br>8 Styles, 4 sizes</h3>
+                    </article>
+                    <article class="lm-feature-tile">
+                        <img class="lm-feature-icon" src="/images/features/music-widgets-icon.svg" alt="Music widgets icon">
+                        <h3 class="lm-feature-title">Music Widgets<br>Spotify &amp; Apple Music</h3>
                     </article>
                 </div>
             </div>
@@ -321,19 +321,68 @@
     </main>
 
     <footer class="site-footer">
-        <div class="container footer-inner">
-            <a href="/" class="brand small"><img class="brand-img" src="../images/logoicontext.png" alt="LaunchMe"></a>
-            <nav class="footer-nav" aria-label="Footer">
-                <a href="/support/">Support</a>
-                <a href="/pricing/" aria-current="page">Pricing</a>
-                <a href="/privacy/">Privacy Policy</a>
-                <a href="/terms/">Terms of Service</a>
-                <a href="/refunds/">Refund Policy</a>
-                <a href="/blog/">Blog</a>
-                <a href="/help/">Help Center</a>
-                <a href="/press-assets/">Press Assets</a>
-            </nav>
+        <!-- Interactive mountains backdrop (same reveal layers as the hero). -->
+        <div class="footer-bg" data-interactive aria-hidden="true"
+             data-layer-top="/images/Interactive/interactive-layer-2.png"
+             data-layer-reveal="/images/Interactive/interactive-layer-1.png">
+            <canvas></canvas>
         </div>
+
+        <div class="container footer-top">
+            <div class="footer-brand">
+                <a href="/" class="footer-logo"><img src="/images/logoicontext.png" alt="LaunchMe"></a>
+                <p class="footer-tagline">Your full-screen Mac launcher</p>
+                <p class="footer-desc">LaunchMe brings automation, file search, live wallpapers, widgets, and deep customization into one beautiful full-screen launcher built for macOS 27.</p>
+                <a class="lp-btn lp-btn--lg footer-cta" href="/updates/LaunchMeDirect-1.118.4.dmg" data-ga="direct-dmg" data-ga-area="footer">
+                    <svg class="apple-glyph" viewBox="0 0 384 512" aria-hidden="true"><path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+                    Download for macOS
+                </a>
+                <p class="footer-copy">© 2026 LaunchMe — All rights reserved</p>
+                <p class="footer-author">
+                    Built with <span class="footer-author__love">love</span> by
+                    <a class="footer-author__by" href="https://www.threads.com/@sergey.newton?igshid=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener noreferrer">
+                        <img class="footer-author__avatar" src="/images/sergey-icon.png" alt="Sergey Newton">
+                        Sergey Newton
+                    </a>
+                </p>
+            </div>
+
+            <div class="footer-links">
+                <nav class="footer-col" aria-label="Menu">
+                    <h4 class="footer-col__title">Menu</h4>
+                    <a href="/">Home</a>
+                    <a href="/#features">Features</a>
+                    <a href="/pricing/">Pricing</a>
+                    <a href="/#faq">FAQ</a>
+                    <a href="/blog/">Blog</a>
+                </nav>
+
+                <nav class="footer-col" aria-label="Navigation">
+                    <h4 class="footer-col__title">Navigation</h4>
+                    <a href="/support/">Support</a>
+                    <a href="/help/">Help Center</a>
+                    <a href="/privacy/">Privacy Policy</a>
+                    <a href="/terms/">Terms of Service</a>
+                    <a href="/refunds/">Refund Policy</a>
+                    <a href="/press-assets/">Press Assets</a>
+                </nav>
+
+                <nav class="footer-col" aria-label="Social">
+                    <h4 class="footer-col__title">Social</h4>
+                    <a href="https://www.instagram.com/launchmeapp?igsh=MWZiMW9qamUzYzNjeA%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer">Instagram</a>
+                    <a href="https://www.tiktok.com/@sergey.newton?_r=1&_t=ZS-97T0P0cUuAP" target="_blank" rel="noopener noreferrer">TikTok</a>
+                    <a href="https://www.threads.com/@launchmeapp?igshid=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener noreferrer">Threads</a>
+                    <a href="https://youtube.com/@sergeynewton?si=iqecQRB7wxNSHLgb" target="_blank" rel="noopener noreferrer">YouTube</a>
+                    <a href="https://x.com/sergeynewton?s=11" target="_blank" rel="noopener noreferrer">X</a>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Oversized wordmark, clipped by the footer's bottom edge. -->
+        <div class="footer-wordmark" aria-hidden="true">LaunchMe</div>
+
+        <script src="/js/interactive-footer.js" defer></script>
     </footer>
+    <script src="/js/sections.js"></script>
 </body>
 </html>

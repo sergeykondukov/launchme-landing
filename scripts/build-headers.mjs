@@ -18,7 +18,9 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
 
 /** Horizontal whitespace before `<header>` is included so repeated builds do not stack indent. */
-const HEADER_RE = /[^\S\r\n]*<header\s+class="site-header(?:\s+minimal)?"[^>]*>[\s\S]*?<\/header>/;
+// Matches the legacy `site-header` (first migration) and the new `lp-header` (idempotent
+// rebuilds), tolerating any extra classes (e.g. variant modifiers).
+const HEADER_RE = /[^\S\r\n]*<header\s+class="(?:site-header|lp-header)[^"]*"[^>]*>[\s\S]*?<\/header>/;
 
 function loadPartial(name) {
   const p = path.join(ROOT, 'partials', name);
@@ -26,8 +28,11 @@ function loadPartial(name) {
 }
 
 function applyMarketing(template, { homeHref, pricingAria, downloadGa }) {
+  // On the home page nav anchors are same-page (#features); elsewhere they jump home (/#features).
+  const navPrefix = homeHref.startsWith('#') ? '' : '/';
   return template
     .replaceAll('__HOME_HREF__', homeHref)
+    .replaceAll('__NAV_PREFIX__', navPrefix)
     .replaceAll('__PRICING_ARIA__', pricingAria ? ' aria-current="page"' : '')
     .replaceAll('__DOWNLOAD_GA_AREA__', downloadGa)
     .replaceAll('__DMG_URL__', DMG_PATH);
@@ -104,10 +109,10 @@ const PAGE_HEADERS = {
   'blog/launchme-vs-launchos.html': { variant: 'minimal' },
   'blog/launchme-vs-qal-pro.html': { variant: 'minimal' },
   'blog/launchme-vs-raycast.html': { variant: 'minimal' },
-  'help/index.html': { variant: 'minimal' },
-  'terms/index.html': { variant: 'minimal' },
-  'privacy/index.html': { variant: 'minimal' },
-  'refunds/index.html': { variant: 'minimal' },
+  'help/index.html': { variant: 'marketing', homeHref: '/', pricingAria: false, downloadGa: 'help-header' },
+  'terms/index.html': { variant: 'marketing', homeHref: '/', pricingAria: false, downloadGa: 'terms-header' },
+  'privacy/index.html': { variant: 'marketing', homeHref: '/', pricingAria: false, downloadGa: 'privacy-header' },
+  'refunds/index.html': { variant: 'marketing', homeHref: '/', pricingAria: false, downloadGa: 'refunds-header' },
 };
 
 function main() {
@@ -123,7 +128,7 @@ function main() {
       continue;
     }
     let html = fs.readFileSync(filePath, 'utf8');
-    if (!html.includes('<header class="site-header')) {
+    if (!/<header\s+class="(?:site-header|lp-header)/.test(html)) {
       console.warn(`skip (no header match): ${rel}`);
       continue;
     }

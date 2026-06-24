@@ -2,9 +2,10 @@
   "name": "launchme-landing",
   "private": true,
   "scripts": {
-    "build": "pnpm run build:download-badges && pnpm run build:headers && pnpm run build:account && pnpm run build:paddle",
+    "build": "pnpm run build:download-badges && pnpm run build:headers && pnpm run build:footers && pnpm run build:account && pnpm run build:paddle",
     "build:download-badges": "node scripts/build-download-badges.mjs",
     "build:headers": "node scripts/build-headers.mjs",
+    "build:footers": "node scripts/build-footers.mjs",
     "build:account": "node scripts/build-account.mjs",
     "build:paddle": "node scripts/build-paddle-config.mjs",
     "start": "serve .",
