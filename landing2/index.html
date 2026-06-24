@@ -139,8 +139,20 @@
                     <!-- LAUNCHME_HERO_CTA_END -->
                 </div>
                 <p class="hero-facts">Free to use &nbsp;·&nbsp; Live wallpapers &nbsp;·&nbsp; Customizable launcher &nbsp;·&nbsp; macOS 26 Tahoe</p>
-                <!-- Hero image now sits below the text and CTA -->
-                <img class="hero-image" src="/images/topimage.png" alt="LaunchMe preview" />
+                <!-- Hero scene: interactive full-bleed mountains behind the laptop image.
+                     - data-layer-top   = main/visible layer (shown by default)
+                     - data-layer-reveal = layer revealed in a fluid blob around the cursor
+                     The reveal is painted on a <canvas>; the top layer is the element's
+                     CSS background, so it still shows if JS is off. -->
+                <div class="hero-scene">
+                    <div class="hero-interactive" data-interactive aria-hidden="true"
+                         data-layer-top="/images/Interactive/interactive-layer-2.png"
+                         data-layer-reveal="/images/Interactive/interactive-layer-1.png">
+                        <canvas class="hero-interactive__canvas"></canvas>
+                    </div>
+                    <!-- Hero image now sits below the text and CTA -->
+                    <img class="hero-image" src="/images/topimage.png" alt="LaunchMe preview" />
+                </div>
             </div>
         </section>
 
@@ -167,8 +179,8 @@
                     <!-- Square card example 1 -->
                     <article class="lm-card lm-card--square" style="--card-bg-color:#f5f5f7;"> 
                         <div class="lm-card__content">
-                            <h3 class="lm-card__title">Layout Freedom</h3>
-                            <p class="lm-card__subtitle">Place your apps as you want</p>
+                            <h3 class="lm-card__title">Control Music</h3>
+                            <p class="lm-card__subtitle">Widgets for Spotify and Apple Music<br>with 3 customizable styles</p>
                         </div>
                         <img class="lm-card__image" src="/images/layout-freedom.png" alt="Layout freedom preview">
                     </article>
@@ -245,14 +257,14 @@
              Swap each .ai-stage__media placeholder for an <img>/<video> when ready. -->
         <section id="intelligence" class="section ai-explore">
             <div class="container">
-                <h2 class="ai-explore__title">Explore what's new in LaunchMe.</h2>
+                <h2 class="ai-explore__title">LaunchMe can be what you want<br>And even more</h2>
             </div>
             <div class="ai-explore__viewport" data-explore>
                 <div class="ai-explore__track" data-explore-track>
                     <article class="ai-stage ai-stage--light" data-explore-slide>
                         <div class="ai-stage__media">
                             <img src="/images/Carusel%201/1.jpg" alt="">
-                            <p class="ai-stage__caption"><strong>New LaunchMe Intelligence.</strong> A smarter launcher that learns how you work and keeps everything you need just one tap away.</p>
+                            <p class="ai-stage__caption"><strong>Categories cards.</strong> Find your recently used, hidden and other apps grouped by categories</p>
                         </div>
                     </article>
                     <article class="ai-stage" data-explore-slide>
@@ -319,10 +331,10 @@
                     </article>
                     <article class="lm-card lm-card--square" style="--card-bg-color:#f5f5f7;">
                         <div class="lm-card__content">
-                            <h3 class="lm-card__title">System Icon Appearance</h3>
-                            <p class="lm-card__subtitle">Dark | Light | Tinted</p>
+                            <h3 class="lm-card__title">Icon customization</h3>
+                            <p class="lm-card__subtitle">Change any app icons<br>to follow your style</p>
                         </div>
-                        <img class="lm-card__image" src="/images/system-icons.png" alt="System icons preview">
+                        <img class="lm-card__image" src="/images/custom-icons.png" alt="Icon customization preview">
                     </article>
                 </div>
 
@@ -367,12 +379,12 @@
                 <div class="lm-cards-row lm-cards-row--split" style="margin-top:30px;">
                     <article class="lm-card lm-card--square" style="--card-bg-color:#f5f5f7;">
                         <div class="lm-card__content">
-                            <h3 class="lm-card__title">Icon customization</h3>
-                            <p class="lm-card__subtitle">Change any app icons<br>to follow your style</p>
+                            <h3 class="lm-card__title">System Icon Appearance</h3>
+                            <p class="lm-card__subtitle">Dark | Light | Tinted</p>
                         </div>
-                        <img class="lm-card__image" src="/images/custom-icons.png" alt="Icon customization preview">
+                        <img class="lm-card__image" src="/images/system-icons.png" alt="System icons preview">
                     </article>
-                    <article class="lm-card lm-card--square" style="--card-bg-color:#f5f5f7;">
+                    <article class="lm-card lm-card--square lm-card--white-text" style="--card-bg-color:#f5f5f7;">
                         <div class="lm-card__content">
                             <h3 class="lm-card__title">Clear Colored Icons</h3>
                             <p class="lm-card__subtitle">A unified style with Glass<br>and colored icons.</p>
@@ -425,32 +437,56 @@
             </div>
             <div class="ai-vi__track" data-vi-track>
                 <article class="vi-card vi-card--narrow">
-                    <div class="vi-card__media ai-media"><span class="ai-media__badge">Media</span></div>
-                    <p class="vi-card__text"><strong>Live wallpapers.</strong> Bring your launcher to life with video, dynamic, and weather-aware backgrounds that match your moment.</p>
+                    <div class="vi-card__media ai-media"><img src="/images/Carusel%202/carusel-sorting.jpg" alt=""></div>
+                    <p class="vi-card__text"><strong>Smart sorting.</strong> Arrange apps by name, category, color, or your own custom order.</p>
                 </article>
                 <article class="vi-card vi-card--wide">
-                    <div class="vi-card__media ai-media"><span class="ai-media__badge">Media</span></div>
-                    <p class="vi-card__text"><strong>Folders &amp; file search.</strong> Organize apps and files together, then search, copy, preview, and reveal anything in Finder without leaving your launcher.</p>
+                    <div class="vi-card__media ai-media"><img src="/images/Carusel%202/carusel-folder-window.jpg" alt=""></div>
+                    <p class="vi-card__text"><strong>Folder windows.</strong> Open a folder right inside LaunchMe and jump to any app or file without leaving your launcher.</p>
                 </article>
                 <article class="vi-card vi-card--narrow">
-                    <div class="vi-card__media ai-media"><span class="ai-media__badge">Media</span></div>
-                    <p class="vi-card__text"><strong>Widgets.</strong> Add GIFs, photos, shapes, text, animations, and calendar widgets right inside your launcher.</p>
+                    <div class="vi-card__media ai-media"><img src="/images/Carusel%202/carusel-spaces.jpg" alt=""></div>
+                    <p class="vi-card__text"><strong>Spaces.</strong> Save layouts, widgets, and folders as presets, then switch between them in a tap.</p>
+                </article>
+                <article class="vi-card vi-card--narrow">
+                    <div class="vi-card__media ai-media"><img src="/images/Carusel%202/carusel-workflows.jpg" alt=""></div>
+                    <p class="vi-card__text"><strong>Workflows.</strong> Launch every app and file you need for a task with a single click.</p>
                 </article>
                 <article class="vi-card vi-card--wide">
-                    <div class="vi-card__media ai-media"><span class="ai-media__badge">Media</span></div>
-                    <p class="vi-card__text"><strong>Spaces &amp; Workflows.</strong> Save layouts, widgets, and folders as presets, then launch an entire setup with a single click or a hotkey.</p>
+                    <div class="vi-card__media ai-media"><img src="/images/Carusel%202/carusel-girl.jpg" alt=""></div>
+                    <p class="vi-card__text"><strong>Live wallpapers.</strong> Set video, dynamic, and weather-aware backgrounds that match your moment and make the launcher yours.</p>
                 </article>
                 <article class="vi-card vi-card--narrow">
-                    <div class="vi-card__media ai-media"><span class="ai-media__badge">Media</span></div>
-                    <p class="vi-card__text"><strong>Clipboard.</strong> Jump back to anything you copied — from text snippets to files and links.</p>
+                    <div class="vi-card__media ai-media"><img src="/images/Carusel%202/carusel-emoji.jpg" alt=""></div>
+                    <p class="vi-card__text"><strong>Folder styles.</strong> Color, emoji, and cover images for every folder.</p>
                 </article>
                 <article class="vi-card vi-card--wide">
-                    <div class="vi-card__media ai-media"><span class="ai-media__badge">Media</span></div>
-                    <p class="vi-card__text"><strong>Make it yours.</strong> Custom icons, themes, layouts, system icon styles, and Liquid Glass — your launcher, your style.</p>
+                    <div class="vi-card__media ai-media"><img src="/images/Carusel%202/carusel-clipboard.jpg" alt=""></div>
+                    <p class="vi-card__text"><strong>Clipboard.</strong> Jump back to anything you copied — from text snippets to files and links — right from your launcher.</p>
                 </article>
                 <article class="vi-card vi-card--narrow">
-                    <div class="vi-card__media ai-media"><span class="ai-media__badge">Media</span></div>
-                    <p class="vi-card__text"><strong>Calculator.</strong> Run quick calculations right from the search bar, without opening another app.</p>
+                    <div class="vi-card__media ai-media"><img src="/images/Carusel%202/carusel-gestures.jpg" alt=""></div>
+                    <p class="vi-card__text"><strong>Trackpad gesture.</strong> Open LaunchMe with a pinch, just like the original Launchpad.</p>
+                </article>
+                <article class="vi-card vi-card--narrow">
+                    <div class="vi-card__media ai-media"><img src="/images/Carusel%202/carusel-hotcorners.jpg" alt=""></div>
+                    <p class="vi-card__text"><strong>Hot corners.</strong> Flick to a screen corner to open your launcher instantly.</p>
+                </article>
+                <article class="vi-card vi-card--narrow">
+                    <div class="vi-card__media ai-media"><img src="/images/Carusel%202/carusel-folders.jpg" alt=""></div>
+                    <p class="vi-card__text"><strong>Folders.</strong> Combine apps with fast access to your files and folders.</p>
+                </article>
+                <article class="vi-card vi-card--narrow">
+                    <div class="vi-card__media ai-media"><img src="/images/Carusel%202/carusel-glass-customization.jpg" alt=""></div>
+                    <p class="vi-card__text"><strong>Liquid Glass.</strong> A unified glass look with clear, colored icons.</p>
+                </article>
+                <article class="vi-card vi-card--narrow">
+                    <div class="vi-card__media ai-media"><img src="/images/Carusel%202/carusel-animation.jpg" alt=""></div>
+                    <p class="vi-card__text"><strong>Animations.</strong> Smooth, lively motion throughout your launcher.</p>
+                </article>
+                <article class="vi-card vi-card--narrow">
+                    <div class="vi-card__media ai-media"><img src="/images/Carusel%202/carusel-rename.jpg" alt=""></div>
+                    <p class="vi-card__text"><strong>Rename anything.</strong> Give any app the name you want — your launcher, your labels.</p>
                 </article>
             </div>
             <div class="container ai-vi__nav">
@@ -1100,6 +1136,164 @@
             }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
             els.forEach(function (el) { io.observe(el); });
         })();
+    })();
+    </script>
+
+    <!-- Interactive hero: fluid reveal of layer-1 around the cursor over layer-2 -->
+    <script>
+    (function () {
+        var root = document.querySelector('[data-interactive]');
+        if (!root) return;
+        var canvas = root.querySelector('.hero-interactive__canvas');
+        if (!canvas || !canvas.getContext) return;
+        var ctx = canvas.getContext('2d');
+
+        // Top layer doubles as the element background, so it shows even if JS is off
+        // or reduced-motion is on. The canvas only paints the revealed (layer-1) blobs.
+        root.style.backgroundImage = "url('" + root.getAttribute('data-layer-top') + "')";
+
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+        var imgReveal = new Image();
+        imgReveal.src = root.getAttribute('data-layer-reveal');
+
+        // Off-screen mask: alpha field that says where layer-1 shows through.
+        var mask = document.createElement('canvas');
+        var mctx = mask.getContext('2d');
+
+        var cw = 0, ch = 0, dpr = 1;
+        function resize() {
+            dpr = Math.min(window.devicePixelRatio || 1, 2);
+            var rect = root.getBoundingClientRect();
+            if (!rect.width) return;
+            cw = Math.round(rect.width * dpr);
+            ch = Math.round(rect.height * dpr);
+            canvas.width = cw; canvas.height = ch;
+            canvas.style.width = rect.width + 'px';
+            canvas.style.height = rect.height + 'px';
+            mask.width = cw; mask.height = ch;
+        }
+        resize();
+        window.addEventListener('resize', resize);
+
+        function baseR() { return Math.max(30 * dpr, ch * 0.25); }
+
+        // --- Liquid "drops" -------------------------------------------------
+        // Each cursor sample spawns a drop. A drop is rendered as a few wobbling
+        // lobes (so the shape is organic, not a round spot) and lives ~LIFE ms:
+        // it holds briefly, then fades out — revealed areas dissolve gradually.
+        var LIFE = 2600;   // total lifetime (ms) ≈ "disappears in 2-3 seconds"
+        var HOLD = 450;    // stay fully revealed before starting to fade
+        var MAX_DROPS = 110;
+        var drops = [];
+
+        function addDrop(x, y) {
+            var r = baseR();
+            drops.push({
+                x: x, y: y,
+                r: r * (0.42 + Math.random() * 0.4),
+                born: performance.now(),
+                seed: Math.random() * 1000,
+                lobes: 2 + (Math.random() * 3 | 0)
+            });
+            if (drops.length > MAX_DROPS) drops.shift();
+        }
+
+        // Interpolate along the cursor path so quick moves leave a continuous trail.
+        var last = null;
+        function trail(x, y) {
+            if (last) {
+                var dx = x - last.x, dy = y - last.y;
+                var dist = Math.hypot(dx, dy);
+                var gap = baseR() * 0.18;
+                var steps = Math.max(1, Math.floor(dist / gap));
+                for (var i = 1; i <= steps; i++) addDrop(last.x + dx * i / steps, last.y + dy * i / steps);
+            } else {
+                addDrop(x, y);
+            }
+            last = { x: x, y: y };
+            start();
+        }
+        function toCanvas(e) {
+            var rect = canvas.getBoundingClientRect();
+            return {
+                x: (e.clientX - rect.left) / rect.width * cw,
+                y: (e.clientY - rect.top) / rect.height * ch
+            };
+        }
+        root.addEventListener('pointermove', function (e) {
+            if (!cw) return;
+            var c = toCanvas(e);
+            trail(c.x, c.y);
+        });
+        root.addEventListener('pointerleave', function () { last = null; });
+
+        function blob(x, y, r, a) {
+            var g = mctx.createRadialGradient(x, y, 0, x, y, r);
+            g.addColorStop(0, 'rgba(255,255,255,' + a + ')');
+            g.addColorStop(0.6, 'rgba(255,255,255,' + (a * 0.45) + ')');
+            g.addColorStop(1, 'rgba(255,255,255,0)');
+            mctx.fillStyle = g;
+            mctx.beginPath();
+            mctx.arc(x, y, r, 0, Math.PI * 2);
+            mctx.fill();
+        }
+
+        var running = false;
+        function frame() {
+            if (!running) return;
+            var now = performance.now();
+
+            mctx.clearRect(0, 0, cw, ch);
+            mctx.globalCompositeOperation = 'lighter'; // additive: lobes merge into liquid
+            for (var i = drops.length - 1; i >= 0; i--) {
+                var d = drops[i];
+                var age = now - d.born;
+                if (age >= LIFE) { drops.splice(i, 1); continue; }
+                // opacity: hold, then ease-out fade to 0
+                var op = age < HOLD ? 1 : 1 - (age - HOLD) / (LIFE - HOLD);
+                op = op * op;
+                var wob = 1 + Math.sin(now / 620 + d.seed) * 0.07;
+                // off-centre wobbling lobes give the uneven, fluid outline
+                for (var l = 0; l < d.lobes; l++) {
+                    var ang = d.seed + l * (6.2832 / d.lobes) + now / 1300;
+                    var lr = d.r * (0.5 + 0.28 * Math.sin(now / 540 + d.seed + l));
+                    blob(d.x + Math.cos(ang) * d.r * 0.34, d.y + Math.sin(ang) * d.r * 0.34, lr * wob, op * 0.55);
+                }
+                blob(d.x, d.y, d.r * wob, op * 0.8);
+            }
+            mctx.globalCompositeOperation = 'source-over';
+
+            // Composite layer-1 clipped to the mask, over the CSS top-layer background.
+            // A blur on the mask fuses the lobes into one smooth gooey surface.
+            ctx.clearRect(0, 0, cw, ch);
+            ctx.globalCompositeOperation = 'source-over';
+            ctx.filter = 'blur(' + (5 * dpr) + 'px)';
+            ctx.drawImage(mask, 0, 0);
+            ctx.filter = 'none';
+            ctx.globalCompositeOperation = 'source-in';
+            ctx.drawImage(imgReveal, 0, 0, cw, ch);
+            ctx.globalCompositeOperation = 'source-over';
+
+            if (drops.length) requestAnimationFrame(frame);
+            else { running = false; ctx.clearRect(0, 0, cw, ch); }
+        }
+        function start() {
+            if (running || onscreen === false) return;
+            running = true;
+            requestAnimationFrame(frame);
+        }
+
+        // Only animate while the scene is on screen.
+        var onscreen = true;
+        if ('IntersectionObserver' in window) {
+            new IntersectionObserver(function (entries) {
+                entries.forEach(function (en) {
+                    onscreen = en.isIntersecting;
+                    if (!onscreen) running = false;
+                });
+            }, { threshold: 0 }).observe(root);
+        }
     })();
     </script>
 </body>

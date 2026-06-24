@@ -240,7 +240,7 @@ a:hover { color: #fff; }
 .gallery-stage__image { position: absolute; top: 0; left: 0; right: 0; margin: 0 auto; transform: scale(1.6); z-index: 2; width: var(--frame-w); height: auto; filter: blur(8px); backface-visibility: hidden; will-change: transform, filter; }
 .gallery-stage__overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.35); backdrop-filter: blur(6px); will-change: opacity; z-index: 5; }
 .gallery-stage { contain: layout paint; }
-.gallery-stage__label { position: absolute; inset: 0; display:flex; align-items:center; justify-content:center; text-align:center; font-size: 60px; font-weight: 800; letter-spacing: 0.2px; transition: opacity 0.2s linear; background: transparent; z-index: 6; }
+.gallery-stage__label { position: absolute; inset: 0; display:flex; align-items:center; justify-content:center; text-align:center; font-size: 60px; font-weight: 800; letter-spacing: 0.2px; color: #fff; transition: opacity 0.2s linear; background: transparent; z-index: 6; }
 .gallery-caption { text-align: center; color: var(--muted); font-size: 20px; font-weight: 500; max-width: 920px; margin: 12px auto 0; padding: 0 20px; }
 /* Keep caption inside the gallery container but visually at the bottom under the image */
 .gallery .gallery-caption { margin-top: auto; padding-top: 12px; }
@@ -1977,6 +1977,8 @@ a:hover { color: #000; }
    wide decorative cards had a dark background image). */
 .lm-card { background-color: #f5f5f7; }
 .lm-card--square { background-color: #f5f5f7; }
+/* Clear Colored Icons card sits on a dark preview image — keep copy readable. */
+.lm-card--white-text .lm-card__content { color: #fff; }
 
 /* CTA pill was solid black with white text */
 .cta-pill { background: #f5f5f7; }
@@ -2056,6 +2058,42 @@ a:hover { color: #000; }
 /* Image moved below text + CTA */
 .hero .hero-image { margin-top: 56px; }
 
+/* ---- Interactive hero scene: mountains revealed in a fluid blob around cursor ----
+   The mountains image is full-bleed (100vw) and sits BEHIND the laptop image, with its
+   bottom edge slightly above the laptop's bottom. */
+.hero { overflow: hidden; }              /* clip the full-bleed mountains to the viewport */
+.hero-scene {
+  position: relative;
+  margin-top: 56px;
+  display: flex;
+  justify-content: center;
+}
+.hero-scene .hero-image {
+  margin-top: 0;
+  position: relative;
+  z-index: 2;                            /* laptop in front of the mountains */
+  pointer-events: none;                  /* let cursor reach the reveal layer through
+                                            the laptop's transparent areas */
+}
+.hero-interactive {
+  position: absolute;
+  left: 50%;
+  bottom: 5%;                            /* bottom edge a touch above the laptop's bottom */
+  transform: translateX(-50%);
+  width: 100vw;
+  aspect-ratio: 2048 / 423;              /* matches the source images */
+  z-index: 1;                            /* behind the laptop */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  touch-action: pan-y;                   /* don't hijack vertical scroll on touch */
+}
+.hero-interactive__canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 /* ---- Section intro eyebrow (ported) ---- */
 .eyebrow {
   text-align: center;
@@ -2115,14 +2153,20 @@ a:hover { color: #000; }
   overflow-y: hidden;                              /* don't trap vertical scroll */
   scroll-snap-type: x proximity;                   /* gentle snap; no fight with eased scroll */
   /* First slide starts flush with the heading text; next slide peeks on the right. */
-  padding: 0 24px 0 max(20px, calc((100% - 1100px) / 2 + 20px));
+  padding-left: max(20px, calc((100% - 1100px) / 2 + 20px));
+  /* Trailing space large enough for the LAST slide to reach the same snap position
+     as the others (otherwise it stays magnetized to the right). */
+  padding-right: max(24px, calc(100vw - min(1000px, 86vw) - max(20px, calc((100% - 1100px) / 2 + 20px)) + 4px));
   scroll-padding-left: max(20px, calc((100% - 1100px) / 2 + 20px));
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
 .ai-explore__track::-webkit-scrollbar { display: none; }
 .ai-stage {
-  flex: 0 0 min(1000px, 86%);
+  /* viewport-relative so the slide width does NOT depend on the track padding
+     (a % basis resolves against the content box, which made the trailing space
+     shrink the slide and trapped the last card on the right). */
+  flex: 0 0 min(1000px, 86vw);
   scroll-snap-align: start;
   border-radius: 28px;
   overflow: hidden;
@@ -2251,9 +2295,11 @@ a:hover { color: #000; }
 }
 .ai-vi__track::-webkit-scrollbar { display: none; }
 .vi-card { flex: 0 0 auto; scroll-snap-align: start; }
-.vi-card--narrow { width: clamp(240px, 72vw, 300px); }
-.vi-card--wide   { width: clamp(300px, 88vw, 560px); }
-/* All media tiles share the same height; only the width varies (Apple style). */
+/* Width = height × image aspect ratio, kept proportional across all sizes.
+   Height: clamp(280px, 30vw, 400px). Narrow 740×900 (≈0.8222), wide 1392×900 (≈1.5467). */
+.vi-card--narrow { width: clamp(230px, 24.67vw, 329px); }
+.vi-card--wide   { width: clamp(433px, 46.40vw, 619px); }
+/* All media tiles share the same height; width matches the image format. */
 .vi-card__media { width: 100%; height: clamp(280px, 30vw, 400px); border-radius: 24px; }
 .vi-card__text {
   margin: 18px 2px 0;
@@ -2281,7 +2327,7 @@ a:hover { color: #000; }
 .ai-vi__btn svg { width: 22px; height: 22px; }
 
 @media (max-width: 760px) {
-  .ai-stage { flex-basis: 90%; }
+  .ai-stage { flex-basis: 90vw; }
   /* Taller card + smaller caption so long text never collides on narrow screens. */
   .ai-stage__media { aspect-ratio: 4 / 5; }
   .ai-stage__caption { top: 24px; width: 86%; font-size: 17px; line-height: 1.3; }
