@@ -994,6 +994,11 @@ a:hover { color: #fff; }
 .cta-pill__icon { width: 180px; height: 180px; display: block; margin-left: auto; object-fit: contain; }
 .cta-pill__left { display: flex; flex-direction: column; align-items: flex-start; }
 
+/* Desktop: shift title + button right — double the pill's left padding (40px → 80px total). */
+@media (min-width: 768px) {
+  .cta-pill__left { padding-left: 40px; }
+}
+
 /* When CTA pill is used inside a blog article, keep it within the content column */
 .blog-article .section.cta {
   padding: 0; /* remove extra vertical padding inside article */
@@ -1008,6 +1013,8 @@ a:hover { color: #fff; }
 @media (max-width: 940px) {
   .cta-pill { width: calc(100% - 40px); min-height: 290px; height: auto; grid-template-columns: 1fr 180px; padding: 24px; }
   .cta-pill__icon { width: 160px; height: 160px; }
+  /* Keep the same 2× left inset when the pill padding shrinks to 24px. */
+  .cta-pill__left { padding-left: 24px; }
 }
 
 /* Mobile layout: vertical stack like the mock */
@@ -1015,7 +1022,7 @@ a:hover { color: #fff; }
   .cta-pill { width: calc(100% - 32px); padding: 40px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; text-align: center; border-radius: 50px; margin: 24px auto; }
   /* Order: icon, text, button (button is inside left block after title) */
   .cta-pill__icon { order: 0; width: 140px; height: 140px; margin: 0 auto; }
-  .cta-pill__left { order: 1; align-items: center; }
+  .cta-pill__left { order: 1; align-items: center; padding-left: 0; }
   .cta-pill__title { font-size: 22px; line-height: 1.3; }
   .app-badge img { height: 52px; }
 }
@@ -1046,7 +1053,7 @@ a:hover { color: #fff; }
 
 /* Page title and intro */
 .help-center .help-main h1 {
-  border-bottom: 2px solid var(--brand);
+  border-bottom: 2px solid var(--border);
   padding-bottom: 10px;
   margin-bottom: 12px;
 }
@@ -1191,7 +1198,8 @@ a:hover { color: #fff; }
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 24px;
-  box-shadow: var(--shadow);
+  /* No drop shadow on white theme — avoids gray halo around the sidebar card. */
+  box-shadow: none;
 }
 
 .help-nav-title {
@@ -1329,7 +1337,7 @@ a:hover { color: #fff; }
 
 .blog .blog-main h1 {
   margin: 0 0 12px;
-  border-bottom: 2px solid var(--brand);
+  border-bottom: 2px solid var(--border);
   padding-bottom: 10px;
 }
 
@@ -1365,7 +1373,8 @@ a:hover { color: #fff; }
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 22px;
-  box-shadow: var(--shadow);
+  /* No drop shadow — stacked sidebar cards cast a dark band in the gap between them. */
+  box-shadow: none;
 }
 
 .blog-nav + .blog-subscribe,
