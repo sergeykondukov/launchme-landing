@@ -7,10 +7,10 @@
     <language>en</language>
     <!-- Newest release first (Sparkle reads the feed and picks the latest matching item). -->
     <item>
-      <title>Version 1.118.4</title>
-      <pubDate>Mon, 22 Jun 2026 08:08:04 +0000</pubDate>
-      <sparkle:version>117</sparkle:version>
-      <sparkle:shortVersionString>1.118.4</sparkle:shortVersionString>
+      <title>Version 1.118.5</title>
+      <pubDate>Thu, 25 Jun 2026 05:46:38 +0000</pubDate>
+      <sparkle:version>120</sparkle:version>
+      <sparkle:shortVersionString>1.118.5</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
       <description><![CDATA[
         <h3>What's new</h3>
@@ -19,16 +19,17 @@
           <li>Weather widget - live weather in 9 styles</li>
           <li>Liquid Glass Theme now is Free</li>
           <li>Open over full screen apps - new option in settings</li>
-          <li>New languages added: Ukranian, Vietnamese, Indonesian, Filipino, Polish</li>
-          <li>Hot Key fix + Desable option</li>
-          <li>Cache optimization (might slow app one time while cleaning old cache)</li>
           <li>Auto Folder Grouping + Launchpad layout restore (available under sort button)</li>
+          <li>Uninstall Apps - delete apps, cache and leftovers files</li>
+          <li>New right click on empty space menu for fast access to Settings, Wallpaper and Widgets</li>
+          <li>Gestures Invoke - you can choose between 3,4,5 fingers pinch</li>
+          <li>Fixed smooth mouse wheel pages scrolling</li>
         </ul>
       ]]></description>
         <enclosure
-          url="https://launchmeapp.com/updates/LaunchMeDirect-1.118.4.dmg"
-          sparkle:edSignature="kYaW7nYfKtB4PN8/cC9tnNc3yQ+G2igJVSRy5CRBQosee+1jKVn9XRqkFKz10y34Yrwev5AUfxe0MnqNJMSMDA=="
-          length="31076771"
+          url="https://launchmeapp.com/updates/LaunchMeDirect-1.118.5.dmg"
+          sparkle:edSignature="gKp8autGZywyy3HbAMyaZFjwoNjhdvPGSjHgk7DCS3RfouLttQaIOQgib7+Jl4tq1dsnSaQn3en+fH5Q5tV6Dw=="
+          length="31238230"
           type="application/x-apple-diskimage"/>
       </item>
   </channel>
