@@ -2841,6 +2841,8 @@ body:has(> .lp-header) {
   /* Taller card + smaller caption so long text never collides on narrow screens. */
   .ai-stage__media { aspect-ratio: 4 / 5; }
   .ai-stage__caption { top: 24px; width: 86%; font-size: 17px; line-height: 1.3; }
+  /* Notch slides are 16:9 screenshots — shorter cards, less vertical crop on mobile. */
+  .notch-explore .ai-stage__media { aspect-ratio: 16 / 9; }
 }
 
 /* Apple-style scroll reveal: fade + slide up (hook class added by JS) */
