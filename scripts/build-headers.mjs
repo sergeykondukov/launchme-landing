@@ -111,6 +111,7 @@ const PAGE_HEADERS = {
   'blog/launchme-vs-qal-pro.html': { variant: 'minimal' },
   'blog/launchme-vs-raycast.html': { variant: 'minimal' },
   'help/index.html': { variant: 'marketing', homeHref: '/', pricingAria: false, downloadGa: 'help-header' },
+  'help/direct/index.html': { variant: 'marketing', homeHref: '/', pricingAria: false, downloadGa: 'help-direct-header' },
   'terms/index.html': { variant: 'marketing', homeHref: '/', pricingAria: false, downloadGa: 'terms-header' },
   'privacy/index.html': { variant: 'marketing', homeHref: '/', pricingAria: false, downloadGa: 'privacy-header' },
   'refunds/index.html': { variant: 'marketing', homeHref: '/', pricingAria: false, downloadGa: 'refunds-header' },

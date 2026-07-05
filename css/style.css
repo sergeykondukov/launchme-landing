@@ -1284,6 +1284,106 @@ a:hover { color: #fff; }
   background: rgba(255, 255, 255, 0.05);
 }
 
+/* Placeholder nav items on /help/direct until articles ship. */
+.help-sidebar-btn {
+  display: flex;
+  width: 100%;
+  margin-bottom: 24px;
+  padding: 16px 20px;
+  justify-content: center;
+  box-sizing: border-box;
+  font-weight: 600;
+  font-size: 14px;
+}
+.help-nav-link--soon {
+  display: block;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 15px;
+  color: var(--muted);
+  opacity: 0.7;
+  cursor: default;
+}
+.help-nav-link--soon:hover {
+  color: var(--muted);
+  background: transparent;
+}
+
+/* Coming soon card on the direct Help Center landing. */
+.help-content--direct {
+  display: flex;
+  align-items: flex-start;
+  min-height: 360px;
+}
+.help-coming-soon {
+  width: 100%;
+  border-radius: 28px;
+  padding: 56px 48px;
+  background: #f5f5f7;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: none;
+  text-align: center;
+}
+.help-coming-soon__icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 16px;
+  display: block;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+.help-coming-soon__title {
+  margin: 0 0 12px;
+  font-size: clamp(32px, 4vw, 40px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+.help-coming-soon__text {
+  margin: 0 auto 32px;
+  max-width: 480px;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+.help-coming-soon__actions {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0;
+}
+.help-coming-soon__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 24px;
+}
+.help-coming-soon__sep {
+  color: var(--muted);
+  font-size: 15px;
+}
+.help-coming-soon__link {
+  font-size: 15px;
+  font-weight: 600;
+  color: #4481A9;
+  text-decoration: none;
+}
+.help-coming-soon__link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 767px) {
+  .help-content--direct {
+    min-height: 0;
+  }
+  .help-coming-soon {
+    padding: 40px 24px;
+    border-radius: 24px;
+  }
+}
+
 .help-nav-link.active {
   color: var(--brand);
   background: rgba(82, 168, 255, 0.1);
@@ -2134,6 +2234,15 @@ body:has(> .lp-header) {
 .lp-nav .lp-btn:hover { color: #fff; }
 .lp-btn:hover { opacity: .85; color: #fff; }
 .lp-btn--lg { font-size: 18px; font-weight: 600; padding: 16px 30px; }
+/* Gray variant must follow .lp-btn so it wins the cascade (sidebar Help switch). */
+.lp-btn.lp-btn--gray {
+  background: #e8e8ed;
+  color: #1d1d1f;
+}
+.lp-btn.lp-btn--gray:hover {
+  opacity: 0.88;
+  color: #1d1d1f;
+}
 .lp-btn .apple-glyph { width: 1em; height: 1.15em; margin-top: -2px; }
 
 /* Burger: hidden on desktop, shown on mobile marketing headers */
