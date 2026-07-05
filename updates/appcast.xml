@@ -7,29 +7,26 @@
     <language>en</language>
     <!-- Newest release first (Sparkle reads the feed and picks the latest matching item). -->
     <item>
-      <title>Version 1.118.5</title>
-      <pubDate>Thu, 25 Jun 2026 05:46:38 +0000</pubDate>
-      <sparkle:version>120</sparkle:version>
-      <sparkle:shortVersionString>1.118.5</sparkle:shortVersionString>
+      <title>Version 2.001.0</title>
+      <pubDate>Sun, 05 Jul 2026 13:49:20 +0000</pubDate>
+      <sparkle:version>122</sparkle:version>
+      <sparkle:shortVersionString>2.001.0</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
       <description><![CDATA[
         <h3>What's new</h3>
         <ul>
-          <li>Music widget - control Spotify and Apple Music with album art in three design styles and background customization.</li>
-          <li>Weather widget - live weather in 9 styles</li>
-          <li>Liquid Glass Theme now is Free</li>
-          <li>Open over full screen apps - new option in settings</li>
-          <li>Auto Folder Grouping + Launchpad layout restore (available under sort button)</li>
-          <li>Uninstall Apps - delete apps, cache and leftovers files</li>
-          <li>New right click on empty space menu for fast access to Settings, Wallpaper and Widgets</li>
-          <li>Gestures Invoke - you can choose between 3,4,5 fingers pinch</li>
-          <li>Fixed smooth mouse wheel pages scrolling</li>
+          <li>New feature - Notch. Widgets, Clipboard, Airdrop, Pocket, Timer, Spaces sync, Apps, Folders and much more!</li>
+          <li>Music Widget supports Apple Music animated art in Full Cover Style for all sizes in Notch and main grid</li>
+          <li>Gesture with Finger Spread now closes LaunchMe</li>
+          <li>Fixed Music Widget bug that used too much CPU and Power</li>
+          <li>Fixed hidden apps unhide after restart Mac or in other cases</li>
+          <li>Fixed gesture might not working after Sleep until you turn it Off/On</li>
         </ul>
       ]]></description>
         <enclosure
-          url="https://launchmeapp.com/updates/LaunchMeDirect-1.118.5.dmg"
-          sparkle:edSignature="gKp8autGZywyy3HbAMyaZFjwoNjhdvPGSjHgk7DCS3RfouLttQaIOQgib7+Jl4tq1dsnSaQn3en+fH5Q5tV6Dw=="
-          length="31238230"
+          url="https://launchmeapp.com/updates/LaunchMeDirect-2.001.0.dmg"
+          sparkle:edSignature="6wfQ/SxWguCdydOb/zpdg2vB08oJcvDfRoePWNZt4zTXbZrM5HhVwkPg5K5FN1U+Gj04UMvGpDOW7S9jib0yDg=="
+          length="32673927"
           type="application/x-apple-diskimage"/>
       </item>
   </channel>
