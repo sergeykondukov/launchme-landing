@@ -28,6 +28,7 @@ const FOOTER_PAGES = [
   'terms/index.html',
   'refunds/index.html',
   'help/index.html',
+  'help/direct/index.html',
   'blog/index.html',
   'blog/how-to-get-launchpad-back-on-macos-26-tahoe.html',
   'blog/launchme-update-1-111.html',

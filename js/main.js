@@ -12,6 +12,17 @@ document.addEventListener('click', function (e) {
   target.scrollIntoView({ behavior: 'smooth', block: 'start' });
 });
 
+// Jump to section when opening a shared link (e.g. launchmeapp.com/#notch).
+window.addEventListener('load', function () {
+  const hash = window.location.hash;
+  if (!hash || hash === '#top') return;
+  const target = document.querySelector(hash);
+  if (!target) return;
+  requestAnimationFrame(function () {
+    target.scrollIntoView({ behavior: 'auto', block: 'start' });
+  });
+});
+
 // Accessible accordion for FAQ
 (function enableAccordion() {
   const root = document.querySelector('[data-accordion]');
