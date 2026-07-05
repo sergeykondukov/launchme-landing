@@ -2606,6 +2606,48 @@ body:has(> .lp-header) {
 .ai-explore__play.is-paused .ai-explore__icon-pause { display: none; }
 .ai-explore__play.is-paused .ai-explore__icon-play { display: block; }
 
+/* Image-only slides in Notch section: no top scrim (no caption overlay). */
+.notch-explore .ai-stage__media::before {
+  content: none;
+  display: none;
+}
+.notch-explore .ai-stage__media { padding-bottom: 0; align-items: stretch; }
+
+/* ---------- Notch integration section (above Features) ---------- */
+/* Reuse ai-vi typography; override max-width so logo + two-line headline fit. */
+.notch-explore .notch-explore__headline.ai-vi__title {
+  max-width: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+}
+.notch-explore__hello-line {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35em;
+}
+.notch-explore__logo {
+  height: 1.15em;
+  width: auto;
+  vertical-align: baseline;
+  display: inline-block;
+}
+/* Second headline line: always on its own row, gradient left → right. */
+.notch-explore__gradient-line {
+  display: block;
+  width: 100%;
+  background: linear-gradient(to right, #002945 0%, #4481A9 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+/* Body copy: same width as the first slide card (.ai-stage), slightly inset. */
+.notch-explore .ai-vi__sub {
+  max-width: min(960px, calc(86vw - 24px));
+}
+
 /* ---------- "Visual Intelligence" full-bleed slider ---------- */
 .ai-vi { overflow: hidden; }                       /* no page-level horizontal scroll */
 .ai-vi__eyebrow { margin: 0 0 10px; font-size: 17px; font-weight: 600; color: var(--text); }
