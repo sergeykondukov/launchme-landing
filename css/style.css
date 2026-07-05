@@ -264,6 +264,17 @@ a:hover { color: #fff; }
   margin-top: 40px;
 }
 
+/* Notch grid sits right under LaunchMe Features — tighter spacing, same tile style. */
+.lm-features--notch {
+  padding-top: 0;
+}
+.lm-features--notch .section-title {
+  margin-top: 8px;
+}
+.lm-features--notch .lm-features-grid {
+  margin-top: 32px;
+}
+
 .lm-feature-tile {
   /* Simple card-like tile without heavy effects to keep UI clean */
   background: var(--card);
