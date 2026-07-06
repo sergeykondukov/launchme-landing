@@ -7,10 +7,10 @@
     <language>en</language>
     <!-- Newest release first (Sparkle reads the feed and picks the latest matching item). -->
     <item>
-      <title>Version 2.001.0</title>
-      <pubDate>Sun, 05 Jul 2026 13:49:20 +0000</pubDate>
+      <title>Version 2.001.1</title>
+      <pubDate>Mon, 06 Jul 2026 08:08:31 +0000</pubDate>
       <sparkle:version>122</sparkle:version>
-      <sparkle:shortVersionString>2.001.0</sparkle:shortVersionString>
+      <sparkle:shortVersionString>2.001.1</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
       <description><![CDATA[
         <h3>What's new</h3>
@@ -21,12 +21,13 @@
           <li>Fixed Music Widget bug that used too much CPU and Power</li>
           <li>Fixed hidden apps unhide after restart Mac or in other cases</li>
           <li>Fixed gesture might not working after Sleep until you turn it Off/On</li>
+          <li>2.001.1 Fix: Spaces optimization in Notch</li>
         </ul>
       ]]></description>
         <enclosure
-          url="https://launchmeapp.com/updates/LaunchMeDirect-2.001.0.dmg"
-          sparkle:edSignature="6wfQ/SxWguCdydOb/zpdg2vB08oJcvDfRoePWNZt4zTXbZrM5HhVwkPg5K5FN1U+Gj04UMvGpDOW7S9jib0yDg=="
-          length="32673927"
+          url="https://launchmeapp.com/updates/LaunchMeDirect-2.001.1.dmg"
+          sparkle:edSignature="sDGtoUqLaZXiS5rRQQe/eEJchEAWILXOF0JGSwwTFALSzYpoq9m57RrgamCWlna0kLIuxVcB+aIr/ksJyAKSCg=="
+          length="32676498"
           type="application/x-apple-diskimage"/>
       </item>
   </channel>
