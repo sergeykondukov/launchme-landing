@@ -7,10 +7,10 @@
     <language>en</language>
     <!-- Newest release first (Sparkle reads the feed and picks the latest matching item). -->
     <item>
-      <title>Version 2.002.1</title>
-      <pubDate>Thu, 09 Jul 2026 08:44:23 +0000</pubDate>
-      <sparkle:version>132</sparkle:version>
-      <sparkle:shortVersionString>2.002.1</sparkle:shortVersionString>
+      <title>Version 2.002.2</title>
+      <pubDate>Thu, 09 Jul 2026 09:56:48 +0000</pubDate>
+      <sparkle:version>134</sparkle:version>
+      <sparkle:shortVersionString>2.002.2</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
       <description><![CDATA[
         <h3>What's new</h3>
@@ -22,9 +22,9 @@
         </ul>
       ]]></description>
         <enclosure
-          url="https://launchmeapp.com/updates/LaunchMeDirect-2.002.1.dmg"
-          sparkle:edSignature="wvEso/lcpRphflF8PqurU8GtFpBqbVZHXrxvMIylPZsvMa5k7y3FpX37g3hvUBmEg8WFke7xYlZcScK0deKxBQ=="
-          length="33210739"
+          url="https://launchmeapp.com/updates/LaunchMeDirect-2.002.2.dmg"
+          sparkle:edSignature="jvvLEPiSUqce43T1Bw8XBgTfeYd2jXANGUjLAs1LZ66B7bPixm7uXqb1zKZf+wJrFt0Z87AFUpGu4Qf+DkgoDQ=="
+          length="33214507"
           type="application/x-apple-diskimage"/>
       </item>
   </channel>
