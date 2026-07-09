@@ -7,27 +7,24 @@
     <language>en</language>
     <!-- Newest release first (Sparkle reads the feed and picks the latest matching item). -->
     <item>
-      <title>Version 2.001.1</title>
-      <pubDate>Mon, 06 Jul 2026 08:54:33 +0000</pubDate>
-      <sparkle:version>126</sparkle:version>
-      <sparkle:shortVersionString>2.001.1</sparkle:shortVersionString>
+      <title>Version 2.002.0</title>
+      <pubDate>Thu, 09 Jul 2026 07:51:25 +0000</pubDate>
+      <sparkle:version>130</sparkle:version>
+      <sparkle:shortVersionString>2.002.0</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
       <description><![CDATA[
         <h3>What's new</h3>
         <ul>
-          <li>New feature - Notch. Widgets, Clipboard, Airdrop, Pocket, Timer, Spaces sync, Apps, Folders and much more!</li>
-          <li>Music Widget supports Apple Music animated art in Full Cover Style for all sizes in Notch and main grid</li>
-          <li>Gesture with Finger Spread now closes LaunchMe</li>
-          <li>Fixed Music Widget bug that used too much CPU and Power</li>
-          <li>Fixed hidden apps unhide after restart Mac or in other cases</li>
-          <li>Fixed gesture might not working after Sleep until you turn it Off/On</li>
-          <li>2.001.1 Fix: Spaces optimization in Notch</li>
+          <li>New Widget - Clock 11 styles</li>
+          <li>Updated Calendar Widget (soon more updates)</li>
+          <li>Pages animation optimization and improvements</li>
+          <li>Fixed hiden apps in Spaces were coming back after restart</li>
         </ul>
       ]]></description>
         <enclosure
-          url="https://launchmeapp.com/updates/LaunchMeDirect-2.001.1.dmg"
-          sparkle:edSignature="StIzhwSx/dLkSW6pgz+qwuGdBL8J5SkBNI+Mlu0JZOA5nHQj7gaT0A5MmCb6j/gR6Vmfvd9RRxvylO9fhBx7Ag=="
-          length="32676557"
+          url="https://launchmeapp.com/updates/LaunchMeDirect-2.002.0.dmg"
+          sparkle:edSignature="PseaYEPZOX+o+IuS/qXS1XAHa0m1qJaPFAAMYwUH9gqu8aAK0g1T01reGaIJZtoAfcgwYRlyE0qbc6/fUOvhDg=="
+          length="33206908"
           type="application/x-apple-diskimage"/>
       </item>
   </channel>
