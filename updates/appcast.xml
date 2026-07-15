@@ -7,24 +7,21 @@
     <language>en</language>
     <!-- Newest release first (Sparkle reads the feed and picks the latest matching item). -->
     <item>
-      <title>Version 2.002.2</title>
-      <pubDate>Thu, 09 Jul 2026 09:56:48 +0000</pubDate>
-      <sparkle:version>134</sparkle:version>
-      <sparkle:shortVersionString>2.002.2</sparkle:shortVersionString>
+      <title>Version 2.002.3</title>
+      <pubDate>Wed, 15 Jul 2026 15:11:48 +0000</pubDate>
+      <sparkle:version>136</sparkle:version>
+      <sparkle:shortVersionString>2.002.3</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
       <description><![CDATA[
         <h3>What's new</h3>
         <ul>
-          <li>New Widget - Clock 11 styles</li>
-          <li>Updated Calendar Widget (soon more updates)</li>
-          <li>Pages animation optimization and improvements</li>
-          <li>Fixed hiden apps in Spaces were coming back after restart</li>
+          <li>Improvements and fixes</li>
         </ul>
       ]]></description>
         <enclosure
-          url="https://launchmeapp.com/updates/LaunchMeDirect-2.002.2.dmg"
-          sparkle:edSignature="jvvLEPiSUqce43T1Bw8XBgTfeYd2jXANGUjLAs1LZ66B7bPixm7uXqb1zKZf+wJrFt0Z87AFUpGu4Qf+DkgoDQ=="
-          length="33214507"
+          url="https://launchmeapp.com/updates/LaunchMeDirect-2.002.3.dmg"
+          sparkle:edSignature="T3jbGoD1bG2Ensu1Vp+7jbBYagmemuh9a2ig7NKPzMq5nAdE2JwZnCKsCccU3qqhGI67KcVOgVtWKve+5miMCA=="
+          length="33191162"
           type="application/x-apple-diskimage"/>
       </item>
   </channel>
