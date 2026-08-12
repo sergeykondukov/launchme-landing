@@ -7,21 +7,21 @@
     <language>en</language>
     <!-- Newest release first (Sparkle reads the feed and picks the latest matching item). -->
     <item>
-      <title>Version 2.002.4</title>
-      <pubDate>Tue, 21 Jul 2026 13:15:58 +0000</pubDate>
-      <sparkle:version>138</sparkle:version>
-      <sparkle:shortVersionString>2.002.4</sparkle:shortVersionString>
+      <title>Version 2.002.5</title>
+      <pubDate>Wed, 12 Aug 2026 10:15:56 +0000</pubDate>
+      <sparkle:version>140</sparkle:version>
+      <sparkle:shortVersionString>2.002.5</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
       <description><![CDATA[
         <h3>What's new</h3>
         <ul>
-          <li>Improvements and fixes fo Notch</li>
+          <li>Improvements and fixes for authorisation </li>
         </ul>
       ]]></description>
         <enclosure
-          url="https://launchmeapp.com/updates/LaunchMeDirect-2.002.4.dmg"
-          sparkle:edSignature="jPfEQX/4LmjeAb+sjc1Q2hERk2d8u0xux3Guq7NpxvZIJLXLG/B3KFZ8Sa4nZCIBUKzI4SFbHNFx8qo5VEQiAQ=="
-          length="33207021"
+          url="https://launchmeapp.com/updates/LaunchMeDirect-2.002.5.dmg"
+          sparkle:edSignature="JTiPYFnaCqw8E4dH/LLsrULdq+QonvwTLuFoCJYWxFeN1+dqx/E4XBOfZdwaHMZpzK30tlT+AV7QkY+eQY7VDw=="
+          length="33217337"
           type="application/x-apple-diskimage"/>
       </item>
   </channel>
