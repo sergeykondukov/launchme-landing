@@ -7,21 +7,21 @@
     <language>en</language>
     <!-- Newest release first (Sparkle reads the feed and picks the latest matching item). -->
     <item>
-      <title>Version 2.002.5</title>
-      <pubDate>Wed, 12 Aug 2026 10:15:56 +0000</pubDate>
-      <sparkle:version>140</sparkle:version>
-      <sparkle:shortVersionString>2.002.5</sparkle:shortVersionString>
+      <title>Version 2.003.0</title>
+      <pubDate>Wed, 26 Aug 2026 06:37:15 +0000</pubDate>
+      <sparkle:version>142</sparkle:version>
+      <sparkle:shortVersionString>2.003.0</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
       <description><![CDATA[
         <h3>What's new</h3>
         <ul>
-          <li>Improvements and fixes for authorisation </li>
+          <li>New feature: Full screen music player with song art. Open from Music Widget in Notch or Grid </li>
         </ul>
       ]]></description>
         <enclosure
-          url="https://launchmeapp.com/updates/LaunchMeDirect-2.002.5.dmg"
-          sparkle:edSignature="JTiPYFnaCqw8E4dH/LLsrULdq+QonvwTLuFoCJYWxFeN1+dqx/E4XBOfZdwaHMZpzK30tlT+AV7QkY+eQY7VDw=="
-          length="33217337"
+          url="https://launchmeapp.com/updates/LaunchMeDirect-2.003.0.dmg"
+          sparkle:edSignature="o5KKLW1eNW1zv94OIUr8zSEkP5SzgRnb//Y+CBMS8EkL+C8Y7plJpjs9hTn6uagD/CQGGcMc9LkY2ANNeTpiBg=="
+          length="33359806"
           type="application/x-apple-diskimage"/>
       </item>
   </channel>
