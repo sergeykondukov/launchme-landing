@@ -7,21 +7,21 @@
     <language>en</language>
     <!-- Newest release first (Sparkle reads the feed and picks the latest matching item). -->
     <item>
-      <title>Version 2.003.2</title>
-      <pubDate>Fri, 28 Aug 2026 08:19:06 +0000</pubDate>
-      <sparkle:version>146</sparkle:version>
-      <sparkle:shortVersionString>2.003.2</sparkle:shortVersionString>
+      <title>Version 2.003.3</title>
+      <pubDate>Fri, 04 Sep 2026 07:58:34 +0000</pubDate>
+      <sparkle:version>148</sparkle:version>
+      <sparkle:shortVersionString>2.003.3</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
       <description><![CDATA[
         <h3>What's new</h3>
         <ul>
-          <li>New feature: Full screen music player with song art. Open from Music Widget in Notch or Grid. Spotify now supports animated art</li>
+          <li>New feature: Full screen music player with song art. Open from Music Widget in Notch or Grid. Spotify now supports animated art + Bug fixes and small improvements</li>
         </ul>
       ]]></description>
         <enclosure
-          url="https://launchmeapp.com/updates/LaunchMeDirect-2.003.2.dmg"
-          sparkle:edSignature="31I+DYVZp9Jt6OGy3UYzUzCSetP15ZQxV1jxTONq7HbTiDFAEMXdCq4FEVBrKIDU3gIjy9SfzqUutqjWFjSxCQ=="
-          length="33360106"
+          url="https://launchmeapp.com/updates/LaunchMeDirect-2.003.3.dmg"
+          sparkle:edSignature="y4UBeG/PoL7qE0isF84iecTnEew3h+s7yvkBzMob8/4IzkbIRxWcOelD2D0VJe75ogjUf9fM39vy5xOAl7teCw=="
+          length="33442455"
           type="application/x-apple-diskimage"/>
       </item>
   </channel>
