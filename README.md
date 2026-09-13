@@ -16,6 +16,24 @@ The same navigation bar is not copy-pasted by hand: source lives under `partials
 - **Edit** the partials (and **`scripts/site-config.mjs`** for the DMG path used inside header badges).
 - **Do not** hand-edit `<header class="site-header">…</header>` blocks on listed pages — they are overwritten on the next header build.
 
+## Spaces themes page (`/spaces-themes/`)
+
+Gallery of shareable Space presets. The cards are **generated from the `spaces/` folder** by
+`scripts/build-spaces.mjs` (`pnpm run build:spaces`, also part of **`pnpm run build`**), so adding
+a theme never means editing a list.
+
+- **Add a theme:** copy `spaces/_template/` to `spaces/<slug>/`, drop in the screenshot and the
+  `.launchmetheme` file, fill in `theme.json`, run `pnpm run build:spaces`. Full field reference and
+  the link rules (name + url → clickable; name only → plain text; missing or `"-"` → `—`) live in
+  **`spaces/README.md`**.
+- **Do not** hand-edit the markup between `<!-- LAUNCHME_SPACES_GRID_BEGIN -->` /
+  `<!-- LAUNCHME_SPACES_GRID_END -->` — it is overwritten on the next build.
+- Folders starting with `_` or `.` are ignored, which is why `_template/` never appears on the site.
+- The hero is a two-layer reveal (same effect as the home hero and the footer mountains, driven by
+  `js/interactive-footer.js`). To change it, replace `images/spaces/hero-layer-top.png` (visible layer)
+  and `images/spaces/hero-layer-reveal.png` (revealed under the cursor) — **same pixel size for both**,
+  and update `aspect-ratio` on `.spaces-hero__interactive` in `css/style.css` if the ratio changes.
+
 ## Account page and Supabase password reset
 
 LaunchMe **(Direct)** uses Supabase Auth. Forgot-password emails redirect to **`https://launchmeapp.com/account/`** (see Supabase **Site URL** / **Redirect URLs**). Tokens arrive in the URL **hash** (`#…&type=recovery…`). The UI is implemented in `src/account/main.js`, bundled to `js/account.bundle.js` so secrets are not committed.

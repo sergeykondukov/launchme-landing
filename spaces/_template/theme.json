@@ -1,0 +1,15 @@
+{
+  "name": "Theme name",
+  "order": 100,
+  "screenshot": "screenshot.jpg",
+  "file": "Theme name.launchmetheme",
+
+  "author": { "name": "LaunchMe", "url": "https://www.instagram.com/launchmeapp" },
+  "wallpaper": { "name": "LaunchMe", "url": "https://www.instagram.com/launchmeapp", "type": "regular" },
+  "widgets": [
+    { "name": "-", "url": "" }
+  ],
+  "icons": [
+    { "name": "-", "url": "" }
+  ]
+}

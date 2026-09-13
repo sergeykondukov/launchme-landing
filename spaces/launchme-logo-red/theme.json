@@ -1,0 +1,15 @@
+{
+  "name": "LaunchMe Logo Red",
+  "order": 100,
+  "screenshot": "screenshot.jpg",
+  "file": "LaunchMe Logo Red.launchmetheme",
+
+  "author": { "name": "LaunchMe", "url": "https://www.instagram.com/launchmeapp" },
+  "wallpaper": { "name": "LaunchMe", "url": "https://www.instagram.com/launchmeapp", "type": "regular" },
+  "widgets": [
+    { "name": "-", "url": "" }
+  ],
+  "icons": [
+    { "name": "-", "url": "" }
+  ]
+}

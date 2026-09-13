@@ -28,13 +28,14 @@ function loadPartial(name) {
   return fs.readFileSync(p, 'utf8');
 }
 
-function applyMarketing(template, { homeHref, pricingAria, downloadGa }) {
+function applyMarketing(template, { homeHref, pricingAria, spacesAria, downloadGa }) {
   // On the home page nav anchors are same-page (#features); elsewhere they jump home (/#features).
   const navPrefix = homeHref.startsWith('#') ? '' : '/';
   return template
     .replaceAll('__HOME_HREF__', homeHref)
     .replaceAll('__NAV_PREFIX__', navPrefix)
     .replaceAll('__PRICING_ARIA__', pricingAria ? ' aria-current="page"' : '')
+    .replaceAll('__SPACES_ARIA__', spacesAria ? ' aria-current="page"' : '')
     .replaceAll('__DOWNLOAD_GA_AREA__', downloadGa)
     .replaceAll('__DMG_URL__', DMG_PATH);
 }
@@ -85,6 +86,13 @@ const PAGE_HEADERS = {
     homeHref: '/',
     pricingAria: false,
     downloadGa: 'support-header',
+  },
+  'spaces-themes/index.html': {
+    variant: 'marketing',
+    homeHref: '/',
+    pricingAria: false,
+    spacesAria: true,
+    downloadGa: 'spaces-header',
   },
   'press-assets/index.html': {
     variant: 'marketing',

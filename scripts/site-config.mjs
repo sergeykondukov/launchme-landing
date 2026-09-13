@@ -6,7 +6,7 @@
  *
  * Bump DMG_FILENAME when you ship a new website-hosted build.
  */
-export const DMG_FILENAME = 'LaunchMeDirect-2.003.3.dmg';
+export const DMG_FILENAME = 'LaunchMeDirect-2.004.0.dmg';
 export const DMG_PATH = `/updates/${DMG_FILENAME}`;
 export const SITE_ORIGIN = 'https://launchmeapp.com';
 export const DMG_ABS_URL = `${SITE_ORIGIN}${DMG_PATH}`;

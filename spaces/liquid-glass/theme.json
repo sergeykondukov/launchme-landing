@@ -1,0 +1,15 @@
+{
+  "name": "Liquid Glass",
+  "order": 100,
+  "screenshot": "screenshot.jpg",
+  "file": "Liquid Glass.launchmetheme",
+
+  "author": { "name": "LaunchMe", "url": "https://www.instagram.com/launchmeapp" },
+  "wallpaper": { "name": "Carl Hauser", "url": "https://unsplash.com/@carlhauser", "type": "regular" },
+  "widgets": [
+    { "name": "-", "url": "" }
+  ],
+  "icons": [
+    { "name": "-", "url": "" }
+  ]
+}

@@ -26,6 +26,11 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://launchmeapp.com/spaces-themes/</loc>
+    <priority>0.85</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
     <loc>https://launchmeapp.com/pricing/</loc>
     <priority>0.85</priority>
     <changefreq>monthly</changefreq>
