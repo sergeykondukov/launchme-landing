@@ -1,0 +1,15 @@
+{
+  "name": "Bieber Waves",
+  "order": 100,
+  "screenshot": "screenshot.jpg",
+  "file": "Bieber Waves.launchmetheme",
+
+  "author": { "name": "LaunchMe", "url": "https://www.instagram.com/launchmeapp" },
+  "wallpaper": { "name": "LaunchMe", "url": "https://www.instagram.com/launchmeapp", "type": "regular" },
+  "widgets": [
+    { "name": "-", "url": "" }
+  ],
+  "icons": [
+    { "name": "-", "url": "" }
+  ]
+}

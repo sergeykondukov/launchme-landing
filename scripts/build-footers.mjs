@@ -23,6 +23,7 @@ const FOOTER_PAGES = [
   'index.html',
   'pricing/index.html',
   'support/index.html',
+  'spaces-themes/index.html',
   'press-assets/index.html',
   'privacy/index.html',
   'terms/index.html',

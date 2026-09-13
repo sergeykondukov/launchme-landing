@@ -1,0 +1,15 @@
+{
+  "name": "Minimal Dark",
+  "order": 100,
+  "screenshot": "screenshot.jpg",
+  "file": "Minimal Dark.launchmetheme",
+
+  "author": { "name": "LaunchMe", "url": "https://www.instagram.com/launchmeapp" },
+  "wallpaper": { "name": "Andrew Kliatskyi", "url": "https://unsplash.com/@kirp", "type": "regular" },
+  "widgets": [
+    { "name": "NA", "url": "" }
+  ],
+  "icons": [
+    { "name": "-", "url": "" }
+  ]
+}

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LaunchMe — Spaces Themes</title>
+    <!-- SEO: dedicated URL for the shareable Spaces gallery (wallpaper + widgets + icons presets). -->
+    <meta name="description" content="Download ready-made LaunchMe Spaces: full workspace presets with wallpaper, widgets, layout, and custom icons. Install a Space in one click.">
+    <link rel="canonical" href="https://launchmeapp.com/spaces-themes/">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://launchmeapp.com/spaces-themes/">
+    <meta property="og:title" content="LaunchMe — Spaces Themes">
+    <meta property="og:description" content="Share and install Spaces in one click. Ready-made workspace presets for LaunchMe Pro.">
+    <meta property="og:image" content="https://launchmeapp.com/images/website-preview.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="LaunchMe — Spaces Themes">
+    <meta name="twitter:image" content="https://launchmeapp.com/images/website-preview.jpg">
+    <meta name="twitter:description" content="Share and install Spaces in one click. Ready-made workspace presets for LaunchMe Pro.">
+
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0FCPNZRQH0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-0FCPNZRQH0');
+    </script>
+</head>
+<body class="spaces-page">
+    <!--
+      Marketing nav, same bar as the home page.
+      Rebuilt from partials/header-marketing.html (run: pnpm run build:headers).
+    -->
+    <header class="lp-header">
+        <div class="container lp-header__inner">
+            <a href="/" class="lp-logo"><img src="/images/logoicontext.png" alt="LaunchMe"></a>
+            <!-- Mobile only: opens nav links below the bar (see header-menu.js) -->
+            <button class="lp-nav-toggle" type="button" aria-expanded="false" aria-controls="lp-nav-menu" aria-label="Open menu">
+                <span class="lp-nav-toggle__bar" aria-hidden="true"></span>
+                <span class="lp-nav-toggle__bar" aria-hidden="true"></span>
+                <span class="lp-nav-toggle__bar" aria-hidden="true"></span>
+            </button>
+            <nav class="lp-nav" id="lp-nav-menu" aria-label="Main">
+                <a class="lp-nav__link" href="/#features">Features</a>
+                <a class="lp-nav__link" href="/#customization">Customization</a>
+                <a class="lp-nav__link" href="/spaces-themes/" data-ga="nav-spaces" data-ga-area="header" aria-current="page">Spaces</a>
+                <a class="lp-nav__link" href="/pricing/" data-ga="nav-pricing" data-ga-area="header">Pricing</a>
+                <a class="lp-btn lp-nav__download" href="/updates/LaunchMeDirect-2.003.3.dmg" data-ga="direct-dmg" data-ga-area="spaces-header">Download</a>
+            </nav>
+        </div>
+    </header>
+    <script src="/js/header-scroll.js" defer></script>
+    <script src="/js/header-menu.js" defer></script>
+
+    <main id="top">
+        <!-- Hero: title block + a two-layer image. The bottom layer is revealed in a fluid
+             blob around the cursor, exactly like the home hero and the footer mountains.
+             Swap /images/spaces/hero-layer-top.png and hero-layer-reveal.png to change it
+             (same pixel size for both, or the reveal will not line up). -->
+        <section class="spaces-hero" aria-labelledby="spaces-heading">
+            <div class="container spaces-hero__inner">
+                <p class="spaces-hero__eyebrow">Spaces Theme</p>
+                <h1 id="spaces-heading" class="spaces-hero__title">Share and install Spaces<br>In one click</h1>
+                <p class="spaces-hero__sub">With Spaces you can create workspaces with different layout, widgets, wallpaper, other settings and switch between them scheduled or with hot key anytime you want.<br>Now you can install and share Spaces with other LaunchMe Pro users.</p>
+
+                <div class="spaces-hero__scene">
+                    <div class="spaces-hero__interactive" data-interactive aria-hidden="true"
+                         data-layer-top="/images/spaces/hero-layer-top.png"
+                         data-layer-reveal="/images/spaces/hero-layer-reveal.png">
+                        <canvas class="spaces-hero__canvas"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Theme gallery.
+             The cards below are GENERATED from the `spaces/` folder by scripts/build-spaces.mjs.
+             Do not hand-edit between the markers — run `pnpm run build:spaces` instead.
+             See spaces/README.md for how to add a theme. -->
+        <section class="spaces-gallery" aria-labelledby="spaces-gallery-heading">
+            <div class="container">
+                <h2 id="spaces-gallery-heading" class="visually-hidden">Available Spaces themes</h2>
+                <div class="spaces-grid">
+                    <!-- LAUNCHME_SPACES_GRID_BEGIN -->
+                    <article class="space-card">
+                        <h2 class="space-card__title">LaunchMe Logo Light</h2>
+                        <img class="space-card__shot" src="/spaces/launchme-logo-light/screenshot.jpg" alt="LaunchMe Logo Light Space preview" loading="lazy" decoding="async">
+                        <dl class="space-card__meta">
+                            <dt class="space-card__meta-label">Author</dt>
+                            <dd class="space-card__meta-value"><a class="space-card__credit space-card__credit--link" href="https://www.instagram.com/launchmeapp" target="_blank" rel="noopener noreferrer">LaunchMe</a></dd>
+                            <dt class="space-card__meta-label">Wallpaper (Regular)</dt>
+                            <dd class="space-card__meta-value"><a class="space-card__credit space-card__credit--link" href="https://www.instagram.com/launchmeapp" target="_blank" rel="noopener noreferrer">LaunchMe</a></dd>
+                            <dt class="space-card__meta-label">Widgets</dt>
+                            <dd class="space-card__meta-value"><span class="space-card__credit-empty">&mdash;</span></dd>
+                            <dt class="space-card__meta-label">Icons</dt>
+                            <dd class="space-card__meta-value"><span class="space-card__credit-empty">&mdash;</span></dd>
+                        </dl>
+                        <a class="space-card__download" href="/spaces/launchme-logo-light/LaunchMe%20Logo%20Light.launchmetheme" download="LaunchMe Logo Light.launchmetheme" data-ga="space-theme-download" data-ga-area="launchme-logo-light">Download theme</a>
+                    </article>
+                    <article class="space-card">
+                        <h2 class="space-card__title">LaunchMe Logo Blue</h2>
+                        <img class="space-card__shot" src="/spaces/launchme-logo-blue/screenshot.jpg" alt="LaunchMe Logo Blue Space preview" loading="lazy" decoding="async">
+                        <dl class="space-card__meta">
+                            <dt class="space-card__meta-label">Author</dt>
+                            <dd class="space-card__meta-value"><a class="space-card__credit space-card__credit--link" href="https://www.instagram.com/launchmeapp" target="_blank" rel="noopener noreferrer">LaunchMe</a></dd>
+                            <dt class="space-card__meta-label">Wallpaper (Regular)</dt>
+                            <dd class="space-card__meta-value"><a class="space-card__credit space-card__credit--link" href="https://www.instagram.com/launchmeapp" target="_blank" rel="noopener noreferrer">LaunchMe</a></dd>
+                            <dt class="space-card__meta-label">Widgets</dt>
+                            <dd class="space-card__meta-value"><span class="space-card__credit-empty">&mdash;</span></dd>
+                            <dt class="space-card__meta-label">Icons</dt>
+                            <dd class="space-card__meta-value"><span class="space-card__credit-empty">&mdash;</span></dd>
+                        </dl>
+                        <a class="space-card__download" href="/spaces/launchme-logo-blue/LaunchMe%20Logo%20Blue.launchmetheme" download="LaunchMe Logo Blue.launchmetheme" data-ga="space-theme-download" data-ga-area="launchme-logo-blue">Download theme</a>
+                    </article>
+                    <article class="space-card">
+                        <h2 class="space-card__title">Bieber Waves</h2>
+                        <img class="space-card__shot" src="/spaces/bieber/screenshot.jpg" alt="Bieber Waves Space preview" loading="lazy" decoding="async">
+                        <dl class="space-card__meta">
+                            <dt class="space-card__meta-label">Author</dt>
+                            <dd class="space-card__meta-value"><a class="space-card__credit space-card__credit--link" href="https://www.instagram.com/launchmeapp" target="_blank" rel="noopener noreferrer">LaunchMe</a></dd>
+                            <dt class="space-card__meta-label">Wallpaper (Regular)</dt>
+                            <dd class="space-card__meta-value"><a class="space-card__credit space-card__credit--link" href="https://www.instagram.com/launchmeapp" target="_blank" rel="noopener noreferrer">LaunchMe</a></dd>
+                            <dt class="space-card__meta-label">Widgets</dt>
+                            <dd class="space-card__meta-value"><span class="space-card__credit-empty">&mdash;</span></dd>
+                            <dt class="space-card__meta-label">Icons</dt>
+                            <dd class="space-card__meta-value"><span class="space-card__credit-empty">&mdash;</span></dd>
+                        </dl>
+                        <a class="space-card__download" href="/spaces/bieber/Bieber%20Waves.launchmetheme" download="Bieber Waves.launchmetheme" data-ga="space-theme-download" data-ga-area="bieber">Download theme</a>
+                    </article>
+                    <article class="space-card">
+                        <h2 class="space-card__title">LaunchMe Logo Black</h2>
+                        <img class="space-card__shot" src="/spaces/launchme-logo-black/screenshot.jpg" alt="LaunchMe Logo Black Space preview" loading="lazy" decoding="async">
+                        <dl class="space-card__meta">
+                            <dt class="space-card__meta-label">Author</dt>
+                            <dd class="space-card__meta-value"><a class="space-card__credit space-card__credit--link" href="https://www.instagram.com/launchmeapp" target="_blank" rel="noopener noreferrer">LaunchMe</a></dd>
+                            <dt class="space-card__meta-label">Wallpaper (Regular)</dt>
+                            <dd class="space-card__meta-value"><a class="space-card__credit space-card__credit--link" href="https://www.instagram.com/launchmeapp" target="_blank" rel="noopener noreferrer">LaunchMe</a></dd>
+                            <dt class="space-card__meta-label">Widgets</dt>
+                            <dd class="space-card__meta-value"><span class="space-card__credit-empty">&mdash;</span></dd>
+                            <dt class="space-card__meta-label">Icons</dt>
+                            <dd class="space-card__meta-value"><span class="space-card__credit-empty">&mdash;</span></dd>
+                        </dl>
+                        <a class="space-card__download" href="/spaces/launchme-logo-black/LaunchMe%20Logo%20Black.launchmetheme" download="LaunchMe Logo Black.launchmetheme" data-ga="space-theme-download" data-ga-area="launchme-logo-black">Download theme</a>
+                    </article>
+                    <article class="space-card">
+                        <h2 class="space-card__title">LaunchMe Logo Green</h2>
+                        <img class="space-card__shot" src="/spaces/launchme-logo-green/screenshot.jpg" alt="LaunchMe Logo Green Space preview" loading="lazy" decoding="async">
+                        <dl class="space-card__meta">
+                            <dt class="space-card__meta-label">Author</dt>
+                            <dd class="space-card__meta-value"><a class="space-card__credit space-card__credit--link" href="https://www.instagram.com/launchmeapp" target="_blank" rel="noopener noreferrer">LaunchMe</a></dd>
+                            <dt class="space-card__meta-label">Wallpaper (Regular)</dt>
+                            <dd class="space-card__meta-value"><a class="space-card__credit space-card__credit--link" href="https://www.instagram.com/launchmeapp" target="_blank" rel="noopener noreferrer">LaunchMe</a></dd>
+                            <dt class="space-card__meta-label">Widgets</dt>
+                            <dd class="space-card__meta-value"><span class="space-card__credit-empty">&mdash;</span></dd>
+                            <dt class="space-card__meta-label">Icons</dt>
+                            <dd class="space-card__meta-value"><span class="space-card__credit-empty">&mdash;</span></dd>
+                        </dl>
+                        <a class="space-card__download" href="/spaces/launchme-logo-green/LaunchMe%20Logo%20Green.launchmetheme" download="LaunchMe Logo Green.launchmetheme" data-ga="space-theme-download" data-ga-area="launchme-logo-green">Download theme</a>
+                    </article>
+                    <article class="space-card">
+                        <h2 class="space-card__title">LaunchMe Logo Red</h2>
+                        <img class="space-card__shot" src="/spaces/launchme-logo-red/screenshot.jpg" alt="LaunchMe Logo Red Space preview" loading="lazy" decoding="async">
+                        <dl class="space-card__meta">
+                            <dt class="space-card__meta-label">Author</dt>
+                            <dd class="space-card__meta-value"><a class="space-card__credit space-card__credit--link" href="https://www.instagram.com/launchmeapp" target="_blank" rel="noopener noreferrer">LaunchMe</a></dd>
+                            <dt class="space-card__meta-label">Wallpaper (Regular)</dt>
+                            <dd class="space-card__meta-value"><a class="space-card__credit space-card__credit--link" href="https://www.instagram.com/launchmeapp" target="_blank" rel="noopener noreferrer">LaunchMe</a></dd>
+                            <dt class="space-card__meta-label">Widgets</dt>
+                            <dd class="space-card__meta-value"><span class="space-card__credit-empty">&mdash;</span></dd>
+                            <dt class="space-card__meta-label">Icons</dt>
+                            <dd class="space-card__meta-value"><span class="space-card__credit-empty">&mdash;</span></dd>
+                        </dl>
+                        <a class="space-card__download" href="/spaces/launchme-logo-red/LaunchMe%20Logo%20Red.launchmetheme" download="LaunchMe Logo Red.launchmetheme" data-ga="space-theme-download" data-ga-area="launchme-logo-red">Download theme</a>
+                    </article>
+                    <article class="space-card">
+                        <h2 class="space-card__title">Minimal Dark</h2>
+                        <img class="space-card__shot" src="/spaces/minimal-dark/screenshot.jpg" alt="Minimal Dark Space preview" loading="lazy" decoding="async">
+                        <dl class="space-card__meta">
+                            <dt class="space-card__meta-label">Author</dt>
+                            <dd class="space-card__meta-value"><a class="space-card__credit space-card__credit--link" href="https://www.instagram.com/launchmeapp" target="_blank" rel="noopener noreferrer">LaunchMe</a></dd>
+                            <dt class="space-card__meta-label">Wallpaper (Regular)</dt>
+                            <dd class="space-card__meta-value"><a class="space-card__credit space-card__credit--link" href="https://unsplash.com/@kirp" target="_blank" rel="noopener noreferrer">Andrew Kliatskyi</a></dd>
+                            <dt class="space-card__meta-label">Widgets</dt>
+                            <dd class="space-card__meta-value"><span class="space-card__credit">NA</span></dd>
+                            <dt class="space-card__meta-label">Icons</dt>
+                            <dd class="space-card__meta-value"><span class="space-card__credit-empty">&mdash;</span></dd>
+                        </dl>
+                        <a class="space-card__download" href="/spaces/minimal-dark/Minimal%20Dark.launchmetheme" download="Minimal Dark.launchmetheme" data-ga="space-theme-download" data-ga-area="minimal-dark">Download theme</a>
+                    </article>
+                    <!-- LAUNCHME_SPACES_GRID_END -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Call To Action (identical to the home page block). -->
+        <section id="download" class="section cta">
+            <div class="container">
+                <div class="cta-pill">
+                    <div class="cta-pill__left">
+                        <h3 class="cta-pill__title">Get LaunchMe<br>and launch apps like a pro</h3>
+                        <a class="lp-btn lp-btn--lg" href="/updates/LaunchMeDirect-2.003.3.dmg" data-ga="direct-dmg" data-ga-area="cta-bottom">
+                            <svg class="apple-glyph" viewBox="0 0 384 512" aria-hidden="true"><path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+                            Download for macOS
+                        </a>
+                    </div>
+                    <img class="cta-pill__icon" src="/images/logo-icon.png" alt="LaunchMe app icon">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer: rebuilt from partials/footer.html (run: pnpm run build:footers). -->
+    <footer class="site-footer">
+        <!-- Interactive mountains backdrop (same reveal layers as the hero). -->
+        <div class="footer-bg" data-interactive aria-hidden="true"
+             data-layer-top="/images/Interactive/interactive-layer-2.png"
+             data-layer-reveal="/images/Interactive/interactive-layer-1.png">
+            <canvas></canvas>
+        </div>
+
+        <div class="container footer-top">
+            <div class="footer-brand">
+                <a href="/" class="footer-logo"><img src="/images/logoicontext.png" alt="LaunchMe"></a>
+                <p class="footer-tagline">Your full-screen Mac launcher</p>
+                <p class="footer-desc">LaunchMe brings automation, file search, live wallpapers, widgets, and deep customization into one beautiful full-screen launcher built for macOS 27.</p>
+                <a class="lp-btn lp-btn--lg footer-cta" href="/updates/LaunchMeDirect-2.003.3.dmg" data-ga="direct-dmg" data-ga-area="footer">
+                    <svg class="apple-glyph" viewBox="0 0 384 512" aria-hidden="true"><path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+                    Download for macOS
+                </a>
+                <p class="footer-copy">© 2026 LaunchMe — All rights reserved</p>
+                <p class="footer-author">
+                    Built with <span class="footer-author__love">love</span> by
+                    <a class="footer-author__by" href="https://www.threads.com/@sergey.newton?igshid=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener noreferrer">
+                        <img class="footer-author__avatar" src="/images/sergey-icon.png" alt="Sergey Newton">
+                        Sergey Newton
+                    </a>
+                </p>
+            </div>
+
+            <div class="footer-links">
+                <nav class="footer-col" aria-label="Menu">
+                    <h4 class="footer-col__title">Menu</h4>
+                    <a href="/">Home</a>
+                    <a href="/#features">Features</a>
+                    <a href="/pricing/">Pricing</a>
+                    <a href="/#faq">FAQ</a>
+                    <a href="/blog/">Blog</a>
+                </nav>
+
+                <nav class="footer-col" aria-label="Navigation">
+                    <h4 class="footer-col__title">Navigation</h4>
+                    <a href="/support/">Support</a>
+                    <a href="/help/">Help Center</a>
+                    <a href="/privacy/">Privacy Policy</a>
+                    <a href="/terms/">Terms of Service</a>
+                    <a href="/refunds/">Refund Policy</a>
+                    <a href="/press-assets/">Press Assets</a>
+                </nav>
+
+                <nav class="footer-col" aria-label="Social">
+                    <h4 class="footer-col__title">Social</h4>
+                    <a href="https://www.instagram.com/launchmeapp?igsh=MWZiMW9qamUzYzNjeA%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer">Instagram</a>
+                    <a href="https://www.tiktok.com/@sergey.newton?_r=1&_t=ZS-97T0P0cUuAP" target="_blank" rel="noopener noreferrer">TikTok</a>
+                    <a href="https://www.threads.com/@launchmeapp?igshid=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener noreferrer">Threads</a>
+                    <a href="https://youtube.com/@sergeynewton?si=iqecQRB7wxNSHLgb" target="_blank" rel="noopener noreferrer">YouTube</a>
+                    <a href="https://x.com/sergeynewton?s=11" target="_blank" rel="noopener noreferrer">X</a>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Oversized wordmark, clipped by the footer's bottom edge. -->
+        <div class="footer-wordmark" aria-hidden="true">LaunchMe</div>
+
+        <script src="/js/interactive-footer.js" defer></script>
+    </footer>
+</body>
+</html>
