@@ -2912,6 +2912,80 @@ body:has(> .lp-header) {
   height: 100%;
 }
 
+/* ---- "Install in two steps": how-to strip above the gallery ----
+   Same surface and radius as the theme cards below, so the two blocks read as one
+   family; the numbered black discs are the only accent. ---- */
+.spaces-steps { padding: 72px 0 0; }
+.spaces-steps__title {
+  margin: 0 0 28px;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  text-align: center;
+}
+.spaces-steps__list {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  max-width: 900px;            /* same width as .spaces-grid so the columns line up */
+  counter-reset: none;
+}
+.spaces-step {
+  background: var(--card);
+  border-radius: 50px;         /* matches .space-card and .lm-card */
+  padding: 32px 34px 34px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.spaces-step__num {
+  width: 44px;
+  height: 44px;
+  margin-bottom: 6px;
+  border-radius: 50%;
+  background: #000;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+.spaces-step__heading {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.spaces-step__text {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+.spaces-step__text strong { color: var(--text); font-weight: 700; }
+.spaces-step__code {
+  padding: 1px 6px;
+  border-radius: 6px;
+  background: var(--bg-elev);
+  color: var(--text);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12.5px;
+}
+.spaces-steps__note {
+  margin: 20px auto 0;
+  max-width: 900px;
+  font-size: 13px;
+  color: var(--muted);
+  text-align: center;
+}
+.spaces-steps__note a { color: #04747c; font-weight: 700; }
+
 /* ---- Card grid: two per row, a single card stays left-aligned ---- */
 .spaces-gallery { padding: 64px 0 24px; }
 .spaces-grid {
@@ -3039,4 +3113,8 @@ a.space-card__download:focus-visible {
   .spaces-hero__scene { margin-top: 32px; }
   .spaces-gallery { padding-top: 44px; }
   .spaces-grid { grid-template-columns: minmax(0, 1fr); }
+  .spaces-steps { padding-top: 48px; }
+  .spaces-steps__title { font-size: 24px; }
+  .spaces-steps__list { grid-template-columns: minmax(0, 1fr); }
+  .spaces-step { padding: 28px 28px 30px; }
 }

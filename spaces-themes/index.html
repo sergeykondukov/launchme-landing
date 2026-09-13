@@ -78,6 +78,28 @@
             </div>
         </section>
 
+        <!-- How-to strip: sits between the hero and the gallery so the download button
+             below already makes sense by the time the user reaches it. Static markup —
+             the build script only owns the LAUNCHME_SPACES_GRID block further down. -->
+        <section class="spaces-steps" aria-labelledby="spaces-steps-heading">
+            <div class="container">
+                <h2 id="spaces-steps-heading" class="spaces-steps__title">Install in two steps</h2>
+                <ol class="spaces-steps__list">
+                    <li class="spaces-step">
+                        <span class="spaces-step__num" aria-hidden="true">1</span>
+                        <h3 class="spaces-step__heading">Download theme</h3>
+                        <p class="spaces-step__text">Pick a Space below and hit <strong>Download theme</strong>. You get one <code class="spaces-step__code">.launchmetheme</code> file with the wallpaper, layout, widgets and icons inside.</p>
+                    </li>
+                    <li class="spaces-step">
+                        <span class="spaces-step__num" aria-hidden="true">2</span>
+                        <h3 class="spaces-step__heading">Double-click the file</h3>
+                        <p class="spaces-step__text">LaunchMe picks it up, installs the Space and switches to it right away. Nothing to unpack, nothing to copy by hand.</p>
+                    </li>
+                </ol>
+                <p class="spaces-steps__note">Installing Spaces requires <a href="/pricing/" data-ga="nav-pricing" data-ga-area="spaces-steps">LaunchMe Pro</a>.</p>
+            </div>
+        </section>
+
         <!-- Theme gallery.
              The cards below are GENERATED from the `spaces/` folder by scripts/build-spaces.mjs.
              Do not hand-edit between the markers — run `pnpm run build:spaces` instead.
