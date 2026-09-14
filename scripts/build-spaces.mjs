@@ -224,7 +224,8 @@ function renderCard(theme, indent) {
     lines.push(
       `${i}    <a class="space-card__download" href="${escapeHtml(theme.downloadHref)}"` +
         ` download="${escapeHtml(theme.downloadName)}"` +
-        ` data-ga="space-theme-download" data-ga-area="${escapeHtml(theme.slug)}">Download theme</a>`
+        ` data-ga="space-theme-download" data-ga-area="${escapeHtml(theme.slug)}"` +
+        ` data-theme-name="${escapeHtml(theme.name)}">Download theme</a>`
     );
   } else {
     // No file on disk: keep the button in place but inert, so a typo never ships a 404 link.
