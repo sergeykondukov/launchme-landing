@@ -7,22 +7,23 @@
     <language>en</language>
     <!-- Newest release first (Sparkle reads the feed and picks the latest matching item). -->
     <item>
-      <title>Version 2.005.0</title>
-      <pubDate>Mon, 14 Sep 2026 12:45:51 +0000</pubDate>
-      <sparkle:version>152</sparkle:version>
-      <sparkle:shortVersionString>2.005.0</sparkle:shortVersionString>
+      <title>Version 2.005.1</title>
+      <pubDate>Mon, 28 Sep 2026 05:12:03 +0000</pubDate>
+      <sparkle:version>154</sparkle:version>
+      <sparkle:shortVersionString>2.005.1</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
       <description><![CDATA[
         <h3>What's new</h3>
                 <ul>
-                  <li>New feature: Spaces Themes. Export your Spaces with all settings and wallpaper and share with frinds or download LaunchMe Spaces Themes from website and install in one click</li>
-                  <li>New Full Screen Music mode - Vinyl</li>
+                  <li>Fixed missing translations for some languages</li>
+                  <li>Notch Clipboard optimization</li>
+                  <li>Vinyl Full Screen Player optimization</li>
                 </ul>
       ]]></description>
         <enclosure
-          url="https://launchmeapp.com/updates/LaunchMeDirect-2.005.0.dmg"
-          sparkle:edSignature="jw2L9CgIFg9SuwSg+VWgw8Xxnmj+d7EV6Esk81sHUZvJzh+XCr/SGw5+pOn/o4sAllA2mNy+uBPyNAhLgtu6BA=="
-          length="33697077"
+          url="https://launchmeapp.com/updates/LaunchMeDirect-2.005.1.dmg"
+          sparkle:edSignature="ScaEynno204Sd2KmuPBbT+dlKK8eKXEV81bQ6vUI2LRhhmPX1IcmNz86FEW85KMG/Qak4h0Agwx5rN5/nYpNCg=="
+          length="33680985"
           type="application/x-apple-diskimage"/>
       </item>
   </channel>
