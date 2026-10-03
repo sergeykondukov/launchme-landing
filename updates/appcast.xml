@@ -7,23 +7,23 @@
     <language>en</language>
     <!-- Newest release first (Sparkle reads the feed and picks the latest matching item). -->
     <item>
-      <title>Version 2.005.1</title>
-      <pubDate>Mon, 28 Sep 2026 05:12:03 +0000</pubDate>
-      <sparkle:version>154</sparkle:version>
-      <sparkle:shortVersionString>2.005.1</sparkle:shortVersionString>
+      <title>Version 2.006.0</title>
+      <pubDate>Sat, 03 Oct 2026 06:13:35 +0000</pubDate>
+      <sparkle:version>156</sparkle:version>
+      <sparkle:shortVersionString>2.006.0</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
       <description><![CDATA[
         <h3>What's new</h3>
                 <ul>
-                  <li>Fixed missing translations for some languages</li>
-                  <li>Notch Clipboard optimization</li>
-                  <li>Vinyl Full Screen Player optimization</li>
+                  <li>New feature: Glowing Beats in Full Screen Music Player</li>
+                  <li>New feature: Music Art Wallpaper. In Appearance settings </li>
+                  <li>New Notch feature: Screenshots in Clipboard</li>
                 </ul>
       ]]></description>
         <enclosure
-          url="https://launchmeapp.com/updates/LaunchMeDirect-2.005.1.dmg"
-          sparkle:edSignature="ScaEynno204Sd2KmuPBbT+dlKK8eKXEV81bQ6vUI2LRhhmPX1IcmNz86FEW85KMG/Qak4h0Agwx5rN5/nYpNCg=="
-          length="33680985"
+          url="https://launchmeapp.com/updates/LaunchMeDirect-2.006.0.dmg"
+          sparkle:edSignature="wSfAHnn8y0AkZWjdSxTMgjslY/uEIK1NQS1Yjz0K2xNiZIIz/CRiRmGBD/EHa6ccaUP9VlC/DV98uCRUXP07Cw=="
+          length="33919805"
           type="application/x-apple-diskimage"/>
       </item>
   </channel>
