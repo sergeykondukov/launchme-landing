@@ -10,7 +10,8 @@
     "build:account": "node scripts/build-account.mjs",
     "build:paddle": "node scripts/build-paddle-config.mjs",
     "start": "serve .",
-    "start:ipv4": "serve . -l tcp://127.0.0.1:3000"
+    "start:ipv4": "serve . -l tcp://127.0.0.1:3000",
+    "test:spaces": "node scripts/test-spaces.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.49.1"

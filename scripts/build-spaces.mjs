@@ -11,6 +11,8 @@
  * idempotent across repeated builds.
  */
 import fs from 'node:fs';
+import { createHash } from 'node:crypto';
+import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -185,6 +187,7 @@ function readThemes() {
 
     themes.push({
       slug,
+      description: String(data.description ?? "").trim(),
       name: String(data.name).trim(),
       order: Number.isFinite(Number(data.order)) ? Number(data.order) : 100,
       screenshot: shot.missing ? null : shot.href,
@@ -196,6 +199,55 @@ function readThemes() {
 
   themes.sort((a, b) => a.order - b.order || a.name.localeCompare(b.name));
   return themes;
+}
+
+/** App catalog shares the exact content and sorting used by the website. */
+function buildCatalog(themes) {
+  const credits = (value) => toCreditList(value)
+    .filter((entry) => !isBlankName(entry.name))
+    .map((entry) => ({ name: String(entry.name).trim(),
+      ...(safeHref(entry.url) ? { url: safeHref(entry.url) } : {}),
+      ...(entry.type ? { type: String(entry.type).toLowerCase() } : {}) }));
+  const themeIds = new Set();
+  return {
+    schemaVersion: 1,
+    themes: themes.filter((theme) => theme.screenshot && theme.downloadHref).map((theme) => {
+      // Catalog packages are local content: inspect them at build time, never fetch remote URLs.
+      const source = String(theme.credits.file);
+      if (/^https?:/i.test(source)) throw new Error(`${theme.slug}: catalog package must be local`);
+      const file = source.startsWith('/')
+        ? path.resolve(ROOT, '.' + source)
+        : path.resolve(SPACES_DIR, theme.slug, source);
+      if (!file.startsWith(ROOT + path.sep)) throw new Error(`${theme.slug}: package outside site`);
+      const manifest = JSON.parse(execFileSync('unzip', ['-p', file, 'manifest.json'],
+        { encoding: 'utf8', maxBuffer: 1024 * 1024 }));
+      if (!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(manifest.themeId)
+          || !Number.isInteger(manifest.schemaVersion) || manifest.schemaVersion < 1) {
+        throw new Error(`${theme.slug}: invalid package manifest`);
+      }
+      const identity = manifest.themeId.toLowerCase();
+      if (themeIds.has(identity)) throw new Error(`${theme.slug}: duplicate package themeId`);
+      themeIds.add(identity);
+      const fileSize = fs.statSync(file).size;
+      if (fileSize <= 0 || fileSize > 1073741824) throw new Error(`${theme.slug}: package exceeds app size limit`);
+      const hash = createHash('sha256');
+      const fd = fs.openSync(file, 'r');
+      try {
+        const buffer = Buffer.alloc(1024 * 1024);
+        let count;
+        while ((count = fs.readSync(fd, buffer, 0, buffer.length, null)) > 0) hash.update(buffer.subarray(0, count));
+      } finally { fs.closeSync(fd); }
+      return {
+        id: theme.slug, themeId: manifest.themeId, name: theme.name,
+        description: theme.description, order: theme.order,
+        screenshotURL: theme.screenshot, downloadURL: theme.downloadHref,
+        fileSize, sha256: hash.digest('hex'),
+        packageSchemaVersion: manifest.schemaVersion, createdWithAppVersion: manifest.appVersion,
+        author: credits(theme.credits.author), wallpaper: credits(theme.credits.wallpaper),
+        widgets: credits(theme.credits.widgets), icons: credits(theme.credits.icons),
+      };
+    }),
+  };
 }
 
 function renderCard(theme, indent) {
@@ -213,6 +265,9 @@ function renderCard(theme, indent) {
     lines.push(`${i}    <div class="space-card__shot space-card__shot--empty" aria-hidden="true"></div>`);
   }
 
+  if (theme.description) {
+    lines.push(`${i}    <p class="space-card__description">${escapeHtml(theme.description)}</p>`);
+  }
   lines.push(`${i}    <dl class="space-card__meta">`);
   for (const row of CREDIT_ROWS) {
     lines.push(`${i}        <dt class="space-card__meta-label">${escapeHtml(row.label(theme))}</dt>`);
@@ -253,6 +308,7 @@ function main() {
   }
 
   const themes = readThemes();
+  const catalog = buildCatalog(themes);
   let html = fs.readFileSync(PAGE, 'utf8');
   if (!GRID_RE.test(html)) {
     console.warn('skip (no LAUNCHME_SPACES_GRID markers): spaces-themes/index.html');
@@ -268,6 +324,7 @@ function main() {
     );
   });
 
+  fs.writeFileSync(path.join(SPACES_DIR, 'catalog.json'), JSON.stringify(catalog, null, 2) + '\n', 'utf8');
   fs.writeFileSync(PAGE, html, 'utf8');
   console.log(`ok: spaces-themes/index.html`);
   for (const t of themes) console.log(`  · ${t.name} (spaces/${t.slug})`);

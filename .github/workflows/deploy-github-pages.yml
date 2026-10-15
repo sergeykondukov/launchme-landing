@@ -54,6 +54,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Verify Spaces catalog generator
+        run: pnpm run test:spaces
+
       # Secrets you added in GitHub become env vars only for this step (they are not written into the repo).
       - name: Build static assets (Supabase + Paddle config)
         run: pnpm run build
@@ -68,6 +71,7 @@ jobs:
         run: |
           test -f js/account.bundle.js
           test -f js/paddle-config.js
+          test -f spaces/catalog.json
 
       # The Pages artifact must be small; node_modules is huge and not served to visitors.
       - name: Remove node_modules before upload
