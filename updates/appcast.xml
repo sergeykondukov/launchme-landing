@@ -7,23 +7,28 @@
     <language>en</language>
     <!-- Newest release first (Sparkle reads the feed and picks the latest matching item). -->
     <item>
-      <title>Version 2.006.0</title>
-      <pubDate>Sat, 03 Oct 2026 06:13:35 +0000</pubDate>
-      <sparkle:version>156</sparkle:version>
-      <sparkle:shortVersionString>2.006.0</sparkle:shortVersionString>
+      <title>Version 2.07.0</title>
+      <pubDate>Sat, 17 Oct 2026 11:55:13 +0000</pubDate>
+      <sparkle:version>158</sparkle:version>
+      <sparkle:shortVersionString>2.07.0</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
       <description><![CDATA[
         <h3>What's new</h3>
                 <ul>
-                  <li>New feature: Glowing Beats in Full Screen Music Player</li>
-                  <li>New feature: Music Art Wallpaper. In Appearance settings </li>
-                  <li>New Notch feature: Screenshots in Clipboard</li>
+                  <li>New feature: Always On.</li>
+                  <li>New feature: Particles Visual in Full Screen Music Player.</li>
+                  <li>New Spaces panel open from burger menu button. You can now install LaunchMe Spaces in the app with one click.</li>
+                  <li>New vertical Music Player style</li>
+                  <li>Updated Burger Menu: Icons size slider and Snow moved to Settings Panel</li>
+                  <li>Updated animation for Burger Menu and Search Field</li>
+                  <li>Optimization of Full Screen Music Player and Widgets </li>
+                  <li>Small interface improvements</li>
                 </ul>
       ]]></description>
         <enclosure
-          url="https://launchmeapp.com/updates/LaunchMeDirect-2.006.0.dmg"
-          sparkle:edSignature="wSfAHnn8y0AkZWjdSxTMgjslY/uEIK1NQS1Yjz0K2xNiZIIz/CRiRmGBD/EHa6ccaUP9VlC/DV98uCRUXP07Cw=="
-          length="33919805"
+          url="https://launchmeapp.com/updates/LaunchMeDirect-2.07.0.dmg"
+          sparkle:edSignature="OE4pOWcH46sDGJopmOgI0BndxF3oD4AcuUSXzeYYgcTMLDV3IT0iZWcb4iPlQGG+no+GFlhypV/eKj3AJ2xlAw=="
+          length="39895951"
           type="application/x-apple-diskimage"/>
       </item>
   </channel>
