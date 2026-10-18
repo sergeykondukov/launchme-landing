@@ -35,7 +35,7 @@
 .music-macbook__screen small { font-size: 13px; opacity: .65; }
 .music-showcase.is-enhanced { height: 400svh; }
 .is-enhanced .music-showcase__stage { position: sticky; top: 0; height: 100svh; overflow: hidden; isolation: isolate; }
-.is-enhanced .music-scene { position: absolute; inset: 0; min-height: 0; will-change: clip-path; }
+.is-enhanced .music-scene { position: absolute; inset: 0; min-height: 0; }
 .music-styles { padding: 110px 0 60px; }
 .music-styles h2 { font-size: clamp(30px, 3.4vw, 46px); letter-spacing: -.04em; line-height: 1.1; margin: 0 0 10px; color: #12445b; }
 .music-styles__intro { color: var(--muted); margin: 0 0 32px; }
@@ -107,4 +107,16 @@
   /* Show the central 80%: crop 10% of the source from each side. */
   .music-card--3 { height: auto; min-height: 0; aspect-ratio: 2993.6 / 1080; }
   .music-card--3 .music-card__background { inset: 0 auto auto -12.5%; width: 125%; height: 100%; object-fit: cover; }
+}
+
+@media (max-width: 767px) and (prefers-reduced-motion: no-preference) {
+  /* Keep the closing gesture without repainting a blurred bitmap during touch scrolling. */
+  .music-intro__hero { will-change: transform, opacity; }
+}
+
+@media (max-width: 767px) {
+  .music-scene-nav { display: none !important; }
+  .music-scene__copy { padding-left: 0; }
+  /* The scaled-down laptop frame supplies the visible bezel and corner shape. */
+  .music-macbook__screen { border-radius: 4px 4px 0 0; }
 }
