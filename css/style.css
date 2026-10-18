@@ -2315,9 +2315,9 @@ body:has(> .lp-header) {
     padding: 6px;
     border: 1px solid rgb(255 255 255 / .7);
     border-radius: 22px;
-    background: rgb(248 248 250 / .92);
-    backdrop-filter: saturate(180%) blur(28px);
-    -webkit-backdrop-filter: saturate(180%) blur(28px);
+    background: #f8f8fa;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
     box-shadow: 0 12px 44px rgb(0 0 0 / .15), 0 2px 8px rgb(0 0 0 / .04);
     transform-origin: top right;
     transform: translateY(-6px) scale(.94);
