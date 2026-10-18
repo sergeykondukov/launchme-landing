@@ -11,6 +11,19 @@
       window.scrollTo({ top: window.scrollY + showcase.getBoundingClientRect().top + distance * index / (scenes.length - 1), behavior: reduceMotion.matches ? 'instant' : 'smooth' });
     });
   });
+  const videoStates = new WeakMap();
+  function syncVideo(scene, visibleRatio) {
+    const video = scene.querySelector('video');
+    if (!video) return;
+    const shouldPlay = !document.hidden && visibleRatio >= .2;
+    if (videoStates.get(video) === shouldPlay) return;
+    videoStates.set(video, shouldPlay);
+    if (shouldPlay) {
+      video.play().catch(() => { videoStates.delete(video); });
+    } else {
+      video.pause();
+    }
+  }
   let pending = false;
   function renderHero() {
     if (!hero) return;
@@ -30,15 +43,28 @@
   function renderScenes() {
     pending = false;
     renderHero();
-    if (!showcase.classList.contains('is-enhanced')) return;
+    if (!showcase.classList.contains('is-enhanced')) {
+      scenes.forEach(scene => {
+        const bounds = scene.getBoundingClientRect();
+        syncVideo(scene, Math.max(0, Math.min(innerHeight, bounds.bottom) - Math.max(0, bounds.top)) / Math.max(1, bounds.height));
+      });
+      return;
+    }
     const rect = showcase.getBoundingClientRect();
     const viewport = showcase.querySelector('.music-showcase__stage').clientHeight;
     // Use only the three transitions, with no extra scroll before or after them.
     const progress = Math.max(0, Math.min(scenes.length - 1, -rect.top / (rect.height - viewport) * (scenes.length - 1)));
     const active = Math.min(scenes.length - 1, Math.floor(progress + .5));
     sceneButtons.forEach((button, index) => button.setAttribute('aria-current', String(index === active)));
+    const stageBounds = showcase.querySelector('.music-showcase__stage').getBoundingClientRect();
+    const reveals = scenes.map((_, index) => index === 0 ? 0 : Math.max(0, Math.min(100, (index - progress) * 100)));
     scenes.forEach((scene, index) => {
-      const reveal = index === 0 ? 0 : Math.max(0, Math.min(100, (index - progress) * 100));
+      const reveal = reveals[index];
+      // Later scenes cover earlier ones; count only the exposed strip inside the viewport.
+      const exposedTop = stageBounds.top + viewport * reveal / 100;
+      const exposedBottom = stageBounds.top + viewport * (reveals[index + 1] ?? 100) / 100;
+      const visibleHeight = Math.max(0, Math.min(innerHeight, exposedBottom) - Math.max(0, exposedTop));
+      syncVideo(scene, visibleHeight / Math.max(1, viewport));
       scene.style.clipPath = `inset(${reveal}% 0 0 0)`;
       const copyOffset = Math.max(-1, Math.min(index === 0 ? 0 : 1, index - progress));
       scene.querySelector('.music-scene__copy').style.transform = `translateY(${copyOffset * viewport}px)`;
@@ -54,6 +80,7 @@
   }
   addEventListener('scroll', requestRender, { passive: true });
   addEventListener('resize', requestRender);
+  document.addEventListener('visibilitychange', requestRender);
   hero?.addEventListener('load', requestRender);
   reduceMotion.addEventListener('change', configureMotion);
   configureMotion();
