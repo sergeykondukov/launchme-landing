@@ -1,6 +1,7 @@
 (() => {
   const showcase = document.querySelector('.music-showcase');
   const scenes = [...document.querySelectorAll('.music-scene')];
+  const hero = document.querySelector('.music-intro__hero');
   const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
   const sceneButtons = [...document.querySelectorAll('.music-scene-nav button')];
   sceneButtons.forEach((button, index) => {
@@ -11,8 +12,24 @@
     });
   });
   let pending = false;
+  function renderHero() {
+    if (!hero) return;
+    if (reduceMotion.matches) {
+      hero.style.transform = '';
+      hero.style.filter = '';
+      hero.style.opacity = '';
+      return;
+    }
+    // Read the untransformed layout height so perspective never changes the scroll range.
+    const progress = Math.min(1, Math.max(0, window.scrollY / Math.max(1, hero.offsetHeight * .9)));
+    const eased = progress * progress * (3 - 2 * progress);
+    hero.style.transform = `perspective(1200px) rotateX(${-48 * eased}deg) scale(${1 - .08 * eased})`;
+    hero.style.filter = `blur(${7 * eased}px)`;
+    hero.style.opacity = String(1 - .3 * eased);
+  }
   function renderScenes() {
     pending = false;
+    renderHero();
     if (!showcase.classList.contains('is-enhanced')) return;
     const rect = showcase.getBoundingClientRect();
     const viewport = showcase.querySelector('.music-showcase__stage').clientHeight;
@@ -37,6 +54,7 @@
   }
   addEventListener('scroll', requestRender, { passive: true });
   addEventListener('resize', requestRender);
+  hero?.addEventListener('load', requestRender);
   reduceMotion.addEventListener('change', configureMotion);
   configureMotion();
 
