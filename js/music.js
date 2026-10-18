@@ -12,17 +12,42 @@
     });
   });
   const videoStates = new WeakMap();
-  function syncVideo(scene, visibleRatio) {
-    const video = scene.querySelector('video');
+  const pendingVideos = new WeakSet();
+  function syncVideo(target, visibleRatio) {
+    const video = target.matches('video') ? target : target.querySelector('video');
     if (!video) return;
     const shouldPlay = !document.hidden && visibleRatio >= .2;
-    if (videoStates.get(video) === shouldPlay) return;
     videoStates.set(video, shouldPlay);
-    if (shouldPlay) {
-      video.play().catch(() => { videoStates.delete(video); });
-    } else {
+    if (!shouldPlay) {
       video.pause();
+    } else if (video.paused && !pendingVideos.has(video) && !video.error) {
+      pendingVideos.add(video);
+      video.play().then(() => {
+        // Scrolling away while play() is pending must not restart a hidden video.
+        if (!videoStates.get(video)) video.pause();
+      }).catch(() => {}).finally(() => pendingVideos.delete(video));
     }
+  }
+  const regularVideos = [...document.querySelectorAll('video')].filter(video => !video.closest('.music-scene'));
+  function visibleVideoRatio(video, clipTop = 0, clipBottom = innerHeight) {
+    const bounds = video.getBoundingClientRect();
+    let left = Math.max(0, bounds.left), right = Math.min(innerWidth, bounds.right);
+    let top = Math.max(0, clipTop, bounds.top), bottom = Math.min(innerHeight, clipBottom, bounds.bottom);
+    // Account for both the horizontal slider and the rounded card's clipped media.
+    for (let parent = video.parentElement; parent; parent = parent.parentElement) {
+      const style = getComputedStyle(parent);
+      const rect = parent.getBoundingClientRect();
+      if (/(auto|scroll|hidden|clip)/.test(style.overflowX)) {
+        left = Math.max(left, rect.left); right = Math.min(right, rect.right);
+      }
+      if (/(auto|scroll|hidden|clip)/.test(style.overflowY)) {
+        top = Math.max(top, rect.top); bottom = Math.min(bottom, rect.bottom);
+      }
+    }
+    return Math.max(0, right - left) * Math.max(0, bottom - top) / Math.max(1, bounds.width * bounds.height);
+  }
+  function syncRegularVideos() {
+    regularVideos.forEach(video => syncVideo(video, visibleVideoRatio(video)));
   }
   let pending = false;
   function renderHero() {
@@ -43,10 +68,11 @@
   function renderScenes() {
     pending = false;
     renderHero();
+    syncRegularVideos();
     if (!showcase.classList.contains('is-enhanced')) {
       scenes.forEach(scene => {
-        const bounds = scene.getBoundingClientRect();
-        syncVideo(scene, Math.max(0, Math.min(innerHeight, bounds.bottom) - Math.max(0, bounds.top)) / Math.max(1, bounds.height));
+        const video = scene.querySelector('video');
+        if (video) syncVideo(video, visibleVideoRatio(video));
       });
       return;
     }
@@ -63,8 +89,8 @@
       // Later scenes cover earlier ones; count only the exposed strip inside the viewport.
       const exposedTop = stageBounds.top + viewport * reveal / 100;
       const exposedBottom = stageBounds.top + viewport * (reveals[index + 1] ?? 100) / 100;
-      const visibleHeight = Math.max(0, Math.min(innerHeight, exposedBottom) - Math.max(0, exposedTop));
-      syncVideo(scene, visibleHeight / Math.max(1, viewport));
+      const video = scene.querySelector('video');
+      if (video) syncVideo(video, visibleVideoRatio(video, exposedTop, exposedBottom));
       scene.style.clipPath = `inset(${reveal}% 0 0 0)`;
       const copyOffset = Math.max(-1, Math.min(index === 0 ? 0 : 1, index - progress));
       scene.querySelector('.music-scene__copy').style.transform = `translateY(${copyOffset * viewport}px)`;
@@ -78,7 +104,9 @@
   function requestRender() {
     if (!pending) { pending = true; requestAnimationFrame(renderScenes); }
   }
-  addEventListener('scroll', requestRender, { passive: true });
+  // Capture also catches scrolling inside the horizontal carousel.
+  document.addEventListener('scroll', requestRender, { passive: true, capture: true });
+  document.querySelectorAll('video').forEach(video => video.addEventListener('loadeddata', requestRender));
   addEventListener('resize', requestRender);
   document.addEventListener('visibilitychange', requestRender);
   hero?.addEventListener('load', requestRender);
@@ -89,12 +117,34 @@
   const slides = [...track.children];
   const dots = document.querySelector('.music-styles__dots');
   let current = 0;
+  let slideTimer = null;
+  const playButton = document.querySelector('[data-music-play]');
+  let slideAnimation = null;
+  function stopSlideshow() {
+    if (slideAnimation !== null) {
+      cancelAnimationFrame(slideAnimation);
+      slideAnimation = null;
+      track.style.scrollSnapType = '';
+    }
+    clearInterval(slideTimer);
+    slideTimer = null;
+    playButton.classList.add('is-paused');
+    playButton.setAttribute('aria-label', 'Play slideshow');
+  }
+  playButton.addEventListener('click', () => {
+    if (slideTimer) { stopSlideshow(); return; }
+    slideTimer = setInterval(() => { if (!document.hidden) go((current + 1) % slides.length); }, 3000);
+    playButton.classList.remove('is-paused');
+    playButton.setAttribute('aria-label', 'Pause slideshow');
+  });
+  ['wheel', 'touchstart', 'pointerdown'].forEach(event => track.addEventListener(event, stopSlideshow, { passive: true }));
   const buttons = slides.map((slide, index) => {
     const button = document.createElement('button');
     button.type = 'button';
+    button.className = 'ai-dot';
     button.setAttribute('aria-label', `Go to widget style ${index + 1}`);
     button.setAttribute('aria-controls', slide.id);
-    button.addEventListener('click', () => go(index));
+    button.addEventListener('click', () => { stopSlideshow(); go(index); });
     dots.append(button);
     return button;
   });
@@ -104,16 +154,40 @@
   function sync() {
     current = slides.reduce((best, slide, index) => Math.abs(offset(slide) - track.scrollLeft) < Math.abs(offset(slides[best]) - track.scrollLeft) ? index : best, 0);
     if (track.scrollLeft >= track.scrollWidth - track.clientWidth - 2) current = slides.length - 1;
-    buttons.forEach((button, index) => button.setAttribute('aria-current', String(index === current)));
-    document.querySelector('[data-music-prev]').disabled = current === 0;
-    document.querySelector('[data-music-next]').disabled = current === slides.length - 1;
+    buttons.forEach((button, index) => {
+      button.setAttribute('aria-current', String(index === current));
+      button.classList.toggle('is-active', index === current);
+    });
   }
   function go(index) {
-    track.scrollTo({ left: offset(slides[Math.max(0, Math.min(slides.length - 1, index))]), behavior: reduceMotion.matches ? 'instant' : 'smooth' });
+    if (slideAnimation !== null) cancelAnimationFrame(slideAnimation);
+    const target = Math.max(0, Math.min(track.scrollWidth - track.clientWidth, offset(slides[Math.max(0, Math.min(slides.length - 1, index))])));
+    if (reduceMotion.matches) {
+      track.scrollLeft = target;
+      slideAnimation = null;
+      track.style.scrollSnapType = '';
+      return;
+    }
+    const start = track.scrollLeft;
+    const distance = target - start;
+    const duration = 1100;
+    let startedAt = null;
+    // Disable snapping while animating so it cannot pull the track ahead abruptly.
+    track.style.scrollSnapType = 'none';
+    function frame(now) {
+      if (startedAt === null) startedAt = now;
+      const progress = Math.min(1, (now - startedAt) / duration);
+      const eased = progress < .5 ? 4 * progress ** 3 : 1 - (-2 * progress + 2) ** 3 / 2;
+      track.scrollLeft = start + distance * eased;
+      if (progress < 1) slideAnimation = requestAnimationFrame(frame);
+      else {
+        slideAnimation = null;
+        track.style.scrollSnapType = '';
+      }
+    }
+    slideAnimation = requestAnimationFrame(frame);
   }
   track.addEventListener('scroll', sync, { passive: true });
-  document.querySelector('[data-music-prev]').addEventListener('click', () => go(current - 1));
-  document.querySelector('[data-music-next]').addEventListener('click', () => go(current + 1));
   track.addEventListener('keydown', event => {
     if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') { event.preventDefault(); go(current + (event.key === 'ArrowRight' ? 1 : -1)); }
   });

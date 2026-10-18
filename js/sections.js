@@ -113,7 +113,7 @@
             var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
             var sel = '.eyebrow, .section-kicker, .section-title, .section-sub, .lm-card,'
                 + ' .lm-feature-tile, .language-item, .accordion-item, .guides-list li, .cta-pill,'
-                + ' .ai-explore__title, .ai-vi__eyebrow, .ai-vi__title, .ai-vi__sub, .vi-card';
+                + ' .ai-explore__title, .ai-vi__eyebrow, .ai-vi__title, .ai-vi__sub, .vi-card, .music-style';
             var els = [].slice.call(document.querySelectorAll(sel));
             if (!els.length) return;
             // Add the hook class from JS so content stays visible if JS/anim is off.
