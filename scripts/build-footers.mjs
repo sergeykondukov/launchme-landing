@@ -21,6 +21,7 @@ const FOOTER_RE = /[^\S\r\n]*<footer\s+class="site-footer"[^>]*>[\s\S]*?<\/foote
 /** Pages that get the marketing footer (everything with a site-footer except account/paddle). */
 const FOOTER_PAGES = [
   'index.html',
+  'music/index.html',
   'pricing/index.html',
   'support/index.html',
   'spaces-themes/index.html',
