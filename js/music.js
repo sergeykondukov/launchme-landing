@@ -2,6 +2,7 @@
   const showcase = document.querySelector('.music-showcase');
   const scenes = [...document.querySelectorAll('.music-scene')];
   const hero = document.querySelector('.music-intro__hero');
+  const mobileMotion = matchMedia('(max-width: 767px)');
   const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
   const sceneButtons = [...document.querySelectorAll('.music-scene-nav button')];
   sceneButtons.forEach((button, index) => {
@@ -63,12 +64,31 @@
     }
     return Math.max(0, right - left) * Math.max(0, bottom - top) / Math.max(1, bounds.width * bounds.height);
   }
-  function syncRegularVideos() {
-    regularVideos.forEach(video => {
-      if (isNearViewport(video)) loadVideo(video);
-      syncVideo(video, visibleVideoRatio(video));
+  // Native intersection tracking accounts for the carousel's overflow clipping.
+  // Avoid walking every video's ancestors on every animation frame.
+  const regularVisibility = new Map();
+  const playbackObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      regularVisibility.set(entry.target, entry.intersectionRatio);
+      syncVideo(entry.target, entry.intersectionRatio);
     });
-  }
+  }, { threshold: [0, .2, 1] });
+  const preloadObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !document.hidden) {
+        loadVideo(entry.target);
+        preloadObserver.unobserve(entry.target);
+      }
+    });
+  }, { rootMargin: '400px', threshold: 0 });
+  regularVideos.forEach(video => {
+    playbackObserver.observe(video);
+    preloadObserver.observe(video);
+  });
+  document.addEventListener('visibilitychange', () => {
+    regularVisibility.forEach((ratio, video) => syncVideo(video, ratio));
+  });
+  let lastHeroProgress = null;
   let pending = false;
   function renderHero() {
     if (!hero) return;
@@ -80,15 +100,16 @@
     }
     // Read the untransformed layout height so perspective never changes the scroll range.
     const progress = Math.min(1, Math.max(0, window.scrollY / Math.max(1, hero.offsetHeight * .9)));
+    if (progress === lastHeroProgress) return;
+    lastHeroProgress = progress;
     const eased = progress * progress * (3 - 2 * progress);
-    hero.style.transform = `perspective(1200px) rotateX(${-48 * eased}deg) scale(${1 - .08 * eased})`;
-    hero.style.filter = `blur(${7 * eased}px)`;
+    hero.style.transform = `perspective(1200px) rotateX(${-(mobileMotion.matches ? 28 : 48) * eased}deg) scale(${1 - .08 * eased})`;
+    hero.style.filter = mobileMotion.matches ? 'none' : `blur(${7 * eased}px)`;
     hero.style.opacity = String(1 - .3 * eased);
   }
   function renderScenes() {
     pending = false;
     renderHero();
-    syncRegularVideos();
     if (!showcase.classList.contains('is-enhanced')) {
       scenes.forEach(scene => {
         const video = scene.querySelector('video');
@@ -107,7 +128,7 @@
     sceneButtons.forEach((button, index) => button.setAttribute('aria-current', String(index === active)));
     const stageBounds = showcase.querySelector('.music-showcase__stage').getBoundingClientRect();
     const reveals = scenes.map((_, index) => index === 0 ? 0 : Math.max(0, Math.min(100, (index - progress) * 100)));
-    scenes.forEach((scene, index) => {
+    const sceneFrames = scenes.map((scene, index) => {
       const reveal = reveals[index];
       // Later scenes cover earlier ones; count only the exposed strip inside the viewport.
       const exposedTop = stageBounds.top + viewport * reveal / 100;
@@ -115,17 +136,28 @@
       const video = scene.querySelector('video');
       if (video) {
         // Stacked scenes share the same rectangle, so proximity alone would load all four.
-        if (isNearViewport(showcase.querySelector('.music-showcase__stage')) && Math.abs(index - progress) <= 1) loadVideo(video);
-        syncVideo(video, visibleVideoRatio(video, exposedTop, exposedBottom));
+        const nearStage = stageBounds.bottom > -400 && stageBounds.top < innerHeight + 400;
+        if (nearStage && Math.abs(index - progress) <= 1) loadVideo(video);
+        const bounds = video.getBoundingClientRect();
+        const width = Math.max(0, Math.min(innerWidth, bounds.right) - Math.max(0, bounds.left));
+        const height = Math.max(0, Math.min(innerHeight, exposedBottom, bounds.bottom) - Math.max(0, exposedTop, bounds.top));
+        syncVideo(video, width * height / Math.max(1, bounds.width * bounds.height));
       }
-      scene.style.clipPath = `inset(${reveal}% 0 0 0)`;
       const copyOffset = Math.max(-1, Math.min(index === 0 ? 0 : 1, index - progress));
-      scene.querySelector('.music-scene__copy').style.transform = `translateY(${copyOffset * viewport}px)`;
+      return { scene, reveal, copyOffset, visible: (reveals[index + 1] ?? 100) > reveal };
+    });
+    // Finish geometry reads before changing styles. Fully covered layers need no painting.
+    sceneFrames.forEach(({ scene, reveal, copyOffset, visible }) => {
+      scene.style.visibility = visible ? 'visible' : 'hidden';
+      scene.style.clipPath = reveal === 0 ? 'none' : `inset(${reveal}% 0 0 0)`;
+      scene.style.willChange = visible && reveal > 0 && reveal < 100 ? 'clip-path' : 'auto';
+      scene.querySelector('.music-scene__copy').style.transform = `translate3d(0, ${copyOffset * viewport}px, 0)`;
     });
   }
   function configureMotion() {
-    showcase.classList.toggle('is-enhanced', !reduceMotion.matches);
-    scenes.forEach(scene => { scene.style.clipPath = ''; scene.querySelector('.music-scene__copy').style.transform = ''; });
+    showcase.classList.toggle('is-enhanced', !reduceMotion.matches && !mobileMotion.matches);
+    lastHeroProgress = null;
+    scenes.forEach(scene => { scene.style.visibility = ''; scene.style.willChange = ''; scene.style.clipPath = ''; scene.querySelector('.music-scene__copy').style.transform = ''; });
     renderScenes();
   }
   function requestRender() {
@@ -138,6 +170,7 @@
   document.addEventListener('visibilitychange', requestRender);
   hero?.addEventListener('load', requestRender);
   reduceMotion.addEventListener('change', configureMotion);
+  mobileMotion.addEventListener('change', configureMotion);
   configureMotion();
 
   const track = document.querySelector('.music-styles__track');
