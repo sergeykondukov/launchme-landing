@@ -11,6 +11,22 @@
       window.scrollTo({ top: window.scrollY + showcase.getBoundingClientRect().top + distance * index / (scenes.length - 1), behavior: reduceMotion.matches ? 'instant' : 'smooth' });
     });
   });
+  function loadVideo(video) {
+    if (document.hidden) return;
+    const sources = [...video.querySelectorAll('source[data-src]')];
+    if (!sources.length) return;
+    sources.forEach(source => {
+      source.src = source.dataset.src;
+      source.removeAttribute('data-src');
+    });
+    video.preload = 'auto';
+    video.load();
+  }
+  function isNearViewport(element, margin = 400) {
+    const rect = element.getBoundingClientRect();
+    return rect.bottom > -margin && rect.top < innerHeight + margin
+      && rect.right > -margin && rect.left < innerWidth + margin;
+  }
   const videoStates = new WeakMap();
   const pendingVideos = new WeakSet();
   function syncVideo(target, visibleRatio) {
@@ -18,6 +34,7 @@
     if (!video) return;
     const shouldPlay = !document.hidden && visibleRatio >= .2;
     videoStates.set(video, shouldPlay);
+    if (shouldPlay) loadVideo(video);
     if (!shouldPlay) {
       video.pause();
     } else if (video.paused && !pendingVideos.has(video) && !video.error) {
@@ -47,7 +64,10 @@
     return Math.max(0, right - left) * Math.max(0, bottom - top) / Math.max(1, bounds.width * bounds.height);
   }
   function syncRegularVideos() {
-    regularVideos.forEach(video => syncVideo(video, visibleVideoRatio(video)));
+    regularVideos.forEach(video => {
+      if (isNearViewport(video)) loadVideo(video);
+      syncVideo(video, visibleVideoRatio(video));
+    });
   }
   let pending = false;
   function renderHero() {
@@ -72,7 +92,10 @@
     if (!showcase.classList.contains('is-enhanced')) {
       scenes.forEach(scene => {
         const video = scene.querySelector('video');
-        if (video) syncVideo(video, visibleVideoRatio(video));
+        if (video) {
+          if (isNearViewport(video)) loadVideo(video);
+          syncVideo(video, visibleVideoRatio(video));
+        }
       });
       return;
     }
@@ -90,7 +113,11 @@
       const exposedTop = stageBounds.top + viewport * reveal / 100;
       const exposedBottom = stageBounds.top + viewport * (reveals[index + 1] ?? 100) / 100;
       const video = scene.querySelector('video');
-      if (video) syncVideo(video, visibleVideoRatio(video, exposedTop, exposedBottom));
+      if (video) {
+        // Stacked scenes share the same rectangle, so proximity alone would load all four.
+        if (isNearViewport(showcase.querySelector('.music-showcase__stage')) && Math.abs(index - progress) <= 1) loadVideo(video);
+        syncVideo(video, visibleVideoRatio(video, exposedTop, exposedBottom));
+      }
       scene.style.clipPath = `inset(${reveal}% 0 0 0)`;
       const copyOffset = Math.max(-1, Math.min(index === 0 ? 0 : 1, index - progress));
       scene.querySelector('.music-scene__copy').style.transform = `translateY(${copyOffset * viewport}px)`;
