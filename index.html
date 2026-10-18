@@ -115,8 +115,7 @@
                 <span class="lp-nav-toggle__bar" aria-hidden="true"></span>
             </button>
             <nav class="lp-nav" id="lp-nav-menu" aria-label="Main">
-                <a class="lp-nav__link" href="#features">Features</a>
-                <a class="lp-nav__link" href="#customization">Customization</a>
+                <a class="lp-nav__link" href="/music/" data-ga="nav-music" data-ga-area="header">Music</a>
                 <a class="lp-nav__link" href="/spaces-themes/" data-ga="nav-spaces" data-ga-area="header">Spaces</a>
                 <a class="lp-nav__link" href="/pricing/" data-ga="nav-pricing" data-ga-area="header">Pricing</a>
                 <a class="lp-btn lp-nav__download" href="/updates/LaunchMeDirect-2.07.0.dmg" data-ga="direct-dmg" data-ga-area="header">Download</a>
@@ -443,8 +442,13 @@
 
                 <!-- Wide: monitor image fills the entire rounded card -->
                 <div class="lm-cards-row" style="margin-top:30px;">
-                    <article class="lm-card lm-card--wide lm-card--media-fill" style="--card-bg-color:transparent;">
-                        <img class="lm-card__image" src="/images/monitor-image.png" alt="Multi-display support on multiple monitors">
+                    <article class="lm-card lm-card--wide lm-card--media-fill lm-card--music-preview" style="--card-bg-color:transparent;">
+                        <div class="lm-card__content music-preview__content">
+                            <p class="lm-card__title">A new way to listen to music on Mac</p>
+                            <h3 class="lm-card__subtitle">Explore LaunchMe Music</h3>
+                            <a class="music-preview__link" href="/music/">Learn More</a>
+                        </div>
+                        <img class="lm-card__image" src="/images/monitor-image.png" alt="LaunchMe Music vinyl player on a MacBook">
                     </article>
                 </div>
 

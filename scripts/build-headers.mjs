@@ -28,13 +28,14 @@ function loadPartial(name) {
   return fs.readFileSync(p, 'utf8');
 }
 
-function applyMarketing(template, { homeHref, pricingAria, spacesAria, downloadGa }) {
+function applyMarketing(template, { homeHref, pricingAria, spacesAria, musicAria, downloadGa }) {
   // On the home page nav anchors are same-page (#features); elsewhere they jump home (/#features).
   const navPrefix = homeHref.startsWith('#') ? '' : '/';
   return template
     .replaceAll('__HOME_HREF__', homeHref)
     .replaceAll('__NAV_PREFIX__', navPrefix)
     .replaceAll('__PRICING_ARIA__', pricingAria ? ' aria-current="page"' : '')
+    .replaceAll('__MUSIC_ARIA__', musicAria ? ' aria-current="page"' : '')
     .replaceAll('__SPACES_ARIA__', spacesAria ? ' aria-current="page"' : '')
     .replaceAll('__DOWNLOAD_GA_AREA__', downloadGa)
     .replaceAll('__DMG_URL__', DMG_PATH);
@@ -75,6 +76,7 @@ function indentPartial(raw, base = '    ') {
 const PAGE_HEADERS = {
   // Marketing bar
   'index.html': { variant: 'marketing', homeHref: '#top', pricingAria: false, downloadGa: 'header' },
+  'music/index.html': { variant: 'marketing', homeHref: '/', musicAria: true, downloadGa: 'music-header' },
   'pricing/index.html': {
     variant: 'marketing',
     homeHref: '/',
