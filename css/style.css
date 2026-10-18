@@ -2293,35 +2293,71 @@ body:has(> .lp-header) {
 
 @media (max-width: 767px) {
   .lp-header__inner {
-    flex-wrap: wrap;
-    height: auto;
-    min-height: var(--lp-header-h);
-    /* Top padding only — do not reset .container horizontal inset (0 20px) */
-    padding-top: 6px;
+    position: relative;
+    height: var(--lp-header-h);
+    flex-wrap: nowrap;
     align-items: center;
   }
   .lp-nav-toggle {
     display: inline-flex;
+    border-radius: 50%;
   }
-  /* Collapsed by default; .is-menu-open expands links downward */
+  .lp-header.is-menu-open .lp-nav-toggle { background: rgb(0 0 0 / .05); }
   .lp-nav {
-    display: none;
-    width: 100%;
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 16px;
+    display: flex;
+    width: min(260px, calc(100vw - 32px));
     flex-direction: column;
     align-items: stretch;
     gap: 0;
-    padding: 4px 0 12px;
+    padding: 6px;
+    border: 1px solid rgb(255 255 255 / .7);
+    border-radius: 22px;
+    background: rgb(248 248 250 / .92);
+    backdrop-filter: saturate(180%) blur(28px);
+    -webkit-backdrop-filter: saturate(180%) blur(28px);
+    box-shadow: 0 12px 44px rgb(0 0 0 / .15), 0 2px 8px rgb(0 0 0 / .04);
+    transform-origin: top right;
+    transform: translateY(-6px) scale(.94);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity .18s ease, transform .22s cubic-bezier(.2,.8,.2,1), visibility .22s;
   }
   .lp-header.is-menu-open .lp-nav {
-    display: flex;
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
   }
   .lp-nav .lp-nav__link {
-    display: block;
-    padding: 14px 0;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 48px;
+    padding: 12px 14px;
+    text-align: left;
     font-size: 16px;
-    border-top: 1px solid var(--border);
+    color: var(--text);
+    border-top: 0;
+    border-radius: 15px;
+    position: relative;
+    -webkit-tap-highlight-color: transparent;
   }
+  .lp-nav__link + .lp-nav__link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 14px;
+    right: 14px;
+    height: 1px;
+    background: rgb(60 60 67 / .12);
+  }
+  .lp-nav .lp-nav__link:hover, .lp-nav .lp-nav__link:active { background: rgb(0 0 0 / .055); }
+  .lp-nav__link[aria-current="page"]::after { content: '✓'; font-size: 16px; }
+  .lp-nav-toggle:focus-visible, .lp-nav .lp-nav__link:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
   /* No Download in the mobile header — hero/footer CTAs remain */
   .lp-nav .lp-nav__download {
     display: none;
@@ -3117,4 +3153,8 @@ a.space-card__download:focus-visible {
   .spaces-steps__title { font-size: 24px; }
   .spaces-steps__list { grid-template-columns: minmax(0, 1fr); }
   .spaces-step { padding: 28px 28px 30px; }
+}
+
+@media (max-width: 767px) and (prefers-reduced-motion: reduce) {
+  .lp-nav, .lp-nav-toggle__bar { transition: none; }
 }
