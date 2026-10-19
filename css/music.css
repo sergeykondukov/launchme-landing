@@ -40,6 +40,8 @@
 .music-styles h2 { font-size: clamp(30px, 3.4vw, 46px); letter-spacing: -.04em; line-height: 1.1; margin: 0 0 10px; color: #12445b; }
 .music-styles__intro { color: var(--muted); margin: 0 0 32px; }
 .music-styles__track { display: flex; gap: 28px; padding: 0 max(20px, calc((100vw - 1060px) / 2)); overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scroll-padding-left: max(20px, calc((100vw - 1060px) / 2)); scrollbar-width: none; }
+/* Allow the 30px reveal movement below the media without clipping its lower edge. */
+.music-styles__track { padding-bottom: 36px; margin-bottom: -36px; align-items: flex-start; }
 .music-styles__track::-webkit-scrollbar { display: none; }
 .music-style { flex: 0 0 310px; min-width: 0; scroll-snap-align: start; }
 .music-style:nth-child(3n + 1) { flex-basis: 580px; }
