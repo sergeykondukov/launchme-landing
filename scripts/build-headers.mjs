@@ -75,6 +75,7 @@ function indentPartial(raw, base = '    ') {
  */
 const PAGE_HEADERS = {
   // Marketing bar
+  'changelog/index.html': { variant: 'marketing', homeHref: '/', pricingAria: false, downloadGa: 'changelog-header' },
   'index.html': { variant: 'marketing', homeHref: '#top', pricingAria: false, downloadGa: 'header' },
   'music/index.html': { variant: 'marketing', homeHref: '/', musicAria: true, downloadGa: 'music-header' },
   'pricing/index.html': {

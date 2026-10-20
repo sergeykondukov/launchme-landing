@@ -2590,7 +2590,14 @@ body:has(> .lp-header) {
     padding-bottom: clamp(150px, 40vw, 300px);
   }
   .footer-brand { flex-basis: auto; max-width: 460px; }
-  .footer-links { gap: 24px; }
+  .footer-links {
+    width: 100%;
+    display: grid;
+    grid-template-columns: max-content minmax(0, 1fr) max-content;
+    gap: 24px;
+  }
+  .footer-links .footer-col { min-width: 0; }
+  .footer-col a { white-space: normal; overflow-wrap: normal; word-break: normal; }
 }
 @media (max-width: 460px) {
   .footer-links { gap: 18px; }
