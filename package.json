@@ -2,7 +2,7 @@
   "name": "launchme-landing",
   "private": true,
   "scripts": {
-    "build": "pnpm run build:download-badges && pnpm run build:headers && pnpm run build:footers && pnpm run build:spaces && pnpm run build:account && pnpm run build:paddle",
+    "build": "pnpm run build:changelog && pnpm run build:download-badges && pnpm run build:headers && pnpm run build:footers && pnpm run build:spaces && pnpm run build:account && pnpm run build:paddle",
     "build:download-badges": "node scripts/build-download-badges.mjs",
     "build:headers": "node scripts/build-headers.mjs",
     "build:footers": "node scripts/build-footers.mjs",
@@ -11,7 +11,8 @@
     "build:paddle": "node scripts/build-paddle-config.mjs",
     "start": "serve .",
     "start:ipv4": "serve . -l tcp://127.0.0.1:3000",
-    "test:spaces": "node scripts/test-spaces.mjs"
+    "test:spaces": "node scripts/test-spaces.mjs",
+    "build:changelog": "node scripts/build-changelog.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.49.1"
