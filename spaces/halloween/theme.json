@@ -1,0 +1,16 @@
+{
+  "name": "Halloween",
+  "description": "",
+  "order": 100,
+  "screenshot": "screenshot.jpg",
+  "file": "Halloween.launchmetheme",
+
+  "author": { "name": "LaunchMe", "url": "https://www.instagram.com/launchmeapp" },
+  "wallpaper": { "name": "Universtock", "url": "https://unsplash.com/@universtock", "type": "regular" },
+  "widgets": [
+    { "name": "LaunchMe", "url": "" }
+  ],
+  "icons": [
+    { "name": "LaunchMe", "url": "" }
+  ]
+}

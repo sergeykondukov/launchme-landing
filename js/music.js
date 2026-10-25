@@ -46,6 +46,11 @@
       }).catch(() => {}).finally(() => pendingVideos.delete(video));
     }
   }
+  document.querySelectorAll('.music-style video, .music-macbook__screen video').forEach(video => {
+    const card = video.closest('.music-style, .music-macbook__screen');
+    video.addEventListener('playing', () => card.classList.add('is-video-ready'));
+    ['emptied', 'error'].forEach(event => video.addEventListener(event, () => card.classList.remove('is-video-ready')));
+  });
   const regularVideos = [...document.querySelectorAll('video')].filter(video => !video.closest('.music-scene'));
   function visibleVideoRatio(video, clipTop = 0, clipBottom = innerHeight) {
     const bounds = video.getBoundingClientRect();

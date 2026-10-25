@@ -1,3 +1,12 @@
+# 2.08.1 | 2026-10-25
+
+## Bug Fixes and Optimizations
+- Improved custom icon support.
+- Fixed GIF widgets.
+- Fixed using GIFs as backgrounds for all widgets.
+- Fixed custom icons in folder previews.
+- Other improvements and fixes.
+
 # 2.08.0 | 2026-10-20
 
 ## New Features
