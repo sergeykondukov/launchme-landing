@@ -1,0 +1,16 @@
+{
+  "name": "Spooky",
+  "description": "",
+  "order": 100,
+  "screenshot": "screenshot.jpg",
+  "file": "Spooky.launchmetheme",
+
+  "author": { "name": "LaunchMe", "url": "https://www.instagram.com/launchmeapp" },
+  "wallpaper": { "name": "LaunchMe", "url": "https://www.instagram.com/launchmeapp", "type": "regular" },
+  "widgets": [
+    { "name": "LaunchMe", "url": "" }
+  ],
+  "icons": [
+    { "name": "LaunchMe", "url": "" }
+  ]
+}

@@ -86,6 +86,42 @@
       "icons": []
     },
     {
+      "id": "halloween",
+      "themeId": "587FE9A9-E144-458C-873A-8FC55C3CA23A",
+      "name": "Halloween",
+      "description": "",
+      "order": 100,
+      "screenshotURL": "/spaces/halloween/screenshot.jpg",
+      "downloadURL": "/spaces/halloween/Halloween.launchmetheme",
+      "fileSize": 25460166,
+      "sha256": "959b87b4d5d4a38d2c028e1d497de3bce1730e10220a09cfa9842faf3f36d3e6",
+      "packageSchemaVersion": 1,
+      "createdWithAppVersion": "2.08.0",
+      "author": [
+        {
+          "name": "LaunchMe",
+          "url": "https://www.instagram.com/launchmeapp"
+        }
+      ],
+      "wallpaper": [
+        {
+          "name": "Universtock",
+          "url": "https://unsplash.com/@universtock",
+          "type": "regular"
+        }
+      ],
+      "widgets": [
+        {
+          "name": "LaunchMe"
+        }
+      ],
+      "icons": [
+        {
+          "name": "LaunchMe"
+        }
+      ]
+    },
+    {
       "id": "launchme-logo-black",
       "themeId": "887A229A-AA55-4115-A74D-2214BD6C9595",
       "name": "LaunchMe Logo Black",
@@ -228,6 +264,42 @@
         }
       ],
       "icons": []
+    },
+    {
+      "id": "spooky",
+      "themeId": "73B37352-4F6D-4568-A764-46AB44412F6F",
+      "name": "Spooky",
+      "description": "",
+      "order": 100,
+      "screenshotURL": "/spaces/spooky/screenshot.jpg",
+      "downloadURL": "/spaces/spooky/Spooky.launchmetheme",
+      "fileSize": 13448463,
+      "sha256": "0334d022a493722040e81f52eaf427d7bde31ae7f4cb716af5b6b6bc12458f2c",
+      "packageSchemaVersion": 1,
+      "createdWithAppVersion": "2.08.0",
+      "author": [
+        {
+          "name": "LaunchMe",
+          "url": "https://www.instagram.com/launchmeapp"
+        }
+      ],
+      "wallpaper": [
+        {
+          "name": "LaunchMe",
+          "url": "https://www.instagram.com/launchmeapp",
+          "type": "regular"
+        }
+      ],
+      "widgets": [
+        {
+          "name": "LaunchMe"
+        }
+      ],
+      "icons": [
+        {
+          "name": "LaunchMe"
+        }
+      ]
     }
   ]
 }
