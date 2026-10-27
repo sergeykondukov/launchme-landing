@@ -7,25 +7,23 @@
     <language>en</language>
     <!-- Newest release first (Sparkle reads the feed and picks the latest matching item). -->
     <item>
-      <title>Version 2.08.1</title>
-      <pubDate>Sun, 25 Oct 2026 09:31:07 +0000</pubDate>
-      <sparkle:version>162</sparkle:version>
-      <sparkle:shortVersionString>2.08.1</sparkle:shortVersionString>
+      <title>Version 2.08.2</title>
+      <pubDate>Tue, 27 Oct 2026 08:51:57 +0000</pubDate>
+      <sparkle:version>164</sparkle:version>
+      <sparkle:shortVersionString>2.08.2</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
       <description><![CDATA[
         <h3>What's new</h3>
                 <ul>
-                  <li>Improoved custom icons work</li>
-                  <li>GIF widgets fix</li>
-                  <li>GIF as background for all widgets</li>
-                  <li>Support of custom icons in folders preview</li>
-                  <li>Other improvemts and fixes</li>
+                  <li>New full screen music Vinyl style - Waves</li>
+                  <li>Spaces fixes of custome icons import and switching between Spaces</li>
+                  <li>Login "No network" fix</li>
                 </ul>
       ]]></description>
         <enclosure
-          url="https://launchmeapp.com/updates/LaunchMeDirect-2.08.1.dmg"
-          sparkle:edSignature="PFHPbw9wllBwCd9/1mO5hjOr6FM+Za9VlzPgnvQRrEckMYLF1AwqkvhP4O0Glk+qON075aJHT0V65lc/9ohWDg=="
-          length="38072033"
+          url="https://launchmeapp.com/updates/LaunchMeDirect-2.08.2.dmg"
+          sparkle:edSignature="8J6HbozJpiEVA5CkltdUdv/BKpi0yEvV2FfLP+ciVnFLHhKOM0c1NfOuB6mlF3E3ZzWL/JLRoh2w9ZDbPEJNCg=="
+          length="38115793"
           type="application/x-apple-diskimage"/>
       </item>
   </channel>

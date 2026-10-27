@@ -1,3 +1,12 @@
+# 2.08.2 | 2026-10-27
+
+## New Features
+- Added Waves, a new Vinyl style for the full-screen music player.
+
+## Bug Fixes and Optimizations
+- Fixed importing custom icons in Spaces and switching between Spaces.
+- Fixed the “No network” error during login.
+
 # 2.08.1 | 2026-10-25
 
 ## Bug Fixes and Optimizations
