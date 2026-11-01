@@ -16,8 +16,12 @@ const cardAssets = {
   'customize-6': { file: 'weather-dock-card.jpg', width: 544, height: 544 }
 };
 const sceneAssets = {
+  'dock-monitors': 'different-dock-for-all-monitors',
   'dock-workflow-workflows': 'workflows-dock-slide',
-  'dock-workflow-customization': 'color-palettes-dock-slide'
+  'dock-workflow-customization': 'color-palettes-dock-slide',
+  'dock-workflow-wallpaper': 'wallpaper-dock-slide',
+  'dock-workflow-pomodoro': 'pomodoro-dock-slide',
+  'dock-workflow-background-sound': 'background-sound-dock-slide'
 };
 let filled = 0;
 let html = fs.readFileSync(page, 'utf8').replace(
