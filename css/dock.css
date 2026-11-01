@@ -194,7 +194,7 @@
 
 /* Image-backed feature selector following Even Better Together. */
 .dock-workflow { padding-top: 112px; }
-.dock-workflow__stage { position: relative; min-height: 700px; border-radius: 50px; overflow: hidden; isolation: isolate; display: flex; align-items: center; padding: 70px 9%; }
+.dock-workflow__stage { position: relative; min-height: 700px; border-radius: 50px; overflow: hidden; isolation: isolate; display: flex; align-items: center; padding: 70px 2.6%; }
 .dock-workflow__scenes, .dock-workflow__scene { position: absolute; inset: 0; }
 .dock-workflow__scenes { z-index: -1; }
 .dock-workflow__scene { opacity: 0; transition: opacity .45s ease; background: #e9e9ec; }
@@ -210,19 +210,19 @@
 .dock-workflow__item.is-active .dock-workflow__button { width: 100%; border-radius: 28px; padding: 26px 28px; color: #86868e; font-size: 16px; }
 .dock-workflow__item.is-active .dock-workflow__plus { display: none; }
 .dock-workflow__item.is-active .dock-workflow__description { display: inline; }
-.dock-workflow__navigation { position: absolute; left: 2.6%; top: 50%; transform: translateY(-50%); display: grid; gap: 34px; }
-.dock-workflow__navigation button { width: 38px; height: 38px; padding: 8px; border: 0; border-radius: 50%; background: #fff; color: #000; cursor: pointer; }
-.dock-workflow__navigation svg { display: block; width: 100%; height: 100%; }
-.dock-workflow__navigation [data-workflow-next] svg { transform: rotate(180deg); }
+
+
+
+
 @media (max-width: 767px) {
  .dock-workflow { padding-top: 70px; }
- .dock-workflow__stage { min-height: 640px; padding: 36px 24px 36px 64px; border-radius: 34px; }
+ .dock-workflow__stage { min-height: 640px; padding: 36px 24px 36px 12px; border-radius: 34px; }
  .dock-workflow__button { font-size: 15px; padding: 12px 18px 12px 12px; gap: 9px; }
  .dock-workflow__plus { width: 24px; height: 24px; }
  .dock-workflow__items { --workflow-open-padding: 20px; }
  .dock-workflow__item.is-active .dock-workflow__button { padding: 20px; font-size: 14px; }
- .dock-workflow__navigation { left: 12px; gap: 26px; }
- .dock-workflow__navigation button { width: 32px; height: 32px; padding: 6px; }
+
+
 }
 @media (prefers-reduced-motion: reduce) {
  .dock-workflow__scene, .dock-workflow__button, .dock-workflow__plus { transition: none; }

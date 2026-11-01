@@ -15,12 +15,17 @@ const cardAssets = {
   'customize-5': { file: 'manage-your-time-dock-card.jpg', width: 544, height: 544 },
   'customize-6': { file: 'weather-dock-card.jpg', width: 544, height: 544 }
 };
+const sceneAssets = {
+  'dock-workflow-workflows': 'workflows-dock-slide',
+  'dock-workflow-customization': 'color-palettes-dock-slide'
+};
 let filled = 0;
 let html = fs.readFileSync(page, 'utf8').replace(
   /(<div\b[^>]*\bdata-dock-asset="([^"]+)"[^>]*>)[\s\S]*?(<\/div>)/g,
   (_match, open, name, close) => {
     const card = cardAssets[name];
     const candidates = card ? [`images/dock/cards/${card.file}`] : [];
+    if (sceneAssets[name]) candidates.push(...extensions.map(ext => `images/dock/${sceneAssets[name]}.${ext}`));
     const asset = [...candidates, ...extensions.map(ext => `images/dock/${name}.${ext}`)]
       .find(file => fs.existsSync(path.join(root, file)));
     if (asset) {

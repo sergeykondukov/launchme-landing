@@ -276,8 +276,6 @@
     });
   }
   buttons.forEach((button, index) => button.addEventListener('click', () => select(index)));
-  root.querySelector('[data-workflow-prev]').addEventListener('click', () => select(active - 1));
-  root.querySelector('[data-workflow-next]').addEventListener('click', () => select(active + 1));
 })();
 
 // One moving selection capsule, sized to the active label.
