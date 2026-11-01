@@ -45,6 +45,16 @@
   const collage = document.querySelector('.dock-pick__collage');
   const rows = [...collage.querySelectorAll('.dock-pick__row')];
   const pickItems = rows.map(row => [...row.querySelectorAll('.dock-pick__item')]);
+  pickItems.flat().forEach(item => {
+    item.addEventListener('pointerenter', () => {
+      // Equal 4px expansion per edge, independent of the widget's aspect ratio.
+      const width = item.offsetWidth;
+      const height = item.offsetHeight;
+      if (!width || !height) return;
+      item.style.setProperty('--hover-scale-x', (width + 8) / width);
+      item.style.setProperty('--hover-scale-y', (height + 8) / height);
+    });
+  });
   let frame;
   function renderRows() {
     frame = null;
@@ -53,6 +63,7 @@
     const progress = Math.max(0, Math.min(1, (viewport * .95 - rect.top) / (viewport * .65)));
     const remaining = motion.matches ? 0 : Math.pow(1 - progress, 2);
     const extraGap = Math.min(180, window.innerWidth * .14) * remaining;
+    collage.classList.toggle('is-settled', motion.matches || progress === 1);
     pickItems.forEach(items => {
       const center = (items.length - 1) / 2;
       items.forEach((item, index) => {
