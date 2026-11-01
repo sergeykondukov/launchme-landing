@@ -1,0 +1,154 @@
+/* Dock assets live in images/dock. All other media stays neutral until supplied. */
+.dock-page { --dock-heading: #12445b; }
+.dock-hero { padding: 64px 0 48px; text-align: center; }
+.dock-hero__brand { display: flex; align-items: center; justify-content: center; gap: 10px; margin: 0 0 26px; font-size: 36px; font-weight: 750; line-height: 1; }
+.dock-hero__brand img { width: 48px; height: 48px; }
+.dock-hero h1 { font-size: clamp(34px, 4.2vw, 64px); letter-spacing: -.045em; line-height: 1.08; margin: 0; }
+.dock-hero__stage { position: relative; width: min(1500px, 100%); aspect-ratio: 2250 / 985; margin: 32px auto 0; }
+/* Keep the original 2250px composition scale; wider canvases extend beyond the stage. */
+.dock-hero__base, .dock-hero__slide { position: absolute; top: 0; left: 50%; display: block; width: auto; max-width: none; height: 100%; transform: translateX(-50%); object-fit: contain; pointer-events: none; }
+.dock-hero__base { z-index: 0; }
+.dock-hero__slides { position: absolute; inset: 0; z-index: 1; }
+.dock-hero__slide { opacity: 0; transition: opacity .6s ease; }
+.dock-hero__slide.is-active { opacity: 1; }
+.dock-hero__controls { position: absolute; top: 29%; left: 50%; transform: translateX(-50%); margin-top: 0; z-index: 3; }
+.dock-page button:focus-visible, .dock-page [tabindex]:focus-visible { outline: 3px solid #00aabe; outline-offset: 4px; }
+.dock-hero__copy { position: relative; width: calc(100% - 40px); max-width: 1060px; margin: calc(min(1500px, 100vw) * -.223267) auto 0; z-index: 2; }
+.dock-hero__copy h2 { color: var(--dock-heading); background: linear-gradient(100deg, #062d45 25%, #488bb4 78%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; font-size: clamp(30px, 3.2vw, 46px); font-weight: 750; letter-spacing: -.04em; line-height: 1.12; margin: 0 0 14px; }
+.dock-hero__copy p { font-size: 17px; color: var(--muted); font-weight: 400; line-height: 1.55; margin: 0; }
+.dock-options { position: relative; z-index: 2; display: grid; gap: 12px; width: 100%; max-width: 1100px; padding: 0 20px; margin: 28px auto 0; color: #80808b; font-size: 13px; font-weight: 500; line-height: 1.3; }
+.dock-options__row { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 12px; padding: 0; margin: 0; list-style: none; }
+.dock-options__row li { padding: 7px 12px; background: #f7f7f7; border-radius: 999px; }
+.dock-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
+.dock-card { aspect-ratio: 1; background-color: var(--card); }
+.dock-card .lm-card__title { font-size: 13px; color: var(--muted); }
+.dock-card .lm-card__subtitle { font-size: clamp(20px, 2.1vw, 28px); }
+.dock-card--strip, .dock-card--wide, .dock-card--large { grid-column: 1 / -1; }
+.dock-card--strip { aspect-ratio: 1060 / 280; }
+.dock-card--wide { aspect-ratio: 1147 / 420; }
+.dock-card--large { aspect-ratio: 1147 / 750; }
+.dock-placeholder { background: #f0f0f2; }
+.dock-card > .dock-placeholder { position: absolute; inset: 0; z-index: -1; }
+.dock-heading { text-align: center; margin-bottom: 38px; }
+.dock-heading h2, .dock-big-screen h2 { color: var(--dock-heading); font-size: clamp(30px, 3.2vw, 46px); font-weight: 750; letter-spacing: -.04em; line-height: 1.12; margin: 0 0 14px; }
+.dock-heading p { color: var(--muted); font-size: 17px; line-height: 1.55; max-width: 650px; margin: 0 auto; }
+.dock-heading .dock-eyebrow { font-size: 13px; margin-bottom: 12px; }
+.dock-pick { padding: 112px 0 0; overflow: clip; }
+.dock-pick__collage { display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 28px 0; }
+.dock-pick__row { display: flex; flex: none; justify-content: center; gap: 12px; width: max-content; }
+.dock-pick__item { flex: 0 0 calc(var(--item-width) * 1.16); width: calc(var(--item-width) * 1.16); height: 86px; background: #e9e9ec; border-radius: 17px; overflow: hidden; display: grid; place-items: center; color: #a5a5ab; font-size: 12px; }
+.dock-pick__item:has(img) { width: auto; flex-basis: auto; }
+.dock-pick__item img { display: block; width: auto; max-width: none; height: 100%; object-fit: contain; }
+.dock-placeholder > img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.dock-pick__item.is-moving { will-change: transform; }
+.dock-feature { padding-top: 112px; }
+.dock-feature__media { aspect-ratio: 1147 / 750; border-radius: 50px; overflow: hidden; }
+.dock-carousel { padding: 112px 0 0; }
+#dock-details .ai-vi__title { max-width: 25ch; color: #8147ad; }
+.dock-carousel .ai-vi__sub { font-size: 17px; }
+.dock-carousel .vi-card__media { border-radius: 34px; }
+.dock-switch { display: flex; justify-content: center; gap: 4px; width: max-content; padding: 4px; margin-top: 24px; border-radius: 24px; background: #f0f0f2; }
+.dock-switch button { border: 0; border-radius: 20px; padding: 8px 20px; background: transparent; cursor: pointer; color: var(--muted); font: inherit; font-size: 13px; }
+.dock-switch button[aria-pressed="true"] { color: #fff; background: #1d1d1f; }
+.dock-big-screen { margin-top: 112px; padding: 70px 0; background: #e9eef2; overflow: hidden; }
+.dock-big-screen__inner { display: grid; grid-template-columns: 1.15fr 1fr; align-items: center; gap: 48px; }
+.dock-big-screen__media { aspect-ratio: 1.2; border-radius: 34px; background: #d8dbdf; }
+.dock-big-screen p { color: var(--muted); font-size: 17px; }
+.dock-pricing { padding: 112px 0 72px; }
+.dock-pricing .pricing-cards-wrap { margin-top: 0; }
+.dock-page .faq { padding-bottom: 100px; }
+@media (max-width: 767px) {
+ .dock-hero { padding-top: 38px; padding-bottom: 36px; }
+ .dock-hero__brand { font-size: 27px; margin-bottom: 22px; }
+ .dock-hero__brand img { width: 36px; height: 36px; }
+ .dock-hero h1 { font-size: clamp(29px, 5.8vw, 44px); }
+ .dock-hero__stage { width: 145%; max-width: none; margin: 26px 0 0 -22.5%; }
+ .dock-hero__copy { margin-top: calc(100vw * -.311038); }
+ .dock-hero__copy h2 { font-size: 30px; margin-bottom: 14px; }
+ .dock-hero__copy p { font-size: 15px; padding: 0; }
+ .dock-hero__copy p br { display: none; }
+ .dock-hero__controls { top: 27%; }
+ .dock-options { margin-top: 24px; padding: 0 20px; gap: 10px; font-size: 12px; }
+ .dock-options__row { gap: 8px; }
+ .dock-options__row li { padding: 7px 12px; }
+ .dock-grid { gap: 16px; }
+ .dock-card, .dock-feature__media { border-radius: 34px; }
+ .dock-card .lm-card__content { padding: 24px 12px; }
+ .dock-card .lm-card__title { font-size: 10px; }
+ .dock-card .lm-card__subtitle { font-size: clamp(15px, 3vw, 22px); }
+ .dock-card--strip { min-height: 150px; }
+ .dock-card--wide { min-height: 185px; }
+ .dock-card--large { aspect-ratio: 1.2; }
+ .dock-pick, .dock-feature, .dock-carousel { padding-top: 70px; }
+ .dock-heading { margin-bottom: 26px; }
+ .dock-heading p, .dock-carousel .ai-vi__sub { font-size: 15px; }
+ .dock-pick__collage, .dock-pick__row { gap: 8px; }
+ .dock-pick__item { width: calc(var(--item-width) * .81); flex-basis: calc(var(--item-width) * .81); height: 62px; border-radius: 12px; }
+ .dock-carousel .vi-card { max-width: 85vw; }
+ .dock-big-screen { margin-top: 70px; padding: 36px 0; }
+ .dock-big-screen__inner { grid-template-columns: 1fr; gap: 30px; }
+ .dock-big-screen__media { aspect-ratio: 1.5; }
+ .dock-pricing { padding-top: 70px; }
+}
+@media (max-width: 380px) {
+ .dock-hero__copy p { font-size: 14px; }
+ .dock-options { margin-top: 24px; }
+ .dock-grid { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+ .dock-hero__slide { transition: none; }
+ .dock-page .ai-vi__track { scroll-behavior: auto; }
+}
+
+/* Ten image-only slides. JS repeats the group to keep either drag direction seamless. */
+.dock-gallery { padding-top: 100px; overflow: hidden; }
+.dock-gallery__track { display: flex; gap: 24px; overflow-x: auto; overflow-y: hidden; scrollbar-width: none; cursor: grab; user-select: none; -webkit-user-select: none; overscroll-behavior-x: contain; }
+.dock-gallery__track::-webkit-scrollbar { display: none; }
+.dock-gallery__track.is-dragging { cursor: grabbing; }
+.dock-gallery__group { display: flex; flex: none; gap: 24px; }
+.dock-gallery__image { flex: 0 0 auto; width: clamp(300px, 42vw, 620px); aspect-ratio: 16 / 10; border-radius: 0; overflow: hidden; }
+.dock-gallery__image img { pointer-events: none; -webkit-user-drag: none; }
+
+.dock-pricing { padding: 112px 0 90px; }
+.dock-pricing__heading { text-align: center; margin-bottom: 58px; }
+.dock-pricing__heading h2 { font-size: clamp(42px, 4.4vw, 60px); line-height: 1.1; font-weight: 800; letter-spacing: -.04em; color: #000; margin: 0 0 22px; }
+.dock-pricing__heading p { font-size: 18px; font-weight: 600; margin: 0; }
+.dock-pricing__plans { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: center; gap: 18px; }
+.dock-plan { display: flex; flex-direction: column; min-width: 0; min-height: 480px; padding: 30px 24px 24px; border-radius: 28px; color: #f9fafa; background: #071b20 url('/images/dock/pricing-bg.jpg') center / cover no-repeat; }
+.dock-plan--featured { min-height: 552px; padding-top: 30px; }
+.dock-plan h3 { font-size: 22px; font-weight: 700; text-align: center; line-height: 1.2; margin: 0; letter-spacing: -.025em; }
+.dock-plan__pricing { min-height: 166px; padding-top: 48px; text-align: center; }
+.dock-plan--featured .dock-plan__pricing { min-height: 202px; padding-top: 16px; }
+.dock-plan__price { font-size: clamp(38px, 4.1vw, 56px); font-weight: 750; letter-spacing: -.035em; line-height: 1.1; margin: 0 0 12px; white-space: nowrap; }
+.dock-plan__old-price { display: block; font-size: 22px; font-weight: 700; color: #a6b5b8; line-height: 1.2; margin-bottom: 14px; }
+.dock-plan__tax { color: #9cabaf; font-size: 13px; font-weight: 500; margin: 0; }
+.dock-plan__features { padding: 22px 8px 28px; margin: 0; list-style: none; display: grid; gap: 14px; }
+.dock-plan__features li { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; font-weight: 500; line-height: 1.45; color: #d4dadc; }
+.dock-plan__features svg { width: 21px; height: 21px; flex: none; }
+.dock-plan__download { display: grid; place-items: center; padding: 13px 8px; margin-top: auto; border-radius: 17px; background: #fff; color: #171719; font-size: 13px; font-weight: 600; text-align: center; }
+.dock-plan__download:hover { color: #171719; background: #e7eff1; }
+.dock-plan__download:focus-visible { outline: 3px solid #00c4d1; outline-offset: 5px; }
+@media (min-width: 768px) and (max-width: 1000px) {
+ .dock-plan { padding-left: 16px; padding-right: 16px; }
+ .dock-plan__features { padding-left: 0; padding-right: 0; }
+ .dock-plan__features li { font-size: 12px; }
+}
+@media (max-width: 767px) {
+ .dock-gallery { padding-top: 70px; }
+ .dock-gallery__track, .dock-gallery__group { gap: 16px; }
+ .dock-gallery__image { width: 82vw; }
+ .dock-pricing { padding: 72px 0; }
+ .dock-pricing__heading { margin-bottom: 36px; }
+ .dock-pricing__heading p { font-size: 16px; }
+ .dock-pricing__plans { grid-template-columns: 1fr; max-width: 390px; margin: auto; gap: 20px; }
+ .dock-plan, .dock-plan--featured { min-height: 500px; padding: 32px 26px 26px; }
+ .dock-plan--featured { min-height: 552px; }
+ .dock-plan__price { font-size: 56px; }
+ .dock-plan__features li { font-size: 14px; }
+ .dock-plan__features { gap: 16px; }
+ .dock-plan__download { font-size: 14px; min-height: 48px; }
+}
+
+/* Widget artwork supplies its own rounded corners and natural proportions. */
+.dock-pick__item--image { display: block; flex: 0 0 auto; width: auto; height: auto; overflow: visible; background: transparent; border-radius: 0; }
+.dock-pick__item--image img { display: block; width: auto; height: auto; max-width: none; max-height: none; object-fit: contain; }

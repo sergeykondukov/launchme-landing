@@ -3191,3 +3191,26 @@ a.space-card__download:focus-visible {
   .lm-card--music-preview .lm-card__subtitle { font-size: clamp(19px, 5vw, 28px); margin-top: 8px; }
   .music-preview__link { margin-top: 16px; font-size: 15px; }
 }
+
+/* Rounded FAQ rows, shared by the homepage and Dock. */
+.faq--cards .section-title { margin-bottom: 48px; color: #000; }
+.faq--cards .accordion { max-width: 900px; display: grid; gap: 10px; }
+.faq--cards .accordion-item { background: #f7f7f7; border: 0; border-radius: 18px; overflow: hidden; }
+.faq--cards .accordion-trigger { position: relative; justify-content: flex-start; min-height: 60px; padding: 17px 24px 17px 56px; font-family: inherit; font-size: 16px; font-weight: 600; line-height: 1.45; color: #505052; }
+.faq--cards .accordion-trigger::after { content: ''; position: absolute; left: 24px; top: 50%; width: 18px; height: 18px; background: linear-gradient(#505052, #505052) center / 2px 100% no-repeat, linear-gradient(#505052, #505052) center / 100% 2px no-repeat; transform: translateY(-50%); transition: transform .2s ease; }
+.faq--cards .accordion-trigger[aria-expanded="true"]::after { content: ''; transform: translateY(-50%) rotate(45deg); }
+.faq--cards .accordion-panel { padding: 0 24px 20px 56px; font-size: 16px; font-weight: 500; line-height: 1.5; color: #77777c; }
+.faq--cards .accordion-panel p { margin: 0; }
+.faq--cards .accordion-trigger:focus-visible { outline: 3px solid var(--brand); outline-offset: -4px; border-radius: 18px; }
+@media (max-width: 767px) {
+ .faq--cards .section-title { margin-bottom: 30px; font-size: 44px; }
+ .faq--cards .accordion { gap: 8px; }
+ .faq--cards .accordion-item { border-radius: 16px; }
+ .faq--cards .accordion-trigger { min-height: 58px; padding: 16px 18px 16px 48px; font-size: 15px; }
+ .faq--cards .accordion-trigger::after { left: 18px; width: 16px; height: 16px; }
+ .faq--cards .accordion-panel { padding: 0 18px 18px 48px; font-size: 14px; }
+}
+@media (prefers-reduced-motion: reduce) { .faq--cards .accordion-trigger::after { transition: none; } }
+
+/* Clip answer content while its height and padding animate. */
+.faq--cards .accordion-panel { overflow: hidden; }

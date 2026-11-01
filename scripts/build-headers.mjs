@@ -28,13 +28,14 @@ function loadPartial(name) {
   return fs.readFileSync(p, 'utf8');
 }
 
-function applyMarketing(template, { homeHref, pricingAria, spacesAria, musicAria, downloadGa }) {
+function applyMarketing(template, { homeHref, pricingAria, spacesAria, musicAria, dockAria, downloadGa }) {
   // On the home page nav anchors are same-page (#features); elsewhere they jump home (/#features).
   const navPrefix = homeHref.startsWith('#') ? '' : '/';
   return template
     .replaceAll('__HOME_HREF__', homeHref)
     .replaceAll('__NAV_PREFIX__', navPrefix)
     .replaceAll('__PRICING_ARIA__', pricingAria ? ' aria-current="page"' : '')
+    .replaceAll('__DOCK_ARIA__', dockAria ? ' aria-current="page"' : '')
     .replaceAll('__MUSIC_ARIA__', musicAria ? ' aria-current="page"' : '')
     .replaceAll('__SPACES_ARIA__', spacesAria ? ' aria-current="page"' : '')
     .replaceAll('__DOWNLOAD_GA_AREA__', downloadGa)
@@ -77,6 +78,7 @@ const PAGE_HEADERS = {
   // Marketing bar
   'changelog/index.html': { variant: 'marketing', homeHref: '/', pricingAria: false, downloadGa: 'changelog-header' },
   'index.html': { variant: 'marketing', homeHref: '#top', pricingAria: false, downloadGa: 'header' },
+  'dock/index.html': { variant: 'marketing', homeHref: '/', dockAria: true, downloadGa: 'dock-header' },
   'music/index.html': { variant: 'marketing', homeHref: '/', musicAria: true, downloadGa: 'music-header' },
   'pricing/index.html': {
     variant: 'marketing',

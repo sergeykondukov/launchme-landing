@@ -23,28 +23,58 @@ window.addEventListener('load', function () {
   });
 });
 
-// Accessible accordion for FAQ
+// Accessible FAQ accordion; animate the rounded cards on Dock and the homepage.
 (function enableAccordion() {
   const root = document.querySelector('[data-accordion]');
-  if (!root) return; // if FAQ not on page
-  root.querySelectorAll('.accordion-item').forEach(function (item) {
-    const btn = item.querySelector('.accordion-trigger');
-    const panel = item.querySelector('.accordion-panel');
-    if (!btn || !panel) return;
+  if (!root) return;
+  const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const animated = Boolean(root.closest('.faq--cards'));
+  const entries = Array.from(root.querySelectorAll('.accordion-item')).map(function (item) {
+    return { button: item.querySelector('.accordion-trigger'), panel: item.querySelector('.accordion-panel'), animation: null };
+  }).filter(function (entry) { return entry.button && entry.panel; });
 
-    btn.addEventListener('click', function () {
-      const expanded = btn.getAttribute('aria-expanded') === 'true';
-      // close all others for a clean UX
-      root.querySelectorAll('.accordion-trigger').forEach(function (b) {
-        b.setAttribute('aria-expanded', 'false');
-      });
-      root.querySelectorAll('.accordion-panel').forEach(function (p) {
-        p.hidden = true;
-      });
-
-      // toggle current
-      btn.setAttribute('aria-expanded', String(!expanded));
-      panel.hidden = expanded; // hide if already open, show otherwise
+  function setExpanded(entry, expanded) {
+    const button = entry.button, panel = entry.panel;
+    if ((button.getAttribute('aria-expanded') === 'true') === expanded) return;
+    const style = getComputedStyle(panel);
+    // Capture the current animated frame before canceling, so quick reversals stay smooth.
+    const from = {
+      height: panel.hidden ? '0px' : panel.getBoundingClientRect().height + 'px',
+      paddingTop: panel.hidden ? '0px' : style.paddingTop,
+      paddingBottom: panel.hidden ? '0px' : style.paddingBottom,
+      opacity: panel.hidden ? 0 : Number(style.opacity)
+    };
+    if (entry.animation) { entry.animation.cancel(); entry.animation = null; }
+    button.setAttribute('aria-expanded', String(expanded));
+    panel.inert = !expanded;
+    panel.setAttribute('aria-hidden', String(!expanded));
+    if (!animated || motion.matches || typeof panel.animate !== 'function') {
+      panel.hidden = !expanded;
+      return;
+    }
+    panel.hidden = false;
+    const natural = getComputedStyle(panel);
+    const to = expanded ? {
+      height: panel.getBoundingClientRect().height + 'px',
+      paddingTop: natural.paddingTop,
+      paddingBottom: natural.paddingBottom,
+      opacity: 1
+    } : { height: '0px', paddingTop: '0px', paddingBottom: '0px', opacity: 0 };
+    const animation = panel.animate([from, to], {
+      duration: 300,
+      easing: 'cubic-bezier(.22, 1, .36, 1)'
+    });
+    entry.animation = animation;
+    animation.onfinish = function () {
+      if (entry.animation !== animation) return;
+      panel.hidden = !expanded;
+      entry.animation = null;
+    };
+  }
+  entries.forEach(function (entry) {
+    entry.button.addEventListener('click', function () {
+      const expanded = entry.button.getAttribute('aria-expanded') !== 'true';
+      entries.forEach(function (other) { setExpanded(other, other === entry && expanded); });
     });
   });
 })();

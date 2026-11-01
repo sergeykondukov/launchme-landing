@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LaunchMe Dock — More Personal. More Productive.</title>
+<meta name="description" content="Make your Mac Dock your own with LaunchMe. Explore customizable layouts, widgets, Dock Spaces, and a different Dock for every monitor.">
+<link rel="canonical" href="https://launchmeapp.com/dock/">
+<meta property="og:type" content="website"><meta property="og:title" content="LaunchMe Dock — More Personal. More Productive."><meta property="og:url" content="https://launchmeapp.com/dock/"><meta property="og:image" content="https://launchmeapp.com/images/website-preview.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/images/favicon.ico"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/dock.css">
+<script src="/js/header-scroll.js" defer></script><script src="/js/header-menu.js" defer></script>
+<script src="/js/main.js" defer></script><script src="/js/sections.js" defer></script><script src="/js/dock.js" defer></script>
+</head><body class="dock-page" id="top">
+    <header class="lp-header">
+        <div class="container lp-header__inner">
+            <a href="/" class="lp-logo"><img src="/images/logoicontext.png" alt="LaunchMe"></a>
+            <!-- Mobile only: opens nav links below the bar (see header-menu.js) -->
+            <button class="lp-nav-toggle" type="button" aria-expanded="false" aria-controls="lp-nav-menu" aria-label="Open menu">
+                <span class="lp-nav-toggle__bar" aria-hidden="true"></span>
+                <span class="lp-nav-toggle__bar" aria-hidden="true"></span>
+                <span class="lp-nav-toggle__bar" aria-hidden="true"></span>
+            </button>
+            <nav class="lp-nav" id="lp-nav-menu" aria-label="Main">
+                <a class="lp-nav__link" href="/dock/" data-ga="nav-dock" data-ga-area="header" aria-current="page">Dock</a>
+                <a class="lp-nav__link" href="/music/" data-ga="nav-music" data-ga-area="header">Music</a>
+                <a class="lp-nav__link" href="/spaces-themes/" data-ga="nav-spaces" data-ga-area="header">Spaces</a>
+                <a class="lp-nav__link" href="/pricing/" data-ga="nav-pricing" data-ga-area="header">Pricing</a>
+                <a class="lp-btn lp-nav__download" href="/updates/LaunchMeDirect-2.08.2.dmg" data-ga="direct-dmg" data-ga-area="dock-header">Download</a>
+            </nav>
+        </div>
+    </header>
+    <script src="/js/header-scroll.js" defer></script>
+    <script src="/js/header-menu.js" defer></script>
+<main>
+<section class="dock-hero" aria-labelledby="dock-title">
+<div class="container"><p class="dock-hero__brand"><img src="/images/logo-icon.png" alt="" width="48" height="48">Dock</p><h1 id="dock-title">Truly Your Dock.<br>More Personal. More Productive</h1></div>
+<div class="dock-hero__stage"><img class="dock-hero__base" src="/images/dock/dock-first-layer.png" alt="Cat paws in blue sleeves holding a customizable LaunchMe Dock" width="3450" height="985" fetchpriority="high">
+<div class="dock-hero__slides" role="group" aria-label="Dock styles"><img class="dock-hero__slide is-active" src="/images/dock/dock-second-layer-1.png" alt="" width="3450" height="985" aria-hidden="true" fetchpriority=high>
+<img class="dock-hero__slide" src="/images/dock/dock-second-layer-2.png" alt="" width="2250" height="985" aria-hidden="true" loading=lazy>
+<img class="dock-hero__slide" src="/images/dock/dock-second-layer-3.png" alt="" width="2250" height="985" aria-hidden="true" loading=lazy>
+<img class="dock-hero__slide" src="/images/dock/dock-second-layer-4.png" alt="" width="2250" height="985" aria-hidden="true" loading=lazy>
+<img class="dock-hero__slide" src="/images/dock/dock-second-layer-5.png" alt="" width="2250" height="985" aria-hidden="true" loading=lazy>
+<img class="dock-hero__slide" src="/images/dock/dock-second-layer-6.png" alt="" width="2250" height="985" aria-hidden="true" loading=lazy>
+<img class="dock-hero__slide" src="/images/dock/dock-second-layer-7.png" alt="" width="2250" height="985" aria-hidden="true" loading=lazy></div>
+<div class="dock-hero__controls ai-explore__controls" aria-label="Choose a Dock style">
+    <div class="ai-explore__dots" aria-label="Slides"><button class="ai-dot is-active" type="button" data-dock-slide="0" aria-label="Dock style 1" aria-pressed="true"></button><button class="ai-dot" type="button" data-dock-slide="1" aria-label="Dock style 2" aria-pressed="false"></button><button class="ai-dot" type="button" data-dock-slide="2" aria-label="Dock style 3" aria-pressed="false"></button><button class="ai-dot" type="button" data-dock-slide="3" aria-label="Dock style 4" aria-pressed="false"></button><button class="ai-dot" type="button" data-dock-slide="4" aria-label="Dock style 5" aria-pressed="false"></button><button class="ai-dot" type="button" data-dock-slide="5" aria-label="Dock style 6" aria-pressed="false"></button><button class="ai-dot" type="button" data-dock-slide="6" aria-label="Dock style 7" aria-pressed="false"></button></div>
+    <button type="button" class="dock-hero__play ai-explore__play" aria-label="Pause Dock slideshow" aria-pressed="true">
+        <svg class="ai-explore__icon-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+        <svg class="ai-explore__icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+    </button>
+</div>
+</div>
+<div class="dock-hero__copy"><h2>Customize<br>with no limits</h2><p>LaunchMe Dock is reimagined way to use your dock.<br>Any color or glass style, widgets, layout and even Dock Spaces<br>gives you unlimited ways to design unique tool for your Mac.</p></div>
+<div class="dock-options" aria-label="Dock customization options">
+    <ul class="dock-options__row"><li>Music</li><li>Weather</li><li>Dynamic Wallpaper</li><li>System Stats</li><li>Finder Folders</li><li>Apps Folders</li><li>Downloads</li><li>Trash</li></ul>
+    <ul class="dock-options__row"><li>Active Apps Group</li><li>Background Sound</li><li>GIF</li><li>Animations</li><li>Clock</li><li>Fully Customizable</li><li>Dock Spaces</li><li>Clear Colored Icons</li></ul>
+    <ul class="dock-options__row"><li>Icons Customization</li><li>Ready to use Presets</li><li>Full Screen Music Player</li><li>Seamlessly Integrated With All LaunchMe Features</li></ul>
+</div>
+</section>
+<section class="container dock-grid" aria-label="Dock customization features"><article class="lm-card dock-card dock-card--strip"><div class="lm-card__content"><p class="lm-card__title">Make it yours</p><h3 class="lm-card__subtitle">Your Dock. Your style.</h3></div><div class="dock-placeholder " data-dock-asset="customize-1" aria-hidden="true"></div></article>
+<article class="lm-card dock-card "><div class="lm-card__content"><p class="lm-card__title">Apps, files &amp; folders</p><h3 class="lm-card__subtitle">Quick access to everything<br>you use every day.</h3></div><div class="dock-placeholder " data-dock-asset="customize-2" aria-hidden="true"></div></article>
+<article class="lm-card dock-card "><div class="lm-card__content"><p class="lm-card__title">Your favorite widgets</p><h3 class="lm-card__subtitle">Give your Dock<br>a personal touch.</h3></div><div class="dock-placeholder " data-dock-asset="customize-3" aria-hidden="true"></div></article>
+<article class="lm-card dock-card dock-card--wide"><div class="lm-card__content"><p class="lm-card__title">More than a Dock</p><h3 class="lm-card__subtitle">Apps, widgets and music.<br>All in one place.</h3></div><div class="dock-placeholder " data-dock-asset="customize-4" aria-hidden="true"></div></article>
+<article class="lm-card dock-card "><div class="lm-card__content"><p class="lm-card__title">Always in reach</p><h3 class="lm-card__subtitle">A little more useful.<br>A lot more you.</h3></div><div class="dock-placeholder " data-dock-asset="customize-5" aria-hidden="true"></div></article>
+<article class="lm-card dock-card "><div class="lm-card__content"><p class="lm-card__title">Make room for more</p><h3 class="lm-card__subtitle">Flexible layouts.<br>Endless possibilities.</h3></div><div class="dock-placeholder " data-dock-asset="customize-6" aria-hidden="true"></div></article>
+<article class="lm-card dock-card dock-card--large"><div class="lm-card__content"><p class="lm-card__title">Everything, together</p><h3 class="lm-card__subtitle">Build a Dock that works for you.</h3></div><div class="dock-placeholder " data-dock-asset="customize-7" aria-hidden="true"></div></article></section>
+<section class="dock-pick" aria-labelledby="dock-pick-title"><div class="dock-heading container"><h2 id="dock-pick-title">Pick what you want</h2><p>Bring your favorite widgets together.<br>Mix, match, and make a Dock that’s entirely yours.</p></div><div class="dock-pick__collage">
+<div class="dock-pick__row" data-widget-row="1">
+<div class="dock-pick__item dock-pick__item--image" data-dock-widget="1-1"><img src="/images/dock/widgets/1-1.png" alt="" width="207" height="98" loading="lazy" decoding="async"></div>
+<div class="dock-pick__item dock-pick__item--image" data-dock-widget="1-2"><img src="/images/dock/widgets/1-2.png" alt="" width="98" height="98" loading="lazy" decoding="async"></div>
+<div class="dock-pick__item dock-pick__item--image" data-dock-widget="1-3"><img src="/images/dock/widgets/1-3.png" alt="" width="209" height="98" loading="lazy" decoding="async"></div>
+<div class="dock-pick__item dock-pick__item--image" data-dock-widget="1-4"><img src="/images/dock/widgets/1-4.png" alt="" width="428" height="98" loading="lazy" decoding="async"></div>
+<div class="dock-pick__item dock-pick__item--image" data-dock-widget="1-5"><img src="/images/dock/widgets/1-5.png" alt="" width="99" height="98" loading="lazy" decoding="async"></div>
+<div class="dock-pick__item dock-pick__item--image" data-dock-widget="1-6"><img src="/images/dock/widgets/1-6.png" alt="" width="209" height="98" loading="lazy" decoding="async"></div>
+<div class="dock-pick__item dock-pick__item--image" data-dock-widget="1-7"><img src="/images/dock/widgets/1-7.png" alt="" width="320" height="98" loading="lazy" decoding="async"></div>
+<div class="dock-pick__item dock-pick__item--image" data-dock-widget="1-8"><img src="/images/dock/widgets/1-8.png" alt="" width="301" height="98" loading="lazy" decoding="async"></div>
+</div>
+<div class="dock-pick__row" data-widget-row="2">
+<div class="dock-pick__item dock-pick__item--image" data-dock-widget="2-1"><img src="/images/dock/widgets/2-1.png" alt="" width="317" height="98" loading="lazy" decoding="async"></div>
+<div class="dock-pick__item dock-pick__item--image" data-dock-widget="2-2"><img src="/images/dock/widgets/2-2.png" alt="" width="98" height="98" loading="lazy" decoding="async"></div>
+<div class="dock-pick__item dock-pick__item--image" data-dock-widget="2-3"><img src="/images/dock/widgets/2-3.png" alt="" width="208" height="98" loading="lazy" decoding="async"></div>
+<div class="dock-pick__item dock-pick__item--image" data-dock-widget="2-4"><img src="/images/dock/widgets/2-4.png" alt="" width="100" height="98" loading="lazy" decoding="async"></div>
+<div class="dock-pick__item dock-pick__item--image" data-dock-widget="2-5"><img src="/images/dock/widgets/2-5.png" alt="" width="209" height="98" loading="lazy" decoding="async"></div>
+<div class="dock-pick__item dock-pick__item--image" data-dock-widget="2-6"><img src="/images/dock/widgets/2-6.png" alt="" width="320" height="98" loading="lazy" decoding="async"></div>
+<div class="dock-pick__item dock-pick__item--image" data-dock-widget="2-7"><img src="/images/dock/widgets/2-7.png" alt="" width="207" height="98" loading="lazy" decoding="async"></div>
+<div class="dock-pick__item dock-pick__item--image" data-dock-widget="2-8"><img src="/images/dock/widgets/2-8.png" alt="" width="276" height="98" loading="lazy" decoding="async"></div>
+<div class="dock-pick__item dock-pick__item--image" data-dock-widget="2-9"><img src="/images/dock/widgets/2-9.png" alt="" width="98" height="98" loading="lazy" decoding="async"></div>
+<div class="dock-pick__item dock-pick__item--image" data-dock-widget="2-10"><img src="/images/dock/widgets/2-10.png" alt="" width="428" height="98" loading="lazy" decoding="async"></div>
+</div>
+<div class="dock-pick__row" data-widget-row="3">
+<div class="dock-pick__item dock-pick__item--image" data-dock-widget="3-1"><img src="/images/dock/widgets/3-1.png" alt="" width="429" height="98" loading="lazy" decoding="async"></div>
+<div class="dock-pick__item dock-pick__item--image" data-dock-widget="3-2"><img src="/images/dock/widgets/3-2.png" alt="" width="99" height="98" loading="lazy" decoding="async"></div>
+<div class="dock-pick__item dock-pick__item--image" data-dock-widget="3-3"><img src="/images/dock/widgets/3-3.png" alt="" width="319" height="98" loading="lazy" decoding="async"></div>
+<div class="dock-pick__item dock-pick__item--image" data-dock-widget="3-4"><img src="/images/dock/widgets/3-4.png" alt="" width="100" height="98" loading="lazy" decoding="async"></div>
+<div class="dock-pick__item dock-pick__item--image" data-dock-widget="3-5"><img src="/images/dock/widgets/3-5.png" alt="" width="209" height="98" loading="lazy" decoding="async"></div>
+<div class="dock-pick__item dock-pick__item--image" data-dock-widget="3-6"><img src="/images/dock/widgets/3-6.png" alt="" width="429" height="98" loading="lazy" decoding="async"></div>
+<div class="dock-pick__item dock-pick__item--image" data-dock-widget="3-7"><img src="/images/dock/widgets/3-7.png" alt="" width="99" height="98" loading="lazy" decoding="async"></div>
+<div class="dock-pick__item dock-pick__item--image" data-dock-widget="3-8"><img src="/images/dock/widgets/3-8.png" alt="" width="342" height="98" loading="lazy" decoding="async"></div>
+</div>
+<div class="dock-pick__row" data-widget-row="4">
+<div class="dock-pick__item dock-pick__item--image" data-dock-widget="4-1"><img src="/images/dock/widgets/4-1.png" alt="" width="189" height="98" loading="lazy" decoding="async"></div>
+<div class="dock-pick__item dock-pick__item--image" data-dock-widget="4-2"><img src="/images/dock/widgets/4-2.png" alt="" width="97" height="98" loading="lazy" decoding="async"></div>
+<div class="dock-pick__item dock-pick__item--image" data-dock-widget="4-3"><img src="/images/dock/widgets/4-3.png" alt="" width="207" height="98" loading="lazy" decoding="async"></div>
+<div class="dock-pick__item dock-pick__item--image" data-dock-widget="4-4"><img src="/images/dock/widgets/4-4.png" alt="" width="209" height="98" loading="lazy" decoding="async"></div>
+<div class="dock-pick__item dock-pick__item--image" data-dock-widget="4-5"><img src="/images/dock/widgets/4-5.png" alt="" width="301" height="98" loading="lazy" decoding="async"></div>
+<div class="dock-pick__item dock-pick__item--image" data-dock-widget="4-6"><img src="/images/dock/widgets/4-6.png" alt="" width="99" height="98" loading="lazy" decoding="async"></div>
+<div class="dock-pick__item dock-pick__item--image" data-dock-widget="4-7"><img src="/images/dock/widgets/4-7.png" alt="" width="209" height="98" loading="lazy" decoding="async"></div>
+<div class="dock-pick__item dock-pick__item--image" data-dock-widget="4-8"><img src="/images/dock/widgets/4-8.png" alt="" width="208" height="98" loading="lazy" decoding="async"></div>
+<div class="dock-pick__item dock-pick__item--image" data-dock-widget="4-9"><img src="/images/dock/widgets/4-9.png" alt="" width="100" height="98" loading="lazy" decoding="async"></div>
+</div>
+<div class="dock-pick__row" data-widget-row="5">
+<div class="dock-pick__item dock-pick__item--image" data-dock-widget="5-1"><img src="/images/dock/widgets/5-1.png" alt="" width="99" height="98" loading="lazy" decoding="async"></div>
+<div class="dock-pick__item dock-pick__item--image" data-dock-widget="5-2"><img src="/images/dock/widgets/5-2.png" alt="" width="99" height="98" loading="lazy" decoding="async"></div>
+<div class="dock-pick__item dock-pick__item--image" data-dock-widget="5-3"><img src="/images/dock/widgets/5-3.png" alt="" width="207" height="98" loading="lazy" decoding="async"></div>
+<div class="dock-pick__item dock-pick__item--image" data-dock-widget="5-4"><img src="/images/dock/widgets/5-4.png" alt="" width="209" height="98" loading="lazy" decoding="async"></div>
+<div class="dock-pick__item dock-pick__item--image" data-dock-widget="5-5"><img src="/images/dock/widgets/5-5.png" alt="" width="99" height="98" loading="lazy" decoding="async"></div>
+<div class="dock-pick__item dock-pick__item--image" data-dock-widget="5-6"><img src="/images/dock/widgets/5-6.png" alt="" width="209" height="98" loading="lazy" decoding="async"></div>
+<div class="dock-pick__item dock-pick__item--image" data-dock-widget="5-7"><img src="/images/dock/widgets/5-7.png" alt="" width="100" height="98" loading="lazy" decoding="async"></div>
+<div class="dock-pick__item dock-pick__item--image" data-dock-widget="5-8"><img src="/images/dock/widgets/5-8.png" alt="" width="208" height="98" loading="lazy" decoding="async"></div>
+<div class="dock-pick__item dock-pick__item--image" data-dock-widget="5-9"><img src="/images/dock/widgets/5-9.png" alt="" width="319" height="98" loading="lazy" decoding="async"></div>
+<div class="dock-pick__item dock-pick__item--image" data-dock-widget="5-10"><img src="/images/dock/widgets/5-10.png" alt="" width="320" height="98" loading="lazy" decoding="async"></div>
+</div>
+<div class="dock-pick__row" data-widget-row="6">
+<div class="dock-pick__item dock-pick__item--image" data-dock-widget="6-1"><img src="/images/dock/widgets/6-1.png" alt="" width="98" height="98" loading="lazy" decoding="async"></div>
+<div class="dock-pick__item dock-pick__item--image" data-dock-widget="6-2"><img src="/images/dock/widgets/6-2.png" alt="" width="317" height="98" loading="lazy" decoding="async"></div>
+<div class="dock-pick__item dock-pick__item--image" data-dock-widget="6-3"><img src="/images/dock/widgets/6-3.png" alt="" width="208" height="98" loading="lazy" decoding="async"></div>
+<div class="dock-pick__item dock-pick__item--image" data-dock-widget="6-4"><img src="/images/dock/widgets/6-4.png" alt="" width="208" height="98" loading="lazy" decoding="async"></div>
+<div class="dock-pick__item dock-pick__item--image" data-dock-widget="6-5"><img src="/images/dock/widgets/6-5.png" alt="" width="207" height="98" loading="lazy" decoding="async"></div>
+<div class="dock-pick__item dock-pick__item--image" data-dock-widget="6-6"><img src="/images/dock/widgets/6-6.png" alt="" width="319" height="98" loading="lazy" decoding="async"></div>
+<div class="dock-pick__item dock-pick__item--image" data-dock-widget="6-7"><img src="/images/dock/widgets/6-7.png" alt="" width="428" height="98" loading="lazy" decoding="async"></div>
+</div>
+</div></section>
+<section class="dock-feature container" aria-labelledby="dock-spaces-title"><div class="dock-heading"><h2 id="dock-spaces-title">Dock Spaces</h2><p>A Dock for every part of your day.<br>Save your favorite setups and switch between them.</p></div><div class="dock-placeholder dock-feature__media" data-dock-asset="dock-spaces" aria-hidden="true"></div></section>
+<section class="dock-feature container" aria-labelledby="dock-monitors-title"><div class="dock-heading"><h2 id="dock-monitors-title">Different Dock for each monitor</h2><p>Your workspace goes beyond one screen.<br>Give every display its own Dock, apps, and widgets.</p></div><div class="dock-placeholder dock-feature__media" data-dock-asset="dock-monitors" aria-hidden="true"></div></section>
+<section id="dock-details" class="ai-vi dock-carousel" aria-labelledby="dock-details-title"><div class="container"><p class="ai-vi__eyebrow">Made for your Mac</p><h2 id="dock-details-title" class="ai-vi__title">Every little detail makes it all delightful</h2><p class="ai-vi__sub">Small touches. A more personal Mac.</p></div><div class="ai-vi__track" data-vi-track tabindex="0" role="region" aria-label="Every little detail makes it all delightful"><article class="vi-card vi-card--wide"><div class="dock-placeholder vi-card__media" data-dock-asset="dock-details-1" aria-hidden="true"></div><p class="vi-card__text"><strong>Beautiful from every angle.</strong> Give your apps and folders a place that feels like yours.</p></article>
+<article class="vi-card vi-card--narrow"><div class="dock-placeholder vi-card__media" data-dock-asset="dock-details-2" aria-hidden="true"></div><p class="vi-card__text"><strong>Just the right size.</strong> Keep it compact or make room for more. Your Dock adapts to you.</p></article>
+<article class="vi-card vi-card--wide"><div class="dock-placeholder vi-card__media" data-dock-asset="dock-details-3" aria-hidden="true"></div><p class="vi-card__text"><strong>All your favorites.</strong> Apps, files, folders, and widgets, exactly where you want them.</p></article>
+<article class="vi-card vi-card--narrow"><div class="dock-placeholder vi-card__media" data-dock-asset="dock-details-4" aria-hidden="true"></div><p class="vi-card__text"><strong>Your finishing touch.</strong> Choose the colors and style that bring it all together.</p></article></div><div class="container ai-vi__nav"><button class="ai-vi__btn" type="button" data-vi-prev aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2"/></svg></button><button class="ai-vi__btn" type="button" data-vi-next aria-label="Next"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2"/></svg></button></div></section>
+<section class="dock-feature container" aria-labelledby="dock-player-title"><div class="dock-section-intro"><p class="section-kicker">Music</p><h2 id="dock-player-title" class="section-title">Full screen player in one click</h2><p class="section-sub">Your favorite music deserves the whole screen.<br>Go from Dock to an immersive listening experience in a click.</p></div><div class="dock-placeholder dock-feature__media" data-dock-asset="dock-player" aria-hidden="true"></div></section>
+<section class="dock-feature container" aria-labelledby="dock-together-title"><div class="dock-section-intro"><p class="section-kicker">Dock + LaunchMe</p><h2 id="dock-together-title" class="section-title">Even Better Together.</h2><p class="section-sub">Your Dock and LaunchMe, working in harmony.<br>Bring your apps, widgets, and spaces into one personal workspace.</p></div><div class="dock-placeholder dock-feature__media" data-dock-asset="dock-together" aria-hidden="true"></div></section><div class="dock-switch container" role="group" aria-label="Workspace preview"><button type="button" aria-pressed="true" data-workspace="dock">Dock</button><button type="button" aria-pressed="false" data-workspace="launchme">LaunchMe</button></div><section class="dock-feature container" aria-labelledby="dock-workflow-title"><div class="dock-heading"><h2 id="dock-workflow-title">Your workspace. One click away.</h2><p>Move between your favorite setups and keep everything you need close at hand.</p></div><div class="dock-placeholder dock-feature__media" data-dock-asset="dock-workflow" aria-hidden="true"></div></section>
+<section class="dock-big-screen" aria-labelledby="dock-big-screen-title"><div class="container dock-big-screen__inner"><div class="dock-placeholder dock-big-screen__media" data-dock-asset="big-screen" aria-hidden="true"></div><div><h2 id="dock-big-screen-title">Ideal for big screens</h2><p>More space for everything you love.<br>A Dock that feels at home on any display.</p></div></div></section>
+<section id="dock-discover" class="ai-vi dock-carousel" aria-labelledby="dock-discover-title"><div class="container"><p class="ai-vi__eyebrow"></p><h2 id="dock-discover-title" class="ai-vi__title">New to LaunchMe?</h2><p class="ai-vi__sub">Discover more ways to make your Mac your own.</p></div><div class="ai-vi__track" data-vi-track tabindex="0" role="region" aria-label="New to LaunchMe?"><article class="vi-card vi-card--wide"><div class="dock-placeholder vi-card__media" data-dock-asset="dock-discover-1" aria-hidden="true"></div><p class="vi-card__text"><strong>Your Mac, organized.</strong> Bring your apps, files, and folders together in one full-screen launcher.</p></article>
+<article class="vi-card vi-card--narrow"><div class="dock-placeholder vi-card__media" data-dock-asset="dock-discover-2" aria-hidden="true"></div><p class="vi-card__text"><strong>Make room for widgets.</strong> Music, weather, and useful information, right in your workspace.</p></article>
+<article class="vi-card vi-card--wide"><div class="dock-placeholder vi-card__media" data-dock-asset="dock-discover-3" aria-hidden="true"></div><p class="vi-card__text"><strong>A space for every mood.</strong> Switch layouts, wallpapers, and widgets with Spaces.</p></article>
+<article class="vi-card vi-card--narrow"><div class="dock-placeholder vi-card__media" data-dock-asset="dock-discover-4" aria-hidden="true"></div><p class="vi-card__text"><strong>Music that looks as good as it sounds.</strong> Explore beautiful music widgets and the full-screen player.</p></article></div><div class="container ai-vi__nav"><button class="ai-vi__btn" type="button" data-vi-prev aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2"/></svg></button><button class="ai-vi__btn" type="button" data-vi-next aria-label="Next"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2"/></svg></button></div></section>
+<section id="dock-inspiration" class="dock-gallery" aria-label="Dock gallery">
+    <div class="dock-gallery__track" tabindex="0" role="region" aria-label="Dock images. Drag or use the arrow keys to browse.">
+        <div class="dock-gallery__group">
+                <div class="dock-placeholder dock-gallery__image" data-dock-asset="dock-inspiration-1" aria-hidden="true"></div>
+                <div class="dock-placeholder dock-gallery__image" data-dock-asset="dock-inspiration-2" aria-hidden="true"></div>
+                <div class="dock-placeholder dock-gallery__image" data-dock-asset="dock-inspiration-3" aria-hidden="true"></div>
+                <div class="dock-placeholder dock-gallery__image" data-dock-asset="dock-inspiration-4" aria-hidden="true"></div>
+                <div class="dock-placeholder dock-gallery__image" data-dock-asset="dock-inspiration-5" aria-hidden="true"></div>
+                <div class="dock-placeholder dock-gallery__image" data-dock-asset="dock-inspiration-6" aria-hidden="true"></div>
+                <div class="dock-placeholder dock-gallery__image" data-dock-asset="dock-inspiration-7" aria-hidden="true"></div>
+                <div class="dock-placeholder dock-gallery__image" data-dock-asset="dock-inspiration-8" aria-hidden="true"></div>
+                <div class="dock-placeholder dock-gallery__image" data-dock-asset="dock-inspiration-9" aria-hidden="true"></div>
+                <div class="dock-placeholder dock-gallery__image" data-dock-asset="dock-inspiration-10" aria-hidden="true"></div>
+        </div>
+    </div>
+</section>
+<section class="dock-pricing" aria-labelledby="dock-pricing-title">
+    <div class="container">
+        <div class="dock-pricing__heading"><h2 id="dock-pricing-title">Pricing</h2><p>All in one App - Launcher, Notch, Music, Dock</p></div>
+        <div class="dock-pricing__plans">
+        <article class="dock-plan" aria-labelledby="dock-plan-monthly">
+            <h3 id="dock-plan-monthly">Monthly</h3>
+            <div class="dock-plan__pricing"><p class="dock-plan__price">$2.99</p><p class="dock-plan__tax">Tax might apply</p></div>
+            <ul class="dock-plan__features">
+                    <li><svg viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="m14 2 3.1 2.2 3.8.2 1.3 3.6 2.9 2.5-1.1 3.6 1.1 3.7-2.9 2.5-1.3 3.5-3.8.3L14 26l-3.1-2.4-3.8-.3-1.3-3.5-2.9-2.5L4 13.4 2.9 9.8l2.9-2.5 1.3-3.6 3.8-.2L14 2Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m9 13.5 3.3 3.4 6.2-7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Included <strong>Dock, Notch, Launcher</strong></span></li>
+                    <li><svg viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="m14 2 3.1 2.2 3.8.2 1.3 3.6 2.9 2.5-1.1 3.6 1.1 3.7-2.9 2.5-1.3 3.5-3.8.3L14 26l-3.1-2.4-3.8-.3-1.3-3.5-2.9-2.5L4 13.4 2.9 9.8l2.9-2.5 1.3-3.6 3.8-.2L14 2Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m9 13.5 3.3 3.4 6.2-7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>All new updates</span></li>
+                    <li><svg viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="m14 2 3.1 2.2 3.8.2 1.3 3.6 2.9 2.5-1.1 3.6 1.1 3.7-2.9 2.5-1.3 3.5-3.8.3L14 26l-3.1-2.4-3.8-.3-1.3-3.5-2.9-2.5L4 13.4 2.9 9.8l2.9-2.5 1.3-3.6 3.8-.2L14 2Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m9 13.5 3.3 3.4 6.2-7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Use up to 3 Macs</span></li>
+                    <li><svg viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="m14 2 3.1 2.2 3.8.2 1.3 3.6 2.9 2.5-1.1 3.6 1.1 3.7-2.9 2.5-1.3 3.5-3.8.3L14 26l-3.1-2.4-3.8-.3-1.3-3.5-2.9-2.5L4 13.4 2.9 9.8l2.9-2.5 1.3-3.6 3.8-.2L14 2Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m9 13.5 3.3 3.4 6.2-7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>14 days money back guarantee</span></li>
+            </ul>
+            <a class="dock-plan__download" href="/updates/LaunchMeDirect-2.08.2.dmg" data-ga="direct-dmg" data-ga-area="dock-pricing-monthly">Download App</a>
+        </article>
+        <article class="dock-plan dock-plan--featured" aria-labelledby="dock-plan-lifetime-access">
+            <h3 id="dock-plan-lifetime-access">Lifetime Access</h3>
+            <div class="dock-plan__pricing"><del class="dock-plan__old-price">$79.99</del><p class="dock-plan__price">$59.99</p><p class="dock-plan__tax">Tax might apply</p></div>
+            <ul class="dock-plan__features">
+                    <li><svg viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="m14 2 3.1 2.2 3.8.2 1.3 3.6 2.9 2.5-1.1 3.6 1.1 3.7-2.9 2.5-1.3 3.5-3.8.3L14 26l-3.1-2.4-3.8-.3-1.3-3.5-2.9-2.5L4 13.4 2.9 9.8l2.9-2.5 1.3-3.6 3.8-.2L14 2Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m9 13.5 3.3 3.4 6.2-7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Included <strong>Dock, Notch, Launcher</strong></span></li>
+                    <li><svg viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="m14 2 3.1 2.2 3.8.2 1.3 3.6 2.9 2.5-1.1 3.6 1.1 3.7-2.9 2.5-1.3 3.5-3.8.3L14 26l-3.1-2.4-3.8-.3-1.3-3.5-2.9-2.5L4 13.4 2.9 9.8l2.9-2.5 1.3-3.6 3.8-.2L14 2Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m9 13.5 3.3 3.4 6.2-7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>All new updates forever</strong></span></li>
+                    <li><svg viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="m14 2 3.1 2.2 3.8.2 1.3 3.6 2.9 2.5-1.1 3.6 1.1 3.7-2.9 2.5-1.3 3.5-3.8.3L14 26l-3.1-2.4-3.8-.3-1.3-3.5-2.9-2.5L4 13.4 2.9 9.8l2.9-2.5 1.3-3.6 3.8-.2L14 2Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m9 13.5 3.3 3.4 6.2-7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Use up to 3 Macs</span></li>
+                    <li><svg viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="m14 2 3.1 2.2 3.8.2 1.3 3.6 2.9 2.5-1.1 3.6 1.1 3.7-2.9 2.5-1.3 3.5-3.8.3L14 26l-3.1-2.4-3.8-.3-1.3-3.5-2.9-2.5L4 13.4 2.9 9.8l2.9-2.5 1.3-3.6 3.8-.2L14 2Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m9 13.5 3.3 3.4 6.2-7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>14 days money back guarantee</span></li>
+            </ul>
+            <a class="dock-plan__download" href="/updates/LaunchMeDirect-2.08.2.dmg" data-ga="direct-dmg" data-ga-area="dock-pricing-lifetime-access">Download App</a>
+        </article>
+        <article class="dock-plan" aria-labelledby="dock-plan-yearly">
+            <h3 id="dock-plan-yearly">Yearly</h3>
+            <div class="dock-plan__pricing"><p class="dock-plan__price">$19.99</p><p class="dock-plan__tax">Tax might apply</p></div>
+            <ul class="dock-plan__features">
+                    <li><svg viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="m14 2 3.1 2.2 3.8.2 1.3 3.6 2.9 2.5-1.1 3.6 1.1 3.7-2.9 2.5-1.3 3.5-3.8.3L14 26l-3.1-2.4-3.8-.3-1.3-3.5-2.9-2.5L4 13.4 2.9 9.8l2.9-2.5 1.3-3.6 3.8-.2L14 2Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m9 13.5 3.3 3.4 6.2-7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Included <strong>Dock, Notch, Launcher</strong></span></li>
+                    <li><svg viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="m14 2 3.1 2.2 3.8.2 1.3 3.6 2.9 2.5-1.1 3.6 1.1 3.7-2.9 2.5-1.3 3.5-3.8.3L14 26l-3.1-2.4-3.8-.3-1.3-3.5-2.9-2.5L4 13.4 2.9 9.8l2.9-2.5 1.3-3.6 3.8-.2L14 2Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m9 13.5 3.3 3.4 6.2-7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>All new updates</span></li>
+                    <li><svg viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="m14 2 3.1 2.2 3.8.2 1.3 3.6 2.9 2.5-1.1 3.6 1.1 3.7-2.9 2.5-1.3 3.5-3.8.3L14 26l-3.1-2.4-3.8-.3-1.3-3.5-2.9-2.5L4 13.4 2.9 9.8l2.9-2.5 1.3-3.6 3.8-.2L14 2Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m9 13.5 3.3 3.4 6.2-7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Use up to 3 Macs</span></li>
+                    <li><svg viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="m14 2 3.1 2.2 3.8.2 1.3 3.6 2.9 2.5-1.1 3.6 1.1 3.7-2.9 2.5-1.3 3.5-3.8.3L14 26l-3.1-2.4-3.8-.3-1.3-3.5-2.9-2.5L4 13.4 2.9 9.8l2.9-2.5 1.3-3.6 3.8-.2L14 2Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m9 13.5 3.3 3.4 6.2-7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>7 days free try</span></li>
+                    <li><svg viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="m14 2 3.1 2.2 3.8.2 1.3 3.6 2.9 2.5-1.1 3.6 1.1 3.7-2.9 2.5-1.3 3.5-3.8.3L14 26l-3.1-2.4-3.8-.3-1.3-3.5-2.9-2.5L4 13.4 2.9 9.8l2.9-2.5 1.3-3.6 3.8-.2L14 2Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m9 13.5 3.3 3.4 6.2-7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>14 days money back guarantee</span></li>
+            </ul>
+            <a class="dock-plan__download" href="/updates/LaunchMeDirect-2.08.2.dmg" data-ga="direct-dmg" data-ga-area="dock-pricing-yearly">Download App</a>
+        </article>
+        </div>
+    </div>
+</section>
+<section id="supported-languages" class="section supported-languages">
+            <div class="container">
+                <h2 class="section-title">Supported Languages</h2>
+                <!--
+                  GEO/AI-friendly subtitle:
+                  - Includes product name + clear "language support" intent.
+                  - Helps answer user queries like:
+                    "What languages does LaunchMe support?"
+                -->
+                <p class="section-sub">LaunchMe supports interface localization in major global languages, helping users launch apps and organize workflows in their native language on macOS 26 Tahoe.</p>
+
+                <!--
+                  Language flags list:
+                  - Every item has icon + visible language name.
+                  - alt text is explicit for accessibility and AI parsing.
+                -->
+                <ul class="languages-grid" aria-label="LaunchMe supported languages">
+                    <li class="language-item">
+                        <img class="language-flag" src="/images/flags/united states.png" alt="English language flag">
+                        <span class="language-name">English</span>
+                    </li>
+                    <li class="language-item">
+                        <img class="language-flag" src="/images/flags/germany.png" alt="German language flag">
+                        <span class="language-name">German</span>
+                    </li>
+                    <li class="language-item">
+                        <img class="language-flag" src="/images/flags/spain.png" alt="Spanish language flag">
+                        <span class="language-name">Spanish</span>
+                    </li>
+                    <li class="language-item">
+                        <img class="language-flag" src="/images/flags/brazil.png" alt="Portuguese language flag">
+                        <span class="language-name">Portuguese</span>
+                    </li>
+                    <li class="language-item">
+                        <img class="language-flag" src="/images/flags/turkey.png" alt="Turkish language flag">
+                        <span class="language-name">Turkish</span>
+                    </li>
+                    <li class="language-item">
+                        <img class="language-flag" src="/images/flags/france.png" alt="French language flag">
+                        <span class="language-name">French</span>
+                    </li>
+                    <li class="language-item">
+                        <img class="language-flag" src="/images/flags/portugal.png" alt="Portuguese from Portugal language flag">
+                        <span class="language-name">Portuguese <span class="language-note">(Portugal)</span></span>
+                    </li>
+                    <li class="language-item">
+                        <img class="language-flag" src="/images/flags/south korea.png" alt="Korean language flag">
+                        <span class="language-name">Korean</span>
+                    </li>
+                    <li class="language-item">
+                        <img class="language-flag" src="/images/flags/china.png" alt="Chinese language flag">
+                        <span class="language-name">Chinese</span>
+                    </li>
+                    <li class="language-item">
+                        <img class="language-flag" src="/images/flags/japan.png" alt="Japanese language flag">
+                        <span class="language-name">Japanese</span>
+                    </li>
+                    <li class="language-item">
+                        <img class="language-flag" src="/images/flags/india.png" alt="Hindi language flag">
+                        <span class="language-name">Hindi</span>
+                    </li>
+                    <li class="language-item">
+                        <img class="language-flag" src="/images/flags/russia.png" alt="Russian language flag">
+                        <span class="language-name">Russian</span>
+                    </li>
+                    <li class="language-item">
+                        <img class="language-flag" src="/images/flags/italy.png" alt="Italian language flag">
+                        <span class="language-name">Italian</span>
+                    </li>
+                    <li class="language-item">
+                        <img class="language-flag" src="/images/flags/vietnam.png" alt="Vietnamese language flag">
+                        <span class="language-name">Vietnamese</span>
+                    </li>
+                    <li class="language-item">
+                        <img class="language-flag" src="/images/flags/indonesia.png" alt="Indonesian language flag">
+                        <span class="language-name">Indonesian</span>
+                    </li>
+                    <li class="language-item">
+                        <img class="language-flag" src="/images/flags/ukraine.png" alt="Ukrainian language flag">
+                        <span class="language-name">Ukrainian</span>
+                    </li>
+                    <li class="language-item">
+                        <img class="language-flag" src="/images/flags/philippines.png" alt="Filipino language flag">
+                        <span class="language-name">Filipino</span>
+                    </li>
+                    <li class="language-item">
+                        <img class="language-flag" src="/images/flags/poland.png" alt="Polish language flag">
+                        <span class="language-name">Polish</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+<section id="faq" class="section faq faq--cards">
+    <div class="container">
+        <h2 class="section-title">FAQ</h2>
+        <!-- Draft answers pending final copy; the second answer follows the supplied reference. -->
+        <div class="accordion" data-accordion>
+            <div class="accordion-item">
+                <button id="dock-faq-question-1" class="accordion-trigger" aria-expanded="false" aria-controls="dock-faq-answer-1">What is LaunchMe Dock</button>
+                <div id="dock-faq-answer-1" class="accordion-panel" role="region" aria-labelledby="dock-faq-question-1" hidden><p>LaunchMe Dock is a personal workspace for your favorite apps, files, folders, and widgets. Customize its look and layout to make your Mac feel like your own.</p></div>
+            </div>
+            <div class="accordion-item">
+                <button id="dock-faq-question-2" class="accordion-trigger" aria-expanded="true" aria-controls="dock-faq-answer-2">Does LaunchMe Dock replace system Mac Dock?</button>
+                <div id="dock-faq-answer-2" class="accordion-panel" role="region" aria-labelledby="dock-faq-question-2"><p>Discover all tons of details and small features that makes your Mac even more responsive, reliable and easy to use</p></div>
+            </div>
+            <div class="accordion-item">
+                <button id="dock-faq-question-3" class="accordion-trigger" aria-expanded="false" aria-controls="dock-faq-answer-3">How to add my original Mac Dock apps?</button>
+                <div id="dock-faq-answer-3" class="accordion-panel" role="region" aria-labelledby="dock-faq-question-3" hidden><p>Add your favorite apps to LaunchMe Dock and arrange them in the order that works for you.</p></div>
+            </div>
+            <div class="accordion-item">
+                <button id="dock-faq-question-4" class="accordion-trigger" aria-expanded="false" aria-controls="dock-faq-answer-4">Can i add folders with apps or files</button>
+                <div id="dock-faq-answer-4" class="accordion-panel" role="region" aria-labelledby="dock-faq-question-4" hidden><p>Yes. Bring your apps, files, and folders together to keep the things you use most within easy reach.</p></div>
+            </div>
+            <div class="accordion-item">
+                <button id="dock-faq-question-5" class="accordion-trigger" aria-expanded="false" aria-controls="dock-faq-answer-5">Which macOS are supported?</button>
+                <div id="dock-faq-answer-5" class="accordion-panel" role="region" aria-labelledby="dock-faq-question-5" hidden><p>LaunchMe is designed for macOS 26 Tahoe and later.</p></div>
+            </div>
+            <div class="accordion-item">
+                <button id="dock-faq-question-6" class="accordion-trigger" aria-expanded="false" aria-controls="dock-faq-answer-6">Will my Pro account from LaunchMe allow to use Dock?</button>
+                <div id="dock-faq-answer-6" class="accordion-panel" role="region" aria-labelledby="dock-faq-question-6" hidden><p>Yes. LaunchMe Pro brings Dock, Notch, Music, and Launcher together in one app.</p></div>
+            </div>
+            <div class="accordion-item">
+                <button id="dock-faq-question-7" class="accordion-trigger" aria-expanded="false" aria-controls="dock-faq-answer-7">Does LaunchMe Dock support multiply displays?</button>
+                <div id="dock-faq-answer-7" class="accordion-panel" role="region" aria-labelledby="dock-faq-question-7" hidden><p>Yes. You can create a different Dock for each monitor and tailor each display to your workflow.</p></div>
+            </div>
+            <div class="accordion-item">
+                <button id="dock-faq-question-8" class="accordion-trigger" aria-expanded="false" aria-controls="dock-faq-answer-8">Is the more updates and widgets in future?</button>
+                <div id="dock-faq-answer-8" class="accordion-panel" role="region" aria-labelledby="dock-faq-question-8" hidden><p>Yes. More widgets and customization options are planned for future updates.</p></div>
+            </div>
+            <div class="accordion-item">
+                <button id="dock-faq-question-9" class="accordion-trigger" aria-expanded="false" aria-controls="dock-faq-answer-9">Does LaunchMe impact Mac performance or battery?</button>
+                <div id="dock-faq-answer-9" class="accordion-panel" role="region" aria-labelledby="dock-faq-question-9" hidden><p>LaunchMe is designed to use resources efficiently. Its impact depends on the widgets and animations in your setup.</p></div>
+            </div>
+        </div>
+    </div>
+</section></main>
+    <footer class="site-footer">
+        <!-- Interactive mountains backdrop (same reveal layers as the hero). -->
+        <div class="footer-bg" data-interactive aria-hidden="true"
+             data-layer-top="/images/Interactive/interactive-layer-2.png"
+             data-layer-reveal="/images/Interactive/interactive-layer-1.png">
+            <canvas></canvas>
+        </div>
+
+        <div class="container footer-top">
+            <div class="footer-brand">
+                <a href="/" class="footer-logo"><img src="/images/logoicontext.png" alt="LaunchMe"></a>
+                <p class="footer-tagline">Your full-screen Mac launcher</p>
+                <p class="footer-desc">LaunchMe brings automation, file search, live wallpapers, widgets, and deep customization into one beautiful full-screen launcher built for macOS 27.</p>
+                <a class="lp-btn lp-btn--lg footer-cta" href="/updates/LaunchMeDirect-2.08.2.dmg" data-ga="direct-dmg" data-ga-area="footer">
+                    <svg class="apple-glyph" viewBox="0 0 384 512" aria-hidden="true"><path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+                    Download for macOS
+                </a>
+                <p class="footer-copy">© 2026 LaunchMe — All rights reserved</p>
+                <p class="footer-author">
+                    Built with <span class="footer-author__love">love</span> by
+                    <a class="footer-author__by" href="https://www.threads.com/@sergey.newton?igshid=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener noreferrer">
+                        <img class="footer-author__avatar" src="/images/sergey-icon.png" alt="Sergey Newton">
+                        Sergey Newton
+                    </a>
+                </p>
+            </div>
+
+            <div class="footer-links">
+                <nav class="footer-col" aria-label="Menu">
+                    <h4 class="footer-col__title">Menu</h4>
+                    <a href="/">Home</a>
+                    <a href="/#features">Features</a>
+                    <a href="/pricing/">Pricing</a>
+                    <a href="/#faq">FAQ</a>
+                    <a href="/blog/">Blog</a>
+                </nav>
+
+                <nav class="footer-col" aria-label="Navigation">
+                    <h4 class="footer-col__title">Navigation</h4>
+                    <a href="/support/">Support</a>
+                    <a href="/help/">Help Center</a>
+                    <a href="/changelog/">Changelog</a>
+                    <a href="/privacy/">Privacy Policy</a>
+                    <a href="/terms/">Terms of Service</a>
+                    <a href="/refunds/">Refund Policy</a>
+                    <a href="/press-assets/">Press Assets</a>
+                </nav>
+
+                <nav class="footer-col" aria-label="Social">
+                    <h4 class="footer-col__title">Social</h4>
+                    <a href="https://www.instagram.com/launchmeapp?igsh=MWZiMW9qamUzYzNjeA%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer">Instagram</a>
+                    <a href="https://www.tiktok.com/@sergey.newton?_r=1&_t=ZS-97T0P0cUuAP" target="_blank" rel="noopener noreferrer">TikTok</a>
+                    <a href="https://www.threads.com/@launchmeapp?igshid=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener noreferrer">Threads</a>
+                    <a href="https://youtube.com/@sergeynewton?si=iqecQRB7wxNSHLgb" target="_blank" rel="noopener noreferrer">YouTube</a>
+                    <a href="https://x.com/sergeynewton?s=11" target="_blank" rel="noopener noreferrer">X</a>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Oversized wordmark, clipped by the footer's bottom edge. -->
+        <div class="footer-wordmark" aria-hidden="true">LaunchMe</div>
+
+        <script src="/js/interactive-footer.js" defer></script>
+    </footer>
+</body></html>

@@ -128,4 +128,7 @@
     <priority>0.7</priority>
     <changefreq>weekly</changefreq>
   </url>
+  <url>
+    <loc>https://launchmeapp.com/dock/</loc>
+  </url>
 </urlset>
