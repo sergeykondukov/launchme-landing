@@ -23,10 +23,20 @@ const sceneAssets = {
   'dock-workflow-pomodoro': 'pomodoro-dock-slide',
   'dock-workflow-background-sound': 'background-sound-dock-slide'
 };
+const videoAssets = {
+  'customize-7': { name: 'widgets-and-presets', width: 1684, height: 1080, label: 'Dock widgets and ready made presets' },
+  'dock-player': { name: 'full-screenplayer-dock', width: 1666, height: 1080, label: 'Full screen player in one click' }
+};
 let filled = 0;
 let html = fs.readFileSync(page, 'utf8').replace(
   /(<div\b[^>]*\bdata-dock-asset="([^"]+)"[^>]*>)[\s\S]*?(<\/div>)/g,
   (_match, open, name, close) => {
+    const video = videoAssets[name];
+    if (video && fs.existsSync(path.join(root, `images/dock/video/${video.name}.mp4`))) {
+      filled++;
+      const poster = `/images/dock/posters/${video.name}.jpg`;
+      return `${open}<img class="dock-card__poster" src="${poster}" alt="" width="${video.width}" height="${video.height}" loading="lazy" decoding="async"><video poster="${poster}" width="${video.width}" height="${video.height}" muted loop playsinline preload="none" data-dock-video aria-label="${video.label}"><source data-src="/images/dock/video/${video.name}.mp4" type="video/mp4"></video>${close}`;
+    }
     const card = cardAssets[name];
     const candidates = card ? [`images/dock/cards/${card.file}`] : [];
     if (sceneAssets[name]) candidates.push(...extensions.map(ext => `images/dock/${sceneAssets[name]}.${ext}`));

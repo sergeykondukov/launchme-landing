@@ -296,3 +296,67 @@
     if (document.fonts) document.fonts.ready.then(updateCapsule);
   });
 })();
+
+// Same preload/playback thresholds and poster fallback as the Music cards.
+(() => {
+  const videos = [...document.querySelectorAll('[data-dock-video]')];
+  if (!videos.length) return;
+  const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const visibility = new Map(videos.map(video => [video, 0]));
+  const nearby = new Set();
+  const requested = new WeakMap();
+  const pending = new WeakSet();
+
+  function loadVideo(video) {
+    if (document.hidden) return;
+    const sources = [...video.querySelectorAll('source[data-src]')];
+    if (!sources.length) return;
+    sources.forEach(source => {
+      source.src = source.dataset.src;
+      source.removeAttribute('data-src');
+    });
+    video.preload = 'auto';
+    video.load();
+  }
+  function syncVideo(video) {
+    const shouldPlay = !document.hidden && !motion.matches && visibility.get(video) >= .2;
+    requested.set(video, shouldPlay);
+    if (shouldPlay) loadVideo(video);
+    if (!shouldPlay) video.pause();
+    else if (video.paused && !pending.has(video) && !video.error) {
+      pending.add(video);
+      video.play().then(() => {
+        // A late play() resolution must not restart a video that has left the viewport.
+        if (!requested.get(video)) video.pause();
+      }).catch(() => {}).finally(() => pending.delete(video));
+    }
+  }
+  videos.forEach(video => {
+    const card = video.closest('.dock-card, .dock-feature__media');
+    video.addEventListener('playing', () => card.classList.add('is-video-ready'));
+    ['emptied', 'error'].forEach(event => video.addEventListener(event, () => card.classList.remove('is-video-ready')));
+  });
+  if ('IntersectionObserver' in window) {
+    const preload = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { nearby.add(entry.target); loadVideo(entry.target); }
+        else nearby.delete(entry.target);
+      });
+    }, { rootMargin: '400px', threshold: 0 });
+    const playback = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        visibility.set(entry.target, entry.intersectionRatio);
+        syncVideo(entry.target);
+      });
+    }, { threshold: [0, .2, 1] });
+    videos.forEach(video => { preload.observe(video); playback.observe(video); });
+  } else {
+    videos.forEach(video => { nearby.add(video); visibility.set(video, 1); syncVideo(video); });
+  }
+  function syncAll() {
+    nearby.forEach(loadVideo);
+    videos.forEach(syncVideo);
+  }
+  document.addEventListener('visibilitychange', syncAll);
+  motion.addEventListener('change', syncAll);
+})();

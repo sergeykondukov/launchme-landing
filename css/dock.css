@@ -255,3 +255,24 @@
 }
 
 @media (prefers-reduced-motion: reduce) { .dock-together__media > img { transition: none; } }
+
+/* Preserve the full video canvas and let it set the presets card height. */
+.dock-card--presets { aspect-ratio: auto; min-height: 0; color: #fff; }
+.dock-card--presets > .lm-card__content { position: absolute; inset: 0 0 auto; }
+.dock-card--presets .lm-card__title { color: inherit; }
+.dock-card--presets .lm-card__subtitle { font-size: clamp(12px, 1.45vw, 17px); font-weight: 400; line-height: 1.55; margin-top: 16px; }
+.dock-card--presets > .dock-placeholder { position: relative; inset: auto; z-index: 0; }
+.dock-card--presets video { display: block; width: 100%; height: auto; object-fit: contain; }
+
+/* A real poster remains visible until playback starts, including load/play failures. */
+.dock-card--presets > .dock-placeholder > .dock-card__poster { display: block; width: 100%; height: auto; }
+.dock-card--presets video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; opacity: 0; transition: opacity .25s ease; }
+.dock-card--presets.is-video-ready video { opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .dock-card--presets video { transition: none; } }
+
+/* Full-screen player uses the same poster fallback and playback handling. */
+[data-dock-asset="dock-player"] { position: relative; aspect-ratio: auto; }
+[data-dock-asset="dock-player"] > .dock-card__poster { display: block; width: 100%; height: auto; }
+[data-dock-asset="dock-player"] > video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; opacity: 0; transition: opacity .25s ease; }
+[data-dock-asset="dock-player"].is-video-ready > video { opacity: 1; }
+@media (prefers-reduced-motion: reduce) { [data-dock-asset="dock-player"] > video { transition: none; } }
