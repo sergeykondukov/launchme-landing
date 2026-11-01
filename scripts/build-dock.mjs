@@ -7,15 +7,26 @@ import { fileURLToPath } from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const page = path.join(root, 'dock/index.html');
 const extensions = ['png', 'webp', 'jpg', 'jpeg', 'svg'];
+const cardAssets = {
+  'customize-1': { file: 'Innovative-and-simple-to-use-dock-card.jpg', width: 1121, height: 299 },
+  'customize-2': { file: 'music-widgets-dock-card.jpg', width: 544, height: 544 },
+  'customize-3': { file: 'system-stats-dock-card.jpg', width: 544, height: 544 },
+  'customize-4': { file: 'active-apps-folder-dock-card.jpg', width: 1121, height: 406 },
+  'customize-5': { file: 'manage-your-time-dock-card.jpg', width: 544, height: 544 },
+  'customize-6': { file: 'weather-dock-card.jpg', width: 544, height: 544 }
+};
 let filled = 0;
 let html = fs.readFileSync(page, 'utf8').replace(
   /(<div\b[^>]*\bdata-dock-asset="([^"]+)"[^>]*>)[\s\S]*?(<\/div>)/g,
   (_match, open, name, close) => {
-    const asset = extensions.map(ext => `images/dock/${name}.${ext}`)
+    const card = cardAssets[name];
+    const candidates = card ? [`images/dock/cards/${card.file}`] : [];
+    const asset = [...candidates, ...extensions.map(ext => `images/dock/${name}.${ext}`)]
       .find(file => fs.existsSync(path.join(root, file)));
     if (asset) {
       filled++;
-      return `${open}<img src="/${asset}" alt="" loading="lazy" decoding="async">${close}`;
+      const dimensions = card && asset === `images/dock/cards/${card.file}` ? ` width="${card.width}" height="${card.height}"` : '';
+      return `${open}<img src="/${asset}" alt=""${dimensions} loading="lazy" decoding="async">${close}`;
     }
     const label = /^\d+-\d+$/.test(name) ? `<span>${name}</span>` : '';
     return `${open}${label}${close}`;

@@ -15,12 +15,32 @@
 
     // Top layer doubles as the element background, so it shows even if JS is off
     // or reduced-motion is on. The canvas only paints the revealed (layer-1) blobs.
-    root.style.backgroundImage = "url('" + root.getAttribute('data-layer-top') + "')";
+    if (!root.hasAttribute('data-interactive-overlay')) {
+      root.style.backgroundImage = "url('" + root.getAttribute('data-layer-top') + "')";
+    }
 
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     var imgReveal = new Image();
     imgReveal.src = root.getAttribute('data-layer-reveal');
+
+    // Transparent replacement artwork must erase the original, not blend over it.
+    var replaceSelector = root.getAttribute('data-layer-replace');
+    var baseImage = replaceSelector && root.parentElement.querySelector(replaceSelector);
+    var replacement = baseImage ? document.createElement('canvas') : null;
+    var rctx = replacement && replacement.getContext('2d');
+    function paintBase() {
+      if (!baseImage || !cw || !baseImage.complete || !baseImage.naturalWidth ||
+          !imgReveal.complete || !imgReveal.naturalWidth) return;
+      ctx.clearRect(0, 0, cw, ch);
+      ctx.drawImage(baseImage, 0, 0, cw, ch);
+      baseImage.style.visibility = 'hidden';
+    }
+    if (baseImage) {
+      baseImage.addEventListener('load', paintBase);
+      imgReveal.addEventListener('load', paintBase);
+    }
+
 
     // Off-screen mask: alpha field that says where layer-1 shows through.
     var mask = document.createElement('canvas');
@@ -37,6 +57,7 @@
       canvas.style.width = rect.width + 'px';
       canvas.style.height = rect.height + 'px';
       mask.width = cw; mask.height = ch;
+      if (replacement) { replacement.width = cw; replacement.height = ch; paintBase(); }
     }
     resize();
     window.addEventListener('resize', resize);
@@ -86,12 +107,16 @@
         y: (e.clientY - rect.top) / rect.height * ch
       };
     }
-    root.addEventListener('pointermove', function (e) {
-      if (!cw) return;
+    // Overlay scenes can receive the cursor through text and controls above the canvas.
+    var targetSelector = root.getAttribute('data-pointer-target');
+    var pointerTarget = (targetSelector && root.closest(targetSelector)) || root;
+    pointerTarget.addEventListener('pointermove', function (e) {
+      if (!cw || !imgReveal.complete || !imgReveal.naturalWidth ||
+          (baseImage && (!baseImage.complete || !baseImage.naturalWidth))) return;
       var c = toCanvas(e);
       trail(c.x, c.y);
     });
-    root.addEventListener('pointerleave', function () { last = null; });
+    pointerTarget.addEventListener('pointerleave', function () { last = null; });
 
     function blob(x, y, r, a) {
       var g = mctx.createRadialGradient(x, y, 0, x, y, r);
@@ -140,8 +165,24 @@
       ctx.drawImage(imgReveal, 0, 0, cw, ch);
       ctx.globalCompositeOperation = 'source-over';
 
+      if (baseImage) {
+        // Cut the same reveal mask out of the base before compositing the effect.
+        // This also removes the base wherever the effect PNG itself is transparent.
+        rctx.clearRect(0, 0, cw, ch);
+        rctx.globalCompositeOperation = 'source-over';
+        rctx.drawImage(baseImage, 0, 0, cw, ch);
+        rctx.globalCompositeOperation = 'destination-out';
+        rctx.filter = 'blur(' + (5 * dpr) + 'px)';
+        rctx.drawImage(mask, 0, 0);
+        rctx.filter = 'none';
+        rctx.globalCompositeOperation = 'source-over';
+        rctx.drawImage(canvas, 0, 0);
+        ctx.clearRect(0, 0, cw, ch);
+        ctx.drawImage(replacement, 0, 0);
+      }
+
       if (drops.length) requestAnimationFrame(frame);
-      else { running = false; ctx.clearRect(0, 0, cw, ch); }
+      else { running = false; ctx.clearRect(0, 0, cw, ch); paintBase(); }
     }
     function start() {
       if (running || onscreen === false) return;
@@ -155,7 +196,7 @@
       new IntersectionObserver(function (entries) {
         entries.forEach(function (en) {
           onscreen = en.isIntersecting;
-          if (!onscreen) running = false;
+          if (!onscreen) { running = false; drops = []; paintBase(); }
         });
       }, { threshold: 0 }).observe(root);
     }

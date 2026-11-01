@@ -47,13 +47,13 @@
 #dock-details .ai-vi__title { max-width: 25ch; color: #8147ad; }
 .dock-carousel .ai-vi__sub { font-size: 17px; }
 .dock-carousel .vi-card__media { border-radius: 34px; }
-.dock-switch { display: flex; justify-content: center; gap: 4px; width: max-content; padding: 4px; margin-top: 24px; border-radius: 24px; background: #f0f0f2; }
-.dock-switch button { border: 0; border-radius: 20px; padding: 8px 20px; background: transparent; cursor: pointer; color: var(--muted); font: inherit; font-size: 13px; }
+.dock-switch { display: flex; justify-content: center; gap: 4px; width: max-content; max-width: 100%; padding: 4px; margin: 28px auto 0; border-radius: 999px; background: #ebebeb; }
+.dock-switch button { border: 0; border-radius: 999px; padding: 9px 20px; background: transparent; cursor: pointer; color: var(--muted); font: inherit; font-size: 16px; line-height: 1.3; }
 .dock-switch button[aria-pressed="true"] { color: #fff; background: #1d1d1f; }
-.dock-big-screen { margin-top: 112px; padding: 70px 0; background: #e9eef2; overflow: hidden; }
-.dock-big-screen__inner { display: grid; grid-template-columns: 1.15fr 1fr; align-items: center; gap: 48px; }
-.dock-big-screen__media { aspect-ratio: 1.2; border-radius: 34px; background: #d8dbdf; }
-.dock-big-screen p { color: var(--muted); font-size: 17px; }
+.dock-big-screen { position: relative; aspect-ratio: 1728 / 693; margin-top: 112px; background: #dfe9f2 url('/images/dock/ideal-for-big-screens-dock.jpg') center / 100% 100% no-repeat; }
+.dock-big-screen__copy { position: absolute; top: 65%; left: 47.9%; width: 46%; }
+.dock-big-screen h2 { color: #0060a5; font-size: clamp(26px, 2.95vw, 56px); font-weight: 800; line-height: 1.1; letter-spacing: -.04em; margin: 0 0 18px; }
+.dock-big-screen p { color: var(--muted); font-size: clamp(12px, 1.05vw, 20px); font-weight: 500; line-height: 1.2; margin: 0; }
 .dock-pricing { padding: 112px 0 72px; }
 .dock-pricing .pricing-cards-wrap { margin-top: 0; }
 .dock-page .faq { padding-bottom: 100px; }
@@ -85,9 +85,11 @@
  .dock-pick__collage, .dock-pick__row { gap: 8px; }
  .dock-pick__item { width: calc(var(--item-width) * .81); flex-basis: calc(var(--item-width) * .81); height: 62px; border-radius: 12px; }
  .dock-carousel .vi-card { max-width: 85vw; }
- .dock-big-screen { margin-top: 70px; padding: 36px 0; }
- .dock-big-screen__inner { grid-template-columns: 1fr; gap: 30px; }
- .dock-big-screen__media { aspect-ratio: 1.5; }
+ .dock-big-screen { aspect-ratio: auto; margin-top: 70px; padding-top: calc(100vw * 693 / 1728 + 20px); background-size: 100% auto; background-position: center top; }
+ .dock-big-screen__copy { position: relative; top: auto; left: auto; width: auto; padding: 0 24px 30px; }
+ .dock-big-screen h2 { font-size: 30px; margin-bottom: 12px; }
+ .dock-big-screen p { font-size: 15px; line-height: 1.45; }
+ .dock-big-screen p br { display: none; }
  .dock-pricing { padding-top: 70px; }
 }
 @media (max-width: 380px) {
@@ -166,3 +168,59 @@
 
 .dock-hero__subtitle { margin: 26px 0 0; color: #80808b; font-size: 20px; font-weight: 500; line-height: 1.5; }
 @media (max-width: 767px) { .dock-hero__subtitle { margin-top: 20px; font-size: 16px; } }
+
+/* Real card images determine their own height, including on mobile. */
+.dock-card:has(> .dock-placeholder > img) { aspect-ratio: auto; height: auto; min-height: 0; color: #fff; }
+.dock-card:has(> .dock-placeholder > img) > .lm-card__content { position: absolute; inset: 0 0 auto; }
+.dock-card:has(> .dock-placeholder > img) .lm-card__title { color: inherit; }
+.dock-card > .dock-placeholder:has(> img) { position: relative; inset: auto; z-index: 0; }
+.dock-card > .dock-placeholder > img { display: block; width: 100%; height: auto; object-fit: contain; }
+
+/* The two wide cards have descriptive copy rather than a large feature headline. */
+.dock-card--strip .lm-card__subtitle, .dock-card--wide .lm-card__subtitle { font-size: clamp(12px, 1.45vw, 17px); font-weight: 400; line-height: 1.6; margin-top: 16px; }
+
+/* Same liquid cursor reveal as the mountains; aligned with the extended paw canvas. */
+.dock-hero__effect { position: absolute; top: 0; left: 50%; width: calc(100% * 3450 / 2250); height: 100%; transform: translateX(-50%); z-index: 0; pointer-events: none; }
+.dock-hero__effect canvas { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
+
+.dock-workspace-caption { max-width: 740px; margin: 24px auto 0; color: var(--muted); font-size: 17px; font-weight: 500; line-height: 1.3; text-align: left; }
+.dock-workspace-caption p { margin: 0; }
+.dock-workspace-caption strong { color: #000; font-weight: 750; }
+.dock-feature__media--notch { background: #e3e3e7; }
+@media (max-width: 767px) {
+ .dock-switch button { padding: 9px 15px; font-size: 14px; }
+ .dock-workspace-caption { margin-top: 20px; font-size: 15px; line-height: 1.45; }
+}
+
+/* Image-backed feature selector following Even Better Together. */
+.dock-workflow { padding-top: 112px; }
+.dock-workflow__stage { position: relative; min-height: 700px; border-radius: 50px; overflow: hidden; isolation: isolate; display: flex; align-items: center; padding: 70px 9%; }
+.dock-workflow__scenes, .dock-workflow__scene { position: absolute; inset: 0; }
+.dock-workflow__scenes { z-index: -1; }
+.dock-workflow__scene { opacity: 0; transition: opacity .45s ease; background: #e9e9ec; }
+.dock-workflow__scene.is-active { opacity: 1; }
+.dock-workflow__scene > img { width: 100%; height: 100%; object-fit: cover; }
+.dock-workflow__items { width: min(100%, 320px); display: grid; gap: 14px; }
+.dock-workflow__button { display: inline-flex; align-items: center; gap: 12px; max-width: 100%; border: 0; border-radius: 999px; padding: 15px 22px 15px 16px; background: #fff; color: #080808; font: inherit; font-size: 17px; font-weight: 650; line-height: 1.3; cursor: pointer; text-align: left; }
+.dock-workflow__plus { width: 26px; height: 26px; border: 2px solid #292929; border-radius: 50%; flex: none; background: linear-gradient(#292929,#292929) center / 12px 2px no-repeat, linear-gradient(#292929,#292929) center / 2px 12px no-repeat; }
+.dock-workflow__panel { display: grid; grid-template-rows: 0fr; opacity: 0; margin-top: 0; transition: grid-template-rows .3s ease, opacity .3s ease, margin-top .3s ease; }
+.dock-workflow__panel > div { min-height: 0; overflow: hidden; border-radius: 28px; }
+.dock-workflow__panel p { padding: 26px 28px; margin: 0; background: #fff; color: #86868e; font-size: 16px; font-weight: 500; line-height: 1.3; }
+.dock-workflow__panel strong { color: #29292c; font-weight: 650; }
+.dock-workflow__item.is-active .dock-workflow__panel { grid-template-rows: 1fr; opacity: 1; margin-top: 10px; }
+.dock-workflow__navigation { position: absolute; left: 2.6%; top: 50%; transform: translateY(-50%); display: grid; gap: 34px; }
+.dock-workflow__navigation button { width: 38px; height: 38px; padding: 8px; border: 0; border-radius: 50%; background: #fff; color: #000; cursor: pointer; }
+.dock-workflow__navigation svg { display: block; width: 100%; height: 100%; }
+.dock-workflow__navigation [data-workflow-next] svg { transform: rotate(180deg); }
+@media (max-width: 767px) {
+ .dock-workflow { padding-top: 70px; }
+ .dock-workflow__stage { min-height: 640px; padding: 36px 24px 36px 64px; border-radius: 34px; }
+ .dock-workflow__button { font-size: 15px; padding: 12px 18px 12px 12px; gap: 9px; }
+ .dock-workflow__plus { width: 24px; height: 24px; }
+ .dock-workflow__panel p { padding: 20px; font-size: 14px; }
+ .dock-workflow__navigation { left: 12px; gap: 26px; }
+ .dock-workflow__navigation button { width: 32px; height: 32px; padding: 6px; }
+}
+@media (prefers-reduced-motion: reduce) {
+ .dock-workflow__scene, .dock-workflow__panel { transition: none; }
+}

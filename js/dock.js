@@ -84,14 +84,15 @@
   });
   renderRows();
 
-  const preview = document.querySelector('[data-dock-asset="dock-together"]');
-  document.querySelectorAll('[data-workspace]').forEach(button => {
+  const workspaceButtons = [...document.querySelectorAll('[data-workspace]')];
+  const workspacePanels = [...document.querySelectorAll('[data-workspace-panel]')];
+  const workspaceCaptions = [...document.querySelectorAll('[data-workspace-caption]')];
+  workspaceButtons.forEach(button => {
     button.addEventListener('click', () => {
-      document.querySelectorAll('[data-workspace]').forEach(other => {
-        other.setAttribute('aria-pressed', String(other === button));
-      });
-      preview.dataset.workspace = button.dataset.workspace;
-      preview.style.backgroundColor = button.dataset.workspace === 'dock' ? '' : '#e3e3e7';
+      const selected = button.dataset.workspace;
+      workspaceButtons.forEach(other => other.setAttribute('aria-pressed', String(other === button)));
+      workspacePanels.forEach(panel => { panel.hidden = panel.dataset.workspacePanel !== selected; });
+      workspaceCaptions.forEach(caption => { caption.hidden = caption.dataset.workspaceCaption !== selected; });
     });
   });
 })();
@@ -198,4 +199,29 @@
   else window.addEventListener('resize', measure);
   measure();
   sync();
+})();
+
+(() => {
+  const root = document.querySelector('.dock-workflow');
+  if (!root) return;
+  const buttons = [...root.querySelectorAll('[data-workflow-select]')];
+  const items = [...root.querySelectorAll('[data-workflow-item]')];
+  const scenes = [...root.querySelectorAll('[data-workflow-scene]')];
+  let active = 0;
+  function select(index) {
+    active = (index + buttons.length) % buttons.length;
+    const key = buttons[active].dataset.workflowSelect;
+    buttons.forEach((button, i) => button.setAttribute('aria-expanded', String(i === active)));
+    items.forEach(item => {
+      const selected = item.dataset.workflowItem === key;
+      item.classList.toggle('is-active', selected);
+      const panel = item.querySelector('.dock-workflow__panel');
+      panel.inert = !selected;
+      panel.setAttribute('aria-hidden', String(!selected));
+    });
+    scenes.forEach(scene => scene.classList.toggle('is-active', scene.dataset.workflowScene === key));
+  }
+  buttons.forEach((button, index) => button.addEventListener('click', () => select(index)));
+  root.querySelector('[data-workflow-prev]').addEventListener('click', () => select(active - 1));
+  root.querySelector('[data-workflow-next]').addEventListener('click', () => select(active + 1));
 })();
