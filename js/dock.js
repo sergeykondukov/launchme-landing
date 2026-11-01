@@ -87,11 +87,22 @@
   const workspaceButtons = [...document.querySelectorAll('[data-workspace]')];
   const workspacePanels = [...document.querySelectorAll('[data-workspace-panel]')];
   const workspaceCaptions = [...document.querySelectorAll('[data-workspace-caption]')];
+  const initialWorkspace = workspaceButtons.find(button => button.getAttribute('aria-pressed') === 'true');
+  workspacePanels.forEach(panel => {
+    const selected = initialWorkspace && panel.dataset.workspacePanel === initialWorkspace.dataset.workspace;
+    panel.classList.toggle('is-active', Boolean(selected));
+    panel.setAttribute('aria-hidden', String(!selected));
+    panel.hidden = false;
+  });
   workspaceButtons.forEach(button => {
     button.addEventListener('click', () => {
       const selected = button.dataset.workspace;
       workspaceButtons.forEach(other => other.setAttribute('aria-pressed', String(other === button)));
-      workspacePanels.forEach(panel => { panel.hidden = panel.dataset.workspacePanel !== selected; });
+      workspacePanels.forEach(panel => {
+        const active = panel.dataset.workspacePanel === selected;
+        panel.classList.toggle('is-active', active);
+        panel.setAttribute('aria-hidden', String(!active));
+      });
       workspaceCaptions.forEach(caption => { caption.hidden = caption.dataset.workspaceCaption !== selected; });
     });
   });
@@ -208,20 +219,82 @@
   const items = [...root.querySelectorAll('[data-workflow-item]')];
   const scenes = [...root.querySelectorAll('[data-workflow-scene]')];
   let active = 0;
+  const animations = new Map();
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const itemList = root.querySelector('.dock-workflow__items');
+  let lastTextWidth = -1;
+  function prepareText() {
+    const padding = parseFloat(getComputedStyle(itemList).getPropertyValue('--workflow-open-padding')) || 28;
+    const width = Math.max(0, itemList.clientWidth - padding * 2);
+    // Height changes during expansion must not trigger another round of layout writes.
+    if (width === lastTextWidth) return;
+    lastTextWidth = width;
+    buttons.forEach(button => button.style.setProperty('--workflow-text-width', width + 'px'));
+  }
+  prepareText();
+  if ('ResizeObserver' in window) new ResizeObserver(prepareText).observe(itemList);
+  else window.addEventListener('resize', prepareText);
   function select(index) {
+    if ((index + buttons.length) % buttons.length === active) return;
+    function geometry(button) {
+      const rect = button.getBoundingClientRect();
+      // A 999px capsule is visually clamped to half its height. Animate that
+      // actual radius instead of interpolating hundreds of invisible pixels.
+      const radius = Math.min(parseFloat(getComputedStyle(button).borderTopLeftRadius) || 0, rect.width / 2, rect.height / 2);
+      return { width: rect.width, height: rect.height, radius };
+    }
+    const before = buttons.map(geometry);
+    animations.forEach(animation => animation.cancel());
+    animations.clear();
     active = (index + buttons.length) % buttons.length;
     const key = buttons[active].dataset.workflowSelect;
     buttons.forEach((button, i) => button.setAttribute('aria-expanded', String(i === active)));
     items.forEach(item => {
       const selected = item.dataset.workflowItem === key;
       item.classList.toggle('is-active', selected);
-      const panel = item.querySelector('.dock-workflow__panel');
-      panel.inert = !selected;
-      panel.setAttribute('aria-hidden', String(!selected));
+
     });
     scenes.forEach(scene => scene.classList.toggle('is-active', scene.dataset.workflowScene === key));
+    prepareText();
+    const targets = buttons.map(geometry);
+    if (!reduce.matches) buttons.forEach((button, i) => {
+      if (typeof button.animate !== 'function') return;
+      const after = targets[i];
+      if (Math.abs(before[i].width - after.width) < 1 && Math.abs(before[i].height - after.height) < 1) return;
+      const animation = button.animate([
+        { width: before[i].width + 'px', height: before[i].height + 'px', borderRadius: before[i].radius + 'px' },
+        { width: after.width + 'px', height: after.height + 'px', borderRadius: after.radius + 'px' }
+      ], { duration: 280, easing: 'cubic-bezier(.22,.61,.36,1)' });
+      animations.set(button, animation);
+      if (i === active) {
+        const text = button.querySelector('.dock-workflow__text');
+        const fade = text.animate([{ opacity: 0 }, { opacity: 1 }], {
+          duration: 200, fill: 'backwards', easing: 'ease-out'
+        });
+        animations.set(text, fade);
+      }
+    });
   }
   buttons.forEach((button, index) => button.addEventListener('click', () => select(index)));
   root.querySelector('[data-workflow-prev]').addEventListener('click', () => select(active - 1));
   root.querySelector('[data-workflow-next]').addEventListener('click', () => select(active + 1));
+})();
+
+// One moving selection capsule, sized to the active label.
+(() => {
+  document.querySelectorAll('.dock-switch').forEach(root => {
+    function updateCapsule() {
+      const active = root.querySelector('button[aria-pressed="true"]');
+      if (!active) return;
+      root.style.setProperty('--capsule-x', active.offsetLeft + 'px');
+      root.style.setProperty('--capsule-width', active.offsetWidth + 'px');
+    }
+    updateCapsule();
+    root.classList.add('has-moving-capsule');
+    requestAnimationFrame(() => root.classList.add('capsule-ready'));
+    root.addEventListener('click', updateCapsule);
+    if ('ResizeObserver' in window) new ResizeObserver(updateCapsule).observe(root);
+    else window.addEventListener('resize', updateCapsule);
+    if (document.fonts) document.fonts.ready.then(updateCapsule);
+  });
 })();
