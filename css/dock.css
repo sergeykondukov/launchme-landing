@@ -46,9 +46,9 @@
 .dock-feature { padding-top: 112px; }
 .dock-feature__media { aspect-ratio: 1147 / 750; border-radius: 50px; overflow: hidden; }
 .dock-carousel { padding: 112px 0 0; }
-#dock-details .ai-vi__title { max-width: 25ch; color: #8147ad; }
+#dock-details .ai-vi__title { max-width: 25ch; width: fit-content; color: #30266D; background: linear-gradient(to right, #30266D, #A047BC); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 .dock-carousel .ai-vi__sub { font-size: 17px; }
-.dock-carousel .vi-card__media { border-radius: 34px; }
+.dock-carousel .vi-card__media { border-radius: 34px; overflow: hidden; isolation: isolate; }
 .dock-switch { display: flex; justify-content: center; gap: 4px; width: max-content; max-width: 100%; padding: 4px; margin: 28px auto 0; border-radius: 999px; background: #ebebeb; }
 .dock-switch button { border: 0; border-radius: 999px; padding: 9px 20px; background: transparent; cursor: pointer; color: var(--muted); font: inherit; font-size: 16px; line-height: 1.3; }
 .dock-switch button[aria-pressed="true"] { color: #fff; background: #1d1d1f; }
@@ -270,8 +270,24 @@
 @media (prefers-reduced-motion: reduce) { .dock-card--presets video { transition: none; } }
 
 /* Full-screen player uses the same poster fallback and playback handling. */
-[data-dock-asset="dock-player"] { position: relative; aspect-ratio: auto; }
-[data-dock-asset="dock-player"] > .dock-card__poster { display: block; width: 100%; height: auto; }
-[data-dock-asset="dock-player"] > video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; opacity: 0; transition: opacity .25s ease; }
-[data-dock-asset="dock-player"].is-video-ready > video { opacity: 1; }
-@media (prefers-reduced-motion: reduce) { [data-dock-asset="dock-player"] > video { transition: none; } }
+:is([data-dock-asset="dock-player"], [data-dock-asset="dock-spaces"], [data-dock-asset="dock-system"]) { position: relative; aspect-ratio: auto; }
+:is([data-dock-asset="dock-player"], [data-dock-asset="dock-spaces"], [data-dock-asset="dock-system"]) > .dock-card__poster { display: block; width: 100%; height: auto; }
+:is([data-dock-asset="dock-player"], [data-dock-asset="dock-spaces"], [data-dock-asset="dock-system"]) > video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; opacity: 0; transition: opacity .25s ease; }
+:is([data-dock-asset="dock-player"], [data-dock-asset="dock-spaces"], [data-dock-asset="dock-system"]).is-video-ready > video { opacity: 1; }
+@media (prefers-reduced-motion: reduce) { :is([data-dock-asset="dock-player"], [data-dock-asset="dock-spaces"], [data-dock-asset="dock-system"]) > video { transition: none; } }
+
+/* Carousel video keeps the same loading and poster behavior as the large cards. */
+.vi-card__media:has(> video[data-dock-video]) { position: relative; overflow: hidden; }
+.vi-card__media > .dock-card__poster { width: 100%; height: 100%; object-fit: contain; }
+.vi-card__media > video[data-dock-video] { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; opacity: 0; transition: opacity .25s ease; }
+.vi-card__media.is-video-ready > video[data-dock-video] { opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .vi-card__media > video[data-dock-video] { transition: none; } }
+
+/* Downloads preview fills its carousel card edge to edge. */
+[data-dock-asset="dock-details-1"] > .dock-card__poster,
+[data-dock-asset="dock-details-1"] > video[data-dock-video] { object-fit: cover; }
+
+[data-dock-asset="dock-details-1"] > .dock-card__poster { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; }
+
+[data-dock-asset="dock-details-4"] > .dock-card__poster,
+[data-dock-asset="dock-details-4"] > video[data-dock-video] { object-fit: cover; }

@@ -332,7 +332,7 @@
     }
   }
   videos.forEach(video => {
-    const card = video.closest('.dock-card, .dock-feature__media');
+    const card = video.closest('.dock-card, .dock-feature__media, .vi-card__media');
     video.addEventListener('playing', () => card.classList.add('is-video-ready'));
     ['emptied', 'error'].forEach(event => video.addEventListener(event, () => card.classList.remove('is-video-ready')));
   });

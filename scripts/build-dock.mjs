@@ -16,6 +16,10 @@ const cardAssets = {
   'customize-6': { file: 'weather-dock-card.jpg', width: 544, height: 544 }
 };
 const sceneAssets = {
+  'dock-details-6': 'files-in-dock',
+  'dock-details-5': 'icons-customization-doc-slide',
+  'dock-details-3': 'color-palettes-slide',
+  'dock-details-2': 'dock-spaces-slide',
   'dock-monitors': 'different-dock-for-all-monitors',
   'dock-workflow-workflows': 'workflows-dock-slide',
   'dock-workflow-customization': 'color-palettes-dock-slide',
@@ -24,6 +28,10 @@ const sceneAssets = {
   'dock-workflow-background-sound': 'background-sound-dock-slide'
 };
 const videoAssets = {
+  'dock-system': { name: 'system-dock-video', width: 4374, height: 1080, label: 'Work with macOS Dock' },
+  'dock-details-4': { name: 'gif-slide-video', width: 1080, height: 1272, label: 'GIF Widget' },
+  'dock-details-1': { name: 'downloads-folder-dock', width: 1542, height: 1080, label: 'Downloads Folder' },
+  'dock-spaces': { name: 'dock-spaces-video', width: 2344, height: 1080, label: 'Dock Spaces' },
   'customize-7': { name: 'widgets-and-presets', width: 1684, height: 1080, label: 'Dock widgets and ready made presets' },
   'dock-player': { name: 'full-screenplayer-dock', width: 1666, height: 1080, label: 'Full screen player in one click' }
 };
@@ -35,7 +43,8 @@ let html = fs.readFileSync(page, 'utf8').replace(
     if (video && fs.existsSync(path.join(root, `images/dock/video/${video.name}.mp4`))) {
       filled++;
       const poster = `/images/dock/posters/${video.name}.jpg`;
-      return `${open}<img class="dock-card__poster" src="${poster}" alt="" width="${video.width}" height="${video.height}" loading="lazy" decoding="async"><video poster="${poster}" width="${video.width}" height="${video.height}" muted loop playsinline preload="none" data-dock-video aria-label="${video.label}"><source data-src="/images/dock/video/${video.name}.mp4" type="video/mp4"></video>${close}`;
+      const posterLoading = name === 'dock-details-1' ? 'eager' : 'lazy';
+      return `${open}<img class="dock-card__poster" src="${poster}" alt="" width="${video.width}" height="${video.height}" loading="${posterLoading}" decoding="async"><video poster="${poster}" width="${video.width}" height="${video.height}" muted loop playsinline preload="none" data-dock-video aria-label="${video.label}"><source data-src="/images/dock/video/${video.name}.mp4" type="video/mp4"></video>${close}`;
     }
     const card = cardAssets[name];
     const candidates = card ? [`images/dock/cards/${card.file}`] : [];
