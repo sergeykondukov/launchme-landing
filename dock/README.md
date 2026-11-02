@@ -4,10 +4,13 @@ Local route: `/dock/`. Styles: `css/dock.css`. Interactions: `js/dock.js`.
 
 ## Hero layers
 
-- `images/dock/dock-first-layer.png`: stationary cat paws, bottom layer.
-- `images/dock/dock-second-layer-1.png` through `dock-second-layer-7.png`: top layers in slide order. The final layers use a centered 3450 × 985 canvas, with the original 2250px composition unchanged and 600px added on each side. CSS scales by height against the original stage, so extending the canvas preserves the visible size. Temporary 2250px slides also retain their original scale.
-- Slides 2–7 currently repeat slide 1. Replace the numbered PNG files with final artwork.
-- Seven selectors and play/pause use the homepage’s shared pill and round-button controls. Playback starts automatically and changes slides every 2 seconds. It pauses outside the viewport and when the tab is hidden; reduced motion starts it paused.
+- `images/dock/dock-first-layer.png`: stationary hands, bottom layer.
+- `images/dock/dock-second-layer-1.png` through `dock-second-layer-7.png`: middle slides, in order.
+- `images/dock/dock-third-layer.png`: stationary foreground fingers, above every middle slide.
+
+Export all final layers on the same centered 3450 × 985 canvas, retaining transparent margins and object positions. The three layers share one `.dock-hero__layers` wrapper and a single centering transform. There are no separate offsets or animations on the hands or fingers. The wrapper preserves the original composition scale while allowing the wider canvas to extend sideways. Legacy 2250px slide placeholders remain centered at the same height until replaced.
+
+The cursor reveal effect is removed from the hero. The existing mountains/footer effect is unchanged. Slides advance every 2 seconds with the shared homepage controls; playback pauses outside the viewport or in a hidden tab, and starts paused for reduced motion.
 
 ## Pick what you want
 

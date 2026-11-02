@@ -5,10 +5,12 @@
 .dock-hero__brand img { width: 48px; height: 48px; }
 .dock-hero h1 { font-size: clamp(34px, 4.2vw, 64px); letter-spacing: -.045em; line-height: 1.08; margin: 0; }
 .dock-hero__stage { position: relative; width: min(1500px, 100%); aspect-ratio: 2250 / 985; margin: 16px auto 0; }
-/* Keep the original 2250px composition scale; wider canvases extend beyond the stage. */
-.dock-hero__base, .dock-hero__slide { position: absolute; top: 0; left: 50%; display: block; width: auto; max-width: none; height: 100%; transform: translateX(-50%); object-fit: contain; pointer-events: none; }
+/* All three layers share one fixed canvas and a single centering transform. */
+.dock-hero__layers { position: absolute; top: 0; left: 50%; width: calc(100% * 3450 / 2250); height: 100%; transform: translateX(-50%); pointer-events: none; }
+.dock-hero__base, .dock-hero__slide, .dock-hero__fingers { position: absolute; inset: 0; display: block; width: 100%; max-width: none; height: 100%; object-fit: contain; pointer-events: none; }
 .dock-hero__base { z-index: 0; }
 .dock-hero__slides { position: absolute; inset: 0; z-index: 1; }
+.dock-hero__fingers { z-index: 2; }
 .dock-hero__slide { opacity: 0; transition: opacity .6s ease; }
 .dock-hero__slide.is-active { opacity: 1; }
 .dock-hero__controls { position: absolute; top: 29%; left: 50%; transform: translateX(-50%); margin-top: 0; z-index: 3; }
@@ -179,9 +181,6 @@
 /* The two wide cards have descriptive copy rather than a large feature headline. */
 .dock-card--strip .lm-card__subtitle, .dock-card--wide .lm-card__subtitle { font-size: clamp(12px, 1.45vw, 17px); font-weight: 400; line-height: 1.6; margin-top: 16px; }
 
-/* Same liquid cursor reveal as the mountains; aligned with the extended paw canvas. */
-.dock-hero__effect { position: absolute; top: 0; left: 50%; width: calc(100% * 3450 / 2250); height: 100%; transform: translateX(-50%); z-index: 0; pointer-events: none; }
-.dock-hero__effect canvas { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
 
 .dock-workspace-caption { max-width: 740px; margin: 24px auto 0; color: var(--muted); font-size: 17px; font-weight: 500; line-height: 1.3; text-align: left; }
 .dock-workspace-caption p { margin: 0; }
