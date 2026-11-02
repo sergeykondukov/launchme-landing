@@ -37,6 +37,7 @@ const FOOTER_PAGES = [
   'blog/how-to-get-launchpad-back-on-macos-26-tahoe.html',
   'blog/launchme-update-1-111.html',
   'blog/launchme-update-1-118.html',
+  'blog/launchme-update-2-0-notch.html',
   'blog/launchme-vs-appgrid.html',
   'blog/launchme-vs-apphub.html',
   'blog/launchme-vs-buho-launchpad.html',

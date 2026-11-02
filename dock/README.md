@@ -28,4 +28,4 @@ Carousels reuse the homepage's `.ai-vi` component and `js/sections.js`. Header a
 
 The image-only gallery has ten source slots (`dock-inspiration-1` … `dock-inspiration-10`). It loops right to left, supports mouse dragging, native touch scrolling, trackpad scrolling, and arrow keys. Automatic movement pauses during interaction and resumes after 1.8 seconds; reduced motion disables autoplay.
 
-Dock FAQ questions follow the supplied screenshot. The second answer matches the reference; the other answers are temporary copy approved by the user. The homepage shares the `.faq--cards` design and keeps its original text.
+Dock FAQ uses the user-supplied questions and answers with minor grammar and spelling corrections. The homepage shares the `.faq--cards` design and keeps its original text.
