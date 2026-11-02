@@ -22,14 +22,10 @@
     <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
 
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="/css/dock.css">
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0FCPNZRQH0"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){ dataLayer.push(arguments); }
-      gtag('js', new Date());
-      gtag('config', 'G-0FCPNZRQH0');
-    </script>
+<link rel="stylesheet" href="/css/cookie-consent.css">
+<script src="/js/cookie-consent.js" defer></script>
 </head>
 <body class="pricing-page">
     <!--
@@ -68,93 +64,44 @@
             <p class="pricing-hero__sub">Use for free, or unlock more features with a LaunchMe Pro.</p>
         </section>
 
-        <!-- Two-card layout: Free and Lifetime Pro. -->
-        <section class="pricing-cards-wrap container" aria-labelledby="plans-heading">
+        <section class="container pricing-current-plans" aria-labelledby="plans-heading">
             <h2 id="plans-heading" class="visually-hidden">Plans</h2>
-            <div class="pricing-cards-grid">
-                <article class="pricing-tier pricing-tier--free" aria-labelledby="tier-free-title">
-                    <div class="pricing-tier__head pricing-tier__head--pro">
-                        <h3 id="tier-free-title" class="pricing-tier__title">Free</h3>
-                        <p class="pricing-lifetime-price" aria-label="0 dollars">
-                            <span class="pricing-lifetime-price__currency">$</span><span class="pricing-lifetime-price__amount">0</span><span class="pricing-lifetime-price__cents">.00</span>
-                        </p>
-                        <p class="pricing-lifetime-meta">Forever free</p>
-                    </div>
-                    <!--
-                      Short labels match the “Free” rows in blog/data/comparison-data.json
-                      (tables in LaunchMe vs Launchie, HotLaunch, AppHub, etc.).
-                    -->
-                    <ul class="pricing-feature-list">
-                        <li>Search files</li>
-                        <li>Clipboard</li>
-                        <li>Calculator</li>
-                        <li>Hot corners</li>
-                        <li>Gesture invoke</li>
-                        <li>Add files to folders</li>
-                        <li>Save layouts</li>
-                        <li>Auto system icon style</li>
-                        <li>Page with categories</li>
-                        <li>Liquid Glass theme</li>
-                        <li>Emoji &amp; Symbols</li>
-                        <li>Rename apps</li>
-                    </ul>
-                </article>
-
-                <article class="pricing-tier pricing-tier--pro" aria-labelledby="tier-pro-title">
-                    <div class="pricing-tier__head pricing-tier__head--pro">
-                        <h3 id="tier-pro-title" class="pricing-tier__title">Lifetime Pro</h3>
-                        <p class="pricing-lifetime-price" aria-label="24 dollars and 99 cents">
-                            <span class="pricing-lifetime-price__currency">$</span><span class="pricing-lifetime-price__amount">24</span><span class="pricing-lifetime-price__cents">.99</span>
-                        </p>
-                        <p class="pricing-lifetime-meta">One-time purchase</p>
-                    </div>
-                    <!-- Pro feature list: text only (no feature icons), aligned with in-app paywall copy. -->
-                    <ul class="pricing-pro-features" aria-label="Included in LaunchMe Pro">
-                        <li class="pricing-pro-features__item">
-                            <span class="pricing-pro-features__label">Widgets</span>
-                        </li>
-                        <li class="pricing-pro-features__item">
-                            <span class="pricing-pro-features__label">Music widgets</span>
-                        </li>
-                        <li class="pricing-pro-features__item">
-                            <span class="pricing-pro-features__label">Weather Widgets</span>
-                        </li>
-                        <li class="pricing-pro-features__item">
-                            <span class="pricing-pro-features__label">Spaces <span class="pricing-pro-features__hint">(dynamic workspaces)</span></span>
-                        </li>
-                        <li class="pricing-pro-features__item">
-                            <span class="pricing-pro-features__label">Workflows <span class="pricing-pro-features__hint">(batch launch of apps and folders)</span></span>
-                        </li>
-                        <li class="pricing-pro-features__item">
-                            <span class="pricing-pro-features__label">Live / Dynamic wallpaper</span>
-                        </li>
-                        <li class="pricing-pro-features__item">
-                            <span class="pricing-pro-features__label">Icons customization</span>
-                        </li>
-                        <li class="pricing-pro-features__item">
-                            <span class="pricing-pro-features__label">Liquid Glass customization</span>
-                        </li>
-                        <li class="pricing-pro-features__item">
-                            <span class="pricing-pro-features__label">Clear Colored icons</span>
-                        </li>
-                        <li class="pricing-pro-features__item">
-                            <span class="pricing-pro-features__label">Hide Apps</span>
-                        </li>
-                        <li class="pricing-pro-features__item">
-                            <span class="pricing-pro-features__label">Sun &amp; Weather background</span>
-                        </li>
-                        <li class="pricing-pro-features__item pricing-pro-features__item--soon">
-                            <span class="pricing-pro-features__label">iCloud sync</span>
-                            <span class="pricing-pro-features__soon">Soon</span>
-                        </li>
-                        <li class="pricing-pro-features__item pricing-pro-features__item--soon">
-                            <span class="pricing-pro-features__label">Ask AI</span>
-                            <span class="pricing-pro-features__soon">Soon</span>
-                        </li>
-                    </ul>
-                </article>
+            <div class="dock-pricing__plans">
+<article class="dock-plan" aria-labelledby="dock-plan-monthly">
+            <h3 id="dock-plan-monthly">Monthly</h3>
+            <div class="dock-plan__pricing"><p class="dock-plan__price">$2.99</p><p class="dock-plan__tax">Tax might apply</p></div>
+            <ul class="dock-plan__features">
+                    <li><svg viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="m14 2 3.1 2.2 3.8.2 1.3 3.6 2.9 2.5-1.1 3.6 1.1 3.7-2.9 2.5-1.3 3.5-3.8.3L14 26l-3.1-2.4-3.8-.3-1.3-3.5-2.9-2.5L4 13.4 2.9 9.8l2.9-2.5 1.3-3.6 3.8-.2L14 2Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m9 13.5 3.3 3.4 6.2-7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Included <strong>Dock, Notch, Launcher</strong></span></li>
+                    <li><svg viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="m14 2 3.1 2.2 3.8.2 1.3 3.6 2.9 2.5-1.1 3.6 1.1 3.7-2.9 2.5-1.3 3.5-3.8.3L14 26l-3.1-2.4-3.8-.3-1.3-3.5-2.9-2.5L4 13.4 2.9 9.8l2.9-2.5 1.3-3.6 3.8-.2L14 2Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m9 13.5 3.3 3.4 6.2-7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>All new updates</span></li>
+                    <li><svg viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="m14 2 3.1 2.2 3.8.2 1.3 3.6 2.9 2.5-1.1 3.6 1.1 3.7-2.9 2.5-1.3 3.5-3.8.3L14 26l-3.1-2.4-3.8-.3-1.3-3.5-2.9-2.5L4 13.4 2.9 9.8l2.9-2.5 1.3-3.6 3.8-.2L14 2Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m9 13.5 3.3 3.4 6.2-7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Use up to 3 Macs</span></li>
+                    <li><svg viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="m14 2 3.1 2.2 3.8.2 1.3 3.6 2.9 2.5-1.1 3.6 1.1 3.7-2.9 2.5-1.3 3.5-3.8.3L14 26l-3.1-2.4-3.8-.3-1.3-3.5-2.9-2.5L4 13.4 2.9 9.8l2.9-2.5 1.3-3.6 3.8-.2L14 2Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m9 13.5 3.3 3.4 6.2-7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>14 days money back guarantee</span></li>
+            </ul>
+            <a class="dock-plan__download" href="/updates/LaunchMeDirect-2.08.2.dmg" data-ga="direct-dmg" data-ga-area="pricing-monthly">Download App</a>
+        </article>
+<article class="dock-plan dock-plan--featured" aria-labelledby="dock-plan-lifetime-access">
+            <h3 id="dock-plan-lifetime-access">Lifetime Access</h3>
+            <div class="dock-plan__pricing"><del class="dock-plan__old-price">$79.99</del><p class="dock-plan__price">$59.99</p><p class="dock-plan__tax">Tax might apply</p></div>
+            <ul class="dock-plan__features">
+                    <li><svg viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="m14 2 3.1 2.2 3.8.2 1.3 3.6 2.9 2.5-1.1 3.6 1.1 3.7-2.9 2.5-1.3 3.5-3.8.3L14 26l-3.1-2.4-3.8-.3-1.3-3.5-2.9-2.5L4 13.4 2.9 9.8l2.9-2.5 1.3-3.6 3.8-.2L14 2Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m9 13.5 3.3 3.4 6.2-7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Included <strong>Dock, Notch, Launcher</strong></span></li>
+                    <li><svg viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="m14 2 3.1 2.2 3.8.2 1.3 3.6 2.9 2.5-1.1 3.6 1.1 3.7-2.9 2.5-1.3 3.5-3.8.3L14 26l-3.1-2.4-3.8-.3-1.3-3.5-2.9-2.5L4 13.4 2.9 9.8l2.9-2.5 1.3-3.6 3.8-.2L14 2Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m9 13.5 3.3 3.4 6.2-7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>All new updates forever</strong></span></li>
+                    <li><svg viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="m14 2 3.1 2.2 3.8.2 1.3 3.6 2.9 2.5-1.1 3.6 1.1 3.7-2.9 2.5-1.3 3.5-3.8.3L14 26l-3.1-2.4-3.8-.3-1.3-3.5-2.9-2.5L4 13.4 2.9 9.8l2.9-2.5 1.3-3.6 3.8-.2L14 2Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m9 13.5 3.3 3.4 6.2-7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Use up to 3 Macs</span></li>
+                    <li><svg viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="m14 2 3.1 2.2 3.8.2 1.3 3.6 2.9 2.5-1.1 3.6 1.1 3.7-2.9 2.5-1.3 3.5-3.8.3L14 26l-3.1-2.4-3.8-.3-1.3-3.5-2.9-2.5L4 13.4 2.9 9.8l2.9-2.5 1.3-3.6 3.8-.2L14 2Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m9 13.5 3.3 3.4 6.2-7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>14 days money back guarantee</span></li>
+            </ul>
+            <a class="dock-plan__download" href="/updates/LaunchMeDirect-2.08.2.dmg" data-ga="direct-dmg" data-ga-area="pricing-lifetime-access">Download App</a>
+        </article>
+<article class="dock-plan" aria-labelledby="dock-plan-yearly">
+            <h3 id="dock-plan-yearly">Yearly</h3>
+            <div class="dock-plan__pricing"><p class="dock-plan__price">$19.99</p><p class="dock-plan__tax">Tax might apply</p></div>
+            <ul class="dock-plan__features">
+                    <li><svg viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="m14 2 3.1 2.2 3.8.2 1.3 3.6 2.9 2.5-1.1 3.6 1.1 3.7-2.9 2.5-1.3 3.5-3.8.3L14 26l-3.1-2.4-3.8-.3-1.3-3.5-2.9-2.5L4 13.4 2.9 9.8l2.9-2.5 1.3-3.6 3.8-.2L14 2Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m9 13.5 3.3 3.4 6.2-7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Included <strong>Dock, Notch, Launcher</strong></span></li>
+                    <li><svg viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="m14 2 3.1 2.2 3.8.2 1.3 3.6 2.9 2.5-1.1 3.6 1.1 3.7-2.9 2.5-1.3 3.5-3.8.3L14 26l-3.1-2.4-3.8-.3-1.3-3.5-2.9-2.5L4 13.4 2.9 9.8l2.9-2.5 1.3-3.6 3.8-.2L14 2Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m9 13.5 3.3 3.4 6.2-7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>All new updates</span></li>
+                    <li><svg viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="m14 2 3.1 2.2 3.8.2 1.3 3.6 2.9 2.5-1.1 3.6 1.1 3.7-2.9 2.5-1.3 3.5-3.8.3L14 26l-3.1-2.4-3.8-.3-1.3-3.5-2.9-2.5L4 13.4 2.9 9.8l2.9-2.5 1.3-3.6 3.8-.2L14 2Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m9 13.5 3.3 3.4 6.2-7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Use up to 3 Macs</span></li>
+                    <li><svg viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="m14 2 3.1 2.2 3.8.2 1.3 3.6 2.9 2.5-1.1 3.6 1.1 3.7-2.9 2.5-1.3 3.5-3.8.3L14 26l-3.1-2.4-3.8-.3-1.3-3.5-2.9-2.5L4 13.4 2.9 9.8l2.9-2.5 1.3-3.6 3.8-.2L14 2Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m9 13.5 3.3 3.4 6.2-7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>7 days free try</span></li>
+                    <li><svg viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="m14 2 3.1 2.2 3.8.2 1.3 3.6 2.9 2.5-1.1 3.6 1.1 3.7-2.9 2.5-1.3 3.5-3.8.3L14 26l-3.1-2.4-3.8-.3-1.3-3.5-2.9-2.5L4 13.4 2.9 9.8l2.9-2.5 1.3-3.6 3.8-.2L14 2Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m9 13.5 3.3 3.4 6.2-7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>14 days money back guarantee</span></li>
+            </ul>
+            <a class="dock-plan__download" href="/updates/LaunchMeDirect-2.08.2.dmg" data-ga="direct-dmg" data-ga-area="pricing-yearly">Download App</a>
+        </article>
             </div>
-            <p class="pricing-vat-note">Final charge may include VAT depending on your country.</p>
         </section>
 
         <!--
@@ -164,7 +111,7 @@
         <section id="launchme-features" class="section lm-features">
             <div class="container">
                 <h2 class="section-title">LaunchMe Features</h2>
-                <p class="section-sub">Everything you loved about Launchpad, plus live video wallpapers, widgets, file access, and deep customization — built for macOS 26 Tahoe.</p>
+                <p class="section-sub">Everything you loved about Launchpad, and even more! Built for macOS 26 Tahoe and macOS 27 Golden Gate.</p>
                 <div class="grid grid-4 lm-features-grid">
                     <article class="lm-feature-tile">
                         <img class="lm-feature-icon" src="/images/help/gesture-icon.png" alt="Trackpad gesture icon">
@@ -372,6 +319,7 @@
                     <a href="/help/">Help Center</a>
                     <a href="/changelog/">Changelog</a>
                     <a href="/privacy/">Privacy Policy</a>
+                    <button class="cookie-settings" type="button" data-cookie-settings>Cookie settings</button>
                     <a href="/terms/">Terms of Service</a>
                     <a href="/refunds/">Refund Policy</a>
                     <a href="/press-assets/">Press Assets</a>

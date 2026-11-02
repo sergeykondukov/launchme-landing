@@ -2538,7 +2538,7 @@ body:has(> .lp-header) {
   font-weight: 700;
   color: var(--text);
 }
-.footer-col a {
+.footer-col :is(a, .cookie-settings) {
   display: block;
   padding: 7px 0;
   font-size: 15px;
@@ -2547,7 +2547,7 @@ body:has(> .lp-header) {
   text-decoration: none;
   transition: color .15s ease;
 }
-.footer-col a:hover { color: #000; }
+.footer-col :is(a, .cookie-settings):hover { color: #000; text-decoration: none; }
 
 /* Interactive mountains backdrop, pinned to the footer's bottom edge */
 .footer-bg {
@@ -2597,12 +2597,12 @@ body:has(> .lp-header) {
     gap: 24px;
   }
   .footer-links .footer-col { min-width: 0; }
-  .footer-col a { white-space: normal; overflow-wrap: normal; word-break: normal; }
+  .footer-col :is(a, .cookie-settings) { white-space: normal; overflow-wrap: normal; word-break: normal; }
 }
 @media (max-width: 460px) {
   .footer-links { gap: 18px; }
   .footer-col__title { font-size: 15px; }
-  .footer-col a { font-size: 14px; padding: 6px 0; }
+  .footer-col :is(a, .cookie-settings) { font-size: 14px; padding: 6px 0; }
 }
 
 /* ---- Section intro eyebrow (ported) ---- */

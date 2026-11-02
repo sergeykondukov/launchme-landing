@@ -291,3 +291,6 @@
 
 [data-dock-asset="dock-details-4"] > .dock-card__poster,
 [data-dock-asset="dock-details-4"] > video[data-dock-video] { object-fit: cover; }
+
+/* Standalone Pricing reuses the same plan cards and full container width as Dock. */
+.pricing-current-plans { padding-top: 20px; padding-bottom: 32px; }

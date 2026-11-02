@@ -36,13 +36,6 @@
     <meta name="twitter:image" content="https://launchmeapp.com/images/website-preview.jpg">
 
     <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0FCPNZRQH0"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){ dataLayer.push(arguments); }
-      gtag('js', new Date());
-      gtag('config', 'G-0FCPNZRQH0');
-    </script>
 
     <!--
       Structured data (JSON-LD) for search engines:
@@ -232,6 +225,8 @@
             margin: 0;
         }
     </style>
+<link rel="stylesheet" href="/css/cookie-consent.css">
+<script src="/js/cookie-consent.js" defer></script>
 </head>
 <body>
     <!-- Nav from partials/header-marketing.html (pnpm run build:headers). -->
@@ -438,6 +433,7 @@
                     <a href="/help/">Help Center</a>
                     <a href="/changelog/">Changelog</a>
                     <a href="/privacy/">Privacy Policy</a>
+                    <button class="cookie-settings" type="button" data-cookie-settings>Cookie settings</button>
                     <a href="/terms/">Terms of Service</a>
                     <a href="/refunds/">Refund Policy</a>
                     <a href="/press-assets/">Press Assets</a>
