@@ -3214,3 +3214,20 @@ a.space-card__download:focus-visible {
 
 /* Clip answer content while its height and padding animate. */
 .faq--cards .accordion-panel { overflow: hidden; }
+
+/* Native progressive JPEG scans refine the photo over a tiny embedded preview. */
+.ready-for-touch { padding: 112px 0 0; }
+.ready-for-touch .section-title { margin: 0 0 14px; color: #12445b; font-size: clamp(30px, 3.2vw, 46px); font-weight: 750; letter-spacing: -.04em; line-height: 1.12; }
+.ready-for-touch .section-sub { max-width: 650px; margin: 0 auto 38px; color: var(--muted); font-size: 17px; font-weight: 400; line-height: 1.55; }
+.ready-for-touch__media { position: relative; aspect-ratio: 1147 / 750; border-radius: 50px; overflow: hidden; background-position: center; background-size: cover; isolation: isolate; }
+.ready-for-touch__media::before { content: ''; position: absolute; inset: -12px; background: inherit; filter: blur(10px); z-index: -1; }
+.ready-for-touch__media img { display: block; width: 100%; height: 100%; object-fit: cover; }
+@media (max-width: 767px) {
+ .ready-for-touch { padding-top: 70px; }
+ .ready-for-touch .section-sub { font-size: 15px; margin-bottom: 26px; }
+ .ready-for-touch .section-sub br { display: none; }
+ .ready-for-touch__media { border-radius: 34px; }
+}
+
+.ready-for-touch + #launchme-features { padding-top: 96px; }
+@media (max-width: 767px) { .ready-for-touch + #launchme-features { padding-top: 80px; } }
