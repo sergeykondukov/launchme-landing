@@ -16,6 +16,7 @@ const cardAssets = {
   'customize-6': { file: 'weather-dock-card.jpg', width: 544, height: 544 }
 };
 const sceneAssets = {
+  'dock-wallpaper': 'rings-wallpaper-dock',
   'dock-details-6': 'files-in-dock',
   'dock-details-5': 'icons-customization-doc-slide',
   'dock-details-3': 'color-palettes-slide',
