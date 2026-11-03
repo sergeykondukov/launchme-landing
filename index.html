@@ -32,6 +32,10 @@
 
     <link rel="preload" href="/css/style.css" as="style">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/dock.css">
+    <link rel="stylesheet" href="/css/music.css">
+    <script src="/js/music-intro.js" defer></script>
+    <script src="/js/dock.js" defer></script>
 
     <!--
       Open Graph tags:
@@ -157,6 +161,38 @@
                 </div>
             </div>
         </section>
+
+<section id="dock" class="dock-hero dock-home" aria-labelledby="dock-title">
+<div class="container"><p class="dock-hero__brand"><img src="/images/logo-icon.png" alt="" width="48" height="48">Dock</p><h2 id="dock-title" class="dock-hero__title">Truly Your Dock.<br>More Personal. More Productive</h2><p class="dock-hero__subtitle">New LaunchMe Feature</p></div>
+<div class="dock-hero__stage"><div class="dock-hero__layers"><img class="dock-hero__base" src="/images/dock/dock-first-layer.png" alt="Hands holding a customizable LaunchMe Dock" width="3450" height="985" loading="lazy">
+<div class="dock-hero__slides" role="group" aria-label="Dock styles"><img class="dock-hero__slide is-active" src="/images/dock/dock-second-layer-1.png" alt="" width="3450" height="985" aria-hidden="true" loading="lazy">
+<img class="dock-hero__slide" src="/images/dock/dock-second-layer-2.png" alt="" width="2250" height="985" aria-hidden="true" loading=lazy>
+<img class="dock-hero__slide" src="/images/dock/dock-second-layer-3.png" alt="" width="2250" height="985" aria-hidden="true" loading=lazy>
+<img class="dock-hero__slide" src="/images/dock/dock-second-layer-4.png" alt="" width="2250" height="985" aria-hidden="true" loading=lazy>
+<img class="dock-hero__slide" src="/images/dock/dock-second-layer-5.png" alt="" width="2250" height="985" aria-hidden="true" loading=lazy>
+<img class="dock-hero__slide" src="/images/dock/dock-second-layer-6.png" alt="" width="2250" height="985" aria-hidden="true" loading=lazy>
+<img class="dock-hero__slide" src="/images/dock/dock-second-layer-7.png" alt="" width="2250" height="985" aria-hidden="true" loading=lazy></div>
+<img class="dock-hero__fingers" src="/images/dock/dock-third-layer.png" alt="" width="3450" height="985" aria-hidden="true" loading="lazy">
+</div>
+<div class="dock-hero__controls ai-explore__controls" aria-label="Choose a Dock style">
+    <div class="ai-explore__dots" aria-label="Slides"><button class="ai-dot is-active" type="button" data-dock-slide="0" aria-label="Dock style 1" aria-pressed="true"></button><button class="ai-dot" type="button" data-dock-slide="1" aria-label="Dock style 2" aria-pressed="false"></button><button class="ai-dot" type="button" data-dock-slide="2" aria-label="Dock style 3" aria-pressed="false"></button><button class="ai-dot" type="button" data-dock-slide="3" aria-label="Dock style 4" aria-pressed="false"></button><button class="ai-dot" type="button" data-dock-slide="4" aria-label="Dock style 5" aria-pressed="false"></button><button class="ai-dot" type="button" data-dock-slide="5" aria-label="Dock style 6" aria-pressed="false"></button><button class="ai-dot" type="button" data-dock-slide="6" aria-label="Dock style 7" aria-pressed="false"></button></div>
+    <button type="button" class="dock-hero__play ai-explore__play" aria-label="Pause Dock slideshow" aria-pressed="true">
+        <svg class="ai-explore__icon-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+        <svg class="ai-explore__icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+    </button>
+</div>
+<div class="dock-home__cta"><a class="lp-btn lp-btn--lg" href="/dock/" data-ga="learn-more-dock" data-ga-area="home-dock">Learn More about Dock</a></div>
+</div>
+</section>
+
+<section id="music" class="music-intro music-home" aria-labelledby="music-title">
+    <img class="music-intro__hero" src="/images/music_page/Music-Top-Img.png" alt="LaunchMe music player with animated album artwork and a vinyl record" width="1199" height="479" loading="lazy" decoding="async">
+    <div class="container">
+        <p class="music-intro__brand"><img src="/images/logo-icon.png" alt="" width="52" height="52">Music</p>
+        <h2 id="music-title" class="music-intro__title">Stunning design<br>Stunningly aesthetic</h2>
+        <a class="lp-btn lp-btn--lg" href="/music/" data-ga="learn-more-music" data-ga-area="home-music">Learn More about Music</a>
+    </div>
+</section>
 
         <!-- ===== Notch integration: intro + image-only carousel (same slider as ai-explore) ===== -->
         <section id="notch" class="section ai-explore notch-explore">

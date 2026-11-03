@@ -115,8 +115,9 @@
                 + ' .lm-feature-tile, .language-item, .accordion-item, .guides-list li, .cta-pill,'
                 + ' .ai-explore__title, .ai-vi__eyebrow, .ai-vi__title, .ai-vi__sub, .vi-card, .music-style,'
                 + ' .dock-page main h1, .dock-page main h2, .dock-plan h3,'
-                + ' .dock-hero__brand, .dock-hero__subtitle, .dock-hero__copy > p, .dock-heading > p,'
-                + ' .dock-big-screen p, .dock-pricing__heading > p, .dock-workspace-caption';
+                + ' .dock-hero__brand, .dock-hero__title, .dock-hero__subtitle, .dock-hero__copy > p, .dock-heading > p, .dock-home__cta .lp-btn,'
+                + ' .dock-big-screen p, .dock-pricing__heading > p, .dock-workspace-caption,'
+                + ' .music-intro__brand, .music-intro h1, .music-intro__title, .music-intro__description, .music-home .lp-btn';
             var els = [].slice.call(document.querySelectorAll(sel));
             if (!els.length) return;
             // Add the hook class from JS so content stays visible if JS/anim is off.

@@ -39,10 +39,15 @@
       syncPlayback();
     }).observe(hero);
   }
+  motion.addEventListener('change', () => {
+    if (motion.matches) playing = false;
+    syncPlayback();
+  });
   syncPlayback();
 
   // Cards start far apart and converge on their centered flex layout as it enters view.
   const collage = document.querySelector('.dock-pick__collage');
+  if (!collage) return;
   const rows = [...collage.querySelectorAll('.dock-pick__row')];
   const pickItems = rows.map(row => [...row.querySelectorAll('.dock-pick__item')]);
   pickItems.flat().forEach(item => {
@@ -77,11 +82,7 @@
   }
   window.addEventListener('scroll', scheduleRows, { passive: true });
   window.addEventListener('resize', scheduleRows);
-  motion.addEventListener('change', () => {
-    if (motion.matches) playing = false;
-    syncPlayback();
-    scheduleRows();
-  });
+  motion.addEventListener('change', scheduleRows);
   renderRows();
 
   const workspaceButtons = [...document.querySelectorAll('[data-workspace]')];

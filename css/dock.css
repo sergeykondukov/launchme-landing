@@ -3,7 +3,7 @@
 .dock-hero { padding: 64px 0 48px; text-align: center; }
 .dock-hero__brand { display: flex; align-items: center; justify-content: center; gap: 10px; margin: 0 0 26px; font-size: 36px; font-weight: 750; line-height: 1; }
 .dock-hero__brand img { width: 48px; height: 48px; }
-.dock-hero h1 { font-size: clamp(34px, 4.2vw, 64px); letter-spacing: -.045em; line-height: 1.08; margin: 0; }
+.dock-hero :is(h1, .dock-hero__title) { font-size: clamp(34px, 4.2vw, 64px); letter-spacing: -.045em; line-height: 1.08; margin: 0; }
 .dock-hero__stage { position: relative; width: min(1500px, 100%); aspect-ratio: 2250 / 985; margin: 16px auto 0; }
 /* All three layers share one fixed canvas and a single centering transform. */
 .dock-hero__layers { position: absolute; top: 0; left: 50%; width: calc(100% * 3450 / 2250); height: 100%; transform: translateX(-50%); pointer-events: none; }
@@ -63,7 +63,7 @@
  .dock-hero { padding-top: 38px; padding-bottom: 36px; }
  .dock-hero__brand { font-size: 27px; margin-bottom: 22px; }
  .dock-hero__brand img { width: 36px; height: 36px; }
- .dock-hero h1 { font-size: clamp(29px, 5.8vw, 44px); }
+ .dock-hero :is(h1, .dock-hero__title) { font-size: clamp(29px, 5.8vw, 44px); }
  .dock-hero__stage { width: 145%; max-width: none; margin: 13px 0 0 -22.5%; }
  .dock-hero__copy { margin-top: calc(100vw * -.311038); }
  .dock-hero__copy h2 { font-size: 30px; margin-bottom: 14px; }
@@ -297,3 +297,11 @@
 
 .dock-wallpaper .section-title { background: linear-gradient(to right, #005e9d, #ff003c); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 .dock-wallpaper .dock-feature__media { aspect-ratio: 1121 / 754; }
+
+/* Home teaser shares the Dock hero, with a CTA over the lower artwork. */
+.dock-home { padding-bottom: 0; overflow: clip; }
+.dock-home__cta { position: absolute; top: 61%; left: 0; width: 100%; z-index: 3; }
+.dock-home :is(a, button):focus-visible { outline: 3px solid #00aabe; outline-offset: 4px; }
+@media (max-width: 767px) {
+ .dock-home__cta .lp-btn { font-size: 14px; padding: 12px 22px; }
+}
