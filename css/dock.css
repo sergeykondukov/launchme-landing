@@ -305,3 +305,16 @@
 @media (max-width: 767px) {
  .dock-home__cta .lp-btn { font-size: 14px; padding: 12px 22px; }
 }
+
+/* Keep scroll reveal on transform; use scale for button interaction. */
+.dock-home__cta .lp-btn {
+ transition: opacity .7s cubic-bezier(.22,.61,.36,1), transform .7s cubic-bezier(.22,.61,.36,1), scale .18s ease, box-shadow .18s ease;
+}
+@media (hover: hover) {
+ .dock-home__cta .lp-btn:hover { scale: 1.04; box-shadow: 0 8px 22px rgb(0 0 0 / .16); }
+}
+.dock-home__cta .lp-btn:active { scale: .96; box-shadow: 0 2px 6px rgb(0 0 0 / .12); }
+@media (prefers-reduced-motion: reduce) {
+ .dock-home__cta .lp-btn { transition: none; }
+ .dock-home__cta .lp-btn:is(:hover, :active) { scale: 1; }
+}
