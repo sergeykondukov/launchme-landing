@@ -3237,3 +3237,9 @@ a.space-card__download:focus-visible {
 /* Image card before the home Customization section, matching Dock feature cards. */
 .home-working-image .dock-feature__media { aspect-ratio: auto; }
 .home-working-image img { display: block; width: 100%; height: auto; }
+
+/* Crossfade the home hero previews without changing the scene layout. */
+.hero-slideshow { display: grid; width: 100%; max-width: 1100px; position: relative; z-index: 2; pointer-events: none; }
+.hero-slideshow__image { grid-area: 1 / 1; opacity: 0; transition: opacity .5s ease-in-out; }
+.hero-slideshow__image.is-active { opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .hero-slideshow__image { transition: none; } }

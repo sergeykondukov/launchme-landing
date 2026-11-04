@@ -286,3 +286,36 @@ document.addEventListener('click', function (e) {
   });
 });
 
+
+// Cycle the home hero previews every two seconds after the images are ready.
+(() => {
+  const root = document.querySelector('[data-hero-slideshow]');
+  if (!root) return;
+  const slides = [...root.querySelectorAll('.hero-slideshow__image')];
+  const motion = matchMedia('(prefers-reduced-motion: reduce)');
+  let active = 0;
+  let timer;
+  let visible = true;
+  let ready = false;
+  function sync() {
+    clearInterval(timer);
+    if (!ready || !visible || document.hidden || motion.matches) return;
+    timer = setInterval(() => {
+      slides[active].classList.remove('is-active');
+      active = (active + 1) % slides.length;
+      slides[active].classList.add('is-active');
+    }, 2000);
+  }
+  Promise.all(slides.map(slide => slide.decode().catch(() => {}))).then(() => {
+    ready = true;
+    sync();
+  });
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      sync();
+    }).observe(root);
+  }
+  document.addEventListener('visibilitychange', sync);
+  motion.addEventListener('change', sync);
+})();
