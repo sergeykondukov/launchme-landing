@@ -2398,6 +2398,8 @@ body:has(> .lp-header) {
 
 .hero-title { letter-spacing: -0.02em; }
 .hero-sub { max-width: 720px; margin-left: auto; margin-right: auto; }
+.hero-sub--wide { max-width: 960px; }
+@media (max-width: 767px) { .hero-sub--wide br { display: none; } }
 .hero-facts {
   margin: 18px 0 0;
   font-size: 15px;
