@@ -3233,3 +3233,7 @@ a.space-card__download:focus-visible {
 
 .ready-for-touch + #launchme-features { padding-top: 96px; }
 @media (max-width: 767px) { .ready-for-touch + #launchme-features { padding-top: 80px; } }
+
+/* Image card before the home Customization section, matching Dock feature cards. */
+.home-working-image .dock-feature__media { aspect-ratio: auto; }
+.home-working-image img { display: block; width: 100%; height: auto; }
