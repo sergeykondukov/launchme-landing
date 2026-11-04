@@ -1,5 +1,7 @@
 # LaunchMe Help Center
 
+Documentation updated: 2026-11-04. Website version. Supports macOS 26 and macOS 27.
+
 - [Full screen launcher](full-screen-launcher.en.md)
 - [Notch](notch.en.md)
 - [Dock](dock.en.md)
@@ -8,6 +10,8 @@
 ## Full screen launcher
 
 ### Getting started
+
+Install LaunchMe on macOS 26 or macOS 27 and open your first launcher view. This guide covers the website download, initial setup, and the choice between Classic view and Categories.
 
 #### System requirements
 
@@ -50,6 +54,8 @@ The menu bar's **Show / Hide** command and your keyboard shortcut toggle the lau
 
 ### Shortcuts and gestures
 
+Choose how to open and hide the full-screen launcher: a keyboard shortcut, a trackpad pinch, or a hot corner. Hot corners require Accessibility permission.
+
 #### Keyboard shortcut
 
 Open **Settings → General → Hot Key** and click **Change**. Press your new key combination, check the captured keys, then click **Save**. **Cancel** leaves the previous shortcut in place.
@@ -71,6 +77,8 @@ In **Settings → General → Hot corners invoke**, enable **Top Left**, **Top R
 This feature needs **Accessibility** permission. Use **Open Settings** if prompted, enable LaunchMe under **System Settings → Privacy & Security → Accessibility**, then restart LaunchMe. **Recheck** checks the permission again.
 
 ### Apps and layout
+
+Organize the apps in your launcher and choose how their names and icons appear. Moving or hiding an item changes your LaunchMe setup; deleting an app from your Mac is a separate action.
 
 #### Moving apps
 
@@ -120,6 +128,8 @@ Protected system apps and LaunchMe itself do not offer this action. Use **Hide a
 
 ### Folders
 
+Group apps in LaunchMe folders, edit their contents, and customize the open-folder grid. Finder-folder shortcuts link to real folders on your Mac and work differently from app groups.
+
 #### Creating a folder
 
 Open the launcher tools and choose **Create folder**. Give the folder a name, select its apps, and save it. Click the folder icon to open its contents.
@@ -152,6 +162,8 @@ You can also add Finder folders to the [Dock](dock.en.md#finder-folders) for qui
 
 ### Categories
 
+Browse your apps by category and choose which groups appear on the categories page. You can make this page your starting view and use Hidden to restore hidden apps.
+
 Open **Settings → Apps** to configure the categories page.
 
 **Show categories page** makes it available alongside your grid. **Show as main page on launch** opens it first when you invoke LaunchMe. The category selection controls choose which app groups appear.
@@ -159,6 +171,8 @@ Open **Settings → Apps** to configure the categories page.
 The page also includes **Recently opened**, **Other**, and **Hidden** groups. Open a card to browse its apps. The Hidden group is where you can restore apps removed with **Hide app**.
 
 ### Sorting and saved layouts
+
+Sort your launcher, group apps automatically, or try restoring a previous macOS Launchpad arrangement. Save your current layout before replacing an organization you want to keep.
 
 #### Sort A-Z
 
@@ -191,6 +205,8 @@ Use **Settings → Apps → Reset Layout** to reset the arrangement, folders, an
 Resetting the layout does not uninstall applications. It does remove launcher organization, so save a layout first if you want to keep it.
 
 ### Search
+
+Find apps, search for files, copy emoji, and calculate answers from the launcher search field. File search relies on macOS indexing and may need access to protected folders.
 
 #### Search modes
 
@@ -231,6 +247,8 @@ Use Favorites for characters you return to often. Paste the copied character int
 
 ### Clipboard
 
+Find and copy earlier clipboard items from the full-screen launcher. The history is shared with Notch, while files and screenshots need access to their containing folders.
+
 #### Copying an earlier item
 
 Select **Clipboard** in search to browse your clipboard history. Search for an item, click **Copy**, then paste it into your destination app. You can also use the arrow keys and **Return** to copy a selected item.
@@ -260,6 +278,8 @@ New screenshots taken with **⇧⌘3** or **⇧⌘4** can appear in **Clipboard 
 Use **Choose Screenshot Folder…** to select their save location. Desktop is the usual default, but choose your actual destination if you changed it in macOS. LaunchMe needs access to that folder to read the screenshot files.
 
 ### Appearance
+
+Customize the full-screen launcher with themes, backgrounds, glass materials, and icon labels. Requirements vary by setting; the sections below identify paid and macOS-specific options.
 
 #### Light, Dark, and System
 
@@ -328,6 +348,8 @@ For the separate desktop wallpaper widget, see [Dock → Glowing wallpaper](dock
 
 ### Widgets
 
+Add clocks, calendars, weather, music, photos, and decorative widgets to your launcher grid. Launcher widgets require Pro, and event-list calendars also need Calendar permission.
+
 Open the launcher tools and choose **Add widget**. Select a widget, choose one of its offered sizes, and add it to the grid. Use its context menu to edit or remove it. Widgets require **Pro**.
 
 The editor shows controls for the selected widget. A background, font, or color control in one widget may not be present in another.
@@ -386,6 +408,8 @@ Pomodoro is added through the notch or Dock rather than the full-screen widget g
 
 ### Spaces and themes
 
+Use LaunchMe Spaces to keep different launcher layouts and visual setups, or install and share ready-made themes. Spaces require Pro and are separate from macOS desktop Spaces and Dock Spaces.
+
 #### Creating a Space
 
 Open **Settings → Apps → Spaces → Create Space**. Choose **Create with current settings** to keep your current setup as a starting point, or **Create with default layout** to start fresh.
@@ -428,6 +452,8 @@ A theme made with a newer app version may require an update. If the file is dama
 
 ### Workflows
 
+Create a Workflow to open a chosen set of apps and Finder folders together. Workflows require Pro and can also be pinned to Notch or Dock.
+
 #### Creating a Workflow
 
 Open **Settings → Apps → Workflows → Create Workflow**. Enter a name, choose an icon or image, select the apps to launch, and add Finder folders to open.
@@ -441,6 +467,8 @@ Open a Workflow to launch its configured apps and folders. Right-click and choos
 **Delete Workflow** removes the shortcut. It does not delete the apps or Finder folders. You can also pin a Workflow to the notch or Dock.
 
 ### Window behavior
+
+Choose how the full-screen launcher behaves with desktop Spaces, Stage Manager, and full-screen apps. These options control the launcher window; Dock has its own visibility settings.
 
 #### Always On
 
@@ -465,6 +493,8 @@ This setting controls the full-screen launcher. The Dock has its own full-screen
 **Reduce animation (Beta)** uses a simpler centered folder-opening animation. Turn it off to use the more elaborate folder transition.
 
 ### Account and maintenance
+
+Manage your LaunchMe account, paid access, active Macs, and app maintenance. This guide also explains subscription cancellation, account deletion, updates, cache cleanup, and language preferences.
 
 #### Sign in and license
 
@@ -512,6 +542,8 @@ Under **Language**, choose an app language or **System language**. This saves yo
 
 ### Menus
 
+Find the commands available in the menu bar, launcher tools, and app context menus. The commands you see depend on the current view, item, and feature access.
+
 #### Menu bar
 
 - **Show / Hide:** toggle the launcher.
@@ -530,6 +562,8 @@ Under **Language**, choose an app language or **System language**. This saves yo
 **Open**, **Rename**, **Add to Notch**, **Add to Dock**, **Customize icon**, **Reset icon**, **Hide app**, and **Delete from Mac** appear according to the app's state and your access. An already pinned item can show its existing placement instead of another add action.
 
 ### Troubleshooting
+
+Resolve missing grid tools, locked paid features, clipboard file-access issues, and layout or theme import problems. Start with the section that matches the behavior you see.
 
 #### Grid tools are missing
 
@@ -551,6 +585,8 @@ Launchpad restoration needs a readable old database. Theme import needs a suppor
 
 ### Getting started
 
+Enable LaunchMe Notch and choose how to expand it from the top of your display. The full Notch experience requires Pro and is currently in Beta.
+
 Open **Settings → General → LaunchMe Notch**, enable it, and follow the permission setup. The full notch requires **Pro**. Without Pro, the welcome view introduces the feature and offers an upgrade.
 
 Move the pointer over the notch area to reveal it. You can change this to a click in **Notch settings → General → Expand**. Open Notch settings from the LaunchMe menu bar menu or the gear in the expanded notch.
@@ -558,6 +594,8 @@ Move the pointer over the notch area to reveal it. You can change this to a clic
 LaunchMe Notch is in Beta.
 
 ### Home and navigation
+
+Switch between the Notch home layout, Pocket, Clipboard, and Timer. You can also choose what appears in the compact view when no temporary alert or timer takes priority.
 
 The expanded notch has shortcuts for **Home**, **Pocket**, **Clipboard**, **Timer**, **Add widgets**, and **Settings**.
 
@@ -582,6 +620,8 @@ An active timer or temporary alert can take priority over the idle view.
 
 ### Widgets and shortcuts
 
+Build your Notch home view with widgets and shortcuts to apps, folders, and Workflows. Arrange the available blocks to fit your layout and choose whether to share it across LaunchMe Spaces.
+
 #### Add widgets
 
 Expand the notch and click **Add widgets**. Choose a supported widget and size. Use its edit controls to change the style, text, background, or other settings offered for that widget.
@@ -604,6 +644,8 @@ The layout can be shared across LaunchMe Spaces or stored separately for each on
 
 ### Pocket
 
+Keep file shortcuts nearby in Notch Pocket and drag them into other apps when needed. Pocket points to your original files; AirDrop sharing continues through the macOS sharing interface.
+
 Drag files into **Pocket** to keep them nearby while you work. The notch separates files, launcher shortcuts, and folder shortcuts into their own areas.
 
 Drag a file out of Pocket when you need it in another app. A Pocket entry points to the file; avoid treating Pocket as a separate backup of the original.
@@ -615,6 +657,8 @@ Drag files onto the notch's **AirDrop** drop area to start sharing them through 
 AirDrop availability and recipients depend on your Mac's AirDrop settings and nearby devices. The drop area does not send files to a recipient automatically.
 
 ### Clipboard
+
+Browse, filter, favorite, and copy items from the clipboard history in Notch. This is the same history used by launcher search, including files and screenshots with folder access.
 
 Open **Clipboard** in the notch toolbar. This is the same history used by the launcher's Clipboard search.
 
@@ -636,6 +680,8 @@ Grant access to the save folder when requested. The usual destination is Desktop
 
 ### Timer
 
+Start a countdown in Notch and choose the sound that plays when it finishes. The timer keeps running as you switch Notch views and is separate from Pomodoro sessions.
+
 Open **Timer** in the notch toolbar. Choose a preset or set a duration, then click **Start timer**. Use the running countdown's pause, resume, and cancel controls as needed.
 
 The timer continues while you switch to other notch views. It is separate from Pomodoro, which manages a cycle of focus sessions and breaks.
@@ -647,6 +693,8 @@ Open **Notch settings → Timer → Completion sound**. Choose a sound or **None
 The choice is saved automatically. The sound plays once when the timer ends.
 
 ### Pomodoro
+
+Use Pomodoro to alternate focus sessions with short and long breaks. The Notch and Dock widgets control the same session, with shared durations, sounds, and daily totals.
 
 Add **Pomodoro** from the notch widget picker. Click **Start** to begin a focus session. **Pause** holds the remaining time; **Resume** continues it.
 
@@ -679,11 +727,15 @@ If your Mac sleeps through a stage ending, LaunchMe reconciles that stage when i
 
 ### Music
 
+See the current track in the compact Notch and expand it for playback controls. Spotify and Apple Music controls require Automation access; Music widgets provide additional player styles.
+
 The compact notch can show album art and playback activity. Expand it for playback controls. A Music widget on the home view offers additional styles and a full-screen player control.
 
 Spotify and Apple Music controls need **Automation** access. See [Music → Connect a player](music.en.md#connect-a-player) for setup and [Full-screen player](music.en.md#full-screen-player) for the larger listening view.
 
 ### Appearance
+
+Change the expanded Notch background, compact dimensions, and interaction feedback. Notch appearance is configured separately from the full-screen launcher wallpaper.
 
 Open **Notch settings → General** to change the notch itself.
 
@@ -705,6 +757,8 @@ If you want more information on the home page, change its widget layout rather t
 
 ### Displays and visibility
 
+Choose the display used by Notch and control when it stays out of view. Options include hiding while gaming and excluding the Notch panel from screen capture.
+
 #### Display on
 
 Choose **Automatic** or a connected display in **Notch settings → General → Display on**. Check this selection if the notch appears on a different monitor than expected.
@@ -719,6 +773,8 @@ Enable **Hide from screen capture** to keep the notch out of screenshots and scr
 
 ### Spaces
 
+Choose whether all LaunchMe Spaces use one Notch home layout or keep separate layouts. These settings follow launcher Spaces and are independent of Dock Spaces.
+
 Open **Notch settings → Spaces** to choose whether LaunchMe Spaces share one notch layout.
 
 With **Use one homepage layout with widgets for all spaces** enabled, every LaunchMe Space uses the shared home setup. Turn it off to keep a separate notch home page for each Space, including widgets, pinned apps and folders, and background.
@@ -727,11 +783,15 @@ A Space inherits the shared layout until you customize it. These are the full-sc
 
 ### Battery
 
+Show battery and charging alerts in Notch and choose when low-battery warnings appear. Adjust their duration and labels to suit the information you want to see.
+
 Open **Notch settings → Battery** to enable charging, full-battery, and low-battery alerts.
 
 Set **Duration** for the alert, enable **Notify on low power mode**, and use **Warn on low battery** with a threshold to choose when a warning appears. **Hide label** and **Hide percentage** simplify the alert's presentation.
 
 ### Connectivity
+
+Use Notch alerts for Bluetooth connections and network changes. Accessory battery warnings depend on the information reported by the device, and Bluetooth alerts require Bluetooth permission.
 
 Open **Notch settings → Connectivity** to enable Bluetooth connection and disconnection alerts and network-change alerts.
 
@@ -741,6 +801,8 @@ Bluetooth alerts require Bluetooth permission. An accessory that does not report
 
 ### Focus
 
+Show your active macOS Focus state in Notch and choose which supported alerts remain allowed. Reading the Focus state requires Full Disk Access.
+
 Enable Focus alerts in **Notch settings → Focus** to show your active macOS Focus state. **Replace waveform during focus** uses the Focus symbol in place of the compact music waveform.
 
 Choose whether to hide the label and which supported alerts remain allowed during Focus: **Battery**, **Connectivity**, **Display**, and **Sound**.
@@ -749,11 +811,15 @@ Focus detection needs **Full Disk Access** because its state is stored in a prot
 
 ### Calendar events
 
+Show upcoming calendar events in Notch and use event-list calendar widgets. These features require Calendar access; date-only calendar styles do not read your events.
+
 With Calendar access, the notch can show an upcoming event. Calendar widgets with event-list styles use the same macOS permission.
 
 Grant access from **Notch settings → Permissions**. Date-only calendar styles do not need to read your events.
 
 ### Permissions
+
+Review the macOS permissions used by Notch and grant access for the features you choose. Notch and Dock share permission status, but individual features need different types of access.
 
 Open **Notch settings → Permissions**. Grant the permissions for the features you use:
 
@@ -769,6 +835,8 @@ Open **Notch settings → Permissions**. Grant the permissions for the features 
 Use **Grant** or **Open Settings** beside the permission. Some macOS changes need an app restart before they take effect. Dock and Notch share their permission status.
 
 ### Troubleshooting
+
+Check Notch visibility, music control permissions, clipboard file access, and layout changes between Spaces. Each section explains the settings to review for that symptom.
 
 #### The notch does not appear
 
@@ -790,6 +858,8 @@ Open **Notch settings → Spaces**. Enable the shared layout if you want the sam
 
 ### Getting started
 
+Enable LaunchMe Dock and add your first app or folder shortcut. Basic app and folder access is available without Pro; LaunchMe Dock is currently in Beta.
+
 Open **LaunchMe menu bar → Dock settings → General** and enable the Dock. You can also enable **LaunchMe Dock** in the main app's General settings.
 
 To add your first item, right-click an app or folder in LaunchMe and choose **Add to Dock**. If the Dock is off, the command reads **Enable Dock and add**. Right-click the Dock's background to add more items or open its widget gallery.
@@ -799,6 +869,8 @@ Press **⌃⌥⌘D** to show or hide the Dock. If this combination conflicts wit
 LaunchMe Dock is in Beta.
 
 ### Apps and folders
+
+Add app pins, LaunchMe folders, Finder folders, and Workflows to the Dock. You can also show running apps, copy app pins from the macOS Dock, and open files with an app by dragging them onto it.
 
 #### Add an app
 
@@ -853,6 +925,8 @@ Workflows require **Pro**. Opening one launches its configured apps and folders.
 
 ### Finder, Downloads, and Trash
 
+Add built-in Finder, Downloads, and Trash items to LaunchMe Dock. Folder and Trash access may require macOS permissions, while permanent deletion always needs special care.
+
 These system items can be enabled independently in **Dock settings → Dock Items**. They can also be moved within the Dock row.
 
 #### Finder
@@ -890,6 +964,8 @@ Right-click Safari in the Dock or an app drawer for **New Window** and **New Pri
 These commands need Accessibility access. If prompted, open **System Settings → Privacy & Security → Accessibility**, enable LaunchMe, then choose the command again. Opening Safari itself does not require these extra window commands.
 
 ### Layout
+
+Arrange Dock items, adjust size and length, and choose fixed or floating placement. Visibility controls determine when LaunchMe Dock appears at the bottom edge or alongside the system Dock.
 
 #### Rearrange items
 
@@ -938,6 +1014,8 @@ Use **Dock settings → General → Reset position and show Dock** if you have l
 
 ### The macOS Dock
 
+Choose how Apple’s Dock behaves while LaunchMe Dock is enabled. LaunchMe can apply system Dock visibility settings and restores the previous settings when these controls are turned off or LaunchMe exits.
+
 Open **Dock settings → General → System dock** to choose how LaunchMe works alongside Apple's Dock.
 
 #### Automatically hide the system Dock
@@ -960,6 +1038,8 @@ If an error appears, use **Retry** to apply or restore the settings again.
 
 ### Displays
 
+Show LaunchMe Dock on one monitor or across connected displays. With Pro, separate Dock Spaces can give each screen its own active setup.
+
 #### One display or all displays
 
 Open **Dock settings → General → Display**. Choose **Default display**, a named monitor, or **All displays**.
@@ -975,6 +1055,8 @@ Open **Dock settings → Dock Spaces**. Use the display button on a saved Space 
 While separate display Spaces are enabled, the ordinary Display picker is disabled; use the Space-to-screen assignments instead.
 
 ### Dock Spaces
+
+Save and switch between independent Dock layouts with their own items, widgets, and appearance. Dock Spaces require Pro and are separate from launcher Spaces and macOS desktop Spaces.
 
 Open **Dock settings → Dock Spaces** and enable **Enable Dock Spaces**. Dock Spaces require **Pro**.
 
@@ -1004,6 +1086,8 @@ With separate display Spaces enabled, switching applies to the Dock on the displ
 In the saved Spaces list, drag the handle on a Space card to change its order. The order is used for browsing the Spaces, so put frequently used setups next to each other.
 
 ### Appearance
+
+Customize Dock colors, backgrounds, glass styles, and icon labels. Presets, palettes, and premium appearance controls require Pro; each option below explains what it changes.
 
 #### Presets
 
@@ -1054,6 +1138,8 @@ These settings let the Dock follow the Mac independently of a fixed launcher the
 **Show Apps names in dock** controls labels for apps and Workflows. **Show files and folders names in dock** controls file and folder labels. These are useful when an icon alone is not distinctive enough.
 
 ### Widgets
+
+Add and edit Dock widgets for time, calendars, weather, system information, music, and more. The gallery requires Pro, and some widget types support multiple instances.
 
 Right-click the Dock and choose **Widgets**. Search the gallery or select a category. Click **Add** for a widget, or **Apply** when changing an existing single-instance widget's style.
 
@@ -1127,6 +1213,8 @@ Sounds download on first playback and are available offline afterward. Details, 
 
 ### Glowing wallpaper
 
+Use the Glowing wallpaper widget to change your macOS desktop wallpaper and adjust its brightness. You can also apply the selected design to the full-screen launcher through a separate action.
+
 Add **Wallpaper → Glowing** from the widget gallery. This widget changes your **macOS desktop wallpaper**, not just the Dock's surface.
 
 Use the previous and next controls to browse styles. Open **Wallpaper styles** for the full collection. The widget's dark bar adjusts brightness.
@@ -1157,6 +1245,8 @@ If applying a wallpaper fails, use **Try again**. Check the result on the deskto
 
 ### Permissions
 
+Review the permissions needed by Dock music controls, calendars, folders, Trash, and Safari commands. Grant access for the features you use rather than enabling every permission.
+
 **Dock settings → Permissions** shows the permissions shared with Notch. Grant those required for the features you use.
 
 Music controls use **Automation**. Calendar event styles use **Calendar**. Finder folders and Downloads can need folder access. Trash browsing needs **Full Disk Access**. Safari's extra window commands need **Accessibility**.
@@ -1165,6 +1255,8 @@ Basic app launching does not require you to grant every permission in the list.
 
 ### Context menus
 
+Find the commands available when you right-click the Dock background, an app, or a widget. Removing a Dock shortcut does not uninstall its app or delete the original Finder folder.
+
 Right-click the background for **Add application…**, **Add LaunchMe folder**, **Add Finder folder…**, **Create Workflow**, **Add separator**, **Widgets**, and **Dock settings**.
 
 An app adds **Open**, **Show in Finder**, icon controls, and **Quit** while running. Safari adds its window commands. Editable widgets add **Edit widget**. Workflows add their editor. Trash and Finder show their own commands described above.
@@ -1172,6 +1264,8 @@ An app adds **Open**, **Show in Finder**, icon controls, and **Quit** while runn
 **Remove from Dock** removes a pin or hides a built-in item. It does not uninstall an app or delete a Finder folder.
 
 ### Troubleshooting
+
+Resolve Dock visibility, system Dock settings, folder access, app quitting, and saved-layout problems. Start with the symptom below and check the related settings before rebuilding your setup.
 
 #### I cannot see the Dock
 
@@ -1203,6 +1297,8 @@ An item marked as requiring a newer version needs an app update before it can be
 
 ### Connect a player
 
+Connect Spotify or Apple Music to LaunchMe using macOS Automation permission. Other media apps and browser playback can supply Now Playing information, with controls depending on the source.
+
 Start playback in **Spotify** or **Apple Music**, then open a Music widget in LaunchMe, the notch, or the Dock. LaunchMe uses the player you already have; you do not need to sign in to the music service again inside LaunchMe.
 
 When macOS asks to let LaunchMe control the player, allow it. If you previously denied access, open **System Settings → Privacy & Security → Automation** and enable the music app under LaunchMe.
@@ -1221,6 +1317,8 @@ A playing Spotify or Apple Music session takes priority over the system fallback
 
 ### Playback controls
 
+Control the current track from Music widgets in the launcher, Notch, and Dock. Playback is shared across these surfaces, while seeking, shuffle, and favorites depend on the player’s capabilities.
+
 Use **Play / Pause**, **Previous track**, and **Next track** on a Music widget. A progress control lets you seek when the source reports a usable track duration and supports the command.
 
 The player shown in the full-screen launcher, Notch, and Dock is shared. Pausing a track from one surface updates the others. Each widget's visual style can still be different.
@@ -1232,6 +1330,8 @@ Launcher and notch Music widgets can expose **Shuffle** for Spotify and Apple Mu
 The source determines which controls are meaningful. Browser and other system sessions do not have the native player's shuffle or favorite integration.
 
 ### Launcher and notch widgets
+
+Choose a Music widget style for the full-screen launcher or Notch, including cover, minimal, and vinyl layouts. Music widgets require Pro; available styles depend on the selected widget size.
 
 Add **Music** from the launcher or notch widget picker. Right-click the widget to edit it. Music widgets require **Pro**.
 
@@ -1256,6 +1356,8 @@ Click **Choose image**, move the image in the crop view, and pinch or use the sl
 The record spins during playback when motion is enabled. Pausing playback stops the spinning presentation.
 
 ### Dock players
+
+Choose a Dock music layout with compact controls, artwork, or a vinyl presentation. Changing the Music design updates the Dock’s existing Music widget rather than creating a second player.
 
 Right-click the Dock, choose **Widgets → Music**, and select a design. Choosing another Music design updates the Dock's Music widget rather than adding a second independent player.
 
@@ -1286,6 +1388,8 @@ Vinyl Customizable lets you use a custom record photo. Right-click it, choose **
 The vinyl layouts share the same song-cover and custom-photo choices. Clicking the record opens the full-screen player. Its chosen custom image can be carried into that presentation.
 
 ### Full-screen player
+
+Open the larger music player to display album artwork, vinyl, or audio-reactive visuals. Spotify and Apple Music use Automation for controls, while reactive effects need separate system audio capture access.
 
 Click **Full screen** on a launcher or notch Music widget. Dock cover and vinyl layouts also provide an artwork or record target that opens it.
 
@@ -1340,11 +1444,15 @@ The macOS section name can differ between versions. This access is needed for re
 
 ### Music Wallpaper
 
+Show album artwork behind the full-screen launcher while music plays. Music Wallpaper requires Pro and returns to your selected wallpaper when playback pauses or stops.
+
 Open **Settings → Appearance → Music Wallpaper** in the full-screen launcher. When music plays, LaunchMe shows automatic album artwork behind the launcher. When playback pauses or stops, your selected wallpaper returns.
 
 Music Wallpaper requires **Pro**. It affects the launcher background. The Dock's **Glowing** widget changes the macOS desktop wallpaper separately.
 
 ### Background Sounds
+
+Play ambient Background Sounds from a Dock widget with its own volume control. Each sound downloads on first playback and can then play offline while its local download is retained.
 
 Open **Dock → Widgets → Mindfulness** and add **Background Sounds**. Use the sound selector to choose an ambience, then press play. The widget's slider controls its volume.
 
@@ -1373,6 +1481,8 @@ Hiding the Dock does not interrupt Background Sounds. Removing the widget, disab
 The sound player is shared across displays, so showing the Dock on several screens does not start several copies of the same ambience.
 
 ### Troubleshooting
+
+Resolve player connections, unavailable controls, still artwork, reactive effects, and Background Sounds interruptions. Music controls and audio-reactive visuals use different macOS permissions.
 
 #### “Play something in Music or Spotify”
 
