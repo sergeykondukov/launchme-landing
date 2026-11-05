@@ -110,6 +110,7 @@ const PAGE_HEADERS = {
   'account/index.html': { variant: 'account' },
 
   // Minimal (same partial for all)
+  'blog/launchme-update-3-0-dock.html': { variant: 'minimal' },
   'blog/index.html': { variant: 'minimal' },
   'blog/how-to-get-launchpad-back-on-macos-26-tahoe.html': { variant: 'minimal' },
   'blog/launchme-update-1-111.html': { variant: 'minimal' },

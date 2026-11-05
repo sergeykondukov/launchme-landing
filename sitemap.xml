@@ -61,6 +61,12 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
+    <loc>https://launchmeapp.com/blog/launchme-update-3-0-dock.html</loc>
+    <lastmod>2026-11-05</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://launchmeapp.com/blog/launchme-update-2-0-notch.html</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>

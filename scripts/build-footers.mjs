@@ -33,6 +33,7 @@ const FOOTER_PAGES = [
   'refunds/index.html',
   'help/index.html',
   'help/direct/index.html',
+  'blog/launchme-update-3-0-dock.html',
   'blog/index.html',
   'blog/how-to-get-launchpad-back-on-macos-26-tahoe.html',
   'blog/launchme-update-1-111.html',
