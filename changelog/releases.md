@@ -6,6 +6,9 @@
 - All-new Dock with widgets, wallpaper, customization, Spaces, and more!
 - Now Playing support for all music features.
 
+## Bug Fixes and Optimizations
+- Performance improvements and bug fixes.
+
 # 2.08.2 | 2026-10-27
 
 ## New Features
