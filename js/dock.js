@@ -1,3 +1,64 @@
+// Collapse actual wrapped rows, so the preview stays at two rows at every mobile width.
+(() => {
+  const options = document.querySelector('#dock-options');
+  const toggle = document.querySelector('.dock-options-toggle');
+  if (!options || !toggle) return;
+  const chips = [...options.querySelectorAll('li')];
+  const mobile = window.matchMedia('(max-width: 767px)');
+  let expanded = false;
+  let lastWidth = -1;
+  let disclosureAnimation;
+  let finishDisclosure;
+
+  function update() {
+    finishDisclosure?.();
+    chips.forEach(chip => { chip.hidden = false; });
+    toggle.hidden = !mobile.matches;
+    toggle.setAttribute('aria-expanded', String(expanded));
+    toggle.textContent = expanded ? 'See less' : 'See more';
+    if (!mobile.matches || expanded) return;
+    const tops = [...new Set(chips.map(chip => Math.round(chip.getBoundingClientRect().top)))];
+    const secondRow = tops[1] ?? tops[0];
+    const hiddenChips = chips.filter(chip => Math.round(chip.getBoundingClientRect().top) > secondRow);
+    hiddenChips.forEach(chip => { chip.hidden = true; });
+    toggle.hidden = hiddenChips.length === 0;
+  }
+
+  toggle.addEventListener('click', () => {
+    finishDisclosure?.();
+    const startHeight = options.getBoundingClientRect().height;
+    expanded = !expanded;
+    update();
+    const endHeight = options.getBoundingClientRect().height;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const hiddenChips = chips.filter(chip => chip.hidden);
+    // Keep the full content present while the closing viewport gently shrinks.
+    hiddenChips.forEach(chip => { chip.hidden = false; });
+    options.style.overflow = 'hidden';
+    disclosureAnimation = options.animate([
+      { height: `${startHeight}px` },
+      { height: `${endHeight}px` }
+    ], { duration: 360, easing: 'cubic-bezier(.22, .61, .36, 1)', fill: 'both' });
+    finishDisclosure = () => {
+      hiddenChips.forEach(chip => { chip.hidden = true; });
+      disclosureAnimation.cancel();
+      options.style.removeProperty('overflow');
+      finishDisclosure = undefined;
+    };
+    disclosureAnimation.onfinish = () => finishDisclosure?.();
+  });
+  mobile.addEventListener('change', update);
+  if ('ResizeObserver' in window) {
+    new ResizeObserver(([entry]) => {
+      if (entry.contentRect.width === lastWidth) return;
+      lastWidth = entry.contentRect.width;
+      update();
+    }).observe(options);
+  } else window.addEventListener('resize', update);
+  document.fonts?.ready.then(update);
+  update();
+})();
+
 (() => {
   const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const hero = document.querySelector('.dock-hero');

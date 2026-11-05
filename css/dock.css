@@ -21,6 +21,7 @@
 .dock-options { position: relative; z-index: 2; display: grid; gap: 12px; width: 100%; max-width: 1100px; padding: 0 20px; margin: 28px auto 0; color: #80808b; font-size: 13px; font-weight: 500; line-height: 1.3; }
 .dock-options__row { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 12px; padding: 0; margin: 0; list-style: none; }
 .dock-options__row li { padding: 7px 12px; background: #f7f7f7; border-radius: 999px; }
+.dock-options__row li[hidden], .dock-options-toggle { display: none; }
 .dock-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
 .dock-card { aspect-ratio: 1; background-color: var(--card); }
 .dock-card .lm-card__title { font-size: 13px; color: var(--muted); }
@@ -70,10 +71,12 @@
  .dock-hero__copy p { font-size: 15px; padding: 0; }
  .dock-hero__copy p br { display: none; }
  .dock-hero__controls { top: 27%; }
+ .dock-page .dock-hero__controls { display: none; }
  .dock-options { display: flex; flex-wrap: wrap; margin-top: 24px; padding: 0 20px; gap: 8px; font-size: 12px; }
  /* Let all chips share the available rows instead of wrapping each desktop group separately. */
  .dock-options__row { display: contents; }
  .dock-options__row li { flex: 1 0 auto; max-width: 100%; padding: 7px 12px; }
+ .dock-options-toggle:not([hidden]) { display: block; margin: 10px auto 0; padding: 6px 12px; border: 0; background: transparent; color: #80808b; font: inherit; font-size: 12px; cursor: pointer; }
  .dock-grid { grid-template-columns: minmax(0, 1fr); gap: 16px; }
  .dock-card, .dock-feature__media { border-radius: 34px; }
  .dock-card .lm-card__content { padding: 24px 12px; }
