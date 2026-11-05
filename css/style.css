@@ -345,6 +345,11 @@ a:hover { color: #fff; }
   background: #03101a;
 }
 
+@media (max-width: 767px) {
+  .supported-languages .section-title { font-size: 30px; }
+  .supported-languages .section-sub { font-size: 15px; }
+}
+
 .languages-grid {
   /* Semantic list reset + fixed grid like in the screenshot */
   list-style: none;
@@ -2398,6 +2403,8 @@ body:has(> .lp-header) {
 
 .hero-title { letter-spacing: -0.02em; }
 .hero-sub { max-width: 720px; margin-left: auto; margin-right: auto; }
+.hero-sub--wide { max-width: 960px; }
+@media (max-width: 767px) { .hero-sub--wide br { display: none; } }
 .hero-facts {
   margin: 18px 0 0;
   font-size: 15px;
@@ -2538,7 +2545,7 @@ body:has(> .lp-header) {
   font-weight: 700;
   color: var(--text);
 }
-.footer-col a {
+.footer-col :is(a, .cookie-settings) {
   display: block;
   padding: 7px 0;
   font-size: 15px;
@@ -2547,7 +2554,7 @@ body:has(> .lp-header) {
   text-decoration: none;
   transition: color .15s ease;
 }
-.footer-col a:hover { color: #000; }
+.footer-col :is(a, .cookie-settings):hover { color: #000; text-decoration: none; }
 
 /* Interactive mountains backdrop, pinned to the footer's bottom edge */
 .footer-bg {
@@ -2597,12 +2604,12 @@ body:has(> .lp-header) {
     gap: 24px;
   }
   .footer-links .footer-col { min-width: 0; }
-  .footer-col a { white-space: normal; overflow-wrap: normal; word-break: normal; }
+  .footer-col :is(a, .cookie-settings) { white-space: normal; overflow-wrap: normal; word-break: normal; }
 }
 @media (max-width: 460px) {
   .footer-links { gap: 18px; }
   .footer-col__title { font-size: 15px; }
-  .footer-col a { font-size: 14px; padding: 6px 0; }
+  .footer-col :is(a, .cookie-settings) { font-size: 14px; padding: 6px 0; }
 }
 
 /* ---- Section intro eyebrow (ported) ---- */
@@ -3190,4 +3197,61 @@ a.space-card__download:focus-visible {
   .lm-card--music-preview .lm-card__title { font-size: 10px; letter-spacing: .2px; }
   .lm-card--music-preview .lm-card__subtitle { font-size: clamp(19px, 5vw, 28px); margin-top: 8px; }
   .music-preview__link { margin-top: 16px; font-size: 15px; }
+}
+
+/* Rounded FAQ rows, shared by the homepage and Dock. */
+.faq--cards .section-title { margin-bottom: 48px; color: #000; }
+.faq--cards .accordion { max-width: 900px; display: grid; gap: 10px; }
+.faq--cards .accordion-item { background: #f7f7f7; border: 0; border-radius: 18px; overflow: hidden; }
+.faq--cards .accordion-trigger { position: relative; justify-content: flex-start; min-height: 60px; padding: 17px 24px 17px 56px; font-family: inherit; font-size: 16px; font-weight: 600; line-height: 1.45; color: #505052; }
+.faq--cards .accordion-trigger::after { content: ''; position: absolute; left: 24px; top: 50%; width: 18px; height: 18px; background: linear-gradient(#505052, #505052) center / 2px 100% no-repeat, linear-gradient(#505052, #505052) center / 100% 2px no-repeat; transform: translateY(-50%); transition: transform .2s ease; }
+.faq--cards .accordion-trigger[aria-expanded="true"]::after { content: ''; transform: translateY(-50%) rotate(45deg); }
+.faq--cards .accordion-panel { padding: 0 24px 20px 56px; font-size: 16px; font-weight: 500; line-height: 1.5; color: #77777c; }
+.faq--cards .accordion-panel p { margin: 0; }
+.faq--cards .accordion-trigger:focus-visible { outline: 3px solid var(--brand); outline-offset: -4px; border-radius: 18px; }
+@media (max-width: 767px) {
+ .faq--cards .section-title { margin-bottom: 30px; font-size: 44px; }
+ .faq--cards .accordion { gap: 8px; }
+ .faq--cards .accordion-item { border-radius: 16px; }
+ .faq--cards .accordion-trigger { min-height: 58px; padding: 16px 18px 16px 48px; font-size: 15px; }
+ .faq--cards .accordion-trigger::after { left: 18px; width: 16px; height: 16px; }
+ .faq--cards .accordion-panel { padding: 0 18px 18px 48px; font-size: 14px; }
+}
+@media (prefers-reduced-motion: reduce) { .faq--cards .accordion-trigger::after { transition: none; } }
+
+/* Clip answer content while its height and padding animate. */
+.faq--cards .accordion-panel { overflow: hidden; }
+
+/* Native progressive JPEG scans refine the photo over a tiny embedded preview. */
+.ready-for-touch { padding: 112px 0 0; }
+.ready-for-touch .section-title { margin: 0 0 14px; color: #12445b; font-size: clamp(30px, 3.2vw, 46px); font-weight: 750; letter-spacing: -.04em; line-height: 1.12; }
+.ready-for-touch .section-sub { max-width: 650px; margin: 0 auto 38px; color: var(--muted); font-size: 17px; font-weight: 400; line-height: 1.55; }
+.ready-for-touch__media { position: relative; aspect-ratio: 1147 / 750; border-radius: 50px; overflow: hidden; background-position: center; background-size: cover; isolation: isolate; }
+.ready-for-touch__media::before { content: ''; position: absolute; inset: -12px; background: inherit; filter: blur(10px); z-index: -1; }
+.ready-for-touch__media img { display: block; width: 100%; height: 100%; object-fit: cover; }
+@media (max-width: 767px) {
+ .ready-for-touch { padding-top: 70px; }
+ .ready-for-touch .section-sub { font-size: 15px; margin-bottom: 26px; }
+ .ready-for-touch .section-sub br { display: none; }
+ .ready-for-touch__media { border-radius: 34px; }
+}
+
+.ready-for-touch + #launchme-features { padding-top: 96px; }
+@media (max-width: 767px) { .ready-for-touch + #launchme-features { padding-top: 80px; } }
+
+/* Image card before the home Customization section, matching Dock feature cards. */
+.home-working-image .dock-feature__media { aspect-ratio: auto; }
+.home-working-image img { display: block; width: 100%; height: auto; }
+
+/* Crossfade the home hero previews without changing the scene layout. */
+.hero-slideshow { display: grid; width: 100%; max-width: 1100px; position: relative; z-index: 2; pointer-events: none; }
+.hero-slideshow__image { grid-area: 1 / 1; opacity: 0; transition: opacity .5s ease-in-out; }
+.hero-slideshow__image.is-active { opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .hero-slideshow__image { transition: none; } }
+
+/* Keep homepage section typography at the same mobile scale as Dock. */
+@media (max-width: 767px) {
+  .home-page main :is(.hero-title, .section-title, .ai-vi__title, .ai-explore__title) { font-size: 30px; }
+  .home-page main :is(.hero-eyebrow, .section-kicker, .ai-vi__eyebrow) { font-size: 13px; }
+  .home-page main :is(.hero-sub, .section-sub, .ai-vi__sub) { font-size: 15px; }
 }

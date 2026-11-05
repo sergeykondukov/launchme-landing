@@ -1,0 +1,339 @@
+/* Dock assets live in images/dock. All other media stays neutral until supplied. */
+.dock-page { --dock-heading: #12445b; }
+.dock-hero { padding: 64px 0 48px; text-align: center; }
+.dock-hero__brand { display: flex; align-items: center; justify-content: center; gap: 10px; margin: 0 0 26px; font-size: 36px; font-weight: 750; line-height: 1; }
+.dock-hero__brand img { width: 48px; height: 48px; }
+.dock-hero :is(h1, .dock-hero__title) { font-size: clamp(34px, 4.2vw, 64px); letter-spacing: -.045em; line-height: 1.08; margin: 0; }
+.dock-hero__stage { position: relative; width: min(1500px, 100%); aspect-ratio: 2250 / 985; margin: 16px auto 0; }
+/* All three layers share one fixed canvas and a single centering transform. */
+.dock-hero__layers { position: absolute; top: 0; left: 50%; width: calc(100% * 3450 / 2250); height: 100%; transform: translateX(-50%); pointer-events: none; }
+.dock-hero__base, .dock-hero__slide, .dock-hero__fingers { position: absolute; inset: 0; display: block; width: 100%; max-width: none; height: 100%; object-fit: contain; pointer-events: none; }
+.dock-hero__base { z-index: 0; }
+.dock-hero__slides { position: absolute; inset: 0; z-index: 1; }
+.dock-hero__fingers { z-index: 2; }
+.dock-hero__slide { opacity: 0; transition: opacity .6s ease; }
+.dock-hero__slide.is-active { opacity: 1; }
+.dock-hero__controls { position: absolute; top: 29%; left: 50%; transform: translateX(-50%); margin-top: 0; z-index: 3; }
+.dock-page button:focus-visible, .dock-page [tabindex]:focus-visible { outline: 3px solid #00aabe; outline-offset: 4px; }
+.dock-hero__copy { position: relative; width: calc(100% - 40px); max-width: 1060px; margin: calc(min(1500px, 100vw) * -.223267) auto 0; z-index: 2; }
+.dock-hero__copy h2 { color: var(--dock-heading); background: linear-gradient(100deg, #062d45 25%, #488bb4 78%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; font-size: clamp(30px, 3.2vw, 46px); font-weight: 750; letter-spacing: -.04em; line-height: 1.12; margin: 0 0 14px; }
+.dock-hero__copy p { font-size: 17px; color: var(--muted); font-weight: 400; line-height: 1.55; margin: 0; }
+.dock-options { position: relative; z-index: 2; display: grid; gap: 12px; width: 100%; max-width: 1100px; padding: 0 20px; margin: 28px auto 0; color: #80808b; font-size: 13px; font-weight: 500; line-height: 1.3; }
+.dock-options__row { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 12px; padding: 0; margin: 0; list-style: none; }
+.dock-options__row li { padding: 7px 12px; background: #f7f7f7; border-radius: 999px; }
+.dock-options__row li[hidden], .dock-options-toggle { display: none; }
+.dock-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
+.dock-card { aspect-ratio: 1; background-color: var(--card); }
+.dock-card .lm-card__title { font-size: 13px; color: var(--muted); }
+.dock-card .lm-card__subtitle { font-size: clamp(20px, 2.1vw, 28px); }
+.dock-card--strip, .dock-card--wide, .dock-card--large { grid-column: 1 / -1; }
+.dock-card--strip { aspect-ratio: 1060 / 280; }
+.dock-card--wide { aspect-ratio: 1147 / 420; }
+.dock-card--large { aspect-ratio: 1147 / 750; }
+.dock-placeholder { background: #f0f0f2; }
+.dock-card > .dock-placeholder { position: absolute; inset: 0; z-index: -1; }
+.dock-heading { text-align: center; margin-bottom: 38px; }
+.dock-heading h2, .dock-big-screen h2 { color: var(--dock-heading); font-size: clamp(30px, 3.2vw, 46px); font-weight: 750; letter-spacing: -.04em; line-height: 1.12; margin: 0 0 14px; }
+.dock-heading p { color: var(--muted); font-size: 17px; line-height: 1.55; max-width: 650px; margin: 0 auto; }
+.dock-heading .dock-eyebrow { font-size: 13px; margin-bottom: 12px; }
+.dock-pick { padding: 112px 0 0; overflow: clip; }
+.dock-pick__collage { display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 28px 0; }
+.dock-pick__row { display: flex; flex: none; justify-content: center; gap: 12px; width: max-content; }
+.dock-pick__item { flex: 0 0 calc(var(--item-width) * 1.16); width: calc(var(--item-width) * 1.16); height: 86px; background: #e9e9ec; border-radius: 17px; overflow: hidden; display: grid; place-items: center; color: #a5a5ab; font-size: 12px; }
+.dock-pick__item:has(img) { width: auto; flex-basis: auto; }
+.dock-pick__item img { display: block; width: auto; max-width: none; height: 100%; object-fit: contain; }
+.dock-placeholder > img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.dock-pick__item.is-moving { will-change: transform; }
+.dock-feature { padding-top: 112px; }
+.dock-feature__media { aspect-ratio: 1147 / 750; border-radius: 50px; overflow: hidden; }
+.dock-carousel { padding: 112px 0 0; }
+#dock-details .ai-vi__title { max-width: 25ch; width: fit-content; color: #30266D; background: linear-gradient(to right, #30266D, #A047BC); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.dock-carousel .ai-vi__sub { font-size: 17px; }
+.dock-carousel .vi-card__media { border-radius: 34px; overflow: hidden; isolation: isolate; }
+.dock-switch { display: flex; justify-content: center; gap: 4px; width: max-content; max-width: 100%; padding: 4px; margin: 28px auto 0; border-radius: 999px; background: #ebebeb; }
+.dock-switch button { border: 0; border-radius: 999px; padding: 9px 20px; background: transparent; cursor: pointer; color: var(--muted); font: inherit; font-size: 16px; line-height: 1.3; }
+.dock-switch button[aria-pressed="true"] { color: #fff; background: #1d1d1f; }
+.dock-big-screen { position: relative; aspect-ratio: 1728 / 693; margin-top: 112px; background: #dfe9f2 url('/images/optimized/ideal-for-big-screens-dock-6bfc19c8-1728.webp') center / 100% 100% no-repeat; }
+.dock-big-screen__copy { position: absolute; top: 65%; left: 47.9%; width: 46%; }
+.dock-big-screen h2 { color: #0060a5; font-size: clamp(26px, 2.95vw, 56px); font-weight: 800; line-height: 1.1; letter-spacing: -.04em; margin: 0 0 18px; }
+.dock-big-screen p { color: var(--muted); font-size: clamp(12px, 1.05vw, 20px); font-weight: 500; line-height: 1.2; margin: 0; }
+.dock-pricing { padding: 112px 0 72px; }
+.dock-pricing .pricing-cards-wrap { margin-top: 0; }
+.dock-page .faq { padding-bottom: 100px; }
+@media (max-width: 767px) {
+ .dock-hero { padding-top: 38px; padding-bottom: 36px; overflow: clip; }
+ .dock-hero__brand { font-size: 27px; margin-bottom: 22px; }
+ .dock-hero__brand img { width: 36px; height: 36px; }
+ .dock-hero :is(h1, .dock-hero__title) { font-size: clamp(29px, 5.8vw, 44px); }
+ .dock-hero__stage { width: 145%; max-width: none; margin: 13px 0 0 -22.5%; }
+ .dock-hero__copy { margin-top: calc(100vw * -.247567); }
+ .dock-hero__copy h2 { font-size: 30px; margin-bottom: 14px; }
+ .dock-hero__copy p { font-size: 15px; padding: 0; }
+ .dock-hero__copy p br { display: none; }
+ .dock-hero__controls { top: 27%; }
+ .dock-page .dock-hero__controls { display: none; }
+ .dock-options { display: flex; flex-wrap: wrap; margin-top: 24px; padding: 0 20px; gap: 8px; font-size: 12px; }
+ /* Let all chips share the available rows instead of wrapping each desktop group separately. */
+ .dock-options__row { display: contents; }
+ .dock-options__row li { flex: 1 0 auto; max-width: 100%; padding: 7px 12px; }
+ .dock-options-toggle:not([hidden]) { display: block; margin: 10px auto 0; padding: 6px 12px; border: 0; background: transparent; color: #80808b; font: inherit; font-size: 12px; cursor: pointer; }
+ .dock-grid { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+ .dock-card, .dock-feature__media { border-radius: 34px; }
+ .dock-card .lm-card__content { padding: 24px 12px; }
+ .dock-card .lm-card__title { font-size: 10px; }
+ .dock-card .lm-card__subtitle { font-size: clamp(20px, 4vw, 28px); }
+ .dock-card--strip { min-height: 150px; }
+ .dock-card--wide { min-height: 185px; }
+ .dock-card--large { aspect-ratio: 1.2; }
+ .dock-pick, .dock-feature, .dock-carousel { padding-top: 70px; }
+ .dock-heading { margin-bottom: 26px; }
+ .dock-heading p, .dock-carousel .ai-vi__sub { font-size: 15px; }
+ .dock-pick__collage, .dock-pick__row { gap: 8px; }
+ .dock-pick__item { width: calc(var(--item-width) * .81); flex-basis: calc(var(--item-width) * .81); height: 62px; border-radius: 12px; }
+ .dock-carousel .vi-card { max-width: 85vw; }
+ .dock-big-screen { aspect-ratio: auto; margin-top: 70px; padding-top: calc(100vw * 693 / 1728 + 20px); background-size: 100% auto; background-position: center top; }
+ .dock-big-screen__copy { position: relative; top: auto; left: auto; width: auto; padding: 0 24px 30px; }
+ .dock-big-screen h2 { font-size: 30px; margin-bottom: 12px; }
+ .dock-big-screen p { font-size: 15px; line-height: 1.45; }
+ .dock-big-screen p br { display: none; }
+ .dock-pricing { padding-top: 70px; }
+}
+@media (max-width: 380px) {
+ .dock-hero__copy p { font-size: 14px; }
+ .dock-options { margin-top: 24px; }
+}
+@media (prefers-reduced-motion: reduce) {
+ .dock-hero__slide { transition: none; }
+ .dock-page .ai-vi__track { scroll-behavior: auto; }
+}
+
+/* Ten image-only slides. JS repeats the group to keep either drag direction seamless. */
+.dock-gallery { padding-top: 100px; overflow: hidden; }
+.dock-gallery__track { display: flex; gap: 24px; overflow-x: auto; overflow-y: hidden; scrollbar-width: none; cursor: grab; user-select: none; -webkit-user-select: none; overscroll-behavior-x: contain; }
+.dock-gallery__track::-webkit-scrollbar { display: none; }
+.dock-gallery__track.is-dragging { cursor: grabbing; }
+.dock-gallery__group { display: flex; flex: none; gap: 24px; }
+.dock-gallery__image { flex: 0 0 auto; width: clamp(300px, 42vw, 620px); aspect-ratio: 16 / 10; border-radius: 0; overflow: hidden; }
+.dock-gallery__image img { pointer-events: none; -webkit-user-drag: none; }
+
+.dock-pricing { padding: 112px 0 90px; }
+.dock-pricing__heading { text-align: center; margin-bottom: 58px; }
+.dock-pricing__heading h2 { font-size: clamp(42px, 4.4vw, 60px); line-height: 1.1; font-weight: 800; letter-spacing: -.04em; color: #000; margin: 0 0 22px; }
+.dock-pricing__heading p { font-size: 18px; font-weight: 600; margin: 0; }
+.dock-pricing__plans { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: center; gap: 18px; }
+.dock-plan { display: flex; flex-direction: column; min-width: 0; min-height: 480px; padding: 30px 24px 24px; border-radius: 28px; color: #f9fafa; background: #071b20 url('/images/optimized/pricing-bg-c08c0e48-386.webp') center / cover no-repeat; }
+.dock-plan--featured { min-height: 552px; padding-top: 30px; }
+.dock-plan h3 { font-size: 22px; font-weight: 700; text-align: center; line-height: 1.2; margin: 0; letter-spacing: -.025em; }
+.dock-plan__pricing { min-height: 166px; padding-top: 48px; text-align: center; }
+.dock-plan--featured .dock-plan__pricing { min-height: 202px; padding-top: 16px; }
+.dock-plan__price { font-size: clamp(38px, 4.1vw, 56px); font-weight: 750; letter-spacing: -.035em; line-height: 1.1; margin: 0 0 12px; white-space: nowrap; }
+.dock-plan__old-price { display: block; font-size: 22px; font-weight: 700; color: #a6b5b8; line-height: 1.2; margin-bottom: 14px; }
+.dock-plan__tax { color: #9cabaf; font-size: 13px; font-weight: 500; margin: 0; }
+.dock-plan__features { padding: 22px 8px 28px; margin: 0; list-style: none; display: grid; gap: 14px; }
+.dock-plan__features li { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; font-weight: 500; line-height: 1.45; color: #d4dadc; }
+.dock-plan__features svg { width: 21px; height: 21px; flex: none; }
+.dock-plan__download { display: grid; place-items: center; padding: 13px 8px; margin-top: auto; border-radius: 17px; background: #fff; color: #171719; font-size: 13px; font-weight: 600; text-align: center; }
+.dock-plan__download:hover { color: #171719; background: #e7eff1; }
+.dock-plan__download:focus-visible { outline: 3px solid #00c4d1; outline-offset: 5px; }
+@media (min-width: 768px) and (max-width: 1000px) {
+ .dock-plan { padding-left: 16px; padding-right: 16px; }
+ .dock-plan__features { padding-left: 0; padding-right: 0; }
+ .dock-plan__features li { font-size: 12px; }
+}
+@media (max-width: 767px) {
+ .dock-gallery { padding-top: 70px; }
+ .dock-gallery__track, .dock-gallery__group { gap: 16px; }
+ .dock-gallery__image { width: 82vw; }
+ .dock-pricing { padding: 72px 0; }
+ .dock-pricing__heading { margin-bottom: 36px; }
+ .dock-pricing__heading p { font-size: 16px; }
+ .dock-pricing__plans { grid-template-columns: 1fr; max-width: 390px; margin: auto; gap: 20px; }
+ .dock-plan, .dock-plan--featured { min-height: 500px; padding: 32px 26px 26px; }
+ .dock-plan--featured { min-height: 552px; }
+ .dock-plan__price { font-size: 56px; }
+ .dock-plan__features li { font-size: 14px; }
+ .dock-plan__features { gap: 16px; }
+ .dock-plan__download { font-size: 14px; min-height: 48px; }
+}
+
+/* Widget artwork supplies its own rounded corners and natural proportions. */
+.dock-pick__item--image { display: block; flex: 0 0 auto; width: auto; height: auto; overflow: visible; background: transparent; border-radius: 0; }
+.dock-pick__item--image img { display: block; width: auto; height: auto; max-width: none; max-height: none; object-fit: contain; }
+
+/* Hover scales the artwork independently of the scroll translation on its parent. */
+@media (hover: hover) and (pointer: fine) {
+ .dock-pick__item { position: relative; }
+ .dock-pick__item img { transition: transform .22s cubic-bezier(.22,.61,.36,1); transform-origin: center; }
+ .dock-pick__collage.is-settled .dock-pick__item:hover { z-index: 2; }
+ .dock-pick__collage.is-settled .dock-pick__item:hover img { transform: scale(var(--hover-scale-x, 1), var(--hover-scale-y, 1)); }
+}
+@media (prefers-reduced-motion: reduce) {
+ .dock-pick__item img { transition: none; }
+}
+
+.dock-hero__subtitle { margin: 26px 0 0; color: #80808b; font-size: 20px; font-weight: 500; line-height: 1.5; }
+@media (max-width: 767px) { .dock-hero__subtitle { margin-top: 20px; font-size: 16px; } }
+
+/* Real card images determine their own height, including on mobile. */
+.dock-card:has(> .dock-placeholder > img) { aspect-ratio: auto; height: auto; min-height: 0; color: #fff; }
+.dock-card:has(> .dock-placeholder > img) > .lm-card__content { position: absolute; inset: 0 0 auto; }
+.dock-card:has(> .dock-placeholder > img) .lm-card__title { color: inherit; }
+.dock-card > .dock-placeholder:has(> img) { position: relative; inset: auto; z-index: 0; }
+.dock-card > .dock-placeholder > img { display: block; width: 100%; height: auto; object-fit: contain; }
+
+/* The two wide cards have descriptive copy rather than a large feature headline. */
+.dock-card--strip .lm-card__subtitle, .dock-card--wide .lm-card__subtitle { font-size: clamp(12px, 1.45vw, 17px); font-weight: 400; line-height: 1.6; margin-top: 16px; }
+
+@media (max-width: 767px) {
+ /* Scale the overlay with the wide artwork so the copy stays above the Dock. */
+ .dock-card--strip, .dock-card--wide { container-type: inline-size; }
+ :is(.dock-card--strip, .dock-card--wide) .lm-card__content { padding: 3.4cqw 2cqw; }
+ :is(.dock-card--strip, .dock-card--wide) .lm-card__title { font-size: clamp(7px, 1.5cqw, 10px); }
+ :is(.dock-card--strip, .dock-card--wide) .lm-card__subtitle { font-size: clamp(7px, 1.7cqw, 11px); line-height: 1.2; margin-top: 2cqw; }
+}
+
+
+.dock-workspace-caption { max-width: 740px; margin: 24px auto 0; color: var(--muted); font-size: 17px; font-weight: 500; line-height: 1.3; text-align: left; }
+.dock-workspace-caption p { margin: 0; }
+.dock-workspace-caption strong { color: #000; font-weight: 750; }
+.dock-feature__media--notch { background: #e3e3e7; }
+@media (max-width: 767px) {
+ .dock-switch button { padding: 9px 15px; font-size: 14px; }
+ .dock-workspace-caption { margin-top: 20px; font-size: 15px; line-height: 1.45; }
+}
+
+/* Image-backed feature selector following Even Better Together. */
+.dock-workflow { padding-top: 112px; }
+.dock-workflow__stage { position: relative; min-height: 700px; border-radius: 50px; overflow: hidden; isolation: isolate; display: flex; align-items: center; padding: 70px 2.6%; }
+.dock-workflow__scenes, .dock-workflow__scene { position: absolute; inset: 0; }
+.dock-workflow__scenes { z-index: -1; }
+.dock-workflow__scene { opacity: 0; transition: opacity .45s ease; background: #e9e9ec; }
+.dock-workflow__scene.is-active { opacity: 1; }
+.dock-workflow__scene > img { width: 100%; height: 100%; object-fit: cover; }
+.dock-workflow__items { --workflow-open-padding: 28px; width: min(100%, 320px); display: grid; gap: 14px; }
+.dock-workflow__button { display: block; width: max-content; max-width: 100%; overflow: hidden; border: 0; border-radius: 999px; padding: 15px 22px 15px 16px; background: #fff; color: #080808; font: inherit; font-size: 17px; font-weight: 500; line-height: 1.3; cursor: pointer; text-align: left; transition: color .28s ease; }
+.dock-workflow__plus { display: inline-block; vertical-align: middle; width: 26px; height: 26px; margin-right: 12px; border: 2px solid #292929; border-radius: 50%; background: linear-gradient(#292929,#292929) center / 12px 2px no-repeat, linear-gradient(#292929,#292929) center / 2px 12px no-repeat; transition: opacity .2s ease; }
+.dock-workflow__text { vertical-align: middle; white-space: nowrap; }
+.dock-workflow__item.is-active .dock-workflow__text { display: block; width: var(--workflow-text-width, 264px); white-space: normal; }
+.dock-workflow__text strong { color: #29292c; font-weight: 650; }
+.dock-workflow__description { display: none; }
+.dock-workflow__item.is-active .dock-workflow__button { width: 100%; border-radius: 28px; padding: 26px 28px; color: #86868e; font-size: 16px; }
+.dock-workflow__item.is-active .dock-workflow__plus { display: none; }
+.dock-workflow__item.is-active .dock-workflow__description { display: inline; }
+
+
+
+
+@media (max-width: 767px) {
+ .dock-workflow { padding-top: 70px; }
+ .dock-workflow__stage { container-type: inline-size; min-height: 0; aspect-ratio: 4 / 3; padding: 12px; border-radius: 24px; }
+ .dock-workflow__button { font-size: clamp(8px, 3cqw, 14px); line-height: 1.2; padding: 5px 9px 5px 7px; }
+ .dock-workflow__plus { width: clamp(12px, 4cqw, 20px); height: clamp(12px, 4cqw, 20px); margin-right: 5px; border-width: 1px; background-size: 7px 1px, 1px 7px; }
+ .dock-workflow__items { --workflow-open-padding: 10px; width: 65%; gap: 5px; }
+ .dock-workflow__item.is-active .dock-workflow__button { padding: 10px; border-radius: 14px; font-size: clamp(8px, 2.8cqw, 13px); line-height: 1.2; }
+
+
+}
+@media (prefers-reduced-motion: reduce) {
+ .dock-workflow__scene, .dock-workflow__button, .dock-workflow__plus { transition: none; }
+}
+
+/* Together artwork includes its own white canvas; show it whole without a card frame. */
+:is(.dock-together, .dock-player, .dock-wallpaper) .section-kicker { color: var(--text); font-size: 17px; font-weight: 600; margin-bottom: 18px; }
+.dock-together .section-title { background: linear-gradient(100deg, #062d45 25%, #488bb4 78%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+:is(.dock-together, .dock-player, .dock-wallpaper) .section-sub { max-width: 900px; margin: 20px auto 40px; font-size: 17px; line-height: 1.3; }
+.dock-together__media { display: grid; position: relative; width: calc(100% + 160px); max-width: 1298px; left: 50%; transform: translateX(-50%); }
+.dock-together__media > img { display: block; grid-area: 1 / 1; width: 100%; height: auto; opacity: 0; transition: opacity .5s cubic-bezier(.22,.61,.36,1); }
+.dock-together__media > img.is-active { opacity: 1; }
+.dock-together__media > img[hidden] { display: none; }
+.dock-together .dock-switch { margin-top: 32px; }
+.dock-together .dock-workspace-caption { margin-top: 36px; }
+@media (max-width: 767px) {
+ .dock-page :is(.dock-player, .dock-wallpaper, .dock-together) .section-title { font-size: clamp(30px, 3.2vw, 46px); }
+ .dock-page :is(.dock-player, .dock-wallpaper, .dock-together, .supported-languages) .section-kicker { font-size: 13px; }
+ :is(.dock-together, .dock-player, .dock-wallpaper) .section-sub { font-size: 15px; line-height: 1.45; margin-bottom: 24px; }
+ .dock-together__media { width: calc(100% + 40px); }
+ .dock-together .dock-switch { margin-top: 24px; }
+ .dock-together .dock-workspace-caption { margin-top: 24px; }
+}
+
+.dock-switch { position: relative; isolation: isolate; }
+.dock-switch.has-moving-capsule::before { content: ''; position: absolute; top: 4px; bottom: 4px; left: 0; width: var(--capsule-width); transform: translateX(var(--capsule-x)); border-radius: 999px; background: #1d1d1f; z-index: -1; pointer-events: none; }
+.dock-switch.has-moving-capsule button[aria-pressed="true"] { background: transparent; }
+.dock-switch.capsule-ready::before { transition: transform .5s cubic-bezier(.22,.61,.36,1), width .5s cubic-bezier(.22,.61,.36,1); }
+.dock-switch button { transition: color .5s ease; }
+@media (prefers-reduced-motion: reduce) {
+ .dock-switch.capsule-ready::before, .dock-switch button { transition: none; }
+}
+
+@media (prefers-reduced-motion: reduce) { .dock-together__media > img { transition: none; } }
+
+/* Preserve the full video canvas and let it set the presets card height. */
+.dock-card--presets { aspect-ratio: auto; min-height: 0; color: #fff; }
+.dock-card--presets > .lm-card__content { position: absolute; inset: 0 0 auto; }
+.dock-card--presets .lm-card__title { color: inherit; }
+.dock-card--presets .lm-card__subtitle { font-size: clamp(12px, 1.45vw, 17px); font-weight: 400; line-height: 1.55; margin-top: 16px; }
+@media (max-width: 767px) {
+ .dock-card--presets { container-type: inline-size; }
+ .dock-card--presets .lm-card__content { padding: 3.4cqw 2cqw; }
+ .dock-card--presets .lm-card__title { font-size: clamp(7px, 1.5cqw, 10px); }
+ .dock-card--presets .lm-card__subtitle { font-size: clamp(7px, 1.7cqw, 11px); line-height: 1.2; margin-top: 2cqw; }
+}
+.dock-card--presets > .dock-placeholder { position: relative; inset: auto; z-index: 0; }
+.dock-card--presets video { display: block; width: 100%; height: auto; object-fit: contain; }
+
+/* A real poster remains visible until playback starts, including load/play failures. */
+.dock-card--presets > .dock-placeholder > .dock-card__poster { display: block; width: 100%; height: auto; }
+.dock-card--presets video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; opacity: 0; transition: opacity .25s ease; }
+.dock-card--presets.is-video-ready video { opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .dock-card--presets video { transition: none; } }
+
+/* Full-screen player uses the same poster fallback and playback handling. */
+:is([data-dock-asset="dock-player"], [data-dock-asset="dock-spaces"], [data-dock-asset="dock-system"]) { position: relative; aspect-ratio: auto; }
+:is([data-dock-asset="dock-player"], [data-dock-asset="dock-spaces"], [data-dock-asset="dock-system"]) > .dock-card__poster { display: block; width: 100%; height: auto; }
+:is([data-dock-asset="dock-player"], [data-dock-asset="dock-spaces"], [data-dock-asset="dock-system"]) > video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; opacity: 0; transition: opacity .25s ease; }
+:is([data-dock-asset="dock-player"], [data-dock-asset="dock-spaces"], [data-dock-asset="dock-system"]).is-video-ready > video { opacity: 1; }
+@media (prefers-reduced-motion: reduce) { :is([data-dock-asset="dock-player"], [data-dock-asset="dock-spaces"], [data-dock-asset="dock-system"]) > video { transition: none; } }
+
+/* Carousel video keeps the same loading and poster behavior as the large cards. */
+.vi-card__media:has(> video[data-dock-video]) { position: relative; overflow: hidden; }
+.vi-card__media > .dock-card__poster { width: 100%; height: 100%; object-fit: contain; }
+.vi-card__media > video[data-dock-video] { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; opacity: 0; transition: opacity .25s ease; }
+.vi-card__media.is-video-ready > video[data-dock-video] { opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .vi-card__media > video[data-dock-video] { transition: none; } }
+
+/* Downloads preview fills its carousel card edge to edge. */
+[data-dock-asset="dock-details-1"] > .dock-card__poster,
+[data-dock-asset="dock-details-1"] > video[data-dock-video] { object-fit: cover; }
+
+[data-dock-asset="dock-details-1"] > .dock-card__poster { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; }
+
+[data-dock-asset="dock-details-4"] > .dock-card__poster,
+[data-dock-asset="dock-details-4"] > video[data-dock-video] { object-fit: cover; }
+
+/* Standalone Pricing reuses the same plan cards and full container width as Dock. */
+.pricing-current-plans { padding-top: 20px; padding-bottom: 32px; }
+
+.dock-wallpaper .section-title { background: linear-gradient(to right, #005e9d, #ff003c); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.dock-wallpaper .dock-feature__media { aspect-ratio: 1121 / 754; }
+
+/* Home teaser shares the Dock hero, with a CTA over the lower artwork. */
+.dock-home { padding-bottom: 0; overflow: clip; }
+.dock-home__cta { position: absolute; top: 61%; left: 0; width: 100%; z-index: 3; }
+.dock-home :is(a, button):focus-visible { outline: 3px solid #00aabe; outline-offset: 4px; }
+@media (max-width: 767px) {
+ .dock-home__cta .lp-btn { font-size: 14px; padding: 12px 22px; }
+}
+
+/* Keep scroll reveal on transform; use scale for button interaction. */
+.dock-home__cta .lp-btn {
+ transition: opacity .7s cubic-bezier(.22,.61,.36,1), transform .7s cubic-bezier(.22,.61,.36,1), scale .18s ease, box-shadow .18s ease;
+}
+@media (hover: hover) {
+ .dock-home__cta .lp-btn:hover { scale: 1.04; box-shadow: 0 8px 22px rgb(0 0 0 / .16); }
+}
+.dock-home__cta .lp-btn:active { scale: .96; box-shadow: 0 2px 6px rgb(0 0 0 / .12); }
+@media (prefers-reduced-motion: reduce) {
+ .dock-home__cta .lp-btn { transition: none; }
+ .dock-home__cta .lp-btn:is(:hover, :active) { scale: 1; }
+}

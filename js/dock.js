@@ -1,0 +1,469 @@
+// Collapse actual wrapped rows, so the preview stays at two rows at every mobile width.
+(() => {
+  const options = document.querySelector('#dock-options');
+  const toggle = document.querySelector('.dock-options-toggle');
+  if (!options || !toggle) return;
+  const chips = [...options.querySelectorAll('li')];
+  const mobile = window.matchMedia('(max-width: 767px)');
+  let expanded = false;
+  let lastWidth = -1;
+  let disclosureAnimation;
+  let finishDisclosure;
+
+  function update() {
+    finishDisclosure?.();
+    chips.forEach(chip => { chip.hidden = false; });
+    toggle.hidden = !mobile.matches;
+    toggle.setAttribute('aria-expanded', String(expanded));
+    toggle.textContent = expanded ? 'See less' : 'See more';
+    if (!mobile.matches || expanded) return;
+    const tops = [...new Set(chips.map(chip => Math.round(chip.getBoundingClientRect().top)))];
+    const secondRow = tops[1] ?? tops[0];
+    const hiddenChips = chips.filter(chip => Math.round(chip.getBoundingClientRect().top) > secondRow);
+    hiddenChips.forEach(chip => { chip.hidden = true; });
+    toggle.hidden = hiddenChips.length === 0;
+  }
+
+  toggle.addEventListener('click', () => {
+    finishDisclosure?.();
+    const startHeight = options.getBoundingClientRect().height;
+    expanded = !expanded;
+    update();
+    const endHeight = options.getBoundingClientRect().height;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const hiddenChips = chips.filter(chip => chip.hidden);
+    // Keep the full content present while the closing viewport gently shrinks.
+    hiddenChips.forEach(chip => { chip.hidden = false; });
+    options.style.overflow = 'hidden';
+    disclosureAnimation = options.animate([
+      { height: `${startHeight}px` },
+      { height: `${endHeight}px` }
+    ], { duration: 360, easing: 'cubic-bezier(.22, .61, .36, 1)', fill: 'both' });
+    finishDisclosure = () => {
+      hiddenChips.forEach(chip => { chip.hidden = true; });
+      disclosureAnimation.cancel();
+      options.style.removeProperty('overflow');
+      finishDisclosure = undefined;
+    };
+    disclosureAnimation.onfinish = () => finishDisclosure?.();
+  });
+  mobile.addEventListener('change', update);
+  if ('ResizeObserver' in window) {
+    new ResizeObserver(([entry]) => {
+      if (entry.contentRect.width === lastWidth) return;
+      lastWidth = entry.contentRect.width;
+      update();
+    }).observe(options);
+  } else window.addEventListener('resize', update);
+  document.fonts?.ready.then(update);
+  update();
+})();
+
+(() => {
+  const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const hero = document.querySelector('.dock-hero');
+  if (!hero) return;
+  const slides = [...hero.querySelectorAll('.dock-hero__slide')];
+  const dots = [...hero.querySelectorAll('[data-dock-slide]')];
+  const play = hero.querySelector('.dock-hero__play');
+  let active = 0;
+  let playing = !motion.matches;
+  let visible = true;
+  let timer;
+
+  function select(index) {
+    active = index;
+    slides.forEach((slide, i) => slide.classList.toggle('is-active', i === active));
+    dots.forEach((dot, i) => {
+      dot.setAttribute('aria-pressed', String(i === active));
+      dot.classList.toggle('is-active', i === active);
+    });
+  }
+  function syncPlayback() {
+    clearInterval(timer);
+    play.setAttribute('aria-pressed', String(playing));
+    play.setAttribute('aria-label', playing ? 'Pause Dock slideshow' : 'Play Dock slideshow');
+    play.classList.toggle('is-paused', !playing);
+    if (playing && visible && !document.hidden) {
+      timer = setInterval(() => select((active + 1) % slides.length), 2000);
+    }
+  }
+  dots.forEach((dot, index) => dot.addEventListener('click', () => {
+    select(index);
+    syncPlayback();
+  }));
+  play.addEventListener('click', () => { playing = !playing; syncPlayback(); });
+  document.addEventListener('visibilitychange', syncPlayback);
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      syncPlayback();
+    }).observe(hero);
+  }
+  motion.addEventListener('change', () => {
+    if (motion.matches) playing = false;
+    syncPlayback();
+  });
+  syncPlayback();
+
+  // Cards start far apart and converge on their centered flex layout as it enters view.
+  const collage = document.querySelector('.dock-pick__collage');
+  if (!collage) return;
+  const rows = [...collage.querySelectorAll('.dock-pick__row')];
+  const pickItems = rows.map(row => [...row.querySelectorAll('.dock-pick__item')]);
+  pickItems.flat().forEach(item => {
+    item.addEventListener('pointerenter', () => {
+      // Equal 4px expansion per edge, independent of the widget's aspect ratio.
+      const width = item.offsetWidth;
+      const height = item.offsetHeight;
+      if (!width || !height) return;
+      item.style.setProperty('--hover-scale-x', (width + 8) / width);
+      item.style.setProperty('--hover-scale-y', (height + 8) / height);
+    });
+  });
+  let frame;
+  function renderRows() {
+    frame = null;
+    const rect = collage.getBoundingClientRect();
+    const viewport = window.innerHeight;
+    const progress = Math.max(0, Math.min(1, (viewport * .95 - rect.top) / (viewport * .65)));
+    const remaining = motion.matches ? 0 : Math.pow(1 - progress, 2);
+    const extraGap = Math.min(180, window.innerWidth * .14) * remaining;
+    collage.classList.toggle('is-settled', motion.matches || progress === 1);
+    pickItems.forEach(items => {
+      const center = (items.length - 1) / 2;
+      items.forEach((item, index) => {
+        item.style.transform = `translateX(${(index - center) * extraGap}px)`;
+        item.classList.toggle('is-moving', !motion.matches && progress > 0 && progress < 1);
+      });
+    });
+  }
+  function scheduleRows() {
+    if (!frame) frame = requestAnimationFrame(renderRows);
+  }
+  window.addEventListener('scroll', scheduleRows, { passive: true });
+  window.addEventListener('resize', scheduleRows);
+  motion.addEventListener('change', scheduleRows);
+  renderRows();
+
+  const workspaceButtons = [...document.querySelectorAll('[data-workspace]')];
+  const workspacePanels = [...document.querySelectorAll('[data-workspace-panel]')];
+  const workspaceCaptions = [...document.querySelectorAll('[data-workspace-caption]')];
+  const initialWorkspace = workspaceButtons.find(button => button.getAttribute('aria-pressed') === 'true');
+  workspacePanels.forEach(panel => {
+    const selected = initialWorkspace && panel.dataset.workspacePanel === initialWorkspace.dataset.workspace;
+    panel.classList.toggle('is-active', Boolean(selected));
+    panel.setAttribute('aria-hidden', String(!selected));
+    panel.hidden = false;
+  });
+  workspaceButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const selected = button.dataset.workspace;
+      workspaceButtons.forEach(other => other.setAttribute('aria-pressed', String(other === button)));
+      workspacePanels.forEach(panel => {
+        const active = panel.dataset.workspacePanel === selected;
+        panel.classList.toggle('is-active', active);
+        panel.setAttribute('aria-hidden', String(!active));
+      });
+      workspaceCaptions.forEach(caption => { caption.hidden = caption.dataset.workspaceCaption !== selected; });
+    });
+  });
+})();
+
+(() => {
+  const track = document.querySelector('.dock-gallery__track');
+  if (!track) return;
+  const group = track.querySelector('.dock-gallery__group');
+  const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const before = group.cloneNode(true);
+  const after = group.cloneNode(true);
+  [before, after].forEach(copy => {
+    copy.setAttribute('aria-hidden', 'true');
+    copy.inert = true;
+  });
+  track.prepend(before);
+  track.append(after);
+
+  let period = 0;
+  let pointer = null;
+  let previousX = 0;
+  let touching = false;
+  let resumeAt = 0;
+  let visible = false;
+  let lastTime = 0;
+  let frame = null;
+
+  function wrap() {
+    if (!period) return;
+    if (track.scrollLeft < period || track.scrollLeft >= period * 2) {
+      track.scrollLeft = period + ((track.scrollLeft - period) % period + period) % period;
+    }
+  }
+  function measure() {
+    const previousPeriod = period;
+    const offset = previousPeriod ? (track.scrollLeft - previousPeriod) / previousPeriod : 0;
+    period = group.getBoundingClientRect().width + (parseFloat(getComputedStyle(track).gap) || 0);
+    track.scrollLeft = period + offset * period;
+    wrap();
+  }
+  function pause() { resumeAt = performance.now() + 1800; }
+  function tick(time) {
+    frame = null;
+    const elapsed = lastTime ? Math.min(time - lastTime, 50) : 0;
+    lastTime = time;
+    if (pointer === null && !touching && time >= resumeAt) {
+      // Increasing scrollLeft carries the images from right to left at 36px/s.
+      track.scrollLeft += elapsed * .036;
+      wrap();
+    }
+    frame = requestAnimationFrame(tick);
+  }
+  function sync() {
+    if (frame !== null) cancelAnimationFrame(frame);
+    frame = null;
+    lastTime = 0;
+    if (visible && !document.hidden && !motion.matches) frame = requestAnimationFrame(tick);
+  }
+  track.addEventListener('pointerdown', event => {
+    pause();
+    if (event.pointerType !== 'mouse' || event.button !== 0) return;
+    pointer = event.pointerId;
+    previousX = event.clientX;
+    track.setPointerCapture(pointer);
+    track.classList.add('is-dragging');
+    event.preventDefault();
+  });
+  track.addEventListener('pointermove', event => {
+    if (event.pointerId !== pointer) return;
+    track.scrollLeft += previousX - event.clientX;
+    previousX = event.clientX;
+    wrap();
+  });
+  function release(event) {
+    if (event.pointerId !== pointer) return;
+    pointer = null;
+    track.classList.remove('is-dragging');
+    pause();
+  }
+  ['pointerup', 'pointercancel', 'lostpointercapture'].forEach(name => track.addEventListener(name, release));
+  track.addEventListener('scroll', wrap, { passive: true });
+  track.addEventListener('wheel', pause, { passive: true });
+  track.addEventListener('touchstart', () => { touching = true; pause(); }, { passive: true });
+  track.addEventListener('touchmove', pause, { passive: true });
+  ['touchend', 'touchcancel'].forEach(name => track.addEventListener(name, () => { touching = false; pause(); }, { passive: true }));
+  track.addEventListener('keydown', event => {
+    if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+    event.preventDefault();
+    pause();
+    track.scrollLeft += (event.key === 'ArrowRight' ? 1 : -1) * (track.clientWidth * .65);
+    wrap();
+  });
+  document.addEventListener('visibilitychange', sync);
+  motion.addEventListener('change', sync);
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      sync();
+    }, { rootMargin: '100px' }).observe(track);
+  } else {
+    visible = true;
+  }
+  if ('ResizeObserver' in window) new ResizeObserver(measure).observe(track);
+  else window.addEventListener('resize', measure);
+  measure();
+  sync();
+})();
+
+(() => {
+  const root = document.querySelector('.dock-workflow');
+  if (!root) return;
+  const buttons = [...root.querySelectorAll('[data-workflow-select]')];
+  const items = [...root.querySelectorAll('[data-workflow-item]')];
+  const scenes = [...root.querySelectorAll('[data-workflow-scene]')];
+  let active = 0;
+  const animations = new Map();
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const itemList = root.querySelector('.dock-workflow__items');
+  let lastTextWidth = -1;
+  function prepareText() {
+    const padding = parseFloat(getComputedStyle(itemList).getPropertyValue('--workflow-open-padding')) || 28;
+    const width = Math.max(0, itemList.clientWidth - padding * 2);
+    // Height changes during expansion must not trigger another round of layout writes.
+    if (width === lastTextWidth) return;
+    lastTextWidth = width;
+    buttons.forEach(button => button.style.setProperty('--workflow-text-width', width + 'px'));
+  }
+  prepareText();
+  if ('ResizeObserver' in window) new ResizeObserver(prepareText).observe(itemList);
+  else window.addEventListener('resize', prepareText);
+  function select(index) {
+    if ((index + buttons.length) % buttons.length === active) return;
+    function geometry(button) {
+      const rect = button.getBoundingClientRect();
+      // A 999px capsule is visually clamped to half its height. Animate that
+      // actual radius instead of interpolating hundreds of invisible pixels.
+      const radius = Math.min(parseFloat(getComputedStyle(button).borderTopLeftRadius) || 0, rect.width / 2, rect.height / 2);
+      return { width: rect.width, height: rect.height, radius };
+    }
+    const before = buttons.map(geometry);
+    animations.forEach(animation => animation.cancel());
+    animations.clear();
+    active = (index + buttons.length) % buttons.length;
+    const key = buttons[active].dataset.workflowSelect;
+    buttons.forEach((button, i) => button.setAttribute('aria-expanded', String(i === active)));
+    items.forEach(item => {
+      const selected = item.dataset.workflowItem === key;
+      item.classList.toggle('is-active', selected);
+
+    });
+    scenes.forEach(scene => scene.classList.toggle('is-active', scene.dataset.workflowScene === key));
+    prepareText();
+    const targets = buttons.map(geometry);
+    if (!reduce.matches) buttons.forEach((button, i) => {
+      if (typeof button.animate !== 'function') return;
+      const after = targets[i];
+      if (Math.abs(before[i].width - after.width) < 1 && Math.abs(before[i].height - after.height) < 1) return;
+      const animation = button.animate([
+        { width: before[i].width + 'px', height: before[i].height + 'px', borderRadius: before[i].radius + 'px' },
+        { width: after.width + 'px', height: after.height + 'px', borderRadius: after.radius + 'px' }
+      ], { duration: 280, easing: 'cubic-bezier(.22,.61,.36,1)' });
+      animations.set(button, animation);
+      if (i === active) {
+        const text = button.querySelector('.dock-workflow__text');
+        const fade = text.animate([{ opacity: 0 }, { opacity: 1 }], {
+          duration: 200, fill: 'backwards', easing: 'ease-out'
+        });
+        animations.set(text, fade);
+      }
+    });
+  }
+  buttons.forEach((button, index) => button.addEventListener('click', () => select(index)));
+})();
+
+// One moving selection capsule, sized to the active label.
+(() => {
+  document.querySelectorAll('.dock-switch').forEach(root => {
+    function updateCapsule() {
+      const active = root.querySelector('button[aria-pressed="true"]');
+      if (!active) return;
+      root.style.setProperty('--capsule-x', active.offsetLeft + 'px');
+      root.style.setProperty('--capsule-width', active.offsetWidth + 'px');
+    }
+    updateCapsule();
+    root.classList.add('has-moving-capsule');
+    requestAnimationFrame(() => root.classList.add('capsule-ready'));
+    root.addEventListener('click', updateCapsule);
+    if ('ResizeObserver' in window) new ResizeObserver(updateCapsule).observe(root);
+    else window.addEventListener('resize', updateCapsule);
+    if (document.fonts) document.fonts.ready.then(updateCapsule);
+  });
+})();
+
+// Same preload/playback thresholds and poster fallback as the Music cards.
+(() => {
+  const videos = [...document.querySelectorAll('[data-dock-video]')];
+  if (!videos.length) return;
+  const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const visibility = new Map(videos.map(video => [video, 0]));
+  const nearby = new Set();
+  const requested = new WeakMap();
+  const pending = new WeakSet();
+
+  function loadVideo(video) {
+    if (document.hidden || motion.matches || navigator.connection?.saveData) return;
+    const sources = [...video.querySelectorAll('source[data-src]')];
+    if (!sources.length) return;
+    sources.forEach(source => {
+      source.src = source.dataset.src;
+      source.removeAttribute('data-src');
+    });
+    video.preload = 'auto';
+    video.load();
+  }
+  function syncVideo(video) {
+    const shouldPlay = !document.hidden && !motion.matches && !navigator.connection?.saveData && visibility.get(video) >= .2;
+    requested.set(video, shouldPlay);
+    if (shouldPlay) loadVideo(video);
+    if (!shouldPlay) video.pause();
+    else if (video.paused && !pending.has(video) && !video.error) {
+      pending.add(video);
+      video.play().then(() => {
+        // A late play() resolution must not restart a video that has left the viewport.
+        if (!requested.get(video)) video.pause();
+      }).catch(() => {}).finally(() => pending.delete(video));
+    }
+  }
+  videos.forEach(video => {
+    const card = video.closest('.dock-card, .dock-feature__media, .vi-card__media');
+    video.addEventListener('playing', () => card.classList.add('is-video-ready'));
+    ['emptied', 'error'].forEach(event => video.addEventListener(event, () => card.classList.remove('is-video-ready')));
+  });
+  if ('IntersectionObserver' in window) {
+    const preload = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { nearby.add(entry.target); loadVideo(entry.target); }
+        else nearby.delete(entry.target);
+      });
+    }, { rootMargin: '400px', threshold: 0 });
+    const playback = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        visibility.set(entry.target, entry.intersectionRatio);
+        syncVideo(entry.target);
+      });
+    }, { threshold: [0, .2, 1] });
+    videos.forEach(video => { preload.observe(video); playback.observe(video); });
+  } else {
+    videos.forEach(video => { nearby.add(video); visibility.set(video, 1); syncVideo(video); });
+  }
+  function syncAll() {
+    nearby.forEach(loadVideo);
+    videos.forEach(syncVideo);
+  }
+  document.addEventListener('visibilitychange', syncAll);
+  motion.addEventListener('change', syncAll);
+})();
+
+
+// Paint a small preview first; decode the responsive replacement before swapping it in.
+(() => {
+  const connection = navigator.connection;
+  const limited = connection?.saveData || /(^|-)2g$/.test(connection?.effectiveType || '');
+  const pending = new WeakSet();
+  function upgrade(img) {
+    if (!img.dataset.dockSrc || pending.has(img) || limited) return;
+    pending.add(img);
+    const full = new Image();
+    full.decoding = 'async';
+    full.sizes = img.dataset.dockSizes;
+    full.srcset = img.dataset.dockSrcset;
+    full.src = img.dataset.dockSrc;
+    full.decode().then(() => {
+      // Set sizes before srcset so mobile devices select the correct resource.
+      img.sizes = full.sizes;
+      img.srcset = full.srcset;
+      img.src = full.src;
+      delete img.dataset.dockSrc;
+      delete img.dataset.dockSrcset;
+      delete img.dataset.dockSizes;
+    }).catch(() => {}).finally(() => pending.delete(img));
+  }
+  if (limited) return;
+  const observer = 'IntersectionObserver' in window ? new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) upgrade(entry.target);
+    });
+  }, { rootMargin: '200px' }) : null;
+  function observe(scope) {
+    scope.querySelectorAll('img[data-dock-src]').forEach(img => {
+      if (observer) observer.observe(img);
+      else upgrade(img);
+    });
+  }
+  observe(document);
+  // Gallery copies are included, and later inserted artwork gets the same behavior.
+  new MutationObserver(records => records.forEach(record => record.addedNodes.forEach(node => {
+    if (node.nodeType !== 1) return;
+    if (node.matches('img[data-dock-src]')) observer ? observer.observe(node) : upgrade(node);
+    observe(node);
+  }))).observe(document.body, { childList: true, subtree: true });
+})();

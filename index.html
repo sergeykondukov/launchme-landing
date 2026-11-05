@@ -24,14 +24,16 @@
       - Images replaced with placeholders to be swapped later
       - Built for GitHub Pages (pure HTML/CSS/JS)
     -->
-    
+
     <!-- Favicon and app icons -->
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-    
+
     <link rel="preload" href="/css/style.css" as="style">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/dock.css">
+    <script src="/js/dock.js" defer></script>
 
     <!--
       Open Graph tags:
@@ -59,17 +61,8 @@
     <meta name="twitter:image" content="https://launchmeapp.com/images/website-preview.jpg">
 
     <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0FCPNZRQH0"></script>
-    <script>
-      // GA4 tracking for LaunchMe landing
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){ dataLayer.push(arguments); }
-      gtag('js', new Date());
-      gtag('config', 'G-0FCPNZRQH0');
-    </script>
 
     <!-- Ahrefs Analytics: site traffic and SEO tracking. data-key is required for your project. -->
-    <script src="https://analytics.ahrefs.com/analytics.js" data-key="O17VnQarOtoetB1zFsPYYQ" async></script>
 
     <!--
       Structured data (JSON-LD) for AI and search engines:
@@ -89,7 +82,7 @@
         "@type": "Offer",
         "price": "0",
         "priceCurrency": "USD",
-        "url": "https://launchmeapp.com/updates/LaunchMeDirect-2.08.2.dmg"
+        "url": "https://launchmeapp.com/updates/LaunchMeDirect-3.00.0.dmg"
       },
       "url": "https://launchmeapp.com/",
       "image": "https://launchmeapp.com/images/website-preview.jpg",
@@ -99,8 +92,10 @@
       }
     }
     </script>
+<link rel="stylesheet" href="/css/cookie-consent.css">
+<script src="/js/cookie-consent.js" defer data-ahrefs-key="O17VnQarOtoetB1zFsPYYQ"></script>
 </head>
-<body>
+<body class="home-page">
     <!--
       Header / Top Navigation
       Contains logo and lightweight nav. Anchor links provide smooth scroll (handled in JS).
@@ -115,10 +110,11 @@
                 <span class="lp-nav-toggle__bar" aria-hidden="true"></span>
             </button>
             <nav class="lp-nav" id="lp-nav-menu" aria-label="Main">
+                <a class="lp-nav__link" href="/dock/" data-ga="nav-dock" data-ga-area="header">Dock</a>
                 <a class="lp-nav__link" href="/music/" data-ga="nav-music" data-ga-area="header">Music</a>
                 <a class="lp-nav__link" href="/spaces-themes/" data-ga="nav-spaces" data-ga-area="header">Spaces</a>
                 <a class="lp-nav__link" href="/pricing/" data-ga="nav-pricing" data-ga-area="header">Pricing</a>
-                <a class="lp-btn lp-nav__download" href="/updates/LaunchMeDirect-2.08.2.dmg" data-ga="direct-dmg" data-ga-area="header">Download</a>
+                <a class="lp-btn lp-nav__download" href="/updates/LaunchMeDirect-3.00.0.dmg" data-ga="direct-dmg" data-ga-area="header">Download</a>
             </nav>
         </div>
     </header>
@@ -136,17 +132,19 @@
                     <svg class="apple-glyph" viewBox="0 0 384 512" aria-hidden="true"><path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
                     Workspace manager for your Mac
                 </p>
-                <h1 class="hero-title">The Launchpad replacement<br>macOS 26 - 27 deserves.</h1>
-                <p class="hero-sub">LaunchMe brings automations, file search, live wallpapers, widgets, and deep customization into one beautiful full-screen launcher built for macOS 26 & 27.</p>
+                <h1 class="hero-title">The Launchpad replacement.<br>Dock. Dynamic Notch. Music</h1>
+                <p class="hero-sub hero-sub--wide">In one app, LaunchMe brings together automations, file search, live wallpapers, widgets,<br>
+                    deep customization, a full-screen music player, Dynamic Notch, and an all-new Dock.<br>
+                    Built for macOS 26–27</p>
                 <div class="cta-group">
                     <!-- LAUNCHME_HERO_CTA_BEGIN -->
-                    <a class="lp-btn lp-btn--lg" href="/updates/LaunchMeDirect-2.08.2.dmg" data-ga="direct-dmg" data-ga-area="hero">
+                    <a class="lp-btn lp-btn--lg" href="/updates/LaunchMeDirect-3.00.0.dmg" data-ga="direct-dmg" data-ga-area="hero">
                         <svg class="apple-glyph" viewBox="0 0 384 512" aria-hidden="true"><path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
                         Download for macOS
                     </a>
                     <!-- LAUNCHME_HERO_CTA_END -->
                 </div>
-                <p class="hero-facts">Customizable &nbsp;·&nbsp; Live wallpapers &nbsp;·&nbsp; Automations &nbsp;·&nbsp; Widgets &nbsp;·&nbsp; Spaces</p>
+                <p class="hero-facts">Customizable &nbsp;·&nbsp; Dock &nbsp;·&nbsp; Dynamic Notch &nbsp;·&nbsp; Widgets &nbsp;·&nbsp; Spaces &nbsp;·&nbsp; Music</p>
                 <!-- Hero scene: interactive full-bleed mountains behind the laptop image.
                      - data-layer-top   = main/visible layer (shown by default)
                      - data-layer-reveal = layer revealed in a fluid blob around the cursor
@@ -159,10 +157,40 @@
                         <canvas class="hero-interactive__canvas"></canvas>
                     </div>
                     <!-- Hero image now sits below the text and CTA -->
-                    <img class="hero-image" src="/images/topimage.png" alt="LaunchMe preview" />
+                    <div class="hero-slideshow" data-hero-slideshow role="img" aria-label="LaunchMe preview">
+                        <img class="hero-image hero-slideshow__image is-active" src="/images/main-page/topimage1.png" alt="" width="986" height="601" fetchpriority="high" aria-hidden="true">
+                        <img class="hero-image hero-slideshow__image" src="/images/main-page/topimage2.png" alt="" width="986" height="601" aria-hidden="true">
+                        <img class="hero-image hero-slideshow__image" src="/images/main-page/topimage3.png" alt="" width="986" height="601" aria-hidden="true">
+                        <img class="hero-image hero-slideshow__image" src="/images/main-page/topimage4.png" alt="" width="986" height="601" aria-hidden="true">
+                    </div>
                 </div>
             </div>
         </section>
+
+<section id="dock" class="dock-hero dock-home" aria-labelledby="dock-title">
+<div class="container"><p class="dock-hero__brand"><img src="/images/logo-icon.png" alt="" width="48" height="48">Dock</p><h2 id="dock-title" class="dock-hero__title">Truly Your Dock.<br>More Personal. More Productive</h2><p class="dock-hero__subtitle">New LaunchMe Feature</p></div>
+<div class="dock-hero__stage"><div class="dock-hero__layers"><img class="dock-hero__base" src="/images/dock/dock-first-layer.png" alt="Hands holding a customizable LaunchMe Dock" width="3450" height="985" loading="lazy">
+<div class="dock-hero__slides" role="group" aria-label="Dock styles"><img class="dock-hero__slide is-active" src="/images/dock/dock-second-layer-1.png" alt="" width="3450" height="985" aria-hidden="true" loading="lazy">
+<img class="dock-hero__slide" src="/images/dock/dock-second-layer-2.png" alt="" width="2250" height="985" aria-hidden="true" loading=lazy>
+<img class="dock-hero__slide" src="/images/dock/dock-second-layer-3.png" alt="" width="2250" height="985" aria-hidden="true" loading=lazy>
+<img class="dock-hero__slide" src="/images/dock/dock-second-layer-4.png" alt="" width="2250" height="985" aria-hidden="true" loading=lazy>
+<img class="dock-hero__slide" src="/images/dock/dock-second-layer-5.png" alt="" width="2250" height="985" aria-hidden="true" loading=lazy>
+<img class="dock-hero__slide" src="/images/dock/dock-second-layer-6.png" alt="" width="2250" height="985" aria-hidden="true" loading=lazy>
+<img class="dock-hero__slide" src="/images/dock/dock-second-layer-7.png" alt="" width="2250" height="985" aria-hidden="true" loading=lazy></div>
+<img class="dock-hero__fingers" src="/images/dock/dock-third-layer.png" alt="" width="3450" height="985" aria-hidden="true" loading="lazy">
+</div>
+<div class="dock-hero__controls ai-explore__controls" aria-label="Choose a Dock style">
+    <div class="ai-explore__dots" aria-label="Slides"><button class="ai-dot is-active" type="button" data-dock-slide="0" aria-label="Dock style 1" aria-pressed="true"></button><button class="ai-dot" type="button" data-dock-slide="1" aria-label="Dock style 2" aria-pressed="false"></button><button class="ai-dot" type="button" data-dock-slide="2" aria-label="Dock style 3" aria-pressed="false"></button><button class="ai-dot" type="button" data-dock-slide="3" aria-label="Dock style 4" aria-pressed="false"></button><button class="ai-dot" type="button" data-dock-slide="4" aria-label="Dock style 5" aria-pressed="false"></button><button class="ai-dot" type="button" data-dock-slide="5" aria-label="Dock style 6" aria-pressed="false"></button><button class="ai-dot" type="button" data-dock-slide="6" aria-label="Dock style 7" aria-pressed="false"></button></div>
+    <button type="button" class="dock-hero__play ai-explore__play" aria-label="Pause Dock slideshow" aria-pressed="true">
+        <svg class="ai-explore__icon-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+        <svg class="ai-explore__icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+    </button>
+</div>
+<div class="dock-home__cta"><a class="lp-btn lp-btn--lg" href="/dock/" data-ga="learn-more-dock" data-ga-area="home-dock">Learn More about Dock</a></div>
+</div>
+</section>
+
+
 
         <!-- ===== Notch integration: intro + image-only carousel (same slider as ai-explore) ===== -->
         <section id="notch" class="section ai-explore notch-explore">
@@ -388,6 +416,14 @@
             </div>
         </section>
 
+        <section class="container home-working-image" aria-labelledby="any-display-title">
+            <h2 id="any-display-title" class="section-title">Any display</h2>
+            <p class="section-sub">All LaunchMe features including Notch and Dock<br>designed to look amazing on any screen size.</p>
+            <div class="dock-feature__media">
+                <img src="/images/working-girl-main.jpg" alt="Working with LaunchMe on a Mac" width="1700" height="922" loading="lazy" decoding="async">
+            </div>
+        </section>
+
         <!-- Customization Section -->
         <section id="customization" class="section customization">
             <div class="container">
@@ -580,6 +616,16 @@
             </div>
         </section>
 
+        <section id="ready-for-touch" class="section ready-for-touch" aria-labelledby="ready-for-touch-title">
+            <div class="container">
+                <h2 id="ready-for-touch-title" class="section-title">Ready for your touch</h2>
+                <p class="section-sub">LaunchMe is optimized to work on the new<br>MacBook Pro M5 Pro and M5 Max with a touchscreen</p>
+                <div class="ready-for-touch__media" style="background-image: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABcQERQRDhcUEhQaGBcbIjklIh8fIkYyNSk5UkhXVVFIUE5bZoNvW2F8Yk5QcptzfIeLkpSSWG2grJ+OqoOPko3/2wBDARgaGiIeIkMlJUONXlBejY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY3/wAARCAAgADADASIAAhEBAxEB/8QAGQAAAwEBAQAAAAAAAAAAAAAAAgMEAQUG/8QAKBAAAgEDBAAFBQEAAAAAAAAAAQIRAAMhBBIxQRMUIkJRI2FxgbHB/8QAFgEBAQEAAAAAAAAAAAAAAAAAAQAC/8QAGBEBAQEBAQAAAAAAAAAAAAAAAAEREgL/2gAMAwEAAhEDEQA/APMIDsafaP7R2FVi+9XKgZK+370S2g2nLb8kgRW2UdWILOqtg7e6y3IF7RR19YZGbDDg0NxSmOYxPVdLUaUvdtslwXACMuAs/rusuDebovFAw9Q28TxR1Dy5QJ3ZPNU6hSbpfwvDUBZA/H+1htoty2b0i2T7cmKdrG07aVPKuxVWgqwAI56p0Ykb6YUjGeqoDgEscgwYioy8xM4pw1AVYUGfkxTilxUl1Xfelk3FQyUZcGh1WvF5l22Ft7RG0VL5huiQaWTOTRmHdhl1i3OBHFL3ESPmtkTQHmmL1X//2Q==')">
+                    <img src="/images/optimized/ready-for-touch-1121.jpg" srcset="/images/optimized/ready-for-touch-640.jpg 640w, /images/optimized/ready-for-touch-1121.jpg 1121w" sizes="(max-width: 1100px) calc(100vw - 40px), 1060px" width="1121" height="754" loading="lazy" decoding="async" alt="A woman using LaunchMe on a laptop touchscreen during a nighttime ride">
+                </div>
+            </div>
+        </section>
+
         <section id="launchme-features" class="section lm-features">
             <div class="container">
                 <h2 class="section-title">LaunchMe Features</h2>
@@ -588,7 +634,7 @@
                   - Explicitly connects LaunchMe to Launchpad and macOS 26 Tahoe.
                   - Mentions key differentiating features in one simple sentence.
                 -->
-                <p class="section-sub">Everything you loved about Launchpad, plus live video wallpapers, widgets, file access, and deep customization — built for macOS 26 Tahoe.</p>
+                <p class="section-sub">Everything you loved about Launchpad, and even more! Built for macOS 26 Tahoe and macOS 27 Golden Gate.</p>
                 <!--
                   Grid with 20 feature tiles.
                   - Each tile = icon placeholder + short title + optional subtitle
@@ -915,7 +961,7 @@
         </section>
 
         <!-- FAQ Section -->
-        <section id="faq" class="section faq">
+        <section id="faq" class="section faq faq--cards">
             <div class="container">
                 <h2 class="section-title">FAQ</h2>
                 <!--
@@ -925,40 +971,38 @@
                     <div class="accordion-item">
                         <button class="accordion-trigger" aria-expanded="false">Is LaunchMe a good Launchpad alternative for macOS 26?</button>
                         <div class="accordion-panel" hidden>
-                            <p>Yes. LaunchMe is built specifically as a Launchpad replacement for macOS 26 Tahoe. It restores the full-screen app launcher experience with more customization, file search, and folder support. <a href="/blog/">Read our comparison with other launchers</a>.</p>
+                            <p>Yes. LaunchMe is built specifically as a Launchpad replacement for macOS 26 Tahoe and 27 Golden Gate. It restores the full-screen app launcher experience with more customization, file search, folder support, a full-screen music player, and integrated Dynamic Notch and Dock. <a href="/blog/">Read our comparison with other launchers</a>.</p>
                         </div>
                     </div>
                     <div class="accordion-item">
                         <button class="accordion-trigger" aria-expanded="false">What is LaunchMe?</button>
                         <div class="accordion-panel" hidden>
-                            <p>As macOS Tahoe removed the original Launchpad, but we loved it so much, we decided to create our own version of it - the way macOS deserves. It has customization options to let users make their workspace more inspiring and perfect for them. Also, you can group apps and folders for fast access to your files right from LaunchMe. Folders are also customizable, and you can set your own color, cover image, or emoji.</p>
+                            <p>macOS Tahoe removed the original Launchpad, but we loved it so much that we decided to create our own version of it - the way macOS deserves. It has customization options to let users make their workspace more inspiring and perfect for them. Also, you can group apps and folders for fast access to your files right from LaunchMe. LaunchMe has a lot of new features that you can learn more about on our website.</p>
                         </div>
                     </div>
                     <div class="accordion-item">
-                        <button class="accordion-trigger" aria-expanded="false">How to start using LaunchMe?</button>
+                        <button class="accordion-trigger" aria-expanded="false">How do I start using LaunchMe?</button>
                         <div class="accordion-panel" hidden>
-                            <p>Download LaunchMe from the Mac App Store - it's easy. You can use it for free, or unlock full access with a subscription or a lifetime license.</p>
+                            <p>Download LaunchMe from our website - it&#x27;s easy. You can use it for free, or unlock full access with a subscription or a lifetime license.</p>
                         </div>
                     </div>
                     <div class="accordion-item">
                         <button class="accordion-trigger" aria-expanded="false">Can I try Pro for free?</button>
                         <div class="accordion-panel" hidden>
-                            <p>Yes. You can use the 7-day Free Trial to try out LaunchMe PRO. Purchase LaunchMe PRO or LITE to unlock premium features.</p>
+                            <p>Yes. You can use the 7-day free trial to try out LaunchMe PRO. Purchase LaunchMe PRO to unlock premium features such as Dynamic Notch and Dock.</p>
                         </div>
                     </div>
                     <div class="accordion-item">
-                        <button class="accordion-trigger" aria-expanded="false">What will I get in PRO or LITE?</button>
+                        <button class="accordion-trigger" aria-expanded="false">What will I get in PRO?</button>
                         <div class="accordion-panel" hidden>
-                            <p>In PRO, you will get access to all premium features of LaunchMe such as wallpapers, folder customization, hide apps, hide titles, Liquid Glass Theme, and many other features we will add in the future. LITE is made for users who don't need customization but want to support us and still get part of the premium features such as Liquid Glass, Hide Apps, and Hide Titles.</p>
+                            <p>In PRO, you will get access to all premium features of LaunchMe.</p>
                         </div>
                     </div>
                     <div class="accordion-item">
-                        <button class="accordion-trigger" aria-expanded="false">Can I set my own files for Wallpapers?</button>
+                        <button class="accordion-trigger" aria-expanded="false">Can I use my own files for wallpapers?</button>
                         <div class="accordion-panel" hidden>
-                            <p>Yes, we have 3 types of wallpaper:<br>
-                            • Image: choose any image you want in .PNG or .JPG.<br>
-                            • Dynamic: this wallpaper will adapt to your current Dark/Light mode. Use .HEIC format.<br>
-                            • Live: set your video file in formats: MP4, MOV, AVI, MKV.</p>
+                            <p>Yes, we have 3 types of wallpaper:</p>
+                            <ul><li>Image: choose any image you want in PNG or JPG format.</li><li>Dynamic: this wallpaper will adapt to your current Dark/Light mode. Use HEIC format.</li><li>Live: use a video file in MP4, MOV, AVI, or MKV format.</li></ul>
                         </div>
                     </div>
                     <div class="accordion-item">
@@ -970,37 +1014,40 @@
                     <div class="accordion-item">
                         <button class="accordion-trigger" aria-expanded="false">Does it work with multiple displays?</button>
                         <div class="accordion-panel" hidden>
-                            <p>Yes. LaunchMe will open a full-screen window on the monitor where your cursor is located. Make sure your cursor is not located on a display with another full-screen app.</p>
+                            <p>Yes. LaunchMe will open a full-screen window on the monitor where your cursor is located. It also supports Always On mode to keep LaunchMe open on an external display or in your desktop Space.</p>
                         </div>
                     </div>
                     <div class="accordion-item">
                         <button class="accordion-trigger" aria-expanded="false">Do I need to register an account?</button>
                         <div class="accordion-panel" hidden>
+                            <p><strong>App Store version</strong></p>
                             <p>No. You only need to be logged in to your Apple iCloud account on your Mac. Your subscription will be managed by Apple.</p>
+                            <p><strong>Website version</strong></p>
+                            <p>You can use the free LaunchMe features without registration. If you want to access Pro features, you need to register an account in the Settings sidebar so we can connect your license to your account. You can log in to LaunchMe with your account on another Mac, and your license will be activated automatically.</p>
                         </div>
                     </div>
                     <div class="accordion-item">
                         <button class="accordion-trigger" aria-expanded="false">Can I cancel my subscription?</button>
                         <div class="accordion-panel" hidden>
+                            <p><strong>App Store version</strong></p>
                             <p>Yes. You can cancel anytime in the subscription manager of your Apple Account.</p>
+                            <p><strong>Website version</strong></p>
+                            <p>Yes. You can cancel anytime in the Settings sidebar - General.</p>
                         </div>
                     </div>
                     <div class="accordion-item">
                         <button class="accordion-trigger" aria-expanded="false">Why does LaunchMe ask for permission to control my Mac?</button>
                         <div class="accordion-panel" hidden>
-                            <p>LaunchMe needs user permission to launch apps on your computer and read the Applications folder. LaunchMe does not collect any information from your computer. All information needed for LaunchMe to work (like apps or folder paths) is managed locally on your computer.</p>
+                            <p>LaunchMe needs user permission to launch apps, control music, find files, and use other features. LaunchMe does not collect any information from your computer. All information needed for LaunchMe features to work is managed locally on your computer.</p>
                         </div>
                     </div>
                     <div class="accordion-item">
-                        <button class="accordion-trigger" aria-expanded="false">Can I use Pinch Gesture to open LaunchMe?</button>
+                        <button class="accordion-trigger" aria-expanded="false">Can I use a pinch gesture to open LaunchMe?</button>
                         <div class="accordion-panel" hidden>
-                            <p>
-                                Yes! The gesture feature is a private macOS feature, and Apple does not allow us to use it in AppStore.
-                                But you can download our small free background app LaunchMe – Gestures that allows you to use trackpad to invoke LaunchMe.
-                                <a class="faq-link" href="https://launchmeapp.com/help/#pinch-gesture" target="_blank" rel="noopener noreferrer">
-                                    Learn more here
-                                </a>
-                            </p>
+                            <p><strong>App Store version</strong></p>
+                            <p>Yes! The gesture feature is a private macOS feature, and Apple does not allow us to use it in the App Store. But you can download our small free background app LaunchMe – Gestures that allows you to use the trackpad to invoke LaunchMe. <a class="faq-link" href="https://launchmeapp.com/help/#pinch-gesture" target="_blank" rel="noopener noreferrer">Learn more here</a></p>
+                            <p><strong>Website version</strong></p>
+                            <p>Yes. The gesture feature is built into the website version of LaunchMe and you can manage it in the Settings sidebar - General.</p>
                         </div>
                     </div>
 
@@ -1013,63 +1060,41 @@
                     <div class="accordion-item">
                         <button class="accordion-trigger" aria-expanded="false">What is the best replacement for Launchpad on macOS 26 Tahoe?</button>
                         <div class="accordion-panel" hidden>
-                            <p>LaunchMe is the best replacement for Launchpad on macOS 26 Tahoe. When Apple removed Launchpad in macOS 26 Tahoe, LaunchMe was created to fill that gap with even more features than the original Launchpad had.</p>
-                            <p><strong>LaunchMe offers everything Launchpad had, plus:</strong></p>
-                            <ul>
-                                <li>Customizable layouts - place apps exactly where you want</li>
-                                <li>Live video wallpapers (MP4, MOV, AVI, MKV) - something Launchpad never had</li>
-                                <li>Widgets support for customization inside the launcher</li>
-                                <li>Folder customization with colors, emoji, and cover images</li>
-                                <li>Custom app icons and system icon themes (Dark, Light, Tinted)</li>
-                                <li>Fast file access - organize apps and folders together in one launcher</li>
-                                <li>Multi-display support - works seamlessly across all your monitors</li>
-                                <li>Files Search, Copy files, Copy path, Delete, Preview or show in Finder </li>
-                            </ul>
-                            <p>LaunchMe is available on the Mac App Store and works on macOS 26 Tahoe</p>
+                            <p>LaunchMe is the best replacement for Launchpad on macOS 26 Tahoe. When Apple removed Launchpad in macOS 26 Tahoe, LaunchMe was created to fill that gap with even more features than the original Launchpad had, along with other amazing features like Dynamic Notch, the full-screen music player, and Dock. Learn more about our features on the website.</p>
                         </div>
                     </div>
 
                     <div class="accordion-item">
                         <button class="accordion-trigger" aria-expanded="false">How can I get Launchpad back on macOS 26 Tahoe?</button>
                         <div class="accordion-panel" hidden>
-                            <p>Since Apple removed Launchpad in macOS 26 Tahoe, you can't get the original Launchpad back. However, LaunchMe provides a full replacement that works exactly like Launchpad, but with more customization options.</p>
-                            <p><strong>To get LaunchMe (Launchpad replacement):</strong></p>
-                            <ol>
-                                <li>Download LaunchMe from the Mac App Store</li>
-                                <li>Open LaunchMe and set your preferred launch shortcut or use default combination</li>
-                                <li>Organize your apps and folders just like you did in Launchpad</li>
-                                <li>Customize wallpapers, icons, and layout to make it yours</li>
-                            </ol>
-                            <p>LaunchMe opens in full-screen mode just like Launchpad did, and you can use it immediately after installation. It's free to use with basic features, and you can unlock premium features with a subscription or lifetime license.</p>
+                            <p>Since Apple removed Launchpad in macOS 26 Tahoe, you can&#x27;t get the original Launchpad back. However, LaunchMe provides a full replacement that works exactly like Launchpad, but with more customization options.</p>
+                            <p>To get LaunchMe (Launchpad replacement):</p>
+                            <ol><li>Download LaunchMe from our website</li><li>Open LaunchMe and set your preferred launch shortcut or use the default combination</li><li>Organize your apps and folders just like you did in Launchpad or restore your original Launchpad layout</li><li>Customize wallpapers, icons, and layout to make it yours</li></ol>
+                            <p>LaunchMe opens in full-screen mode just like Launchpad did, and you can use it immediately after installation. It&#x27;s free to use with basic features, and you can unlock premium features with a subscription or a lifetime license.</p>
                         </div>
                     </div>
 
                     <div class="accordion-item">
                         <button class="accordion-trigger" aria-expanded="false">Is there a customizable app launcher for Mac with live wallpapers and widgets?</button>
                         <div class="accordion-panel" hidden>
-                            <p>Yes, LaunchMe is a customizable app launcher for Mac that supports both live wallpapers and widgets — features that the original macOS Launchpad never had.</p>
-                            <p><strong>Live Wallpapers:</strong> LaunchMe supports live video wallpapers in MP4, MOV, AVI, and MKV formats. You can set any video file as your launcher background, creating a dynamic and personalized experience. LaunchMe also supports static images (PNG, JPG) and dynamic wallpapers (HEIC) that adapt to your system's Dark/Light mode.</p>
-                            <p><strong>Widgets:</strong> LaunchMe includes widgets support, allowing you to add GIF, Photo, Shapes, Text, Animations, Calendar and more widgets in future.</p>
+                            <p>Yes, LaunchMe is a customizable app launcher for Mac that supports both live wallpapers and widgets - features that the original macOS Launchpad never had.</p>
+                            <p><strong>Live Wallpapers:</strong> LaunchMe supports live video wallpapers in MP4, MOV, AVI, and MKV formats. You can set any video file as your launcher background, creating a dynamic and personalized experience. LaunchMe also supports static images (PNG, JPG) and dynamic wallpapers (HEIC) that adapt to your system&#x27;s Dark/Light mode.</p>
+                            <p><strong>Widgets:</strong> LaunchMe includes widget support, allowing you to add GIF, Photo, Shapes, Text, Animations, Calendar, and more widgets in the future.</p>
                             <p><strong>Additional customization:</strong> Beyond wallpapers and widgets, LaunchMe lets you customize folder styles, app icons, icon sizes, layouts, and system icon themes. All of these features are available in LaunchMe PRO.</p>
                         </div>
                     </div>
 
                     <div class="accordion-item">
-                        <button class="accordion-trigger" aria-expanded="false">What's the difference between LaunchMe and the original macOS Launchpad?</button>
+                        <button class="accordion-trigger" aria-expanded="false">What&#x27;s the difference between LaunchMe and the original macOS Launchpad?</button>
                         <div class="accordion-panel" hidden>
                             <p>LaunchMe includes all the core functionality of the original macOS Launchpad, but adds significant customization and features that Launchpad never had.</p>
                             <p><strong>What LaunchMe has that Launchpad had:</strong></p>
-                            <ul>
-                                <li>Full-screen app launcher interface</li>
-                                <li>App organization and grouping</li>
-                                <li>Quick app access</li>
-                                <li>Multi-display support</li>
-                            </ul>
+                            <ul><li>Full-screen app launcher interface</li><li>App organization and grouping</li><li>Quick app access</li><li>Multi-display support</li></ul>
                             <p><strong>What LaunchMe adds beyond Launchpad:</strong></p>
                             <ul>
                                 <li><strong>Live video wallpapers</strong> - Set MP4, MOV, AVI, or MKV videos as backgrounds</li>
                                 <li><strong>Widgets</strong> - Add widgets for quick information and actions</li>
-                                <li><strong>Save layouts</strong> - Create different layout pressets you for different tasks</li>
+                                <li><strong>Save layouts</strong> - Create different layout presets for different tasks</li>
                                 <li><strong>Folder customization</strong> - Colors, emoji, cover images for folders</li>
                                 <li><strong>Custom app icons</strong> - Change any app icon to match your style</li>
                                 <li><strong>File access</strong> - Organize apps and files together in folders</li>
@@ -1079,6 +1104,25 @@
                                 <li><strong>Liquid Glass theme</strong> - Modern glassmorphism design</li>
                                 <li><strong>Easy access to your files</strong> - Files Search, Copy files, Copy path, Delete, Preview or show in Finder</li>
                                 <li><strong>Clipboard</strong> - Easy access to history of copied files and text</li>
+                                <li><strong>LaunchMe Dock</strong> - Create a customizable Dock with apps, Finder folders, widgets, ready-made presets, and a separate Dock setup for each display</li>
+                                <li><strong>LaunchMe Notch</strong> - Keep widgets, apps, folders, music controls, and clipboard history at the top of your screen, with customization synced to Spaces</li>
+                                <li><strong>AirDrop and Pocket</strong> - Drag files to Notch to share them via AirDrop or keep them in Pocket for later</li>
+                                <li><strong>Workflows</strong> - Launch multiple apps, files, and folders for a project with one click</li>
+                                <li><strong>Spaces switching</strong> - Switch between workspaces with different layouts, widgets, wallpapers, and settings using a shortcut or a schedule</li>
+                                <li><strong>Shareable Spaces themes</strong> - Export and share your Spaces, or install ready-made workspace themes in one click</li>
+                                <li><strong>Music widgets</strong> - Control Apple Music and Spotify with customizable widgets and animated album artwork</li>
+                                <li><strong>Full-screen music player</strong> - Enjoy animated artwork, Vinyl styles including Waves, Particles, and Glowing Beats</li>
+                                <li><strong>Weather, Clock, and Calendar widgets</strong> - Check live weather and keep the time and date in view with different widget styles</li>
+                                <li><strong>Timer and Pomodoro</strong> - Manage countdowns and focus sessions in Notch, with timer sounds and compact or large widgets</li>
+                                <li><strong>Dynamic backgrounds</strong> - Use wallpapers that follow the time of day or live weather, or display music artwork as your wallpaper</li>
+                                <li><strong>Clean app uninstalling</strong> - Remove apps together with related settings, cache, and leftover files</li>
+                                <li><strong>Smart app organization</strong> - Sort apps, group them into folders automatically, and restore your Launchpad layout</li>
+                                <li><strong>Flexible folder layouts</strong> - Choose different folder grid sizes, sort apps A–Z, and select multiple apps with Shift to create a folder</li>
+                                <li><strong>Calculator in Search</strong> - Perform calculations directly in the search field</li>
+                                <li><strong>Emoji and Symbols</strong> - Find emoji and symbols directly from the search bar</li>
+                                <li><strong>Rename apps</strong> - Give apps your own names inside the launcher</li>
+                                <li><strong>Extra app sources</strong> - Find and add apps from locations beyond the default Applications folder</li>
+                                <li><strong>Custom launch controls</strong> - Choose your own keyboard shortcut, use hot corners, or configure a three-, four-, or five-finger pinch gesture</li>
                             </ul>
                             <p>Most importantly, LaunchMe works on macOS 26 Tahoe, where Launchpad was removed by Apple.</p>
                         </div>
@@ -1088,35 +1132,13 @@
             </div>
         </section>
 
-        <!--
-          Guides & Articles: internal links to blog for SEO.
-          - Placed after FAQ as requested.
-          - Passes link equity from homepage to blog posts.
-          - Targets long-tail keywords (Launchpad alternative, comparisons).
-        -->
-        <section id="guides" class="section guides">
-            <div class="container">
-                <h2 class="section-title">Guides &amp; Articles</h2>
-                <p class="section-sub">Learn how to get Launchpad back on macOS 26 Tahoe and compare LaunchMe with other app launchers.</p>
-                <ul class="guides-list" style="list-style:none;padding:0;margin:24px 0 0;display:grid;gap:16px;max-width:600px;margin-left:auto;margin-right:auto;">
-                    <li><a href="blog/launchme-update-2-0-notch.html" style="color:inherit;text-decoration:none;font-weight:600;font-size:18px;">LaunchMe Update 2.0: Hello Notch</a></li>
-                    <li><a href="blog/launchme-update-1-118.html" style="color:inherit;text-decoration:none;font-weight:600;font-size:18px;">LaunchMe Update 1.118: New Widgets Unpacking</a></li>
-                    <li><a href="blog/launchme-vs-raycast.html" style="color:inherit;text-decoration:none;font-weight:600;font-size:18px;">LaunchMe vs Raycast</a></li>
-                    <li><a href="blog/launchme-update-1-111.html" style="color:inherit;text-decoration:none;font-weight:600;font-size:18px;">LaunchMe Update 1.111 — New Features Unpacking</a></li>
-                </ul>
-                <p style="margin-top:20px;text-align:center;">
-                    <a href="/blog/" style="font-weight:600;">All articles</a>
-                </p>
-            </div>
-        </section>
-
         <!-- Call To Action -->
         <section id="download" class="section cta">
             <div class="container">
                 <div class="cta-pill">
                     <div class="cta-pill__left">
                         <h3 class="cta-pill__title">Get LaunchMe<br>and launch apps like a pro</h3>
-                        <a class="lp-btn lp-btn--lg" href="/updates/LaunchMeDirect-2.08.2.dmg" data-ga="direct-dmg" data-ga-area="cta-bottom">
+                        <a class="lp-btn lp-btn--lg" href="/updates/LaunchMeDirect-3.00.0.dmg" data-ga="direct-dmg" data-ga-area="cta-bottom">
                             <svg class="apple-glyph" viewBox="0 0 384 512" aria-hidden="true"><path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
                             Download for macOS
                         </a>
@@ -1140,9 +1162,9 @@
         <div class="container footer-top">
             <div class="footer-brand">
                 <a href="/" class="footer-logo"><img src="/images/logoicontext.png" alt="LaunchMe"></a>
-                <p class="footer-tagline">Your full-screen Mac launcher</p>
-                <p class="footer-desc">LaunchMe brings automation, file search, live wallpapers, widgets, and deep customization into one beautiful full-screen launcher built for macOS 27.</p>
-                <a class="lp-btn lp-btn--lg footer-cta" href="/updates/LaunchMeDirect-2.08.2.dmg" data-ga="direct-dmg" data-ga-area="footer">
+                <p class="footer-tagline">Your Mac Workspace manager</p>
+                <p class="footer-desc">LaunchMe brings Full Screen Launcher, Notch, Dock, full screen Music Player, automation, file search, widgets, and deep customization into one beautiful app built for macOS 27.</p>
+                <a class="lp-btn lp-btn--lg footer-cta" href="/updates/LaunchMeDirect-3.00.0.dmg" data-ga="direct-dmg" data-ga-area="footer">
                     <svg class="apple-glyph" viewBox="0 0 384 512" aria-hidden="true"><path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
                     Download for macOS
                 </a>
@@ -1169,9 +1191,10 @@
                 <nav class="footer-col" aria-label="Navigation">
                     <h4 class="footer-col__title">Navigation</h4>
                     <a href="/support/">Support</a>
-                    <a href="/help/">Help Center</a>
+                    <a href="/help/direct/launcher/getting-started/">Help Center</a>
                     <a href="/changelog/">Changelog</a>
                     <a href="/privacy/">Privacy Policy</a>
+                    <button class="cookie-settings" type="button" data-cookie-settings>Cookie settings</button>
                     <a href="/terms/">Terms of Service</a>
                     <a href="/refunds/">Refund Policy</a>
                     <a href="/press-assets/">Press Assets</a>

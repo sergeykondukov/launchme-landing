@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>LaunchMe Help Center (Website Version) | Direct Download Guides</title>
+    <title>LaunchMe Help Center | Launcher, Notch, Dock &amp; Music Guides</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- SEO: help for the direct-download (website) build, separate from App Store /help -->
-    <meta name="description" content="LaunchMe Help Center for the website download version. Guides for Notch, Spaces, widgets, and direct-build features on Mac.">
-    <meta name="keywords" content="LaunchMe direct download help, LaunchMe website version, LaunchMe Notch guide, Mac app launcher help">
+    <meta name="description" content="Set up and customize LaunchMe on macOS 26 and 27. Read guides for the full-screen launcher, Notch, Dock, Music, widgets, Spaces, and permissions.">
     <meta name="author" content="LaunchMe">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://launchmeapp.com/help/direct/">
-    <meta property="og:title" content="LaunchMe Help Center (Website Version)">
-    <meta property="og:description" content="Help and guides for the LaunchMe direct download version on Mac.">
+    <meta property="og:title" content="LaunchMe Help Center | Launcher, Notch, Dock &amp; Music Guides">
+    <meta property="og:description" content="Set up and customize LaunchMe on macOS 26 and 27. Read guides for the full-screen launcher, Notch, Dock, Music, widgets, Spaces, and permissions.">
 
     <meta property="twitter:card" content="summary">
     <meta property="twitter:url" content="https://launchmeapp.com/help/direct/">
-    <meta property="twitter:title" content="LaunchMe Help Center (Website Version)">
-    <meta property="twitter:description" content="Help and guides for the LaunchMe direct download version on Mac.">
+    <meta property="twitter:title" content="LaunchMe Help Center | Launcher, Notch, Dock &amp; Music Guides">
+    <meta property="twitter:description" content="Set up and customize LaunchMe on macOS 26 and 27. Read guides for the full-screen launcher, Notch, Dock, Music, widgets, Spaces, and permissions.">
 
     <link rel="canonical" href="https://launchmeapp.com/help/direct/">
 
@@ -27,14 +26,10 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
 
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/help/direct/direct.css">
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0FCPNZRQH0"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){ dataLayer.push(arguments); }
-      gtag('js', new Date());
-      gtag('config', 'G-0FCPNZRQH0');
-    </script>
+<link rel="stylesheet" href="/css/cookie-consent.css">
+<script src="/js/cookie-consent.js" defer></script>
 </head>
 <body class="doc help-center help-center--direct">
     <header class="lp-header">
@@ -47,10 +42,11 @@
                 <span class="lp-nav-toggle__bar" aria-hidden="true"></span>
             </button>
             <nav class="lp-nav" id="lp-nav-menu" aria-label="Main">
+                <a class="lp-nav__link" href="/dock/" data-ga="nav-dock" data-ga-area="header">Dock</a>
                 <a class="lp-nav__link" href="/music/" data-ga="nav-music" data-ga-area="header">Music</a>
                 <a class="lp-nav__link" href="/spaces-themes/" data-ga="nav-spaces" data-ga-area="header">Spaces</a>
                 <a class="lp-nav__link" href="/pricing/" data-ga="nav-pricing" data-ga-area="header">Pricing</a>
-                <a class="lp-btn lp-nav__download" href="/updates/LaunchMeDirect-2.08.2.dmg" data-ga="direct-dmg" data-ga-area="help-direct-header">Download</a>
+                <a class="lp-btn lp-nav__download" href="/updates/LaunchMeDirect-3.00.0.dmg" data-ga="direct-dmg" data-ga-area="help-direct-header">Download</a>
             </nav>
         </div>
     </header>
@@ -59,44 +55,133 @@
 
     <main class="help-main container">
         <h1>Help Center</h1>
-        <p class="help-intro">Guides for the LaunchMe website download version. Articles for Notch, Spaces, and direct-only features will appear here.</p>
-
+        <p class="help-intro">Guides for the LaunchMe website version. Explore the launcher, Notch, Dock, and Music.</p>
+        <p class="direct-meta">Documentation updated <time datetime="2026-11-04">November 4, 2026</time><span aria-hidden="true"> · </span> Website version<span aria-hidden="true"> · </span> macOS 26 &amp; 27</p>
         <div class="help-layout">
-            <div class="help-content help-content--direct">
-                <div class="help-coming-soon">
-                    <img class="help-coming-soon__icon" src="/images/logo-icon.png" alt="LaunchMe app icon">
-                    <h2 class="help-coming-soon__title">Coming soon</h2>
-                    <p class="help-coming-soon__text">We are writing step-by-step guides for the direct download build. Check the latest update notes or contact support if you need help right now.</p>
-                    <div class="help-coming-soon__actions">
-                        <a class="lp-btn lp-btn--lg" href="/updates/LaunchMeDirect-2.08.2.dmg" data-ga="direct-dmg" data-ga-area="help-direct-coming-soon">
-                            <svg class="apple-glyph" viewBox="0 0 384 512" aria-hidden="true"><path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
-                            Download for macOS
-                        </a>
-                    </div>
-                    <div class="help-coming-soon__links">
-                        <a class="help-coming-soon__link" href="/blog/launchme-update-2-0-notch.html">Read update 2.0</a>
-                        <span class="help-coming-soon__sep" aria-hidden="true">·</span>
-                        <a class="help-coming-soon__link" href="/support/">Contact support</a>
-                    </div>
-                </div>
+            <div class="help-content direct-overview">
+                <p>New to LaunchMe? <a href="/help/direct/launcher/getting-started/">Start with installation and first launch</a>, or choose a guide below.</p>
+                <section class="direct-overview-group" id="full-screen-launcher"><h2>Full Screen Launcher</h2><ul><li><a href="/help/direct/launcher/getting-started/">Getting started</a></li>
+<li><a href="/help/direct/launcher/shortcuts-and-gestures/">Shortcuts and gestures</a></li>
+<li><a href="/help/direct/launcher/apps-and-layout/">Apps and layout</a></li>
+<li><a href="/help/direct/launcher/folders/">Folders</a></li>
+<li><a href="/help/direct/launcher/categories/">Categories</a></li>
+<li><a href="/help/direct/launcher/sorting-and-saved-layouts/">Sorting and saved layouts</a></li>
+<li><a href="/help/direct/launcher/search/">Search</a></li>
+<li><a href="/help/direct/launcher/clipboard/">Clipboard</a></li>
+<li><a href="/help/direct/launcher/appearance/">Appearance</a></li>
+<li><a href="/help/direct/launcher/widgets/">Widgets</a></li>
+<li><a href="/help/direct/launcher/spaces-and-themes/">Spaces and themes</a></li>
+<li><a href="/help/direct/launcher/workflows/">Workflows</a></li>
+<li><a href="/help/direct/launcher/window-behavior/">Window behavior</a></li>
+<li><a href="/help/direct/launcher/account-and-maintenance/">Account and maintenance</a></li>
+<li><a href="/help/direct/launcher/menus/">Menus</a></li>
+<li><a href="/help/direct/launcher/troubleshooting/">Troubleshooting</a></li></ul></section><section class="direct-overview-group" id="notch"><h2>Notch</h2><ul><li><a href="/help/direct/notch/getting-started/">Getting started</a></li>
+<li><a href="/help/direct/notch/home-and-navigation/">Home and navigation</a></li>
+<li><a href="/help/direct/notch/widgets-and-shortcuts/">Widgets and shortcuts</a></li>
+<li><a href="/help/direct/notch/pocket/">Pocket</a></li>
+<li><a href="/help/direct/notch/clipboard/">Clipboard</a></li>
+<li><a href="/help/direct/notch/timer/">Timer</a></li>
+<li><a href="/help/direct/notch/pomodoro/">Pomodoro</a></li>
+<li><a href="/help/direct/notch/music/">Music</a></li>
+<li><a href="/help/direct/notch/appearance/">Appearance</a></li>
+<li><a href="/help/direct/notch/displays-and-visibility/">Displays and visibility</a></li>
+<li><a href="/help/direct/notch/spaces/">Spaces</a></li>
+<li><a href="/help/direct/notch/battery/">Battery</a></li>
+<li><a href="/help/direct/notch/connectivity/">Connectivity</a></li>
+<li><a href="/help/direct/notch/focus/">Focus</a></li>
+<li><a href="/help/direct/notch/calendar-events/">Calendar events</a></li>
+<li><a href="/help/direct/notch/permissions/">Permissions</a></li>
+<li><a href="/help/direct/notch/troubleshooting/">Troubleshooting</a></li></ul></section><section class="direct-overview-group" id="dock"><h2>Dock</h2><ul><li><a href="/help/direct/dock/getting-started/">Getting started</a></li>
+<li><a href="/help/direct/dock/apps-and-folders/">Apps and folders</a></li>
+<li><a href="/help/direct/dock/finder-downloads-and-trash/">Finder, Downloads, and Trash</a></li>
+<li><a href="/help/direct/dock/layout/">Layout</a></li>
+<li><a href="/help/direct/dock/the-macos-dock/">The macOS Dock</a></li>
+<li><a href="/help/direct/dock/displays/">Displays</a></li>
+<li><a href="/help/direct/dock/spaces/">Dock Spaces</a></li>
+<li><a href="/help/direct/dock/appearance/">Appearance</a></li>
+<li><a href="/help/direct/dock/widgets/">Widgets</a></li>
+<li><a href="/help/direct/dock/glowing-wallpaper/">Glowing wallpaper</a></li>
+<li><a href="/help/direct/dock/permissions/">Permissions</a></li>
+<li><a href="/help/direct/dock/context-menus/">Context menus</a></li>
+<li><a href="/help/direct/dock/troubleshooting/">Troubleshooting</a></li></ul></section><section class="direct-overview-group" id="music"><h2>Music</h2><ul><li><a href="/help/direct/music/connect-a-player/">Connect a player</a></li>
+<li><a href="/help/direct/music/playback-controls/">Playback controls</a></li>
+<li><a href="/help/direct/music/launcher-and-notch-widgets/">Launcher and notch widgets</a></li>
+<li><a href="/help/direct/music/dock-players/">Dock players</a></li>
+<li><a href="/help/direct/music/full-screen-player/">Full-screen player</a></li>
+<li><a href="/help/direct/music/music-wallpaper/">Music Wallpaper</a></li>
+<li><a href="/help/direct/music/background-sounds/">Background Sounds</a></li>
+<li><a href="/help/direct/music/troubleshooting/">Troubleshooting</a></li></ul></section>
             </div>
-
-            <aside class="help-sidebar" role="complementary" aria-label="Help topics navigation">
-                <a class="lp-btn lp-btn--gray help-sidebar-btn" href="/help/">Mac App Store Help</a>
-                <nav class="help-nav" aria-label="Help topics">
-                    <h2 class="help-nav-title">Topics</h2>
-                    <ul class="help-nav-list">
-                        <li><span class="help-nav-link active" aria-current="page">Overview</span></li>
-                        <li><span class="help-nav-link help-nav-link--soon">Getting Started</span></li>
-                        <li><span class="help-nav-link help-nav-link--soon">Notch</span></li>
-                        <li><span class="help-nav-link help-nav-link--soon">Spaces &amp; Workflows</span></li>
-                        <li><span class="help-nav-link help-nav-link--soon">Widgets</span></li>
-                        <li><span class="help-nav-link help-nav-link--soon">Clipboard &amp; Files</span></li>
-                        <li><span class="help-nav-link help-nav-link--soon">Customization</span></li>
-                        <li><span class="help-nav-link help-nav-link--soon">Settings</span></li>
-                    </ul>
-                </nav>
-            </aside>
+            <aside class="help-sidebar" aria-label="Help topics navigation">
+<a class="lp-btn lp-btn--gray help-sidebar-btn" href="/help/">Mac App Store Help</a>
+<nav class="help-nav" aria-label="Help topics"><h2 class="help-nav-title">Topics</h2>
+<details class="direct-group" data-group="full-screen-launcher" open>
+<summary>Full Screen Launcher<span class="direct-chevron" aria-hidden="true"></span></summary><ul class="direct-subtopics">
+<li><a class="direct-subtopic" href="/help/direct/launcher/getting-started/">Getting started</a></li>
+<li><a class="direct-subtopic" href="/help/direct/launcher/shortcuts-and-gestures/">Shortcuts and gestures</a></li>
+<li><a class="direct-subtopic" href="/help/direct/launcher/apps-and-layout/">Apps and layout</a></li>
+<li><a class="direct-subtopic" href="/help/direct/launcher/folders/">Folders</a></li>
+<li><a class="direct-subtopic" href="/help/direct/launcher/categories/">Categories</a></li>
+<li><a class="direct-subtopic" href="/help/direct/launcher/sorting-and-saved-layouts/">Sorting and saved layouts</a></li>
+<li><a class="direct-subtopic" href="/help/direct/launcher/search/">Search</a></li>
+<li><a class="direct-subtopic" href="/help/direct/launcher/clipboard/">Clipboard</a></li>
+<li><a class="direct-subtopic" href="/help/direct/launcher/appearance/">Appearance</a></li>
+<li><a class="direct-subtopic" href="/help/direct/launcher/widgets/">Widgets</a></li>
+<li><a class="direct-subtopic" href="/help/direct/launcher/spaces-and-themes/">Spaces and themes</a></li>
+<li><a class="direct-subtopic" href="/help/direct/launcher/workflows/">Workflows</a></li>
+<li><a class="direct-subtopic" href="/help/direct/launcher/window-behavior/">Window behavior</a></li>
+<li><a class="direct-subtopic" href="/help/direct/launcher/account-and-maintenance/">Account and maintenance</a></li>
+<li><a class="direct-subtopic" href="/help/direct/launcher/menus/">Menus</a></li>
+<li><a class="direct-subtopic" href="/help/direct/launcher/troubleshooting/">Troubleshooting</a></li>
+</ul></details>
+<details class="direct-group" data-group="notch">
+<summary>Notch<span class="direct-chevron" aria-hidden="true"></span></summary><ul class="direct-subtopics">
+<li><a class="direct-subtopic" href="/help/direct/notch/getting-started/">Getting started</a></li>
+<li><a class="direct-subtopic" href="/help/direct/notch/home-and-navigation/">Home and navigation</a></li>
+<li><a class="direct-subtopic" href="/help/direct/notch/widgets-and-shortcuts/">Widgets and shortcuts</a></li>
+<li><a class="direct-subtopic" href="/help/direct/notch/pocket/">Pocket</a></li>
+<li><a class="direct-subtopic" href="/help/direct/notch/clipboard/">Clipboard</a></li>
+<li><a class="direct-subtopic" href="/help/direct/notch/timer/">Timer</a></li>
+<li><a class="direct-subtopic" href="/help/direct/notch/pomodoro/">Pomodoro</a></li>
+<li><a class="direct-subtopic" href="/help/direct/notch/music/">Music</a></li>
+<li><a class="direct-subtopic" href="/help/direct/notch/appearance/">Appearance</a></li>
+<li><a class="direct-subtopic" href="/help/direct/notch/displays-and-visibility/">Displays and visibility</a></li>
+<li><a class="direct-subtopic" href="/help/direct/notch/spaces/">Spaces</a></li>
+<li><a class="direct-subtopic" href="/help/direct/notch/battery/">Battery</a></li>
+<li><a class="direct-subtopic" href="/help/direct/notch/connectivity/">Connectivity</a></li>
+<li><a class="direct-subtopic" href="/help/direct/notch/focus/">Focus</a></li>
+<li><a class="direct-subtopic" href="/help/direct/notch/calendar-events/">Calendar events</a></li>
+<li><a class="direct-subtopic" href="/help/direct/notch/permissions/">Permissions</a></li>
+<li><a class="direct-subtopic" href="/help/direct/notch/troubleshooting/">Troubleshooting</a></li>
+</ul></details>
+<details class="direct-group" data-group="dock">
+<summary>Dock<span class="direct-chevron" aria-hidden="true"></span></summary><ul class="direct-subtopics">
+<li><a class="direct-subtopic" href="/help/direct/dock/getting-started/">Getting started</a></li>
+<li><a class="direct-subtopic" href="/help/direct/dock/apps-and-folders/">Apps and folders</a></li>
+<li><a class="direct-subtopic" href="/help/direct/dock/finder-downloads-and-trash/">Finder, Downloads, and Trash</a></li>
+<li><a class="direct-subtopic" href="/help/direct/dock/layout/">Layout</a></li>
+<li><a class="direct-subtopic" href="/help/direct/dock/the-macos-dock/">The macOS Dock</a></li>
+<li><a class="direct-subtopic" href="/help/direct/dock/displays/">Displays</a></li>
+<li><a class="direct-subtopic" href="/help/direct/dock/spaces/">Dock Spaces</a></li>
+<li><a class="direct-subtopic" href="/help/direct/dock/appearance/">Appearance</a></li>
+<li><a class="direct-subtopic" href="/help/direct/dock/widgets/">Widgets</a></li>
+<li><a class="direct-subtopic" href="/help/direct/dock/glowing-wallpaper/">Glowing wallpaper</a></li>
+<li><a class="direct-subtopic" href="/help/direct/dock/permissions/">Permissions</a></li>
+<li><a class="direct-subtopic" href="/help/direct/dock/context-menus/">Context menus</a></li>
+<li><a class="direct-subtopic" href="/help/direct/dock/troubleshooting/">Troubleshooting</a></li>
+</ul></details>
+<details class="direct-group" data-group="music">
+<summary>Music<span class="direct-chevron" aria-hidden="true"></span></summary><ul class="direct-subtopics">
+<li><a class="direct-subtopic" href="/help/direct/music/connect-a-player/">Connect a player</a></li>
+<li><a class="direct-subtopic" href="/help/direct/music/playback-controls/">Playback controls</a></li>
+<li><a class="direct-subtopic" href="/help/direct/music/launcher-and-notch-widgets/">Launcher and notch widgets</a></li>
+<li><a class="direct-subtopic" href="/help/direct/music/dock-players/">Dock players</a></li>
+<li><a class="direct-subtopic" href="/help/direct/music/full-screen-player/">Full-screen player</a></li>
+<li><a class="direct-subtopic" href="/help/direct/music/music-wallpaper/">Music Wallpaper</a></li>
+<li><a class="direct-subtopic" href="/help/direct/music/background-sounds/">Background Sounds</a></li>
+<li><a class="direct-subtopic" href="/help/direct/music/troubleshooting/">Troubleshooting</a></li>
+</ul></details>
+</nav></aside>
         </div>
     </main>
 
@@ -111,9 +196,9 @@
         <div class="container footer-top">
             <div class="footer-brand">
                 <a href="/" class="footer-logo"><img src="/images/logoicontext.png" alt="LaunchMe"></a>
-                <p class="footer-tagline">Your full-screen Mac launcher</p>
-                <p class="footer-desc">LaunchMe brings automation, file search, live wallpapers, widgets, and deep customization into one beautiful full-screen launcher built for macOS 27.</p>
-                <a class="lp-btn lp-btn--lg footer-cta" href="/updates/LaunchMeDirect-2.08.2.dmg" data-ga="direct-dmg" data-ga-area="footer">
+                <p class="footer-tagline">Your Mac Workspace manager</p>
+                <p class="footer-desc">LaunchMe brings Full Screen Launcher, Notch, Dock, full screen Music Player, automation, file search, widgets, and deep customization into one beautiful app built for macOS 27.</p>
+                <a class="lp-btn lp-btn--lg footer-cta" href="/updates/LaunchMeDirect-3.00.0.dmg" data-ga="direct-dmg" data-ga-area="footer">
                     <svg class="apple-glyph" viewBox="0 0 384 512" aria-hidden="true"><path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
                     Download for macOS
                 </a>
@@ -140,9 +225,10 @@
                 <nav class="footer-col" aria-label="Navigation">
                     <h4 class="footer-col__title">Navigation</h4>
                     <a href="/support/">Support</a>
-                    <a href="/help/">Help Center</a>
+                    <a href="/help/direct/launcher/getting-started/">Help Center</a>
                     <a href="/changelog/">Changelog</a>
                     <a href="/privacy/">Privacy Policy</a>
+                    <button class="cookie-settings" type="button" data-cookie-settings>Cookie settings</button>
                     <a href="/terms/">Terms of Service</a>
                     <a href="/refunds/">Refund Policy</a>
                     <a href="/press-assets/">Press Assets</a>
@@ -165,6 +251,6 @@
         <script src="/js/interactive-footer.js" defer></script>
     </footer>
 
-    <script src="/js/main.js"></script>
+    <script src="/help/direct/direct.js"></script>
 </body>
 </html>

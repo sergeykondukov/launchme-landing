@@ -1,7 +1,6 @@
 (() => {
   const showcase = document.querySelector('.music-showcase');
   const scenes = [...document.querySelectorAll('.music-scene')];
-  const hero = document.querySelector('.music-intro__hero');
   const mobileMotion = matchMedia('(max-width: 767px)');
   const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
   const sceneButtons = [...document.querySelectorAll('.music-scene-nav button')];
@@ -93,28 +92,9 @@
   document.addEventListener('visibilitychange', () => {
     regularVisibility.forEach((ratio, video) => syncVideo(video, ratio));
   });
-  let lastHeroProgress = null;
   let pending = false;
-  function renderHero() {
-    if (!hero) return;
-    if (reduceMotion.matches) {
-      hero.style.transform = '';
-      hero.style.filter = '';
-      hero.style.opacity = '';
-      return;
-    }
-    // Read the untransformed layout height so perspective never changes the scroll range.
-    const progress = Math.min(1, Math.max(0, window.scrollY / Math.max(1, hero.offsetHeight * .9)));
-    if (progress === lastHeroProgress) return;
-    lastHeroProgress = progress;
-    const eased = progress * progress * (3 - 2 * progress);
-    hero.style.transform = `perspective(1200px) rotateX(${-(mobileMotion.matches ? 28 : 48) * eased}deg) scale(${1 - .08 * eased})`;
-    hero.style.filter = mobileMotion.matches ? 'none' : `blur(${7 * eased}px)`;
-    hero.style.opacity = String(1 - .3 * eased);
-  }
   function renderScenes() {
     pending = false;
-    renderHero();
     if (!showcase.classList.contains('is-enhanced')) {
       scenes.forEach(scene => {
         const video = scene.querySelector('video');
@@ -161,7 +141,6 @@
   }
   function configureMotion() {
     showcase.classList.toggle('is-enhanced', !reduceMotion.matches && !mobileMotion.matches);
-    lastHeroProgress = null;
     scenes.forEach(scene => { scene.style.visibility = ''; scene.style.willChange = ''; scene.style.clipPath = ''; scene.querySelector('.music-scene__copy').style.transform = ''; });
     renderScenes();
   }
@@ -173,7 +152,6 @@
   document.querySelectorAll('video').forEach(video => video.addEventListener('loadeddata', requestRender));
   addEventListener('resize', requestRender);
   document.addEventListener('visibilitychange', requestRender);
-  hero?.addEventListener('load', requestRender);
   reduceMotion.addEventListener('change', configureMotion);
   mobileMotion.addEventListener('change', configureMotion);
   configureMotion();

@@ -1,0 +1,64 @@
+/* All Direct-specific styles stay within /help/direct/. */
+.help-center--direct .help-layout { grid-template-columns: minmax(0, 1fr) 310px; gap: 64px; }
+.help-center--direct .help-sidebar { position: static; max-height: none; overflow: visible; }
+.help-center--direct .help-nav { padding: 22px 14px 14px; }
+.help-center--direct .help-nav-title { padding: 0 12px; }
+.direct-group { border-radius: 14px; margin-bottom: 6px; }
+.direct-group[open] { background: color-mix(in srgb, var(--text) 4%, transparent); }
+.direct-group summary { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 15px 12px; cursor: pointer; list-style: none; font-size: 16px; font-weight: 650; line-height: 1.4; border-radius: 12px; }
+.direct-group summary::-webkit-details-marker { display: none; }
+.direct-group summary:hover { background: color-mix(in srgb, var(--text) 4%, transparent); }
+.direct-chevron { width: 6px; height: 6px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(-45deg); margin-right: 4px; flex-shrink: 0; }
+.direct-group[open] .direct-chevron { transform: rotate(45deg); }
+.direct-subtopics { list-style: none; padding: 0 8px 8px; margin: 0; }
+.direct-subtopics li { margin: 2px 0; }
+.direct-subtopic { display: block; padding: 9px 12px; border-radius: 8px; font-size: 14px; line-height: 1.4; color: var(--muted); text-decoration: none; }
+.direct-subtopic:hover { color: var(--text); background: color-mix(in srgb, var(--text) 5%, transparent); }
+.direct-subtopic[aria-current="page"] { color: var(--text); background: color-mix(in srgb, var(--text) 9%, transparent); font-weight: 650; }
+.direct-group summary:focus-visible, .direct-subtopic:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+.direct-article { scroll-margin-top: 100px; }
+.direct-article h2:focus { outline: none; }
+.direct-article h3 { scroll-margin-top: 100px; }
+.help-center--direct .direct-eyebrow { color: var(--muted); font-size: 13px; font-weight: 600; letter-spacing: .04em; margin: 0 0 12px; }
+.direct-article ol { padding-left: 24px; line-height: 1.7; }
+.direct-article a { overflow-wrap: anywhere; }
+.direct-article code { font-size: .9em; background: color-mix(in srgb, var(--text) 5%, transparent); padding: 2px 5px; border-radius: 4px; }
+.direct-table { overflow-x: auto; }
+.direct-table table { width: 100%; border-collapse: collapse; margin: 16px 0; line-height: 1.6; }
+.direct-table th, .direct-table td { text-align: left; padding: 12px; border-bottom: 1px solid var(--border); }
+@media (max-width: 1024px) {
+  .help-center--direct .help-layout { grid-template-columns: minmax(0, 1fr) 270px; gap: 32px; }
+}
+@media (max-width: 768px) {
+  .help-center--direct .help-layout { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .help-center--direct .help-sidebar { order: -1; }
+  .help-center--direct .help-sidebar-btn { margin-bottom: 16px; }
+  .help-center--direct .help-nav { padding: 16px 12px 10px; }
+  .help-center--direct .help-nav-title { margin-bottom: 10px; }
+  .direct-subtopics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2px; }
+  .direct-subtopic { height: 100%; box-sizing: border-box; }
+}
+@media (max-width: 420px) { .direct-subtopics { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { .help-center--direct .help-topic { animation: none; } }
+.help-center--direct .help-main { padding-left: 20px; padding-right: 20px; }
+.direct-article a { text-decoration: underline; text-underline-offset: 3px; }
+.direct-article a:hover { color: var(--muted); }
+/* Standalone article pages and the guide directory. */
+.help-center--direct .direct-article-page h1 { margin: 0 0 14px; padding: 0; border: 0; font-size: 36px; line-height: 1.2; }
+.help-center--direct .direct-article-page .direct-article h2 { margin: 32px 0 12px; font-size: 24px; line-height: 1.3; scroll-margin-top: 90px; }
+.direct-breadcrumb { margin: 0 0 28px; color: var(--muted); font-size: 14px; line-height: 1.6; }
+.direct-breadcrumb a:hover, .direct-overview a:hover { color: var(--muted); }
+.help-center--direct .direct-meta { color: var(--muted); font-size: 13px; line-height: 1.7; margin: 0 0 24px; }
+.help-center--direct .direct-article .direct-lead { font-size: 19px; line-height: 1.65; margin: 0 0 28px; }
+.direct-overview > p { line-height: 1.7; margin-top: 0; }
+.direct-overview a { text-decoration: underline; text-underline-offset: 3px; }
+.direct-overview-group { padding: 24px; margin-bottom: 20px; border: 1px solid var(--border); border-radius: 16px; scroll-margin-top: 90px; }
+.direct-overview-group h2 { margin: 0 0 16px; font-size: 24px; }
+.direct-overview-group ul { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 24px; }
+.direct-overview-group a { font-size: 15px; line-height: 1.5; }
+@media (max-width: 768px) {
+  .help-center--direct .direct-article-page h1 { font-size: 30px; }
+  .help-center--direct .direct-article-page .direct-article h2 { font-size: 22px; }
+  .direct-breadcrumb { margin-bottom: 20px; }
+}
+@media (max-width: 420px) { .direct-overview-group ul { grid-template-columns: 1fr; } }

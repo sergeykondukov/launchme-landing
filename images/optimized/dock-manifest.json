@@ -1,0 +1,1124 @@
+{
+  "/images/Carusel%201/1.jpg": {
+    "width": 2520,
+    "height": 1450,
+    "originalBytes": 136914,
+    "preview": "/images/optimized/1-a0e3ee52-preview.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/optimized/1-a0e3ee52-640.webp"
+      },
+      {
+        "width": 1120,
+        "src": "/images/optimized/1-a0e3ee52-1120.webp"
+      },
+      {
+        "width": 1728,
+        "src": "/images/optimized/1-a0e3ee52-1728.webp"
+      },
+      {
+        "width": 2520,
+        "src": "/images/optimized/1-a0e3ee52-2520.webp"
+      }
+    ]
+  },
+  "/images/Carusel%201/2.jpg": {
+    "width": 2520,
+    "height": 1450,
+    "originalBytes": 319062,
+    "preview": "/images/optimized/2-d6f147d0-preview.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/optimized/2-d6f147d0-640.webp"
+      },
+      {
+        "width": 1120,
+        "src": "/images/optimized/2-d6f147d0-1120.webp"
+      },
+      {
+        "width": 1728,
+        "src": "/images/optimized/2-d6f147d0-1728.webp"
+      },
+      {
+        "width": 2520,
+        "src": "/images/optimized/2-d6f147d0-2520.webp"
+      }
+    ]
+  },
+  "/images/Carusel%201/3.jpg": {
+    "width": 2520,
+    "height": 1450,
+    "originalBytes": 84357,
+    "preview": "/images/optimized/3-cf7dbaac-preview.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/optimized/3-cf7dbaac-640.webp"
+      },
+      {
+        "width": 1120,
+        "src": "/images/optimized/3-cf7dbaac-1120.webp"
+      },
+      {
+        "width": 1728,
+        "src": "/images/optimized/3-cf7dbaac-1728.webp"
+      },
+      {
+        "width": 2520,
+        "src": "/images/optimized/3-cf7dbaac-2520.webp"
+      }
+    ]
+  },
+  "/images/Carusel%201/4.jpg": {
+    "width": 2520,
+    "height": 1450,
+    "originalBytes": 112573,
+    "preview": "/images/optimized/4-a02295fb-preview.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/optimized/4-a02295fb-640.webp"
+      },
+      {
+        "width": 1120,
+        "src": "/images/optimized/4-a02295fb-1120.webp"
+      },
+      {
+        "width": 1728,
+        "src": "/images/optimized/4-a02295fb-1728.webp"
+      },
+      {
+        "width": 2520,
+        "src": "/images/optimized/4-a02295fb-2520.webp"
+      }
+    ]
+  },
+  "/images/Carusel%201/5.jpg": {
+    "width": 1913,
+    "height": 1100,
+    "originalBytes": 278994,
+    "preview": "/images/optimized/5-01a18452-preview.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/optimized/5-01a18452-640.webp"
+      },
+      {
+        "width": 1120,
+        "src": "/images/optimized/5-01a18452-1120.webp"
+      },
+      {
+        "width": 1728,
+        "src": "/images/optimized/5-01a18452-1728.webp"
+      },
+      {
+        "width": 1913,
+        "src": "/images/optimized/5-01a18452-1913.webp"
+      }
+    ]
+  },
+  "/images/Carusel%201/6.jpg": {
+    "width": 2520,
+    "height": 1450,
+    "originalBytes": 100123,
+    "preview": "/images/optimized/6-31b64c08-preview.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/optimized/6-31b64c08-640.webp"
+      },
+      {
+        "width": 1120,
+        "src": "/images/optimized/6-31b64c08-1120.webp"
+      },
+      {
+        "width": 1728,
+        "src": "/images/optimized/6-31b64c08-1728.webp"
+      },
+      {
+        "width": 2520,
+        "src": "/images/optimized/6-31b64c08-2520.webp"
+      }
+    ]
+  },
+  "/images/Carusel%201/7.jpg": {
+    "width": 2520,
+    "height": 1450,
+    "originalBytes": 195691,
+    "preview": "/images/optimized/7-dea7a6bd-preview.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/optimized/7-dea7a6bd-640.webp"
+      },
+      {
+        "width": 1120,
+        "src": "/images/optimized/7-dea7a6bd-1120.webp"
+      },
+      {
+        "width": 1728,
+        "src": "/images/optimized/7-dea7a6bd-1728.webp"
+      },
+      {
+        "width": 2520,
+        "src": "/images/optimized/7-dea7a6bd-2520.webp"
+      }
+    ]
+  },
+  "/images/Carusel%202/carusel-animation.jpg": {
+    "width": 740,
+    "height": 900,
+    "originalBytes": 163951,
+    "preview": "/images/optimized/carusel-animation-a8646212-preview.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/optimized/carusel-animation-a8646212-640.webp"
+      },
+      {
+        "width": 740,
+        "src": "/images/optimized/carusel-animation-a8646212-740.webp"
+      }
+    ]
+  },
+  "/images/Carusel%202/carusel-clipboard.jpg": {
+    "width": 1392,
+    "height": 900,
+    "originalBytes": 467492,
+    "preview": "/images/optimized/carusel-clipboard-54c9f010-preview.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/optimized/carusel-clipboard-54c9f010-640.webp"
+      },
+      {
+        "width": 1120,
+        "src": "/images/optimized/carusel-clipboard-54c9f010-1120.webp"
+      },
+      {
+        "width": 1392,
+        "src": "/images/optimized/carusel-clipboard-54c9f010-1392.webp"
+      }
+    ]
+  },
+  "/images/Carusel%202/carusel-emoji.jpg": {
+    "width": 740,
+    "height": 900,
+    "originalBytes": 331871,
+    "preview": "/images/optimized/carusel-emoji-7a9f8389-preview.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/optimized/carusel-emoji-7a9f8389-640.webp"
+      },
+      {
+        "width": 740,
+        "src": "/images/optimized/carusel-emoji-7a9f8389-740.webp"
+      }
+    ]
+  },
+  "/images/Carusel%202/carusel-folder-window.jpg": {
+    "width": 1392,
+    "height": 900,
+    "originalBytes": 524604,
+    "preview": "/images/optimized/carusel-folder-window-21eec38d-preview.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/optimized/carusel-folder-window-21eec38d-640.webp"
+      },
+      {
+        "width": 1120,
+        "src": "/images/optimized/carusel-folder-window-21eec38d-1120.webp"
+      },
+      {
+        "width": 1392,
+        "src": "/images/optimized/carusel-folder-window-21eec38d-1392.webp"
+      }
+    ]
+  },
+  "/images/Carusel%202/carusel-folders.jpg": {
+    "width": 740,
+    "height": 900,
+    "originalBytes": 263526,
+    "preview": "/images/optimized/carusel-folders-59e19264-preview.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/optimized/carusel-folders-59e19264-640.webp"
+      },
+      {
+        "width": 740,
+        "src": "/images/optimized/carusel-folders-59e19264-740.webp"
+      }
+    ]
+  },
+  "/images/Carusel%202/carusel-gestures.jpg": {
+    "width": 740,
+    "height": 900,
+    "originalBytes": 198782,
+    "preview": "/images/optimized/carusel-gestures-0bf85ce3-preview.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/optimized/carusel-gestures-0bf85ce3-640.webp"
+      },
+      {
+        "width": 740,
+        "src": "/images/optimized/carusel-gestures-0bf85ce3-740.webp"
+      }
+    ]
+  },
+  "/images/Carusel%202/carusel-girl.jpg": {
+    "width": 1392,
+    "height": 900,
+    "originalBytes": 118222,
+    "preview": "/images/optimized/carusel-girl-77fd1d36-preview.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/optimized/carusel-girl-77fd1d36-640.webp"
+      },
+      {
+        "width": 1120,
+        "src": "/images/optimized/carusel-girl-77fd1d36-1120.webp"
+      },
+      {
+        "width": 1392,
+        "src": "/images/optimized/carusel-girl-77fd1d36-1392.webp"
+      }
+    ]
+  },
+  "/images/Carusel%202/carusel-glass-customization.jpg": {
+    "width": 740,
+    "height": 900,
+    "originalBytes": 236680,
+    "preview": "/images/optimized/carusel-glass-customization-99ecfb03-preview.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/optimized/carusel-glass-customization-99ecfb03-640.webp"
+      },
+      {
+        "width": 740,
+        "src": "/images/optimized/carusel-glass-customization-99ecfb03-740.webp"
+      }
+    ]
+  },
+  "/images/Carusel%202/carusel-hotcorners.jpg": {
+    "width": 740,
+    "height": 900,
+    "originalBytes": 132142,
+    "preview": "/images/optimized/carusel-hotcorners-82beb351-preview.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/optimized/carusel-hotcorners-82beb351-640.webp"
+      },
+      {
+        "width": 740,
+        "src": "/images/optimized/carusel-hotcorners-82beb351-740.webp"
+      }
+    ]
+  },
+  "/images/Carusel%202/carusel-rename.jpg": {
+    "width": 740,
+    "height": 900,
+    "originalBytes": 597030,
+    "preview": "/images/optimized/carusel-rename-019be418-preview.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/optimized/carusel-rename-019be418-640.webp"
+      },
+      {
+        "width": 740,
+        "src": "/images/optimized/carusel-rename-019be418-740.webp"
+      }
+    ]
+  },
+  "/images/Carusel%202/carusel-sorting.jpg": {
+    "width": 740,
+    "height": 900,
+    "originalBytes": 256425,
+    "preview": "/images/optimized/carusel-sorting-216e7603-preview.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/optimized/carusel-sorting-216e7603-640.webp"
+      },
+      {
+        "width": 740,
+        "src": "/images/optimized/carusel-sorting-216e7603-740.webp"
+      }
+    ]
+  },
+  "/images/Carusel%202/carusel-spaces.jpg": {
+    "width": 740,
+    "height": 900,
+    "originalBytes": 160445,
+    "preview": "/images/optimized/carusel-spaces-d05e3828-preview.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/optimized/carusel-spaces-d05e3828-640.webp"
+      },
+      {
+        "width": 740,
+        "src": "/images/optimized/carusel-spaces-d05e3828-740.webp"
+      }
+    ]
+  },
+  "/images/Carusel%202/carusel-workflows.jpg": {
+    "width": 740,
+    "height": 900,
+    "originalBytes": 298400,
+    "preview": "/images/optimized/carusel-workflows-16535c76-preview.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/optimized/carusel-workflows-16535c76-640.webp"
+      },
+      {
+        "width": 740,
+        "src": "/images/optimized/carusel-workflows-16535c76-740.webp"
+      }
+    ]
+  },
+  "/images/Carusel%202/delete-app.jpg": {
+    "width": 740,
+    "height": 900,
+    "originalBytes": 486876,
+    "preview": "/images/optimized/delete-app-26bb6811-preview.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/optimized/delete-app-26bb6811-640.webp"
+      },
+      {
+        "width": 740,
+        "src": "/images/optimized/delete-app-26bb6811-740.webp"
+      }
+    ]
+  },
+  "/images/dock/background-sound-dock-slide.jpg": {
+    "width": 1121,
+    "height": 754,
+    "originalBytes": 1028726,
+    "preview": "/images/optimized/background-sound-dock-slide-d5baf865-preview.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/optimized/background-sound-dock-slide-d5baf865-640.webp"
+      },
+      {
+        "width": 1120,
+        "src": "/images/optimized/background-sound-dock-slide-d5baf865-1120.webp"
+      },
+      {
+        "width": 1121,
+        "src": "/images/optimized/background-sound-dock-slide-d5baf865-1121.webp"
+      }
+    ]
+  },
+  "/images/dock/cards/Innovative-and-simple-to-use-dock-card.jpg": {
+    "width": 1121,
+    "height": 299,
+    "originalBytes": 524037,
+    "preview": "/images/optimized/Innovative-and-simple-to-use-dock-card-2afcd12d-preview.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/optimized/Innovative-and-simple-to-use-dock-card-2afcd12d-640.webp"
+      },
+      {
+        "width": 1120,
+        "src": "/images/optimized/Innovative-and-simple-to-use-dock-card-2afcd12d-1120.webp"
+      },
+      {
+        "width": 1121,
+        "src": "/images/optimized/Innovative-and-simple-to-use-dock-card-2afcd12d-1121.webp"
+      }
+    ]
+  },
+  "/images/dock/cards/active-apps-folder-dock-card.jpg": {
+    "width": 1121,
+    "height": 406,
+    "originalBytes": 522220,
+    "preview": "/images/optimized/active-apps-folder-dock-card-787b4a17-preview.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/optimized/active-apps-folder-dock-card-787b4a17-640.webp"
+      },
+      {
+        "width": 1120,
+        "src": "/images/optimized/active-apps-folder-dock-card-787b4a17-1120.webp"
+      },
+      {
+        "width": 1121,
+        "src": "/images/optimized/active-apps-folder-dock-card-787b4a17-1121.webp"
+      }
+    ]
+  },
+  "/images/dock/cards/manage-your-time-dock-card.jpg": {
+    "width": 544,
+    "height": 544,
+    "originalBytes": 274957,
+    "preview": "/images/optimized/manage-your-time-dock-card-75baeb9a-preview.webp",
+    "variants": [
+      {
+        "width": 544,
+        "src": "/images/optimized/manage-your-time-dock-card-75baeb9a-544.webp"
+      }
+    ]
+  },
+  "/images/dock/cards/music-widgets-dock-card.jpg": {
+    "width": 544,
+    "height": 544,
+    "originalBytes": 372591,
+    "preview": "/images/optimized/music-widgets-dock-card-4c8661d8-preview.webp",
+    "variants": [
+      {
+        "width": 544,
+        "src": "/images/optimized/music-widgets-dock-card-4c8661d8-544.webp"
+      }
+    ]
+  },
+  "/images/dock/cards/system-stats-dock-card.jpg": {
+    "width": 544,
+    "height": 544,
+    "originalBytes": 356970,
+    "preview": "/images/optimized/system-stats-dock-card-62edd38a-preview.webp",
+    "variants": [
+      {
+        "width": 544,
+        "src": "/images/optimized/system-stats-dock-card-62edd38a-544.webp"
+      }
+    ]
+  },
+  "/images/dock/cards/weather-dock-card.jpg": {
+    "width": 544,
+    "height": 544,
+    "originalBytes": 329659,
+    "preview": "/images/optimized/weather-dock-card-99c8333f-preview.webp",
+    "variants": [
+      {
+        "width": 544,
+        "src": "/images/optimized/weather-dock-card-99c8333f-544.webp"
+      }
+    ]
+  },
+  "/images/dock/color-palettes-dock-slide.jpg": {
+    "width": 2242,
+    "height": 1508,
+    "originalBytes": 2613796,
+    "preview": "/images/optimized/color-palettes-dock-slide-2787c776-preview.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/optimized/color-palettes-dock-slide-2787c776-640.webp"
+      },
+      {
+        "width": 1120,
+        "src": "/images/optimized/color-palettes-dock-slide-2787c776-1120.webp"
+      },
+      {
+        "width": 1728,
+        "src": "/images/optimized/color-palettes-dock-slide-2787c776-1728.webp"
+      },
+      {
+        "width": 2242,
+        "src": "/images/optimized/color-palettes-dock-slide-2787c776-2242.webp"
+      }
+    ]
+  },
+  "/images/dock/color-palettes-slide.jpg": {
+    "width": 620,
+    "height": 433,
+    "originalBytes": 290006,
+    "preview": "/images/optimized/color-palettes-slide-d699e8cf-preview.webp",
+    "variants": [
+      {
+        "width": 620,
+        "src": "/images/optimized/color-palettes-slide-d699e8cf-620.webp"
+      }
+    ]
+  },
+  "/images/dock/different-dock-for-all-monitors.jpg": {
+    "width": 1121,
+    "height": 754,
+    "originalBytes": 927975,
+    "preview": "/images/optimized/different-dock-for-all-monitors-a8ce9bae-preview.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/optimized/different-dock-for-all-monitors-a8ce9bae-640.webp"
+      },
+      {
+        "width": 1120,
+        "src": "/images/optimized/different-dock-for-all-monitors-a8ce9bae-1120.webp"
+      },
+      {
+        "width": 1121,
+        "src": "/images/optimized/different-dock-for-all-monitors-a8ce9bae-1121.webp"
+      }
+    ]
+  },
+  "/images/dock/dock-first-layer.png": {
+    "width": 3450,
+    "height": 985,
+    "originalBytes": 1979874,
+    "preview": "/images/optimized/dock-first-layer-6e27d150-preview.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/optimized/dock-first-layer-6e27d150-640.webp"
+      },
+      {
+        "width": 1120,
+        "src": "/images/optimized/dock-first-layer-6e27d150-1120.webp"
+      },
+      {
+        "width": 1728,
+        "src": "/images/optimized/dock-first-layer-6e27d150-1728.webp"
+      },
+      {
+        "width": 2560,
+        "src": "/images/optimized/dock-first-layer-6e27d150-2560.webp"
+      }
+    ]
+  },
+  "/images/dock/dock-second-layer-1.png": {
+    "width": 3450,
+    "height": 985,
+    "originalBytes": 188815,
+    "preview": "/images/optimized/dock-second-layer-1-236deb90-preview.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/optimized/dock-second-layer-1-236deb90-640.webp"
+      },
+      {
+        "width": 1120,
+        "src": "/images/optimized/dock-second-layer-1-236deb90-1120.webp"
+      },
+      {
+        "width": 1728,
+        "src": "/images/optimized/dock-second-layer-1-236deb90-1728.webp"
+      },
+      {
+        "width": 2560,
+        "src": "/images/optimized/dock-second-layer-1-236deb90-2560.webp"
+      }
+    ]
+  },
+  "/images/dock/dock-second-layer-2.png": {
+    "width": 3450,
+    "height": 985,
+    "originalBytes": 168187,
+    "preview": "/images/optimized/dock-second-layer-2-757902cd-preview.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/optimized/dock-second-layer-2-757902cd-640.webp"
+      },
+      {
+        "width": 1120,
+        "src": "/images/optimized/dock-second-layer-2-757902cd-1120.webp"
+      },
+      {
+        "width": 1728,
+        "src": "/images/optimized/dock-second-layer-2-757902cd-1728.webp"
+      },
+      {
+        "width": 2560,
+        "src": "/images/optimized/dock-second-layer-2-757902cd-2560.webp"
+      }
+    ]
+  },
+  "/images/dock/dock-second-layer-3.png": {
+    "width": 3450,
+    "height": 985,
+    "originalBytes": 277044,
+    "preview": "/images/optimized/dock-second-layer-3-cfc09d57-preview.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/optimized/dock-second-layer-3-cfc09d57-640.webp"
+      },
+      {
+        "width": 1120,
+        "src": "/images/optimized/dock-second-layer-3-cfc09d57-1120.webp"
+      },
+      {
+        "width": 1728,
+        "src": "/images/optimized/dock-second-layer-3-cfc09d57-1728.webp"
+      },
+      {
+        "width": 2560,
+        "src": "/images/optimized/dock-second-layer-3-cfc09d57-2560.webp"
+      }
+    ]
+  },
+  "/images/dock/dock-second-layer-4.png": {
+    "width": 3450,
+    "height": 985,
+    "originalBytes": 192191,
+    "preview": "/images/optimized/dock-second-layer-4-04a36535-preview.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/optimized/dock-second-layer-4-04a36535-640.webp"
+      },
+      {
+        "width": 1120,
+        "src": "/images/optimized/dock-second-layer-4-04a36535-1120.webp"
+      },
+      {
+        "width": 1728,
+        "src": "/images/optimized/dock-second-layer-4-04a36535-1728.webp"
+      },
+      {
+        "width": 2560,
+        "src": "/images/optimized/dock-second-layer-4-04a36535-2560.webp"
+      }
+    ]
+  },
+  "/images/dock/dock-second-layer-5.png": {
+    "width": 3450,
+    "height": 985,
+    "originalBytes": 198674,
+    "preview": "/images/optimized/dock-second-layer-5-7d85334a-preview.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/optimized/dock-second-layer-5-7d85334a-640.webp"
+      },
+      {
+        "width": 1120,
+        "src": "/images/optimized/dock-second-layer-5-7d85334a-1120.webp"
+      },
+      {
+        "width": 1728,
+        "src": "/images/optimized/dock-second-layer-5-7d85334a-1728.webp"
+      },
+      {
+        "width": 2560,
+        "src": "/images/optimized/dock-second-layer-5-7d85334a-2560.webp"
+      }
+    ]
+  },
+  "/images/dock/dock-second-layer-6.png": {
+    "width": 3450,
+    "height": 985,
+    "originalBytes": 155867,
+    "preview": "/images/optimized/dock-second-layer-6-725af1d9-preview.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/optimized/dock-second-layer-6-725af1d9-640.webp"
+      },
+      {
+        "width": 1120,
+        "src": "/images/optimized/dock-second-layer-6-725af1d9-1120.webp"
+      },
+      {
+        "width": 1728,
+        "src": "/images/optimized/dock-second-layer-6-725af1d9-1728.webp"
+      },
+      {
+        "width": 2560,
+        "src": "/images/optimized/dock-second-layer-6-725af1d9-2560.webp"
+      }
+    ]
+  },
+  "/images/dock/dock-second-layer-7.png": {
+    "width": 3450,
+    "height": 985,
+    "originalBytes": 206681,
+    "preview": "/images/optimized/dock-second-layer-7-ea150210-preview.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/optimized/dock-second-layer-7-ea150210-640.webp"
+      },
+      {
+        "width": 1120,
+        "src": "/images/optimized/dock-second-layer-7-ea150210-1120.webp"
+      },
+      {
+        "width": 1728,
+        "src": "/images/optimized/dock-second-layer-7-ea150210-1728.webp"
+      },
+      {
+        "width": 2560,
+        "src": "/images/optimized/dock-second-layer-7-ea150210-2560.webp"
+      }
+    ]
+  },
+  "/images/dock/dock-spaces-slide.jpg": {
+    "width": 326,
+    "height": 433,
+    "originalBytes": 193001,
+    "preview": "/images/optimized/dock-spaces-slide-c1cf878e-326.webp",
+    "variants": []
+  },
+  "/images/dock/dock-third-layer.png": {
+    "width": 3450,
+    "height": 985,
+    "originalBytes": 159724,
+    "preview": "/images/optimized/dock-third-layer-4e2dc9a4-preview.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/optimized/dock-third-layer-4e2dc9a4-640.webp"
+      },
+      {
+        "width": 1120,
+        "src": "/images/optimized/dock-third-layer-4e2dc9a4-1120.webp"
+      },
+      {
+        "width": 1728,
+        "src": "/images/optimized/dock-third-layer-4e2dc9a4-1728.webp"
+      },
+      {
+        "width": 2560,
+        "src": "/images/optimized/dock-third-layer-4e2dc9a4-2560.webp"
+      }
+    ]
+  },
+  "/images/dock/even-better-together-launcher.jpg": {
+    "width": 1298,
+    "height": 668,
+    "originalBytes": 225132,
+    "preview": "/images/optimized/even-better-together-launcher-02af6f4a-preview.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/optimized/even-better-together-launcher-02af6f4a-640.webp"
+      },
+      {
+        "width": 1120,
+        "src": "/images/optimized/even-better-together-launcher-02af6f4a-1120.webp"
+      },
+      {
+        "width": 1298,
+        "src": "/images/optimized/even-better-together-launcher-02af6f4a-1298.webp"
+      }
+    ]
+  },
+  "/images/dock/even-better-together-notch.jpg": {
+    "width": 1298,
+    "height": 668,
+    "originalBytes": 400038,
+    "preview": "/images/optimized/even-better-together-notch-ffe6bd02-preview.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/optimized/even-better-together-notch-ffe6bd02-640.webp"
+      },
+      {
+        "width": 1120,
+        "src": "/images/optimized/even-better-together-notch-ffe6bd02-1120.webp"
+      },
+      {
+        "width": 1298,
+        "src": "/images/optimized/even-better-together-notch-ffe6bd02-1298.webp"
+      }
+    ]
+  },
+  "/images/dock/files-in-dock.jpg": {
+    "width": 326,
+    "height": 433,
+    "originalBytes": 207056,
+    "preview": "/images/optimized/files-in-dock-69f6f90a-326.webp",
+    "variants": []
+  },
+  "/images/dock/icons-customization-doc-slide.jpg": {
+    "width": 620,
+    "height": 433,
+    "originalBytes": 495024,
+    "preview": "/images/optimized/icons-customization-doc-slide-b2d78a30-preview.webp",
+    "variants": [
+      {
+        "width": 620,
+        "src": "/images/optimized/icons-customization-doc-slide-b2d78a30-620.webp"
+      }
+    ]
+  },
+  "/images/dock/ideal-for-big-screens-dock.jpg": {
+    "width": 1728,
+    "height": 693,
+    "originalBytes": 713445,
+    "preview": "/images/optimized/ideal-for-big-screens-dock-6bfc19c8-preview.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/optimized/ideal-for-big-screens-dock-6bfc19c8-640.webp"
+      },
+      {
+        "width": 1120,
+        "src": "/images/optimized/ideal-for-big-screens-dock-6bfc19c8-1120.webp"
+      },
+      {
+        "width": 1728,
+        "src": "/images/optimized/ideal-for-big-screens-dock-6bfc19c8-1728.webp"
+      }
+    ]
+  },
+  "/images/dock/pomodoro-dock-slide.jpg": {
+    "width": 1121,
+    "height": 754,
+    "originalBytes": 1059502,
+    "preview": "/images/optimized/pomodoro-dock-slide-2986638e-preview.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/optimized/pomodoro-dock-slide-2986638e-640.webp"
+      },
+      {
+        "width": 1120,
+        "src": "/images/optimized/pomodoro-dock-slide-2986638e-1120.webp"
+      },
+      {
+        "width": 1121,
+        "src": "/images/optimized/pomodoro-dock-slide-2986638e-1121.webp"
+      }
+    ]
+  },
+  "/images/dock/posters/dock-spaces-video.jpg": {
+    "width": 2344,
+    "height": 1080,
+    "originalBytes": 1302052,
+    "preview": "/images/optimized/dock-spaces-video-637eaf2f-preview.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/optimized/dock-spaces-video-637eaf2f-640.webp"
+      },
+      {
+        "width": 1120,
+        "src": "/images/optimized/dock-spaces-video-637eaf2f-1120.webp"
+      },
+      {
+        "width": 1728,
+        "src": "/images/optimized/dock-spaces-video-637eaf2f-1728.webp"
+      },
+      {
+        "width": 2344,
+        "src": "/images/optimized/dock-spaces-video-637eaf2f-2344.webp"
+      }
+    ]
+  },
+  "/images/dock/posters/downloads-folder-dock.jpg": {
+    "width": 1542,
+    "height": 1080,
+    "originalBytes": 544434,
+    "preview": "/images/optimized/downloads-folder-dock-6b1514e4-preview.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/optimized/downloads-folder-dock-6b1514e4-640.webp"
+      },
+      {
+        "width": 1120,
+        "src": "/images/optimized/downloads-folder-dock-6b1514e4-1120.webp"
+      },
+      {
+        "width": 1542,
+        "src": "/images/optimized/downloads-folder-dock-6b1514e4-1542.webp"
+      }
+    ]
+  },
+  "/images/dock/posters/full-screenplayer-dock.jpg": {
+    "width": 1666,
+    "height": 1080,
+    "originalBytes": 647153,
+    "preview": "/images/optimized/full-screenplayer-dock-aa8ae8e2-preview.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/optimized/full-screenplayer-dock-aa8ae8e2-640.webp"
+      },
+      {
+        "width": 1120,
+        "src": "/images/optimized/full-screenplayer-dock-aa8ae8e2-1120.webp"
+      },
+      {
+        "width": 1666,
+        "src": "/images/optimized/full-screenplayer-dock-aa8ae8e2-1666.webp"
+      }
+    ]
+  },
+  "/images/dock/posters/gif-slide-video.jpg": {
+    "width": 1080,
+    "height": 1272,
+    "originalBytes": 571268,
+    "preview": "/images/optimized/gif-slide-video-7e18e2c4-preview.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/optimized/gif-slide-video-7e18e2c4-640.webp"
+      },
+      {
+        "width": 1080,
+        "src": "/images/optimized/gif-slide-video-7e18e2c4-1080.webp"
+      }
+    ]
+  },
+  "/images/dock/posters/system-dock-video.jpg": {
+    "width": 4374,
+    "height": 1080,
+    "originalBytes": 1918995,
+    "preview": "/images/optimized/system-dock-video-11751a5b-preview.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/optimized/system-dock-video-11751a5b-640.webp"
+      },
+      {
+        "width": 1120,
+        "src": "/images/optimized/system-dock-video-11751a5b-1120.webp"
+      },
+      {
+        "width": 1728,
+        "src": "/images/optimized/system-dock-video-11751a5b-1728.webp"
+      },
+      {
+        "width": 2560,
+        "src": "/images/optimized/system-dock-video-11751a5b-2560.webp"
+      }
+    ]
+  },
+  "/images/dock/posters/widgets-and-presets.jpg": {
+    "width": 1684,
+    "height": 1080,
+    "originalBytes": 652290,
+    "preview": "/images/optimized/widgets-and-presets-111b63ad-preview.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/optimized/widgets-and-presets-111b63ad-640.webp"
+      },
+      {
+        "width": 1120,
+        "src": "/images/optimized/widgets-and-presets-111b63ad-1120.webp"
+      },
+      {
+        "width": 1684,
+        "src": "/images/optimized/widgets-and-presets-111b63ad-1684.webp"
+      }
+    ]
+  },
+  "/images/dock/pricing-bg.jpg": {
+    "width": 386,
+    "height": 620,
+    "originalBytes": 282637,
+    "preview": "/images/optimized/pricing-bg-c08c0e48-386.webp",
+    "variants": []
+  },
+  "/images/dock/rings-wallpaper-dock.jpg": {
+    "width": 1121,
+    "height": 754,
+    "originalBytes": 1390493,
+    "preview": "/images/optimized/rings-wallpaper-dock-76be78ae-preview.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/optimized/rings-wallpaper-dock-76be78ae-640.webp"
+      },
+      {
+        "width": 1120,
+        "src": "/images/optimized/rings-wallpaper-dock-76be78ae-1120.webp"
+      },
+      {
+        "width": 1121,
+        "src": "/images/optimized/rings-wallpaper-dock-76be78ae-1121.webp"
+      }
+    ]
+  },
+  "/images/dock/wallpaper-dock-slide.jpg": {
+    "width": 1121,
+    "height": 754,
+    "originalBytes": 537958,
+    "preview": "/images/optimized/wallpaper-dock-slide-2ac3c400-preview.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/optimized/wallpaper-dock-slide-2ac3c400-640.webp"
+      },
+      {
+        "width": 1120,
+        "src": "/images/optimized/wallpaper-dock-slide-2ac3c400-1120.webp"
+      },
+      {
+        "width": 1121,
+        "src": "/images/optimized/wallpaper-dock-slide-2ac3c400-1121.webp"
+      }
+    ]
+  },
+  "/images/dock/widgets/3-1.png": {
+    "width": 429,
+    "height": 98,
+    "originalBytes": 43161,
+    "preview": "/images/optimized/3-1-1949771c-429.webp",
+    "variants": []
+  },
+  "/images/dock/widgets/3-6.png": {
+    "width": 429,
+    "height": 98,
+    "originalBytes": 43177,
+    "preview": "/images/optimized/3-6-b24ff7c1-429.webp",
+    "variants": []
+  },
+  "/images/dock/workflows-dock-slide.jpg": {
+    "width": 2242,
+    "height": 1508,
+    "originalBytes": 1990094,
+    "preview": "/images/optimized/workflows-dock-slide-40052c85-preview.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/optimized/workflows-dock-slide-40052c85-640.webp"
+      },
+      {
+        "width": 1120,
+        "src": "/images/optimized/workflows-dock-slide-40052c85-1120.webp"
+      },
+      {
+        "width": 1728,
+        "src": "/images/optimized/workflows-dock-slide-40052c85-1728.webp"
+      },
+      {
+        "width": 2242,
+        "src": "/images/optimized/workflows-dock-slide-40052c85-2242.webp"
+      }
+    ]
+  },
+  "/images/logo-icon.png": {
+    "width": 386,
+    "height": 386,
+    "originalBytes": 94746,
+    "preview": "/images/optimized/logo-icon-9f4d40f0-386.webp",
+    "variants": []
+  },
+  "/images/logoicontext.png": {
+    "width": 1068,
+    "height": 216,
+    "originalBytes": 45930,
+    "preview": "/images/optimized/logoicontext-cb605ce6-preview.webp",
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/optimized/logoicontext-cb605ce6-640.webp"
+      },
+      {
+        "width": 1068,
+        "src": "/images/optimized/logoicontext-cb605ce6-1068.webp"
+      }
+    ]
+  }
+}

@@ -2,7 +2,7 @@
 .music-intro__hero { transform-origin: center top; backface-visibility: hidden; display: block; width: min(1199px, 100%); height: auto; margin: 0 auto 44px; }
 .music-intro__brand { display: flex; align-items: center; justify-content: center; gap: 12px; font-size: 40px; font-weight: 750; margin: 0 0 20px; line-height: 1; }
 .music-intro__brand img { width: 52px; height: 52px; }
-.music-intro h1 { font-size: clamp(36px, 4.2vw, 64px); line-height: 1.06; letter-spacing: -.045em; margin: 0 0 30px; }
+.music-intro :is(h1, .music-intro__title) { font-size: clamp(36px, 4.2vw, 64px); line-height: 1.06; letter-spacing: -.045em; margin: 0 0 30px; }
 .music-intro__description { color: var(--muted); font-size: 18px; line-height: 1.55; max-width: 850px; margin: auto; }
 .music-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; margin-bottom: 130px; }
 .music-card { aspect-ratio: 1; color: #fff; }
@@ -135,3 +135,8 @@
 .music-macbook__screen > video { opacity: 0; transition: opacity .25s ease; }
 .music-macbook__screen.is-video-ready > video { opacity: 1; }
 @media (prefers-reduced-motion: reduce) { .music-macbook__screen > video { transition: none; } }
+
+.music-home :is(a, button):focus-visible { outline: 3px solid #00c5ce; outline-offset: 5px; }
+@media (max-width: 767px) {
+ .music-home .lp-btn { font-size: 14px; padding: 12px 22px; }
+}

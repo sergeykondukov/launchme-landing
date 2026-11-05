@@ -15,6 +15,8 @@
   <meta property="og:url" content="https://launchmeapp.com/changelog/">
   <meta property="og:image" content="https://launchmeapp.com/images/changelog/changelog-page-img.jpg">
   <meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/css/cookie-consent.css">
+<script src="/js/cookie-consent.js" defer></script>
 </head>
 <body class="changelog-page">
     <header class="lp-header">
@@ -27,10 +29,11 @@
                 <span class="lp-nav-toggle__bar" aria-hidden="true"></span>
             </button>
             <nav class="lp-nav" id="lp-nav-menu" aria-label="Main">
+                <a class="lp-nav__link" href="/dock/" data-ga="nav-dock" data-ga-area="header">Dock</a>
                 <a class="lp-nav__link" href="/music/" data-ga="nav-music" data-ga-area="header">Music</a>
                 <a class="lp-nav__link" href="/spaces-themes/" data-ga="nav-spaces" data-ga-area="header">Spaces</a>
                 <a class="lp-nav__link" href="/pricing/" data-ga="nav-pricing" data-ga-area="header">Pricing</a>
-                <a class="lp-btn lp-nav__download" href="/updates/LaunchMeDirect-2.08.2.dmg" data-ga="direct-dmg" data-ga-area="changelog-header">Download</a>
+                <a class="lp-btn lp-nav__download" href="/updates/LaunchMeDirect-3.00.0.dmg" data-ga="direct-dmg" data-ga-area="changelog-header">Download</a>
             </nav>
         </div>
     </header>
@@ -47,6 +50,10 @@
     </section>
     <div class="changelog-releases">
       <!-- RELEASES:START -->
+<article class="release" aria-labelledby="release-3.0">
+    <div class="release-meta"><time datetime="2026-11-05">November 5, 2026</time><h2 id="release-3.0">3.0</h2></div>
+    <div class="release-notes"><img class="release-image" src="/images/blog/dock/launchme-dock-article.jpg" alt="LaunchMe v3.0: Hello Dock — customizable Mac Dock with apps and widgets" loading="lazy" decoding="async"><section class="release-section"><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg>New Features</h3><ul><li>All-new Dock with widgets, wallpaper, customization, Spaces, and more!</li><li>Now Playing support for all music features.</li></ul></section><section class="release-section"><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m12 3 10 18H2L12 3Z"/><path d="M12 9v5m0 3h.01"/></svg>Bug Fixes and Optimizations</h3><ul><li>Performance improvements and bug fixes.</li></ul></section></div>
+  </article>
 <article class="release" aria-labelledby="release-2.08.2">
     <div class="release-meta"><time datetime="2026-10-27">October 27, 2026</time><h2 id="release-2.08.2">2.08.2</h2></div>
     <div class="release-notes"><section class="release-section"><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg>New Features</h3><ul><li>Added Waves, a new Vinyl style for the full-screen music player.</li></ul></section><section class="release-section"><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m12 3 10 18H2L12 3Z"/><path d="M12 9v5m0 3h.01"/></svg>Bug Fixes and Optimizations</h3><ul><li>Fixed importing custom icons in Spaces and switching between Spaces.</li><li>Fixed the “No network” error during login.</li></ul></section></div>
@@ -205,9 +212,9 @@
         <div class="container footer-top">
             <div class="footer-brand">
                 <a href="/" class="footer-logo"><img src="/images/logoicontext.png" alt="LaunchMe"></a>
-                <p class="footer-tagline">Your full-screen Mac launcher</p>
-                <p class="footer-desc">LaunchMe brings automation, file search, live wallpapers, widgets, and deep customization into one beautiful full-screen launcher built for macOS 27.</p>
-                <a class="lp-btn lp-btn--lg footer-cta" href="/updates/LaunchMeDirect-2.08.2.dmg" data-ga="direct-dmg" data-ga-area="footer">
+                <p class="footer-tagline">Your Mac Workspace manager</p>
+                <p class="footer-desc">LaunchMe brings Full Screen Launcher, Notch, Dock, full screen Music Player, automation, file search, widgets, and deep customization into one beautiful app built for macOS 27.</p>
+                <a class="lp-btn lp-btn--lg footer-cta" href="/updates/LaunchMeDirect-3.00.0.dmg" data-ga="direct-dmg" data-ga-area="footer">
                     <svg class="apple-glyph" viewBox="0 0 384 512" aria-hidden="true"><path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
                     Download for macOS
                 </a>
@@ -234,9 +241,10 @@
                 <nav class="footer-col" aria-label="Navigation">
                     <h4 class="footer-col__title">Navigation</h4>
                     <a href="/support/">Support</a>
-                    <a href="/help/">Help Center</a>
+                    <a href="/help/direct/launcher/getting-started/">Help Center</a>
                     <a href="/changelog/">Changelog</a>
                     <a href="/privacy/">Privacy Policy</a>
+                    <button class="cookie-settings" type="button" data-cookie-settings>Cookie settings</button>
                     <a href="/terms/">Terms of Service</a>
                     <a href="/refunds/">Refund Policy</a>
                     <a href="/press-assets/">Press Assets</a>

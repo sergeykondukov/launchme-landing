@@ -1,0 +1,18 @@
+.cookie-banner { position: fixed; z-index: 10000; left: 20px; bottom: 20px; width: 350px; max-width: calc(100vw - 40px); padding: 22px; border: 1px solid #e5e5e9; border-radius: 24px; background: rgb(255 255 255 / .97); box-shadow: 0 8px 36px rgb(0 0 0 / .12); color: #1d1d1f; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+.cookie-banner[hidden] { display: none; }
+.cookie-banner__title { margin: 0 0 10px; font-size: 18px; font-weight: 700; letter-spacing: -.02em; line-height: 1.2; }
+.cookie-banner__text { margin: 0; color: #6e6e73; font-size: 13px; line-height: 1.55; }
+.cookie-banner__policy { display: inline-block; margin-top: 9px; color: #12445b; font-size: 13px; text-decoration: underline; text-underline-offset: 3px; }
+.cookie-banner__policy:hover { color: #12445b; }
+.cookie-banner__actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 18px; }
+.cookie-banner__actions button { min-height: 40px; padding: 10px 12px; border: 0; border-radius: 999px; background: #f0f0f2; color: #1d1d1f; cursor: pointer; font: inherit; font-size: 12px; font-weight: 600; line-height: 1.25; }
+.cookie-banner__actions button:hover { background: #e3e3e7; }
+.cookie-banner__actions button:focus-visible, .cookie-banner__policy:focus-visible { outline: 2px solid #00aebe; outline-offset: 4px; }
+.cookie-settings { border: 0; padding: 0; background: transparent; color: inherit; font: inherit; font-size: 14px; cursor: pointer; text-align: left; }
+.cookie-settings:hover { text-decoration: underline; }
+.cookie-settings:focus-visible { outline: 2px solid #00aebe; outline-offset: 4px; }
+.cookie-settings--floating { position: fixed; left: 20px; bottom: 16px; z-index: 9999; padding: 8px 12px; border-radius: 999px; background: #f5f5f7; color: #6e6e73; font-size: 12px; }
+@media (max-width: 480px) { .cookie-banner { left: 12px; bottom: 12px; max-width: calc(100vw - 24px); padding: 20px; border-radius: 22px; } }
+
+.cookie-banner__actions [data-consent-accept] { background: #e8f2eb; }
+.cookie-banner__actions [data-consent-accept]:hover { background: #dcebe1; }
