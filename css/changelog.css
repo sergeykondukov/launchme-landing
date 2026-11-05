@@ -9,6 +9,7 @@
 .release:last-child { margin-bottom: 0; }
 .release-meta time { font-size: 18px; font-weight: 600; }
 .release-meta h2 { margin: 2px 0 0; font-size: 56px; line-height: 1.2; font-weight: 750; letter-spacing: -.045em; color: #164c65; }
+.release-image { display: block; width: 100%; height: auto; margin: 0 0 32px; border-radius: 20px; }
 .release-section + .release-section { margin-top: 54px; }
 .release-section h3 { display: flex; align-items: center; gap: 12px; margin: 0 0 12px; font-size: 18px; line-height: 1.5; font-weight: 600; }
 .release-section h3 svg { width: 21px; height: 21px; flex: none; }

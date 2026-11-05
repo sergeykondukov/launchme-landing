@@ -14,7 +14,8 @@
     "start": "serve .",
     "start:ipv4": "serve . -l tcp://127.0.0.1:3000",
     "test:spaces": "node scripts/test-spaces.mjs",
-    "build:changelog": "node scripts/build-changelog.mjs"
+    "build:changelog": "node scripts/build-changelog.mjs",
+    "optimize:dock-images": "python3 scripts/optimize-dock-images.py && node scripts/build-dock.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.49.1"

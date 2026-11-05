@@ -8,12 +8,17 @@ let release, section;
 for (const raw of source.split(/\r?\n/)) {
   const line = raw.trim();
   if (!line) continue;
+  const image = line.match(/^!\[([^\]]*)\]\((\/images\/[^\s)]+)\)$/);
   const heading = line.match(/^# ([\d.]+) \| (\d{4}-\d{2}-\d{2})$/);
   if (heading) {
     const date = new Date(`${heading[2]}T00:00:00Z`);
     if (Number.isNaN(date.valueOf()) || date.toISOString().slice(0, 10) !== heading[2]) throw new Error(`Invalid date: ${line}`);
     release = { version: heading[1], date: heading[2], sections: [] };
     releases.push(release); section = undefined;
+  } else if (image && release && !section) {
+    if (release.image) throw new Error(`Only one image is supported per release: ${release.version}`);
+    if (image[2].split('/').includes('..') || !fs.existsSync(new URL(image[2].slice(1), root))) throw new Error(`Invalid release image: ${image[2]}`);
+    release.image = { alt: image[1], src: image[2] };
   } else if (line.startsWith('## ') && release) {
     section = { title: line.slice(3), items: [] }; release.sections.push(section);
   } else if (line.startsWith('- ') && section) {
@@ -30,7 +35,7 @@ const html = releases.map(release => {
   const date = new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' }).format(new Date(`${release.date}T00:00:00Z`));
   return `<article class="release" aria-labelledby="release-${release.version}">
     <div class="release-meta"><time datetime="${release.date}">${date}</time><h2 id="release-${release.version}">${escape(release.version)}</h2></div>
-    <div class="release-notes">${release.sections.map(section => `<section class="release-section"><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">${/fix|optimization/i.test(section.title) ? icons.fixes : icons.features}</svg>${escape(section.title)}</h3><ul>${section.items.map(item => `<li>${escape(item)}</li>`).join('')}</ul></section>`).join('')}</div>
+    <div class="release-notes">${release.image ? `<img class="release-image" src="${escape(release.image.src)}" alt="${escape(release.image.alt)}" loading="lazy" decoding="async">` : ''}${release.sections.map(section => `<section class="release-section"><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">${/fix|optimization/i.test(section.title) ? icons.fixes : icons.features}</svg>${escape(section.title)}</h3><ul>${section.items.map(item => `<li>${escape(item)}</li>`).join('')}</ul></section>`).join('')}</div>
   </article>`;
 }).join('\n');
 const target = new URL('changelog/index.html', root);

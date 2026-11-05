@@ -370,7 +370,7 @@
   const pending = new WeakSet();
 
   function loadVideo(video) {
-    if (document.hidden) return;
+    if (document.hidden || motion.matches || navigator.connection?.saveData) return;
     const sources = [...video.querySelectorAll('source[data-src]')];
     if (!sources.length) return;
     sources.forEach(source => {
@@ -381,7 +381,7 @@
     video.load();
   }
   function syncVideo(video) {
-    const shouldPlay = !document.hidden && !motion.matches && visibility.get(video) >= .2;
+    const shouldPlay = !document.hidden && !motion.matches && !navigator.connection?.saveData && visibility.get(video) >= .2;
     requested.set(video, shouldPlay);
     if (shouldPlay) loadVideo(video);
     if (!shouldPlay) video.pause();
@@ -421,4 +421,49 @@
   }
   document.addEventListener('visibilitychange', syncAll);
   motion.addEventListener('change', syncAll);
+})();
+
+
+// Paint a small preview first; decode the responsive replacement before swapping it in.
+(() => {
+  const connection = navigator.connection;
+  const limited = connection?.saveData || /(^|-)2g$/.test(connection?.effectiveType || '');
+  const pending = new WeakSet();
+  function upgrade(img) {
+    if (!img.dataset.dockSrc || pending.has(img) || limited) return;
+    pending.add(img);
+    const full = new Image();
+    full.decoding = 'async';
+    full.sizes = img.dataset.dockSizes;
+    full.srcset = img.dataset.dockSrcset;
+    full.src = img.dataset.dockSrc;
+    full.decode().then(() => {
+      // Set sizes before srcset so mobile devices select the correct resource.
+      img.sizes = full.sizes;
+      img.srcset = full.srcset;
+      img.src = full.src;
+      delete img.dataset.dockSrc;
+      delete img.dataset.dockSrcset;
+      delete img.dataset.dockSizes;
+    }).catch(() => {}).finally(() => pending.delete(img));
+  }
+  if (limited) return;
+  const observer = 'IntersectionObserver' in window ? new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) upgrade(entry.target);
+    });
+  }, { rootMargin: '200px' }) : null;
+  function observe(scope) {
+    scope.querySelectorAll('img[data-dock-src]').forEach(img => {
+      if (observer) observer.observe(img);
+      else upgrade(img);
+    });
+  }
+  observe(document);
+  // Gallery copies are included, and later inserted artwork gets the same behavior.
+  new MutationObserver(records => records.forEach(record => record.addedNodes.forEach(node => {
+    if (node.nodeType !== 1) return;
+    if (node.matches('img[data-dock-src]')) observer ? observer.observe(node) : upgrade(node);
+    observe(node);
+  }))).observe(document.body, { childList: true, subtree: true });
 })();

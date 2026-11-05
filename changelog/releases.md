@@ -1,3 +1,11 @@
+# 3.0 | 2026-11-05
+
+![LaunchMe v3.0: Hello Dock — customizable Mac Dock with apps and widgets](/images/blog/dock/launchme-dock-article.jpg)
+
+## New Features
+- All-new Dock with widgets, wallpaper, customization, Spaces, and more!
+- Now Playing support for all music features.
+
 # 2.08.2 | 2026-10-27
 
 ## New Features

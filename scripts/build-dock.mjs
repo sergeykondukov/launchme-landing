@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // Fill Dock asset slots from numbered exports, keeping missing assets as gray placeholders.
 import fs from 'node:fs';
+import { optimizeDockMarkup } from './dock-image-markup.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -91,5 +92,6 @@ if (fs.existsSync(widgetDirectory)) {
     console.log(`build-dock: ${widgets.length} widgets across ${rows.size} rows.`);
   }
 }
+html = optimizeDockMarkup(html, root);
 fs.writeFileSync(page, html);
 console.log(`build-dock: filled ${filled} asset slots; remaining slots keep gray backgrounds.`);

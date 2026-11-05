@@ -53,7 +53,7 @@
 .dock-switch { display: flex; justify-content: center; gap: 4px; width: max-content; max-width: 100%; padding: 4px; margin: 28px auto 0; border-radius: 999px; background: #ebebeb; }
 .dock-switch button { border: 0; border-radius: 999px; padding: 9px 20px; background: transparent; cursor: pointer; color: var(--muted); font: inherit; font-size: 16px; line-height: 1.3; }
 .dock-switch button[aria-pressed="true"] { color: #fff; background: #1d1d1f; }
-.dock-big-screen { position: relative; aspect-ratio: 1728 / 693; margin-top: 112px; background: #dfe9f2 url('/images/dock/ideal-for-big-screens-dock.jpg') center / 100% 100% no-repeat; }
+.dock-big-screen { position: relative; aspect-ratio: 1728 / 693; margin-top: 112px; background: #dfe9f2 url('/images/optimized/ideal-for-big-screens-dock-6bfc19c8-1728.webp') center / 100% 100% no-repeat; }
 .dock-big-screen__copy { position: absolute; top: 65%; left: 47.9%; width: 46%; }
 .dock-big-screen h2 { color: #0060a5; font-size: clamp(26px, 2.95vw, 56px); font-weight: 800; line-height: 1.1; letter-spacing: -.04em; margin: 0 0 18px; }
 .dock-big-screen p { color: var(--muted); font-size: clamp(12px, 1.05vw, 20px); font-weight: 500; line-height: 1.2; margin: 0; }
@@ -121,7 +121,7 @@
 .dock-pricing__heading h2 { font-size: clamp(42px, 4.4vw, 60px); line-height: 1.1; font-weight: 800; letter-spacing: -.04em; color: #000; margin: 0 0 22px; }
 .dock-pricing__heading p { font-size: 18px; font-weight: 600; margin: 0; }
 .dock-pricing__plans { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: center; gap: 18px; }
-.dock-plan { display: flex; flex-direction: column; min-width: 0; min-height: 480px; padding: 30px 24px 24px; border-radius: 28px; color: #f9fafa; background: #071b20 url('/images/dock/pricing-bg.jpg') center / cover no-repeat; }
+.dock-plan { display: flex; flex-direction: column; min-width: 0; min-height: 480px; padding: 30px 24px 24px; border-radius: 28px; color: #f9fafa; background: #071b20 url('/images/optimized/pricing-bg-c08c0e48-386.webp') center / cover no-repeat; }
 .dock-plan--featured { min-height: 552px; padding-top: 30px; }
 .dock-plan h3 { font-size: 22px; font-weight: 700; text-align: center; line-height: 1.2; margin: 0; letter-spacing: -.025em; }
 .dock-plan__pricing { min-height: 166px; padding-top: 48px; text-align: center; }
