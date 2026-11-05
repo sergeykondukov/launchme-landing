@@ -60,24 +60,25 @@
 .dock-pricing .pricing-cards-wrap { margin-top: 0; }
 .dock-page .faq { padding-bottom: 100px; }
 @media (max-width: 767px) {
- .dock-hero { padding-top: 38px; padding-bottom: 36px; }
+ .dock-hero { padding-top: 38px; padding-bottom: 36px; overflow: clip; }
  .dock-hero__brand { font-size: 27px; margin-bottom: 22px; }
  .dock-hero__brand img { width: 36px; height: 36px; }
  .dock-hero :is(h1, .dock-hero__title) { font-size: clamp(29px, 5.8vw, 44px); }
  .dock-hero__stage { width: 145%; max-width: none; margin: 13px 0 0 -22.5%; }
- .dock-hero__copy { margin-top: calc(100vw * -.311038); }
+ .dock-hero__copy { margin-top: calc(100vw * -.247567); }
  .dock-hero__copy h2 { font-size: 30px; margin-bottom: 14px; }
  .dock-hero__copy p { font-size: 15px; padding: 0; }
  .dock-hero__copy p br { display: none; }
  .dock-hero__controls { top: 27%; }
- .dock-options { margin-top: 24px; padding: 0 20px; gap: 10px; font-size: 12px; }
- .dock-options__row { gap: 8px; }
- .dock-options__row li { padding: 7px 12px; }
- .dock-grid { gap: 16px; }
+ .dock-options { display: flex; flex-wrap: wrap; margin-top: 24px; padding: 0 20px; gap: 8px; font-size: 12px; }
+ /* Let all chips share the available rows instead of wrapping each desktop group separately. */
+ .dock-options__row { display: contents; }
+ .dock-options__row li { flex: 1 0 auto; max-width: 100%; padding: 7px 12px; }
+ .dock-grid { grid-template-columns: minmax(0, 1fr); gap: 16px; }
  .dock-card, .dock-feature__media { border-radius: 34px; }
  .dock-card .lm-card__content { padding: 24px 12px; }
  .dock-card .lm-card__title { font-size: 10px; }
- .dock-card .lm-card__subtitle { font-size: clamp(15px, 3vw, 22px); }
+ .dock-card .lm-card__subtitle { font-size: clamp(20px, 4vw, 28px); }
  .dock-card--strip { min-height: 150px; }
  .dock-card--wide { min-height: 185px; }
  .dock-card--large { aspect-ratio: 1.2; }
@@ -97,7 +98,6 @@
 @media (max-width: 380px) {
  .dock-hero__copy p { font-size: 14px; }
  .dock-options { margin-top: 24px; }
- .dock-grid { grid-template-columns: 1fr; }
 }
 @media (prefers-reduced-motion: reduce) {
  .dock-hero__slide { transition: none; }
@@ -181,6 +181,14 @@
 /* The two wide cards have descriptive copy rather than a large feature headline. */
 .dock-card--strip .lm-card__subtitle, .dock-card--wide .lm-card__subtitle { font-size: clamp(12px, 1.45vw, 17px); font-weight: 400; line-height: 1.6; margin-top: 16px; }
 
+@media (max-width: 767px) {
+ /* Scale the overlay with the wide artwork so the copy stays above the Dock. */
+ .dock-card--strip, .dock-card--wide { container-type: inline-size; }
+ :is(.dock-card--strip, .dock-card--wide) .lm-card__content { padding: 3.4cqw 2cqw; }
+ :is(.dock-card--strip, .dock-card--wide) .lm-card__title { font-size: clamp(7px, 1.5cqw, 10px); }
+ :is(.dock-card--strip, .dock-card--wide) .lm-card__subtitle { font-size: clamp(7px, 1.7cqw, 11px); line-height: 1.2; margin-top: 2cqw; }
+}
+
 
 .dock-workspace-caption { max-width: 740px; margin: 24px auto 0; color: var(--muted); font-size: 17px; font-weight: 500; line-height: 1.3; text-align: left; }
 .dock-workspace-caption p { margin: 0; }
@@ -215,11 +223,11 @@
 
 @media (max-width: 767px) {
  .dock-workflow { padding-top: 70px; }
- .dock-workflow__stage { min-height: 640px; padding: 36px 24px 36px 12px; border-radius: 34px; }
- .dock-workflow__button { font-size: 15px; padding: 12px 18px 12px 12px; gap: 9px; }
- .dock-workflow__plus { width: 24px; height: 24px; }
- .dock-workflow__items { --workflow-open-padding: 20px; }
- .dock-workflow__item.is-active .dock-workflow__button { padding: 20px; font-size: 14px; }
+ .dock-workflow__stage { container-type: inline-size; min-height: 0; aspect-ratio: 4 / 3; padding: 12px; border-radius: 24px; }
+ .dock-workflow__button { font-size: clamp(8px, 3cqw, 14px); line-height: 1.2; padding: 5px 9px 5px 7px; }
+ .dock-workflow__plus { width: clamp(12px, 4cqw, 20px); height: clamp(12px, 4cqw, 20px); margin-right: 5px; border-width: 1px; background-size: 7px 1px, 1px 7px; }
+ .dock-workflow__items { --workflow-open-padding: 10px; width: 65%; gap: 5px; }
+ .dock-workflow__item.is-active .dock-workflow__button { padding: 10px; border-radius: 14px; font-size: clamp(8px, 2.8cqw, 13px); line-height: 1.2; }
 
 
 }
@@ -238,6 +246,8 @@
 .dock-together .dock-switch { margin-top: 32px; }
 .dock-together .dock-workspace-caption { margin-top: 36px; }
 @media (max-width: 767px) {
+ .dock-page :is(.dock-player, .dock-wallpaper, .dock-together) .section-title { font-size: clamp(30px, 3.2vw, 46px); }
+ .dock-page :is(.dock-player, .dock-wallpaper, .dock-together, .supported-languages) .section-kicker { font-size: 13px; }
  :is(.dock-together, .dock-player, .dock-wallpaper) .section-sub { font-size: 15px; line-height: 1.45; margin-bottom: 24px; }
  .dock-together__media { width: calc(100% + 40px); }
  .dock-together .dock-switch { margin-top: 24px; }
@@ -260,6 +270,12 @@
 .dock-card--presets > .lm-card__content { position: absolute; inset: 0 0 auto; }
 .dock-card--presets .lm-card__title { color: inherit; }
 .dock-card--presets .lm-card__subtitle { font-size: clamp(12px, 1.45vw, 17px); font-weight: 400; line-height: 1.55; margin-top: 16px; }
+@media (max-width: 767px) {
+ .dock-card--presets { container-type: inline-size; }
+ .dock-card--presets .lm-card__content { padding: 3.4cqw 2cqw; }
+ .dock-card--presets .lm-card__title { font-size: clamp(7px, 1.5cqw, 10px); }
+ .dock-card--presets .lm-card__subtitle { font-size: clamp(7px, 1.7cqw, 11px); line-height: 1.2; margin-top: 2cqw; }
+}
 .dock-card--presets > .dock-placeholder { position: relative; inset: auto; z-index: 0; }
 .dock-card--presets video { display: block; width: 100%; height: auto; object-fit: contain; }
 
