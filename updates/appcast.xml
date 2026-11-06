@@ -7,23 +7,25 @@
     <language>en</language>
     <!-- Newest release first (Sparkle reads the feed and picks the latest matching item). -->
     <item>
-      <title>Version 3.00.1</title>
-      <pubDate>Fri, 06 Nov 2026 02:59:58 +0000</pubDate>
-      <sparkle:version>168</sparkle:version>
-      <sparkle:shortVersionString>3.00.1</sparkle:shortVersionString>
+      <title>Version 3.00.2</title>
+      <pubDate>Fri, 06 Nov 2026 13:32:18 +0000</pubDate>
+      <sparkle:version>170</sparkle:version>
+      <sparkle:shortVersionString>3.00.2</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
       <description><![CDATA[
         <h3>What's new</h3>
                 <ul>
                   <li>NEW FEATURE! LaunchMe Dock with widgets, wallpaper, customization, Spaces, and more!</li>
                   <li>Now Playing support for all music features.</li>
+                  <li>Dock Music widget compact mode when no music playing</li>
+                  <li>Dock swipe between Spaces with 2 fingers</li>
                   <li>Perfomance and some bug fixes</li>
                 </ul>
       ]]></description>
         <enclosure
-          url="https://launchmeapp.com/updates/LaunchMeDirect-3.00.1.dmg"
-          sparkle:edSignature="bmkjG2Bg5japMvkXniRPPYvSyLiSQo73cTd2WJLsQCH52/3MuB+16N0aQ0WWehNS5hX6QyIgrXFzs/kgw/x0AA=="
-          length="44449090"
+          url="https://launchmeapp.com/updates/LaunchMeDirect-3.00.2.dmg"
+          sparkle:edSignature="ae2kGVyKZt2ZvznQDRLsf/+4OSwgcy5vG/uv2cV1wqMW5NVRHi40qkx9O4/yM5pUzrwlbk60AWsaF2q9kZ7TBA=="
+          length="44535646"
           type="application/x-apple-diskimage"/>
       </item>
   </channel>

@@ -1,3 +1,15 @@
+# 3.00.2 | 2026-11-06
+
+## New Features
+- Added compact mode to the Dock music player when no song is playing.
+- Added two-finger swiping between Dock Spaces.
+
+## Bug Fixes and Optimizations
+- Fixed conflicts with wallpaper engine apps.
+- Trash now indicates when file access is required to empty it.
+- Apps on the Categories page now use the same context menu.
+- Hidden apps can now be unhidden from the context menu in search.
+
 # 3.00.1 | 2026-11-06
 
 ## New Features
