@@ -1,3 +1,11 @@
+# 3.00.1 | 2026-11-06
+
+## New Features
+- Added a diagnostics tool in Settings.
+
+## Bug Fixes and Optimizations
+- Fixed a wallpaper issue when Dock is enabled.
+
 # 3.0 | 2026-11-05
 
 ![LaunchMe v3.0: Hello Dock — customizable Mac Dock with apps and widgets](/images/blog/dock/launchme-dock-article.jpg)
