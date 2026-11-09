@@ -1,3 +1,11 @@
+# 3.00.3 | 2026-11-09
+
+## New Features
+- Added Dock controls for maximized app windows: hide the Dock or control the window size in Dock Settings → General.
+
+## Bug Fixes and Optimizations
+- Fixed button and sizing issues in Notch.
+
 # 3.00.2 | 2026-11-06
 
 ## New Features
