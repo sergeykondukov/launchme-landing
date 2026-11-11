@@ -1,3 +1,17 @@
+# 3.01.0 | 2026-11-11
+
+## New Features
+- Added a Code category and text preview to Notch Clipboard.
+- Added drag-and-drop reordering for Notch Clipboard categories.
+- Added two music widget styles with dynamic backgrounds based on song artwork colors, available in Notch and the main window.
+- Added the Simple Squared clock style.
+- Added Tool Bar, a beta Dock widget inspired by the Touch Bar on older MacBook Pro models.
+
+## Bug Fixes and Optimizations
+- Fixed an issue with the Wallpaper widget.
+- Optimized CPU usage.
+- Small fixes and improvements.
+
 # 3.00.3 | 2026-11-09
 
 ## New Features

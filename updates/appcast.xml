@@ -7,24 +7,24 @@
     <language>en</language>
     <!-- Newest release first (Sparkle reads the feed and picks the latest matching item). -->
     <item>
-      <title>Version 3.00.3</title>
-      <pubDate>Mon, 09 Nov 2026 14:58:48 +0000</pubDate>
-      <sparkle:version>172</sparkle:version>
-      <sparkle:shortVersionString>3.00.3</sparkle:shortVersionString>
+      <title>Version 3.01.0</title>
+      <pubDate>Wed, 11 Nov 2026 06:34:38 +0000</pubDate>
+      <sparkle:version>174</sparkle:version>
+      <sparkle:shortVersionString>3.01.0</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
       <description><![CDATA[
         <h3>What's new</h3>
                 <ul>
                   <li>NEW FEATURE! LaunchMe Dock with widgets, wallpaper, customization, Spaces, and more!</li>
-                  <li>Now Playing support for all music features.</li>
-                  <li>Notch: fixed issue with buttons and sizing</li>
-                  <li>Dock: Apps maximized window now can hide dock or control size of window. Manage in Dock Settings - General</li>
+                  <li>Tool Bar in the Dock. Find in Dock Widgets</li>
+                  <li>"Code" category in Clipboard with new text preview</li>
+                  <li>New Clock Style - Simple Squared</li>
                 </ul>
       ]]></description>
         <enclosure
-          url="https://launchmeapp.com/updates/LaunchMeDirect-3.00.3.dmg"
-          sparkle:edSignature="4ZM6kZY0MVbQeF0GIfWHzUEtYcPeYPgmoPYA3X7Ilw+m9tuoDP1K81DjUNJ0Q4iQAy5T6S28x7WVlNVBPb91Bg=="
-          length="44590447"
+          url="https://launchmeapp.com/updates/LaunchMeDirect-3.01.0.dmg"
+          sparkle:edSignature="NLZOlbcG9EdRMhSQelNbEeWHrL5mm7D0+Canre/hTOd4XE95FKmpS9y6+QCzztA7bPyB8yNb7TNQ2RKSXOoGDg=="
+          length="44305165"
           type="application/x-apple-diskimage"/>
       </item>
   </channel>
