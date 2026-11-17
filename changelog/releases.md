@@ -1,3 +1,12 @@
+# 3.01.1 | 2026-11-17
+
+## New Features
+- Added a Notch setting to show Notch on both the main and external displays at the same time.
+- Added Dynamic Island settings for Macs without a notch. This feature is still in development and may not work perfectly.
+
+## Bug Fixes and Optimizations
+- Bug fixes and small improvements.
+
 # 3.01.0 | 2026-11-11
 
 ## New Features
