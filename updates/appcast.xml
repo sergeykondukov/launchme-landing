@@ -7,23 +7,28 @@
     <language>en</language>
     <!-- Newest release first (Sparkle reads the feed and picks the latest matching item). -->
     <item>
-      <title>Version 3.01.1</title>
-      <pubDate>Tue, 17 Nov 2026 16:29:44 +0000</pubDate>
-      <sparkle:version>177</sparkle:version>
-      <sparkle:shortVersionString>3.01.1</sparkle:shortVersionString>
-      <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+      <title>Version 3.02.0</title>
+      <pubDate>Fri, 20 Nov 2026 10:17:39 +0000</pubDate>
+      <sparkle:version>181</sparkle:version>
+      <sparkle:shortVersionString>3.02.0</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
       <description><![CDATA[
         <h3>What's new</h3>
                 <ul>
-                  <li>New Notch settings to show same time on external and main display.</li>
-                  <li>New notch settings for Mac without Notch - Dynamic Island (still working on that, might work not perfect)</li>
+                  <li>Dynamic Island for screens without Notch.</li>
+                  <li>New Notch notifications: Airpords, Battery, Downloads </li>
+                  <li>Messages in Notch. You can enable in the Notch Settings to see Messages notification and reply from the Notch or Dynamic Island</li>
+                  <li>New Notch Idle activity: Time + Date</li>
+                  <li>Create folders with apps in Dock</li>
+                  <li>Updated Music Widget buttons animation</li>
+                  <li>Fixed crash problem</li>
                   <li>Bugs and small improvements</li>
                 </ul>
       ]]></description>
         <enclosure
-          url="https://launchmeapp.com/updates/LaunchMeDirect-3.01.1.dmg"
-          sparkle:edSignature="paxmRvh6pzqAJLVJGLDpVS1XnLktJj/FWWidj+FAmWRyXFyFRSRZePBzWmmO7HEAo5cNxEH6mzeZ6uhqHtvKDA=="
-          length="45008329"
+          url="https://launchmeapp.com/updates/LaunchMeDirect-3.02.0.dmg"
+          sparkle:edSignature="priuJvcxnLOzsHV6sx/wMT5kUfeGWJ0suzVv9BNbmUXpRkjZ0hwGGL/HNHbM9RtqIJxbVHMqSw9yiJQmk90RDw=="
+          length="49010829"
           type="application/x-apple-diskimage"/>
       </item>
   </channel>

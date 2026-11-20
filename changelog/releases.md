@@ -1,3 +1,17 @@
+# 3.02.0 | 2026-11-20
+
+## New Features
+- Added Dynamic Island for screens without a notch.
+- Added Notch notifications for AirPods, battery, and downloads.
+- Added Messages in Notch. Enable it in Notch Settings to see message notifications and reply from Notch or Dynamic Island.
+- Added Time + Date as a new Notch idle activity.
+- Added the ability to create folders with apps in Dock.
+- Updated Music widget button animations.
+
+## Bug Fixes and Optimizations
+- Fixed a crash issue.
+- Bug fixes and small improvements.
+
 # 3.01.1 | 2026-11-17
 
 ## New Features
